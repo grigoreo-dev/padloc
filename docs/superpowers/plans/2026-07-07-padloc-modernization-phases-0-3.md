@@ -179,17 +179,28 @@ git add packages/*/package.json
 git commit -m "chore: use workspace:* for intra-package dependencies"
 ```
 
-### Task 1.3: Remove old lockfiles and generate pnpm-lock.yaml
+### Task 1.3: Remove Lerna scripts + old lockfiles and generate pnpm-lock.yaml
+
+> **MERGED TASK (execution finding).** Originally Tasks 1.3 (lockfiles) and 1.4
+> (remove lerna) were separate, but they are coupled: the root `postinstall`
+> runs `lerna bootstrap`, and Lerna 5 crashes on the `workspace:*` protocol
+> (`Unsupported URL Type "workspace:"`), which aborts `pnpm install`'s lifecycle
+> before native builds run. So the lerna scripts MUST be removed in the SAME
+> task that first runs `pnpm install`. Additionally, pnpm 10 blocks dependency
+> build scripts by default, so `sharp`'s native binary is not built unless it is
+> allow-listed via `onlyBuiltDependencies`. Both fixes are folded in below.
 
 **Files:**
-- Delete: `package-lock.json`
-- Delete: `packages/admin/package-lock.json`, `packages/app/package-lock.json`, `packages/cordova/package-lock.json`, `packages/core/package-lock.json`, `packages/electron/package-lock.json`, `packages/extension/package-lock.json`, `packages/locale/package-lock.json`, `packages/pwa/package-lock.json`, `packages/server/package-lock.json`, `packages/tauri/package-lock.json`
+- Modify: `package.json` (devDependencies: remove lerna; scripts: lerna → pnpm)
+- Modify: `pnpm-workspace.yaml` (add `onlyBuiltDependencies` for native builds)
+- Modify: `.npmrc` (sharp hoist)
+- Delete: `lerna.json`
+- Delete: `package-lock.json` + all 10 `packages/*/package-lock.json`
 - Create: `pnpm-lock.yaml` (generated)
-- Modify: `.npmrc`
 
 **Interfaces:**
 - Consumes: `pnpm-workspace.yaml`, `workspace:*` deps
-- Produces: single `pnpm-lock.yaml`; `.npmrc` hoist config enabling `require("sharp")` from webpack
+- Produces: single `pnpm-lock.yaml`; lerna fully removed; `sharp` native binary built and resolvable; workspace symlinks
 
 - [ ] **Step 1: Add sharp hoist pattern to `.npmrc`**
 
@@ -202,49 +213,27 @@ public-hoist-pattern[]=*sharp*
 
 Rationale: the webpack configs `require("sharp")` from a hoisted location; pnpm's default isolated store would hide it.
 
-- [ ] **Step 2: Delete all npm lockfiles**
+- [ ] **Step 2: Allow native builds in `pnpm-workspace.yaml`**
 
-Run:
-```bash
-rm package-lock.json packages/*/package-lock.json
+pnpm 10 does NOT run dependency build/install scripts unless they are approved. `sharp` needs its native binary compiled/downloaded. Append to `pnpm-workspace.yaml` so it reads exactly:
+
+```yaml
+packages:
+    - "packages/*"
+
+onlyBuiltDependencies:
+    - sharp
 ```
 
-- [ ] **Step 3: Install with pnpm (generates lockfile)**
+- [ ] **Step 3: Remove `lerna` from devDependencies**
 
-Run: `pnpm install`
-Expected: completes; creates `pnpm-lock.yaml`; links `@padloc/*` workspace packages. Note any warnings about missing/phantom deps for Task 1.5.
-
-- [ ] **Step 4: Verify sharp resolves and workspace links exist**
-
-Run: `node -e "require('sharp'); console.log('sharp ok')" && ls -la packages/pwa/node_modules/@padloc`
-Expected: prints `sharp ok`; `packages/pwa/node_modules/@padloc` contains symlinks to `app` and `core`.
-
-- [ ] **Step 5: Commit**
-
-```bash
-git add -A
-git commit -m "chore: replace 11 npm lockfiles with single pnpm-lock.yaml"
-```
-
-### Task 1.4: Rewrite root scripts from lerna to pnpm; remove Lerna
-
-**Files:**
-- Modify: `package.json:18-68` (devDependencies + scripts)
-- Delete: `lerna.json`
-
-**Interfaces:**
-- Consumes: pnpm workspace from prior tasks
-- Produces: all root scripts run via `pnpm --filter` / `pnpm -r`; `lerna` removed from devDependencies
-
-- [ ] **Step 1: Remove `lerna` from devDependencies**
-
-Delete this line from `package.json` devDependencies (`package.json:22`):
+Delete this line from `package.json` devDependencies:
 
 ```json
         "lerna": "5.1.8",
 ```
 
-- [ ] **Step 2: Replace the `scripts` block**
+- [ ] **Step 4: Replace the `scripts` block**
 
 Replace the entire `"scripts"` object in `package.json` with the following (lerna → pnpm, bootstrap removed, publish/version removed):
 
@@ -288,28 +277,42 @@ Replace the entire `"scripts"` object in `package.json` with the following (lern
 
 Notes on removals: `postinstall`/`bootstrap` (lerna bootstrap) removed — pnpm links on install; `remove` script (lerna exec) removed; `version`/`publish` (lerna) removed. `SHARP_IGNORE_GLOBAL_LIBVIPS` env from the old bootstrap script is dropped because there is no bootstrap step; re-add per-package only if a build fails on sharp.
 
-- [ ] **Step 3: Delete `lerna.json`**
+- [ ] **Step 5: Delete `lerna.json`**
 
 Run: `rm lerna.json`
 
-- [ ] **Step 4: Re-install to drop lerna from the lockfile**
+- [ ] **Step 6: Delete all npm lockfiles**
+
+Run:
+```bash
+rm package-lock.json packages/*/package-lock.json
+```
+
+- [ ] **Step 7: Install with pnpm (generates lockfile, builds sharp)**
 
 Run: `pnpm install`
-Expected: completes; `pnpm-lock.yaml` updates; no lerna in tree.
+Expected: completes with NO `lerna-debug.log` and NO postinstall error (there is no postinstall now); creates `pnpm-lock.yaml`; links `@padloc/*` workspace packages; builds `sharp` (allowed via `onlyBuiltDependencies`). Note any warnings about missing/phantom deps for Task 1.4 (verification).
 
-- [ ] **Step 5: Verify no lerna references remain**
+If sharp still is not built after install, run `pnpm rebuild sharp` and re-verify; if that fails, report BLOCKED with the exact error.
 
-Run: `grep -rn "lerna" package.json .npmrc pnpm-workspace.yaml 2>/dev/null; ls lerna.json 2>/dev/null`
-Expected: no output (no lerna references, file gone).
+- [ ] **Step 8: Verify sharp resolves, workspace links exist, lerna gone**
 
-- [ ] **Step 6: Commit**
+Run:
+```bash
+node -e "require('sharp'); console.log('sharp ok')"
+ls -la packages/pwa/node_modules/@padloc
+grep -rn "lerna" package.json .npmrc pnpm-workspace.yaml 2>/dev/null; ls lerna.json 2>/dev/null
+```
+Expected: prints `sharp ok`; `packages/pwa/node_modules/@padloc` contains symlinks to `app` and `core`; no lerna references and `lerna.json` gone.
+
+- [ ] **Step 9: Commit**
 
 ```bash
 git add -A
-git commit -m "chore: replace lerna scripts with pnpm --filter, remove lerna"
+git commit -m "chore: migrate to pnpm workspaces, remove lerna, single pnpm-lock.yaml"
 ```
 
-### Task 1.5: Verify builds/tests, fix phantom dependencies
+### Task 1.4: Verify builds/tests, fix phantom dependencies
 
 **Files:**
 - Modify: `packages/*/package.json` (only if a phantom dep must be declared)
@@ -928,7 +931,7 @@ git commit --allow-empty -m "chore: Phase 3 complete — cautious dependency upg
 
 ## Self-Review Notes
 
-- **Spec coverage:** Phase 0 (Task 0.1), Phase 1 (Tasks 1.1–1.5: pnpm-workspace, workspace:*, lockfile+sharp hoist, lerna removal, phantom-dep verify), Phase 2 (Tasks 2.1–2.6: run-tests, extension CI, platform install-fix, both Dockerfiles, compose), Phase 3 (Tasks 3.1–3.6: openssl-legacy, webextension-polyfill, safe updates, @types/node, TS5 fork, verification). All spec sections covered.
+- **Spec coverage:** Phase 0 (Task 0.1), Phase 1 (Tasks 1.1–1.4: pnpm-workspace, workspace:*, merged lerna-removal+lockfile+sharp-build, phantom-dep verify), Phase 2 (Tasks 2.1–2.6: run-tests, extension CI, platform install-fix, both Dockerfiles, compose), Phase 3 (Tasks 3.1–3.6: openssl-legacy, webextension-polyfill, safe updates, @types/node, TS5 fork, verification). All spec sections covered.
 - **Non-goals honored:** electron/cordova/tauri build unverified (install-fix only, Task 2.3); SWC absent; TS 5.x is a fork with explicit deferral path (Task 3.5); Vite is a separate plan.
 - **Readiness criteria** attached to phases via gate steps.
 - **Maildev git dependency** covered implicitly by `pnpm install` in Task 1.3 (verify it resolves during install; if it fails, it surfaces there before any commit).
