@@ -11,8 +11,8 @@
         "url": "git+https://github.com/padloc/padloc.git"
     },
     "engines": {
-        "node": "16.x",
-        "npm": "8.x"
+        "node": "18.x",
+        "npm": "9.x"
     },
     "main": "main.js",
     "devDependencies": {
@@ -27,8 +27,8 @@
         "wait-on": "7.0.1"
     },
     "scripts": {
-        "postinstall": "lerna bootstrap",
-        "bootstrap": "lerna bootstrap",
+        "postinstall": "SHARP_IGNORE_GLOBAL_LIBVIPS=1 lerna bootstrap",
+        "bootstrap": "SHARP_IGNORE_GLOBAL_LIBVIPS=1 lerna bootstrap",
         "pwa:build": "lerna run build --scope @padloc/pwa",
         "pwa:start": "lerna run start --scope @padloc/pwa",
         "server:start": "lerna run start --scope @padloc/server --stream",

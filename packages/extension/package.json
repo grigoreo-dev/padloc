@@ -16,8 +16,8 @@
         "directory": "packages/pwa"
     },
     "engines": {
-        "node": "16.x",
-        "npm": "8.x"
+        "node": "18.x",
+        "npm": "9.x"
     },
     "dependencies": {
         "@padloc/app": "4.3.0",
@@ -42,6 +42,6 @@
         "webpack-cli": "4.7.0"
     },
     "scripts": {
-        "build": "webpack"
+        "build": "NODE_OPTIONS=--openssl-legacy-provider webpack"
     }
 }
