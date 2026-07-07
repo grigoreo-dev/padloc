@@ -314,12 +314,22 @@ git commit -m "chore: migrate to pnpm workspaces, remove lerna, single pnpm-lock
 
 ### Task 1.4: Verify builds/tests, fix phantom dependencies
 
+> **Execution finding from Task 1.3:** pnpm 10 reported `Ignored build scripts:
+> cypress, electron, leveldown`. These native/post-install builds are blocked by
+> default. `cypress` needs its binary for e2e (Step 3); `leveldown` is a server
+> storage backend dependency; `electron` is out of scope this epic. If e2e or
+> server tests fail due to a missing binary, add the offending package to
+> `onlyBuiltDependencies` in `pnpm-workspace.yaml` (alongside `sharp`) and
+> re-run `pnpm install`. Prefer `cypress` and `leveldown` if needed; leave
+> `electron` unless an in-scope step requires it.
+
 **Files:**
 - Modify: `packages/*/package.json` (only if a phantom dep must be declared)
+- Modify: `pnpm-workspace.yaml` (only if a blocked build script must be allow-listed)
 
 **Interfaces:**
 - Consumes: full pnpm workspace
-- Produces: green `build` (pwa/extension/server), green unit tests, green e2e; any previously-phantom deps explicitly declared
+- Produces: green `build` (pwa/extension/server), green unit tests, green e2e; any previously-phantom deps explicitly declared; any required native builds allow-listed
 
 - [ ] **Step 1: Build the three in-scope targets**
 
