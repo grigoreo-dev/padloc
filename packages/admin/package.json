@@ -18,9 +18,9 @@
         "npm": "9.x"
     },
     "dependencies": {
-        "@padloc/app": "4.3.0",
-        "@padloc/core": "4.3.0",
-        "@padloc/locale": "4.3.0",
+        "@padloc/app": "workspace:*",
+        "@padloc/core": "workspace:*",
+        "@padloc/locale": "workspace:*",
         "@types/diff": "5.0.2",
         "diff": "5.1.0",
         "lit": "2.3.1"

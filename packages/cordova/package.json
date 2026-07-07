@@ -38,8 +38,8 @@
         }
     },
     "dependencies": {
-        "@padloc/app": "4.3.0",
-        "@padloc/core": "4.3.0",
+        "@padloc/app": "workspace:*",
+        "@padloc/core": "workspace:*",
         "cordova-clipboard": "1.3.0",
         "cordova-ios": "6.2.0",
         "cordova-plugin-add-swift-support": "2.0.2",

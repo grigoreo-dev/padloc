@@ -19,8 +19,8 @@
         "npm": "9.x"
     },
     "dependencies": {
-        "@padloc/app": "4.3.0",
-        "@padloc/core": "4.3.0"
+        "@padloc/app": "workspace:*",
+        "@padloc/core": "workspace:*"
     },
     "devDependencies": {
         "clean-webpack-plugin": "3.0.0",
