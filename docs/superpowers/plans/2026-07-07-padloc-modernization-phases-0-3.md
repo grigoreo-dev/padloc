@@ -11,7 +11,8 @@
 ## Global Constraints
 
 - Node runtime: `18.x` (verbatim from `package.json` engines)
-- npm engine field currently `9.x`; add `"packageManager": "pnpm@9.x"` for corepack
+- npm engine field currently `9.x`; add `"packageManager": "pnpm@10.15.0"` for corepack (pnpm 10 is the latest major that runs on Node 18; pnpm 11 requires newer Node and fails with `ERR_VM_DYNAMIC_IMPORT_CALLBACK_MISSING`)
+- Implementation environment: Node 18 via nvm (`nvm use 18`), pnpm 10.15.0 via corepack
 - Package manager: **pnpm workspaces**; Lerna removed entirely
 - Task orchestration: native `pnpm -r` / `pnpm --filter`, never `lerna`
 - In-scope build targets: `@padloc/pwa`, `@padloc/server`, `@padloc/extension`
@@ -87,7 +88,7 @@ git commit -m "chore: pin .nvmrc to Node 18 (finish Node 18 baseline)"
 
 ## PHASE 1 — pnpm workspaces + remove Lerna
 
-> Prerequisite for the whole phase: `corepack enable && corepack prepare pnpm@9 --activate` (or a globally installed pnpm 9). All commands below assume `pnpm` resolves to v9.x.
+> Prerequisite for the whole phase: `nvm use 18 && corepack enable && corepack prepare pnpm@10.15.0 --activate`. All commands below assume `pnpm` resolves to v10.x on Node 18.
 
 ### Task 1.1: Add pnpm workspace + packageManager, keep Lerna temporarily
 
@@ -117,10 +118,10 @@ Insert the field immediately after the `"version"` line (`package.json:4`), so t
     "name": "padloc",
     "private": true,
     "version": "4.3.0",
-    "packageManager": "pnpm@9.15.0",
+    "packageManager": "pnpm@10.15.0",
 ```
 
-(Use the exact pnpm 9 patch you have installed; run `pnpm --version` to confirm and substitute.)
+(Use `pnpm@10.15.0`; run `pnpm --version` to confirm it matches, then substitute the exact patch if different.)
 
 - [ ] **Step 3: Verify pnpm sees the workspace**
 
@@ -375,7 +376,7 @@ jobs:
             - uses: actions/checkout@v3
             - uses: pnpm/action-setup@v4
               with:
-                  version: 9
+                  version: 10
             - uses: actions/setup-node@v3
               with:
                   node-version-file: ".nvmrc"
@@ -427,7 +428,7 @@ git commit -m "ci: run tests on pnpm, drop stale cache paths"
 - [ ] **Step 1: Replace the node-setup + install steps**
 
 Change the setup-node / install region so that:
-- `pnpm/action-setup@v4` (version 9) is added before `actions/setup-node@v3`
+- `pnpm/action-setup@v4` (version 10) is added before `actions/setup-node@v3`
 - `actions/setup-node@v3` gains `cache: "pnpm"` alongside `node-version-file: ".nvmrc"`
 - the install block `npm i -g npm@8.2.0 web-ext@6.6.0` / `npm ci` becomes:
 
@@ -472,7 +473,7 @@ Before each `actions/setup-node@v3`, add:
 ```yaml
             - uses: pnpm/action-setup@v4
               with:
-                  version: 9
+                  version: 10
 ```
 
 Add `cache: "pnpm"` to each `actions/setup-node@v3` `with:` block (which already has `node-version-file: ".nvmrc"`).
