@@ -144,6 +144,11 @@ git commit -m "chore: add pnpm-workspace.yaml and packageManager field"
 - Modify: `packages/core/package.json:14` (`@padloc/locale`)
 - Modify: `packages/server/package.json:25-26` (`@padloc/core`, `@padloc/locale`)
 - Modify: `packages/admin/package.json:21-23` (`@padloc/app`, `@padloc/core`, `@padloc/locale`)
+- Modify: `packages/cordova/package.json` (`@padloc/app`, `@padloc/core`)
+- Modify: `packages/electron/package.json` (`@padloc/app`, `@padloc/core`)
+- Modify: `packages/tauri/package.json` (`@padloc/app`, `@padloc/core`)
+
+> NOTE (execution finding): cordova, electron, and tauri also carry `@padloc/*` deps at `"4.3.0"`. They MUST be converted too — otherwise the verification grep fails and `pnpm install` (Task 1.3) tries to fetch non-existent npm versions of workspace-local packages. All 9 packages with `@padloc/*` deps are converted.
 
 **Interfaces:**
 - Consumes: `pnpm-workspace.yaml` from Task 1.1
