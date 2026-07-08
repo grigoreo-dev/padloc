@@ -900,6 +900,18 @@ git commit -m "chore: align @types/node with Node 18"
 
 ### Task 3.5: TypeScript 5.x fork — decision + (conditional) upgrade
 
+> **OUTCOME: DEFERRED (spike done, decision B).** The spike measured TS 5.9.3:
+> **~131 distinct errors** (~84 project-source + 47 environment). Errors are
+> **mechanical, not structural** — decorators/reflect-metadata are CLEAN (zero
+> errors), which was the main feared risk. But: ~45 index-access errors (from
+> removing `suppressImplicitAnyIndexErrors`), ~55 `Uint8Array<ArrayBufferLike>`
+> crypto-layer errors entangled with the pinned old `@types/node@16`, and 47
+> environment errors that are **unfixable without bumping `@types/node@18` +
+> `mongodb`** (both blocked, see Task 3.4). Decision confirmed with project owner:
+> **defer TS 5.x to its own spec.** Follow-up spec stub written to
+> `docs/superpowers/specs/2026-07-08-typescript-5x-upgrade-followup.md`.
+> **Phase 3 completes on TypeScript 4.4.3.** No code change on this branch.
+
 This task has a decision gate. TS is pinned individually at `4.4.3` in `core`, `app` (via dep), `pwa`, `extension`, `server`. The blocker is `suppressImplicitAnyIndexErrors` (removed in TS 5.5) in `tsconfig.json:15`, plus decorator behavior.
 
 **Files:**
