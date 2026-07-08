@@ -443,7 +443,7 @@ Expected: `yaml ok`.
 - [ ] **Step 3: Commit**
 
 ```bash
-git add .github/workflows/run-tests.yml
+git add .prettierignore .github/workflows/run-tests.yml
 git commit -m "ci: run tests on pnpm, drop stale cache paths"
 ```
 
@@ -459,7 +459,7 @@ git commit -m "ci: run tests on pnpm, drop stale cache paths"
 - [ ] **Step 1: Replace the node-setup + install steps**
 
 Change the setup-node / install region so that:
-- `pnpm/action-setup@v4` (version 10) is added before `actions/setup-node@v3`
+- `pnpm/action-setup@v4` is added before `actions/setup-node@v3`; it reads the exact pnpm version from `packageManager`
 - `actions/setup-node@v3` gains `cache: "pnpm"` alongside `node-version-file: ".nvmrc"`
 - the install block `npm i -g npm@8.2.0 web-ext@6.6.0` / `npm ci` becomes:
 
