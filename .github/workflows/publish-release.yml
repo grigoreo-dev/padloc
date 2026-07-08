@@ -31,8 +31,6 @@ jobs:
         steps:
             - uses: actions/checkout@v3
             - uses: pnpm/action-setup@v4
-              with:
-                  version: 10
             - uses: actions/setup-node@v3
               with:
                   node-version-file: ".nvmrc"
@@ -66,8 +64,6 @@ jobs:
         steps:
             - uses: actions/checkout@v3
             - uses: pnpm/action-setup@v4
-              with:
-                  version: 10
             - uses: actions/setup-node@v3
               with:
                   node-version-file: ".nvmrc"
@@ -161,8 +157,6 @@ jobs:
         steps:
             - uses: actions/checkout@v3
             - uses: pnpm/action-setup@v4
-              with:
-                  version: 10
             - uses: actions/setup-node@v3
               with:
                   node-version-file: ".nvmrc"
@@ -272,8 +266,6 @@ jobs:
         steps:
             - uses: actions/checkout@v3
             - uses: pnpm/action-setup@v4
-              with:
-                  version: 10
             - uses: actions/setup-node@v3
               with:
                   node-version-file: ".nvmrc"
@@ -426,8 +418,6 @@ jobs:
             - uses: android-actions/setup-android@v2
               if: matrix.platform == 'ubuntu-latest'
             - uses: pnpm/action-setup@v4
-              with:
-                  version: 10
             - uses: actions/setup-node@v3
               with:
                   node-version-file: ".nvmrc"
@@ -573,8 +563,6 @@ jobs:
         steps:
             - uses: actions/checkout@v3
             - uses: pnpm/action-setup@v4
-              with:
-                  version: 10
             - uses: actions/setup-node@v3
               with:
                   node-version-file: ".nvmrc"
