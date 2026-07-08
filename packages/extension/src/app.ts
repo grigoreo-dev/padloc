@@ -1,4 +1,4 @@
-import { browser } from "webextension-polyfill-ts";
+import browser from "webextension-polyfill";
 import { App } from "@padloc/app/src/elements/app";
 import { debounce } from "@padloc/core/src/util";
 import { bytesToBase64, base64ToBytes } from "@padloc/core/src/encoding";
@@ -36,7 +36,7 @@ export class ExtensionApp extends App {
         await super.load();
 
         if (this.app.state.locked) {
-            const masterKey = await browser.runtime.sendMessage({ type: "requestMasterKey" });
+            const masterKey = (await browser.runtime.sendMessage({ type: "requestMasterKey" })) as string | null;
             if (masterKey) {
                 await this.app.unlockWithMasterKey(base64ToBytes(masterKey));
                 this._unlocked();

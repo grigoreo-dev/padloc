@@ -15,26 +15,26 @@
         "directory": "packages/pwa"
     },
     "engines": {
-        "node": "16.x",
-        "npm": "8.x"
+        "node": "18.x",
+        "npm": "9.x"
     },
     "dependencies": {
-        "@padloc/app": "4.3.0",
-        "@padloc/core": "4.3.0"
+        "@padloc/app": "workspace:*",
+        "@padloc/core": "workspace:*"
     },
     "devDependencies": {
         "clean-webpack-plugin": "3.0.0",
         "css-loader": "5.2.6",
         "file-loader": "6.2.0",
-        "html-webpack-plugin": "5.3.1",
-        "http-server": "14.1.0",
+        "html-webpack-plugin": "5.6.7",
+        "http-server": "14.1.1",
         "raw-loader": "4.0.2",
         "sharp": "0.29.3",
         "style-loader": "2.0.0",
-        "ts-loader": "9.2.2",
-        "ts-node": "10.0.0",
+        "ts-loader": "9.6.2",
+        "ts-node": "10.9.2",
         "typescript": "4.4.3",
-        "webpack": "5.52.0",
+        "webpack": "5.108.4",
         "webpack-cli": "4.8.0",
         "webpack-dev-server": "4.7.4",
         "webpack-pwa-manifest": "4.3.0",

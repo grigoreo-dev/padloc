@@ -11,7 +11,10 @@ packages/tauri/src-tauri/target/**/*
 packages/tauri/tauri-update.json
 packages/pwa/dist/**/*
 package-lock.json
+pnpm-lock.yaml
 cypress/fixtures/**/*
+.superpowers/**/*
+docs/superpowers/
 .flatpak-builder/**/*
 packages/locale/res/**/*
 packages/admin/dist/**/*

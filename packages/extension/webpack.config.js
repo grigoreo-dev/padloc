@@ -22,6 +22,7 @@ module.exports = {
         path: resolve(__dirname, "dist"),
         filename: "[name].js",
         chunkFilename: "[name].chunk.js",
+        hashFunction: "sha256",
         publicPath: "/",
     },
     mode: "development",

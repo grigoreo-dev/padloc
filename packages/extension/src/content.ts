@@ -1,5 +1,5 @@
 import "@webcomponents/webcomponentsjs";
-import { browser } from "webextension-polyfill-ts";
+import browser from "webextension-polyfill";
 // import { throttle } from "@padloc/core/src/util";
 import { Message } from "./message";
 
@@ -106,7 +106,7 @@ class ExtensionContent {
         document.head.appendChild(style);
         style.type = "text/css";
         style.appendChild(document.createTextNode(css));
-        browser.runtime.onMessage.addListener((msg: Message) => this._handleMessage(msg));
+        browser.runtime.onMessage.addListener((msg: unknown) => this._handleMessage(msg as Message));
     }
 
     private _handleMessage(msg: Message) {

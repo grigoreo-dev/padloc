@@ -33,12 +33,12 @@
         "webpack-dev-server": "4.7.4"
     },
     "dependencies": {
-        "@padloc/app": "4.3.0",
-        "@padloc/core": "4.3.0",
+        "@padloc/app": "workspace:*",
+        "@padloc/core": "workspace:*",
         "@tauri-apps/api": "1.1.0"
     },
     "engines": {
-        "node": "16.x",
-        "npm": "8.x"
+        "node": "18.x",
+        "npm": "9.x"
     }
 }

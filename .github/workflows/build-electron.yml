@@ -36,17 +36,11 @@ jobs:
         environment: ${{ github.event.inputs.environment || 'Local' }}
         steps:
             - uses: actions/checkout@v3
+            - uses: pnpm/action-setup@v4
             - uses: actions/setup-node@v3
               with:
                   node-version-file: ".nvmrc"
-            - uses: actions/cache@v3
-              with:
-                  path: |
-                      ~/.npm
-                      ~/.nvm
-                      node_modules
-                      packages/electron/node_modules
-                  key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+                  cache: "pnpm"
             - name: Install Flatpak build tools
               run: |
                   sudo apt-get update
@@ -54,8 +48,7 @@ jobs:
                   flatpak remote-add --if-not-exists --user flathub https://flathub.org/repo/flathub.flatpakrepo
             - name: Install dependencies
               run: |
-                  npm i -g npm@8.2.0
-                  npm ci
+                  pnpm install --frozen-lockfile
             - name: Build
               run: |
                   npm run electron:build
@@ -98,21 +91,14 @@ jobs:
         environment: ${{ github.event.inputs.environment || 'Local' }}
         steps:
             - uses: actions/checkout@v3
+            - uses: pnpm/action-setup@v4
             - uses: actions/setup-node@v3
               with:
                   node-version-file: ".nvmrc"
-            - uses: actions/cache@v3
-              with:
-                  path: |
-                      ~/.npm
-                      ~/.nvm
-                      node_modules
-                      packages/electron/node_modules
-                  key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+                  cache: "pnpm"
             - name: Install dependencies
               run: |
-                  npm i -g npm@8.2.0
-                  npm ci
+                  pnpm install --frozen-lockfile
             - name: Build
               run: |
                   npm run electron:build
@@ -131,21 +117,14 @@ jobs:
         environment: ${{ github.event.inputs.environment || 'Local' }}
         steps:
             - uses: actions/checkout@v3
+            - uses: pnpm/action-setup@v4
             - uses: actions/setup-node@v3
               with:
                   node-version-file: ".nvmrc"
-            - uses: actions/cache@v3
-              with:
-                  path: |
-                      ~/.npm
-                      ~/.nvm
-                      node_modules
-                      packages/electron/node_modules
-                  key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+                  cache: "pnpm"
             - name: Install dependencies
               run: |
-                  npm i -g npm@8.2.0
-                  npm ci
+                  pnpm install --frozen-lockfile
             - name: Build
               run: |
                   npm run electron:build
@@ -165,21 +144,14 @@ jobs:
         environment: ${{ github.event.inputs.environment || 'Local' }}
         steps:
             - uses: actions/checkout@v3
+            - uses: pnpm/action-setup@v4
             - uses: actions/setup-node@v3
               with:
                   node-version-file: ".nvmrc"
-            - uses: actions/cache@v3
-              with:
-                  path: |
-                      ~/.npm
-                      ~/.nvm
-                      node_modules
-                      packages/electron/node_modules
-                  key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+                  cache: "pnpm"
             - name: Install dependencies
               run: |
-                  npm i -g npm@8.2.0
-                  npm ci
+                  pnpm install --frozen-lockfile
             - name: Build
               run: |
                   npm run electron:build

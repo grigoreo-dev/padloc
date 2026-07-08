@@ -13,8 +13,10 @@
     "author": "Martin Kleinschrodt <martin@maklesoft.com>",
     "license": "GPLv3",
     "devDependencies": {
-        "ts-node": "10.0.0",
-        "typescript": "4.4.3"
+        "@types/node": "16.11.7",
+        "ts-node": "10.9.2",
+        "typescript": "4.4.3",
+        "yaml": "1.10.2"
     },
     "repository": {
         "type": "git",
@@ -22,7 +24,7 @@
         "directory": "packages/locale"
     },
     "engines": {
-        "node": "16.x",
-        "npm": "8.x"
+        "node": "18.x",
+        "npm": "9.x"
     }
 }

@@ -11,19 +11,21 @@
         "tsconfig.json"
     ],
     "dependencies": {
-        "@padloc/locale": "4.3.0",
+        "@padloc/locale": "workspace:*",
+        "date-fns": "2.22.1",
         "typescript": "4.4.3"
     },
     "devDependencies": {
         "@types/chai": "4.2.18",
         "@types/mocha": "8.2.2",
+        "@types/node": "16.11.7",
         "chai": "4.3.4",
         "mocha": "9.2.2",
-        "ts-node": "10.1.0",
+        "ts-node": "10.9.2",
         "typedoc": "0.22.13"
     },
     "scripts": {
-        "test": "tsc --noEmit && cd test && mocha -r ts-node/register *.ts",
+        "test": "tsc --noEmit && cd test && TS_NODE_TRANSPILE_ONLY=true mocha -r ts-node/register *.ts",
         "docs": "typedoc --mode modules --out docs"
     },
     "repository": {
@@ -32,7 +34,7 @@
         "directory": "packages/core"
     },
     "engines": {
-        "node": "16.x",
-        "npm": "8.x"
+        "node": "18.x",
+        "npm": "9.x"
     }
 }
