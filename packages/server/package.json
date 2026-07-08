@@ -15,6 +15,7 @@
         "@types/dompurify": "2.3.3",
         "@types/jsdom": "16.2.14",
         "@types/mocha": "8.2.2",
+        "@types/parse5": "6.0.3",
         "chai": "4.3.4",
         "mocha": "9.2.2",
         "ts-node-dev": "1.1.8"
@@ -25,6 +26,7 @@
         "@padloc/core": "workspace:*",
         "@padloc/locale": "workspace:*",
         "@simplewebauthn/server": "5.4.3",
+        "@simplewebauthn/typescript-types": "5.4.0",
         "@types/fs-extra": "9.0.11",
         "@types/mixpanel": "2.14.3",
         "@types/node": "16.11.7",
@@ -54,7 +56,7 @@
         "repl": "ts-node src/init-repl-client.ts",
         "dev": "ts-node-dev src/init.ts",
         "dev-inspect": "node -r ts-node/register --inspect-brk --stack-trace-limit=1000 src/init.ts",
-        "test": "tsc --noEmit && cd test && mocha -r ts-node/register *.ts --timeout 5000"
+        "test": "tsc --noEmit && cd test && TS_NODE_TRANSPILE_ONLY=true mocha -r ts-node/register *.ts --timeout 5000"
     },
     "repository": {
         "type": "git",
