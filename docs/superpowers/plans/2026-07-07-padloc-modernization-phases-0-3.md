@@ -484,6 +484,15 @@ git add .github/workflows/build-web-extension.yml
 git commit -m "ci: build web extension on pnpm"
 ```
 
+> **Final-review addition (execution finding):** `.github/workflows/publish-release.yml`
+> was MISSED in the original Phase 2 scope. It has 6 jobs all using `npm i -g
+> npm@8.2.0` + `npm ci`, which hard-fail once lockfiles are deleted. It is
+> `workflow_dispatch`-only (does not block PR/push CI) but the next release
+> dispatch would break. It was migrated to pnpm (6 jobs: `pnpm/action-setup@v4`
+> v10 + `cache: "pnpm"` + `pnpm install --frozen-lockfile`; `web-ext@6.6.0`
+> global preserved in the extension job) in commit `ci: migrate publish-release
+> workflow to pnpm`. All `.github/workflows/*.yml` are now pnpm-based.
+
 ### Task 2.3: Fix install phase in platform workflows (electron/cordova/tauri)
 
 These are out of epic scope for build verification, but their `npm ci` breaks once lockfiles are gone. Convert install only.
