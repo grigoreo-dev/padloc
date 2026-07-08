@@ -32,12 +32,13 @@ Day-to-day work targets the **web stack**:
 | `@padloc/core`, `@padloc/locale`, `@padloc/app`     | Shared foundation                 |
 | `@padloc/server`                                    | API                               |
 | `@padloc/pwa`                                       | Web client (`/`)                  |
-| `@padloc/admin`                                     | Admin portal (`/admin`)           |
+| `@padloc/admin`                                     | Admin portal (`admin.<domain>`)   |
 | `@padloc/extension`                                 | Browser extension (local/CI build)|
 
 **Deferred** (still in `packages/`, not default scripts/CI): `@padloc/electron`, `@padloc/tauri`, `@padloc/cordova`.
 
-Production compose serves PWA at `/`, Admin at `/admin`, API at `/server`. See `deploy/README.md`.
+Production compose serves PWA on the primary domain, Admin on `admin.<domain>`,
+API at `/server`. See `deploy/README.md`.
 
 ## How to use
 

@@ -41,10 +41,11 @@ services:
             dockerfile: Dockerfile-admin
         environment:
             PL_ADMIN_DIR: /admin
-            PL_ADMIN_URL_PATH: ${PL_ADMIN_URL_PATH:-/admin/}
-            PL_ADMIN_URL: ${PL_ADMIN_URL:-http://localhost/admin}
+            # Admin is served on its own host (admin.<domain>), at path /
+            PL_ADMIN_URL_PATH: ${PL_ADMIN_URL_PATH:-/}
+            PL_ADMIN_URL: ${PL_ADMIN_URL:-http://localhost:9090}
             PL_SERVER_URL: ${PL_SERVER_URL:-http://localhost/server}
-            PL_PWA_URL: ${PL_ADMIN_URL:-http://localhost/admin}
+            PL_PWA_URL: ${PL_ADMIN_URL:-http://localhost:9090}
         volumes:
             - admin:/admin
         command: ["build"]

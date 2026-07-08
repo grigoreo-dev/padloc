@@ -2,12 +2,15 @@
 
 Root `docker-compose.yml` is the main deploy entrypoint for this fork.
 
-It follows the classic Padloc nginx example, extended with the admin portal:
+It follows the classic Padloc nginx example, extended with the admin portal on a
+**separate subdomain**:
 
 -   `server` with LevelDB
 -   `pwa` build into a shared volume
 -   `admin` build into a shared volume
--   `nginx` serves `/` (PWA), `/admin` (Admin), and proxies `/server` on one HTTP port
+-   `nginx` routes by `Host`:
+    -   primary domain → PWA at `/` + API at `/server`
+    -   `admin.*` host → Admin portal at `/` (+ optional `/server` proxy)
 
 No host ports are published. Traefik/Dokploy (or another reverse proxy) should
 route traffic to the `nginx` service on container port `80`.
@@ -39,38 +42,49 @@ or add a local override with `ports: ["80:80"]`.
     - `PL_PWA_URL=https://your-domain`
     - `PL_SERVER_URL=https://your-domain/server`
     - `PL_SERVER_CLIENT_URL=https://your-domain`
-    - `PL_ADMIN_URL=https://your-domain/admin`
-    - `PL_ADMIN_URL_PATH=/admin/`
-    - `PL_SERVER_ADMINS=you@example.com` (comma-separated emails allowed as super-admins)
-5. Point the domain to service `nginx`, port `80`.
+    - `PL_ADMIN_URL=https://admin.your-domain`
+    - `PL_ADMIN_URL_PATH=/`
+    - `PL_SERVER_ADMINS=you@example.com` (comma-separated super-admin emails)
+5. Domains → service `nginx`, port `80`:
+    - `your-domain` (main PWA)
+    - `admin.your-domain` (admin portal)
 6. Deploy.
 
-### Admin portal access
+After any public URL change, rebuild the `pwa` and `admin` services (URLs are
+baked in at build time). `PL_SERVER_ADMINS` only needs a **server restart**.
 
-The UI at `/admin` is public, but API calls require a **super-admin** account:
+## Paths / hosts
 
-1. Register/login once on the normal PWA (`/`) so the account exists.
+| Host | Path | App |
+| --- | --- | --- |
+| `your-domain` | `/` | PWA |
+| `your-domain` | `/server` | API |
+| `admin.your-domain` | `/` | Admin portal |
+| `admin.your-domain` | `/server` | API proxy (same backend; optional if admin uses main `/server` URL) |
+
+nginx matches admin hosts with `server_name ~^admin\.` (any host starting with
+`admin.`).
+
+## Admin portal access
+
+1. Register/login once on the normal PWA so the account exists.
 2. Set `PL_SERVER_ADMINS` to that account's email (exact match).
 3. Restart the `server` service.
-4. Open `/admin` and log in again there (admin login creates an `asAdmin` session).
+4. Open `https://admin.your-domain` and log in there.
 
-If you see "You don't have the necessary permissions to use this feature!", the
-email is missing from `PL_SERVER_ADMINS` or you are still on a non-admin session.
+Admin uses a separate origin, so PWA and admin sessions do not share
+`localStorage`. Always log in on the admin host for an `asAdmin` session.
 
-After any public URL change, rebuild the `pwa` and `admin` services (URLs are
-baked in at build time).
-
-## Paths
-
--   `/` - web app (PWA)
--   `/admin` - admin portal (redirects to `/admin/`)
--   `/server` - API
+If you see "You don't have the necessary permissions…", the email is missing
+from `PL_SERVER_ADMINS`. If you see "session is not valid in this context", log
+out and log in again on the **admin** host.
 
 ## Security note
 
-The admin UI is a public SPA path. Authorization is enforced by the server for
-privileged accounts. Edge protection (Basic Auth, IP allowlist, SSO) for
-`/admin` is optional and not configured in this stack.
+The admin UI is a public SPA. Authorization is enforced by the server for
+emails listed in `PL_SERVER_ADMINS`. Edge protection (Basic Auth, IP allowlist,
+SSO) can be applied later **only** on the admin domain without affecting the
+main app.
 
 ## Data
 
