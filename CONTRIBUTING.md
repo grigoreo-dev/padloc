@@ -66,6 +66,10 @@ pnpm run server:start-dry
 pnpm -r run test
 ```
 
+`pnpm run locale:extract` may rewrite generated translation files. After running
+it, review `git status` and commit any translation updates. Required CI fails if
+the extract step leaves a dirty worktree.
+
 E2E tests are slower and can be run with:
 
 ```bash
