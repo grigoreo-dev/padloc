@@ -78,13 +78,13 @@ after pnpm so that "green CI" becomes an automatic gate for later phases.
 
 ## Phase 0 — Node 18 catch-up
 
-Small catch-up phase closing an omission from commit `7241f8f7`.
+Small catch-up phase closing an omission from commit `7241f8f7`. This phase is
+now complete in the implementation branch.
 
 **Changes:**
 
-- `.nvmrc`: `v16.13.1` → `v18` (the only residual node16 trace in the repo,
-  confirmed via repo-wide grep; all CI workflows read `node-version-file:
-  ".nvmrc"`, so they auto-pick up Node 18)
+- `.nvmrc`: `v16.13.1` → `v18` (completed; all CI workflows read
+  `node-version-file: ".nvmrc"`, so they auto-pick up Node 18)
 
 **Not touched here:** CI hardcode of `npm@8.2.0` / `npm ci` — that moves to
 Phase 2 with the pnpm switch.
@@ -108,7 +108,7 @@ versions are not touched.
     - "packages/*"
   ```
 - `package.json`:
-  - Add `"packageManager": "pnpm@9.x"` (for corepack)
+  - Add `"packageManager": "pnpm@10.15.0"` (for corepack; completed in the implementation branch)
   - Remove `lerna` from devDependencies
   - Delete `postinstall` / `bootstrap` (`lerna bootstrap`) — pnpm links
     workspace packages automatically on `install`

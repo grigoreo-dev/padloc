@@ -41,14 +41,6 @@ jobs:
               with:
                   node-version-file: ".nvmrc"
                   cache: "pnpm"
-            - uses: actions/cache@v3
-              with:
-                  path: |
-                      ~/.npm
-                      ~/.nvm
-                      node_modules
-                      packages/electron/node_modules
-                  key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
             - name: Install Flatpak build tools
               run: |
                   sudo apt-get update
@@ -104,14 +96,6 @@ jobs:
               with:
                   node-version-file: ".nvmrc"
                   cache: "pnpm"
-            - uses: actions/cache@v3
-              with:
-                  path: |
-                      ~/.npm
-                      ~/.nvm
-                      node_modules
-                      packages/electron/node_modules
-                  key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
             - name: Install dependencies
               run: |
                   pnpm install --frozen-lockfile
@@ -138,14 +122,6 @@ jobs:
               with:
                   node-version-file: ".nvmrc"
                   cache: "pnpm"
-            - uses: actions/cache@v3
-              with:
-                  path: |
-                      ~/.npm
-                      ~/.nvm
-                      node_modules
-                      packages/electron/node_modules
-                  key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
             - name: Install dependencies
               run: |
                   pnpm install --frozen-lockfile
@@ -173,14 +149,6 @@ jobs:
               with:
                   node-version-file: ".nvmrc"
                   cache: "pnpm"
-            - uses: actions/cache@v3
-              with:
-                  path: |
-                      ~/.npm
-                      ~/.nvm
-                      node_modules
-                      packages/electron/node_modules
-                  key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
             - name: Install dependencies
               run: |
                   pnpm install --frozen-lockfile
