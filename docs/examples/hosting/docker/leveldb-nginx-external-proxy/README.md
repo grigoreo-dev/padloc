@@ -2,22 +2,22 @@
 
 This example runs Padloc with:
 
-- LevelDB storage
-- filesystem attachments
-- internal NGINX that serves the PWA and proxies the API on one port
-- no published host ports
+-   LevelDB storage
+-   filesystem attachments
+-   internal NGINX that serves the PWA and proxies the API on one port
+-   no published host ports
 
-The stack is designed to sit behind an external reverse proxy on a shared
-Docker network named `proxy`.
+The stack is designed to sit behind an external reverse proxy on a shared Docker
+network named `proxy`.
 
 ## Architecture
 
-- `server` stores vault data in LevelDB and attachments on disk
-- `pwa` builds static frontend assets into a shared volume
-- `nginx` serves:
-  - `/` from the PWA volume
-  - `/server` to the Padloc API
-- external reverse proxy reaches this stack at `http://nginx:80`
+-   `server` stores vault data in LevelDB and attachments on disk
+-   `pwa` builds static frontend assets into a shared volume
+-   `nginx` serves:
+    -   `/` from the PWA volume
+    -   `/server` to the Padloc API
+-   external reverse proxy reaches this stack at `http://nginx:80`
 
 ## Prerequisites
 
@@ -47,8 +47,8 @@ PL_SERVER_URL=https://padloc.example.com/server
 PL_SERVER_CLIENT_URL=https://padloc.example.com
 ```
 
-Important: `PL_SERVER_URL` and `PL_PWA_URL` are used during the PWA build.
-If you change them later, rebuild the `pwa` service.
+Important: `PL_SERVER_URL` and `PL_PWA_URL` are used during the PWA build. If
+you change them later, rebuild the `pwa` service.
 
 4. Start the stack from this directory:
 
@@ -58,8 +58,8 @@ docker compose up -d --build
 
 ## Connect an external reverse proxy
 
-Attach your external proxy container to the `proxy` network and route the
-public hostname to:
+Attach your external proxy container to the `proxy` network and route the public
+hostname to:
 
 ```text
 http://nginx:80
@@ -94,17 +94,17 @@ server {
 
 ### Example Traefik labels alternative
 
-If your external proxy is Traefik and you prefer labels on this stack's
-`nginx` service, add labels in a local override file. This example keeps
-compose free of a specific external-proxy vendor.
+If your external proxy is Traefik and you prefer labels on this stack's `nginx`
+service, add labels in a local override file. This example keeps compose free of
+a specific external-proxy vendor.
 
 ## Data and volumes
 
 Named volumes:
 
-- `data` - LevelDB database files
-- `attachments` - encrypted attachment blobs
-- `pwa` - built frontend assets for nginx
+-   `data` - LevelDB database files
+-   `attachments` - encrypted attachment blobs
+-   `pwa` - built frontend assets for nginx
 
 Recreating containers does not delete named volumes.
 
@@ -125,6 +125,8 @@ docker compose restart nginx
 
 ## Notes
 
-- This stack does not terminate TLS. Terminate TLS on the external reverse proxy.
-- Email defaults to console logging. Configure SMTP before production invite flows.
-- Existing simple demos remain available under `basic`, `nginx`, and `caddy`.
+-   This stack does not terminate TLS. Terminate TLS on the external reverse
+    proxy.
+-   Email defaults to console logging. Configure SMTP before production invite
+    flows.
+-   Existing simple demos remain available under `basic`, `nginx`, and `caddy`.
