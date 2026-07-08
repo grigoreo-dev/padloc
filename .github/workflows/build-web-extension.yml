@@ -30,19 +30,23 @@ jobs:
         environment: ${{ github.event.inputs.environment || 'Local' }}
         steps:
             - uses: actions/checkout@v3
+            - uses: pnpm/action-setup@v4
+              with:
+                  version: 10
             - uses: actions/setup-node@v3
               with:
                   node-version-file: ".nvmrc"
+                  cache: "pnpm"
             - name: Install dependencies
               run: |
-                  npm i -g npm@8.2.0 web-ext@6.6.0
-                  npm ci
+                  npm i -g web-ext@6.6.0
+                  pnpm install --frozen-lockfile
             - name: Build
               env:
                   RELEASE_BUILD: ${{ github.event.inputs.build || '0' }}
                   PL_SERVER_URL: ${{ secrets.PL_SERVER_URL }}
                   PL_BUILD_ENV: ${{ secrets.PL_BUILD_ENV }}
-              run: npm run web-extension:build
+              run: pnpm run web-extension:build
             # - name: Sign for Firefox
             #   if: github.event.inputs.environment == 'Beta' || github.event.inputs.environment == 'Production'
             #   run: cd packages/extension/dist && web-ext sign --id="${{ secrets.PL_WEB_EXTENSION_FIREFOX_ID }}" --channel=unlisted --api-key=${{ secrets.PL_WEB_EXTENSION_FIREFOX_API_KEY }} --api-secret=${{ secrets.PL_WEB_EXTENSION_FIREFOX_API_SECRET }}
