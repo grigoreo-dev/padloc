@@ -369,12 +369,25 @@ git commit -m "fix: declare previously-hoisted phantom dependencies for pnpm"
 
 ### Task 2.1: Migrate `run-tests.yml` to pnpm
 
+> **Prerequisite finding (from Task 1.4):** the workflow runs `pnpm run
+> prettier:check`, which currently FAILS on our internal planning docs
+> (`docs/superpowers/plans/*.md`, `docs/superpowers/specs/*.md`). These are SDD
+> workflow artifacts, not shipped product docs. Before/while migrating the
+> workflow, resolve this so the prettier gate is green: add `docs/superpowers/`
+> to `.prettierignore` (consistent with the existing `.superpowers/**/*` entry).
+> Do NOT reformat the planning docs into product history.
+
 **Files:**
 - Modify: `.github/workflows/run-tests.yml` (entire file)
+- Modify: `.prettierignore` (add `docs/superpowers/`)
 
 **Interfaces:**
 - Consumes: `pnpm-lock.yaml`, `.nvmrc`=v18, root pnpm scripts
-- Produces: primary CI gate running on pnpm; stale `packages/manage/node_modules` cache path removed
+- Produces: primary CI gate running on pnpm; stale `packages/manage/node_modules` cache path removed; prettier gate green
+
+- [ ] **Step 0: Make prettier gate green**
+
+Add `docs/superpowers/` to `.prettierignore`. Verify: `pnpm run prettier:check` exits 0.
 
 - [ ] **Step 1: Replace the whole workflow file**
 
