@@ -20,8 +20,8 @@ assignees: ""
 
 ## Scope
 
-- Target: PWA / server / extension / desktop / mobile
-- Breaking change: yes / no / unknown
+-   Target: PWA / server / extension / desktop / mobile
+-   Breaking change: yes / no / unknown
 
 ## Additional context
 

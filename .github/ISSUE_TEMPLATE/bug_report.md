@@ -12,9 +12,9 @@ assignees: ""
 
 ## Steps to reproduce
 
-1. 
-2. 
-3. 
+1.
+2.
+3.
 
 ## Expected behavior
 
@@ -26,10 +26,10 @@ assignees: ""
 
 ## Environment
 
-- App target: PWA / server / extension / desktop / mobile
-- Browser or runtime:
-- Operating system:
-- Node version, if local development:
+-   App target: PWA / server / extension / desktop / mobile
+-   Browser or runtime:
+-   Operating system:
+-   Node version, if local development:
 
 ## Logs or screenshots
 
