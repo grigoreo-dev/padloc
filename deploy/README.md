@@ -41,8 +41,21 @@ or add a local override with `ports: ["80:80"]`.
     - `PL_SERVER_CLIENT_URL=https://your-domain`
     - `PL_ADMIN_URL=https://your-domain/admin`
     - `PL_ADMIN_URL_PATH=/admin/`
+    - `PL_SERVER_ADMINS=you@example.com` (comma-separated emails allowed as super-admins)
 5. Point the domain to service `nginx`, port `80`.
 6. Deploy.
+
+### Admin portal access
+
+The UI at `/admin` is public, but API calls require a **super-admin** account:
+
+1. Register/login once on the normal PWA (`/`) so the account exists.
+2. Set `PL_SERVER_ADMINS` to that account's email (exact match).
+3. Restart the `server` service.
+4. Open `/admin` and log in again there (admin login creates an `asAdmin` session).
+
+If you see "You don't have the necessary permissions to use this feature!", the
+email is missing from `PL_SERVER_ADMINS` or you are still on a non-admin session.
 
 After any public URL change, rebuild the `pwa` and `admin` services (URLs are
 baked in at build time).
