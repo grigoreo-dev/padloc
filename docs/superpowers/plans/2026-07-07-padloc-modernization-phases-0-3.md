@@ -859,10 +859,24 @@ git commit -m "chore: apply safe within-major dependency updates"
 ```
 (If, after skipping breakers, NO bump survived, make no commit and report that.)
 
-### Task 3.4: `@types/node` 16.x → 18.x
+### Task 3.4: `@types/node` 16.x → 18.x  — DEFERRED (execution outcome)
+
+> **OUTCOME: deferred, no change.** `@types/node@18` could not be adopted under
+> current constraints. Two independent blockers (verified against the real
+> `pnpm run test` gate):
+> 1. **mongodb@4.1.0 type conflict (affects ALL 18.x, even TS-4.4.3-parseable
+>    ones):** Node 18's `@types/node` changed `Writable.end()` to return `this`
+>    (was `void` in Node 16), breaking `mongodb.d.ts`'s
+>    `GridFSBucketWriteStream.end(): void` overrides → 6× `TS2416`.
+> 2. **TS 4.4.3 parser ceiling (18.19.90+):** `https.d.ts` generic
+>    `Server<Request, Response>` syntax → parse errors.
+>
+> `@types/node` is pinned in THREE places (root `pnpm.overrides`, `core`,
+> `server`) — all remain `16.11.7`. Revisit AFTER Task 3.5 (TS upgrade) AND
+> only together with a mongodb driver bump. TS 5.x alone does NOT unblock this.
 
 **Files:**
-- Modify: `packages/server/package.json:30` (`@types/node`)
+- Modify: `packages/server/package.json` (`@types/node`) — *not modified; deferred*
 
 **Interfaces:**
 - Consumes: Node 18 runtime
