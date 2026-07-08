@@ -11,6 +11,7 @@
 <!-- List the commands you ran and the result. -->
 
 -   [ ] `pnpm run prettier:check`
+-   [ ] `pnpm run locale:extract`
 -   [ ] `pnpm run pwa:build`
 -   [ ] `pnpm run web-extension:build`
 -   [ ] `pnpm run server:start-dry`

@@ -16,8 +16,6 @@ reviews:
         files:
             - pnpm-lock.yaml
             - package-lock.json
-            - docs/superpowers/**
-            - .superpowers/**
             - packages/*/dist/**
             - packages/*/build/**
             - packages/*/target/**

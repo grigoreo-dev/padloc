@@ -1,13 +1,13 @@
-# Agent Instructions — padloc fork
+# Agent Instructions - padloc fork
 
-Project-level rules for AI agents (o‍pencode, Claude Code, etc.) working in this
+Project-level rules for AI agents (opencode, Claude Code, etc.) working in this
 repository. These are inherited by every session and by every contributor who
 uses an agent.
 
 ## Language policy (STRICT)
 
 -   **Everything committed to this repository MUST be in English.** No Russian
-    or any other non-English words anywhere in git — this includes, without
+    or any other non-English words anywhere in git - this includes, without
     exception:
     -   Git commit messages
     -   All documentation (`README`, `CONTRIBUTING.md`, everything under

@@ -81,11 +81,9 @@ jobs:
         name: lint
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v3
+            - uses: actions/checkout@v4
             - uses: pnpm/action-setup@v4
-              with:
-                  version: 10
-            - uses: actions/setup-node@v3
+            - uses: actions/setup-node@v4
               with:
                   node-version-file: ".nvmrc"
                   cache: "pnpm"
@@ -105,11 +103,9 @@ jobs:
         name: build
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v3
+            - uses: actions/checkout@v4
             - uses: pnpm/action-setup@v4
-              with:
-                  version: 10
-            - uses: actions/setup-node@v3
+            - uses: actions/setup-node@v4
               with:
                   node-version-file: ".nvmrc"
                   cache: "pnpm"
@@ -126,11 +122,9 @@ jobs:
         name: unit
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v3
+            - uses: actions/checkout@v4
             - uses: pnpm/action-setup@v4
-              with:
-                  version: 10
-            - uses: actions/setup-node@v3
+            - uses: actions/setup-node@v4
               with:
                   node-version-file: ".nvmrc"
                   cache: "pnpm"
@@ -194,11 +188,9 @@ jobs:
         if: github.event_name != 'pull_request' || contains(github.event.pull_request.labels.*.name, 'e2e')
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v3
+            - uses: actions/checkout@v4
             - uses: pnpm/action-setup@v4
-              with:
-                  version: 10
-            - uses: actions/setup-node@v3
+            - uses: actions/setup-node@v4
               with:
                   node-version-file: ".nvmrc"
                   cache: "pnpm"
@@ -242,6 +234,10 @@ on:
             - edited
             - reopened
             - synchronize
+
+permissions:
+    contents: read
+    pull-requests: read
 
 jobs:
     pr-title:
@@ -312,8 +308,6 @@ reviews:
         - "!**/node_modules/**"
         - "!**/pnpm-lock.yaml"
         - "!**/package-lock.json"
-        - "!docs/superpowers/**"
-        - "!**/.superpowers/**"
         - "!packages/*/dist/**"
         - "!packages/*/build/**"
         - "!packages/*/target/**"
@@ -343,8 +337,6 @@ reviews:
         files:
             - pnpm-lock.yaml
             - package-lock.json
-            - docs/superpowers/**
-            - .superpowers/**
             - packages/*/dist/**
             - packages/*/build/**
             - packages/*/target/**
@@ -406,6 +398,7 @@ git commit -m "chore: configure advisory AI code review"
 <!-- List the commands you ran and the result. -->
 
 - [ ] `pnpm run prettier:check`
+- [ ] `pnpm run locale:extract`
 - [ ] `pnpm run pwa:build`
 - [ ] `pnpm run web-extension:build`
 - [ ] `pnpm run server:start-dry`
@@ -427,7 +420,7 @@ git commit -m "chore: configure advisory AI code review"
 ---
 name: Bug report
 about: Report a reproducible problem
-title: "fix: "
+title: ""
 labels: bug
 assignees: ""
 ---
@@ -468,7 +461,7 @@ assignees: ""
 ---
 name: Feature request
 about: Suggest an improvement or new capability
-title: "feat: "
+title: ""
 labels: enhancement
 assignees: ""
 ---
@@ -589,6 +582,7 @@ Run the focused checks relevant to your change. The common checks are:
 
 ```bash
 pnpm run prettier:check
+pnpm run locale:extract
 pnpm run pwa:build
 pnpm run web-extension:build
 pnpm run server:start-dry
@@ -616,7 +610,7 @@ AI review is advisory. The maintainer makes the final decision.
 
 - [ ] **Step 2: Validate Markdown and English-only**
 
-Run: `pnpm exec prettier --check CONTRIBUTING.md && grep -nP '\p{Cyrillic}' CONTRIBUTING.md || true`
+Run: `pnpm exec prettier --check CONTRIBUTING.md && ! grep -nP '\p{Cyrillic}' CONTRIBUTING.md`
 Expected: Prettier passes and grep prints no Cyrillic.
 
 - [ ] **Step 3: Commit**
@@ -668,6 +662,9 @@ updates:
           github-actions:
               patterns:
                   - "*"
+              update-types:
+                  - "minor"
+                  - "patch"
       commit-message:
           prefix: "ci"
           include: "scope"

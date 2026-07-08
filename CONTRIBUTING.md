@@ -59,6 +59,7 @@ Run the focused checks relevant to your change. The common checks are:
 
 ```bash
 pnpm run prettier:check
+pnpm run locale:extract
 pnpm run pwa:build
 pnpm run web-extension:build
 pnpm run server:start-dry
