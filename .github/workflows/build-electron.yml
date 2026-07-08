@@ -17,15 +17,6 @@ on:
                     - "macOS"
                     - "Windows"
 
-    push:
-        branches:
-            - "main"
-            - "feature/**"
-            - "fix/**"
-        paths:
-            - "packages/electron/**"
-            - "assets/**"
-
 env:
     GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

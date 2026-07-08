@@ -7,18 +7,6 @@ on:
                 type: environment
                 default: "Local"
 
-    push:
-        branches:
-            - "main"
-            - "feature/**"
-            - "fix/**"
-        paths:
-            - "packages/app/**"
-            - "packages/core/**"
-            - "packages/tauri/**"
-            - "packages/locale/**"
-            - "assets/**"
-
 jobs:
     build:
         environment: ${{ github.event.inputs.environment || 'Local' }}

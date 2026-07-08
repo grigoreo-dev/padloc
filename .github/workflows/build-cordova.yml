@@ -16,18 +16,6 @@ on:
                     - "Android"
                     - "iOS"
 
-    push:
-        branches:
-            - "main"
-            - "feature/**"
-            - "fix/**"
-        paths:
-            - "packages/app/**"
-            - "packages/core/**"
-            - "packages/cordova/**"
-            - "packages/locale/**"
-            - "assets/**"
-
 jobs:
     android:
         if: ${{ github.event.inputs.targets != 'iOS' }}

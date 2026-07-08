@@ -2,11 +2,12 @@
 
 Root `docker-compose.yml` is the main deploy entrypoint for this fork.
 
-It follows the classic Padloc nginx example:
+It follows the classic Padloc nginx example, extended with the admin portal:
 
 -   `server` with LevelDB
 -   `pwa` build into a shared volume
--   `nginx` serves `/` and proxies `/server` on one HTTP port
+-   `admin` build into a shared volume
+-   `nginx` serves `/` (PWA), `/admin` (Admin), and proxies `/server` on one HTTP port
 
 No host ports are published. Traefik/Dokploy (or another reverse proxy) should
 route traffic to the `nginx` service on container port `80`.
@@ -38,13 +39,25 @@ or add a local override with `ports: ["80:80"]`.
     - `PL_PWA_URL=https://your-domain`
     - `PL_SERVER_URL=https://your-domain/server`
     - `PL_SERVER_CLIENT_URL=https://your-domain`
+    - `PL_ADMIN_URL=https://your-domain/admin`
+    - `PL_ADMIN_URL_PATH=/admin/`
 5. Point the domain to service `nginx`, port `80`.
 6. Deploy.
 
+After any public URL change, rebuild the `pwa` and `admin` services (URLs are
+baked in at build time).
+
 ## Paths
 
--   `/` - web app
+-   `/` - web app (PWA)
+-   `/admin` - admin portal (redirects to `/admin/`)
 -   `/server` - API
+
+## Security note
+
+The admin UI is a public SPA path. Authorization is enforced by the server for
+privileged accounts. Edge protection (Basic Auth, IP allowlist, SSO) for
+`/admin` is optional and not configured in this stack.
 
 ## Data
 
@@ -52,4 +65,5 @@ Named volumes:
 
 -   `data` - LevelDB
 -   `attachments` - file attachments
--   `pwa` - built frontend assets
+-   `pwa` - built PWA assets
+-   `admin` - built admin portal assets

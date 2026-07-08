@@ -49,6 +49,8 @@ jobs:
               run: pnpm run pwa:build
             - name: Build web extension
               run: pnpm run web-extension:build
+            - name: Build admin
+              run: pnpm run admin:build
             - name: Test zero-config server startup
               run: pnpm run server:start-dry
 
