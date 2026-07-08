@@ -22,7 +22,7 @@
     "dependencies": {
         "@padloc/app": "workspace:*",
         "@padloc/core": "workspace:*",
-        "@webcomponents/webcomponentsjs": "2.5.0",
+        "@webcomponents/webcomponentsjs": "2.8.0",
         "lit": "2.0.2",
         "webextension-polyfill": "0.12.0"
     },
