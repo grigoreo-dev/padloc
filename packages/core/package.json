@@ -1,6 +1,6 @@
 {
     "name": "@padloc/core",
-    "version": "4.3.0",
+    "version": "4.4.0",
     "description": "padloc core module",
     "main": "index.js",
     "author": "Martin Kleinschrodt <martin@maklesoft.com>",

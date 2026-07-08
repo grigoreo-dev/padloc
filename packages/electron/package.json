@@ -1,6 +1,6 @@
 {
     "name": "@padloc/electron",
-    "version": "4.3.0",
+    "version": "4.4.0",
     "description": "Electron Wrapper for Padloc app",
     "main": "main.js",
     "private": true,
