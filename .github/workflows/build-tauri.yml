@@ -43,9 +43,13 @@ jobs:
         runs-on: ${{ matrix.config.os }}
         steps:
             - uses: actions/checkout@v3
+            - uses: pnpm/action-setup@v4
+              with:
+                  version: 10
             - uses: actions/setup-node@v3
               with:
                   node-version-file: ".nvmrc"
+                  cache: "pnpm"
             - name: "Setup Rust"
               uses: dtolnay/rust-toolchain@stable
               with:
@@ -60,8 +64,7 @@ jobs:
                   sudo apt-get install -y webkit2gtk-4.0
             - name: Install dependencies
               run: |
-                  npm i -g npm@8.2.0
-                  npm ci
+                  pnpm install --frozen-lockfile
             - name: Build (debug)
               if: github.event.inputs.environment != 'Production'
               run: npm run tauri:build:debug

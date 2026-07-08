@@ -44,13 +44,16 @@ jobs:
                   candidate: gradle
                   version: 7.2
             - uses: android-actions/setup-android@v2
+            - uses: pnpm/action-setup@v4
+              with:
+                  version: 10
             - uses: actions/setup-node@v3
               with:
                   node-version-file: ".nvmrc"
+                  cache: "pnpm"
             - name: Install dependencies
               run: |
-                  npm i -g npm@8.2.0
-                  npm ci
+                  pnpm install --frozen-lockfile
             - name: Create android-upload-key.keystore
               run: |
                   cd packages/cordova
@@ -78,13 +81,16 @@ jobs:
         environment: ${{ github.event.inputs.environment || 'Local' }}
         steps:
             - uses: actions/checkout@v3
+            - uses: pnpm/action-setup@v4
+              with:
+                  version: 10
             - uses: actions/setup-node@v3
               with:
                   node-version-file: ".nvmrc"
+                  cache: "pnpm"
             - name: Install dependencies
               run: |
-                  npm i -g npm@8.2.0
-                  npm ci
+                  pnpm install --frozen-lockfile
             - name: Build (iOS)
               env:
                   PL_SERVER_URL: ${{ secrets.PL_SERVER_URL }}
