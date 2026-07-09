@@ -1,11 +1,11 @@
 import { translate as $l } from "@padloc/locale/src/translate";
-import { base32ToBytes, Serializable, AsSerializable, AsDate } from "./encoding";
-import { totp } from "./otp";
-import { uuid } from "./util";
+import { add } from "date-fns";
 import type { AccountID } from "./account";
 import { AttachmentInfo } from "./attachment";
+import { AsDate, AsSerializable, base32ToBytes, Serializable } from "./encoding";
+import { totp } from "./otp";
 import { openExternalUrl } from "./platform";
-import { add } from "date-fns";
+import { uuid } from "./util";
 
 /** A tag that can be assigned to a [[VaultItem]] */
 export type Tag = string;

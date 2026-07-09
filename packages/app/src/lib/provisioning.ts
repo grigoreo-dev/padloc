@@ -1,9 +1,9 @@
 import {
-    type OrgProvisioning,
-    ProvisioningStatus,
     type AccountProvisioning,
     type Feature,
     OrgFeature,
+    type OrgProvisioning,
+    ProvisioningStatus,
     type RichContent,
 } from "@padloc/core/src/provisioning";
 import { $l } from "@padloc/locale/src/translate";

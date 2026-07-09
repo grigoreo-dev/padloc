@@ -4,9 +4,9 @@ import { type Org, type OrgMember, OrgRole } from "@padloc/core/src/org";
 import { $l } from "@padloc/locale/src/translate";
 import "@padloc/app/src/elements/button";
 import "@padloc/app/src/elements/icon";
-import { highlightJson } from "@padloc/app/src/lib/util";
-import { alert, confirm } from "@padloc/app/src/lib/dialog";
 import { app } from "@padloc/app/src/globals";
+import { alert, confirm } from "@padloc/app/src/lib/dialog";
+import { highlightJson } from "@padloc/app/src/lib/util";
 
 @customElement("pl-org-dialog")
 export class OrgDialog extends Dialog<Org, void> {

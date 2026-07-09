@@ -1,11 +1,11 @@
-import { styleMap } from "lit/directives/style-map.js";
-import { hotp } from "@padloc/core/src/otp";
 import { base32ToBytes } from "@padloc/core/src/encoding";
+import { hotp } from "@padloc/core/src/otp";
 import { translate as $l } from "@padloc/locale/src/translate";
+import { styleMap } from "lit/directives/style-map.js";
 import { shared } from "../styles";
 import "./icon";
-import { customElement, property, state } from "lit/decorators.js";
 import { css, html, LitElement, svg } from "lit";
+import { customElement, property, state } from "lit/decorators.js";
 
 @customElement("pl-totp")
 export class TOTPElement extends LitElement {

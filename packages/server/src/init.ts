@@ -1,18 +1,22 @@
-import { Server } from "@padloc/core/src/server";
-import { setPlatform } from "@padloc/core/src/platform";
-import { ChangeLogger, type Logger, MultiLogger, RequestLogger, VoidLogger } from "@padloc/core/src/logging";
-import type { Storage } from "@padloc/core/src/storage";
-import { NodePlatform } from "./platform/node";
-import { HTTPReceiver } from "./transport/http";
-import { LevelDBStorage, LevelDBStorageConfig } from "./storage/leveldb";
-import { S3AttachmentStorage } from "./attachments/s3";
-import { NodeLegacyServer } from "./legacy";
+import { MemoryAttachmentStorage } from "@padloc/core/src/attachment";
 import { type AuthServer, AuthType } from "@padloc/core/src/auth";
-import { WebAuthnConfig, WebAuthnServer } from "./auth/webauthn";
-import { SMTPSender } from "./email/smtp";
-import { MongoDBStorage } from "./storage/mongodb";
+import { EmailAuthServer } from "@padloc/core/src/auth/email";
+import { PublicKeyAuthServer } from "@padloc/core/src/auth/public-key";
+import { TotpAuthConfig, TotpAuthServer } from "@padloc/core/src/auth/totp";
+import { type DirectoryProvider, DirectorySync } from "@padloc/core/src/directory";
+import { ChangeLogger, type Logger, MultiLogger, RequestLogger, VoidLogger } from "@padloc/core/src/logging";
 import { ConsoleMessenger, PlainMessage } from "@padloc/core/src/messenger";
+import { setPlatform } from "@padloc/core/src/platform";
+import { BasicProvisioner, BasicProvisionerConfig } from "@padloc/core/src/provisioning";
+import { Server } from "@padloc/core/src/server";
+import type { Storage } from "@padloc/core/src/storage";
+import { MemoryStorage, VoidStorage } from "@padloc/core/src/storage";
+import { removeTrailingSlash, stripPropertiesRecursive, uuid } from "@padloc/core/src/util";
+import { join, resolve } from "path";
 import { FSAttachmentStorage, FSAttachmentStorageConfig } from "./attachments/fs";
+import { S3AttachmentStorage } from "./attachments/s3";
+import { OauthServer } from "./auth/oauth";
+import { WebAuthnConfig, WebAuthnServer } from "./auth/webauthn";
 import {
     type AttachmentStorageConfig,
     type ChangeLogConfig,
@@ -23,25 +27,21 @@ import {
     type PadlocConfig,
     type RequestLogConfig,
 } from "./config";
-import { MemoryStorage, VoidStorage } from "@padloc/core/src/storage";
-import { MemoryAttachmentStorage } from "@padloc/core/src/attachment";
-import { BasicProvisioner, BasicProvisionerConfig } from "@padloc/core/src/provisioning";
-import { OauthServer } from "./auth/oauth";
-import { TotpAuthConfig, TotpAuthServer } from "@padloc/core/src/auth/totp";
-import { EmailAuthServer } from "@padloc/core/src/auth/email";
-import { PublicKeyAuthServer } from "@padloc/core/src/auth/public-key";
-import { StripeProvisioner } from "./provisioning/stripe";
-import { resolve, join } from "path";
-import { MongoDBLogger } from "./logging/mongodb";
-import { MixpanelLogger } from "./logging/mixpanel";
-import { PostgresStorage } from "./storage/postgres";
-import { stripPropertiesRecursive, uuid, removeTrailingSlash } from "@padloc/core/src/util";
-import { DirectoryProvisioner } from "./provisioning/directory";
-import { ScimServer, ScimServerConfig } from "./scim";
-import { type DirectoryProvider, DirectorySync } from "@padloc/core/src/directory";
-import { PostgresLogger } from "./logging/postgres";
+import { SMTPSender } from "./email/smtp";
+import { NodeLegacyServer } from "./legacy";
 import { LevelDBLogger } from "./logging/leveldb";
+import { MixpanelLogger } from "./logging/mixpanel";
+import { MongoDBLogger } from "./logging/mongodb";
+import { PostgresLogger } from "./logging/postgres";
+import { NodePlatform } from "./platform/node";
+import { DirectoryProvisioner } from "./provisioning/directory";
 import { OauthProvisioner, OauthProvisionerConfig } from "./provisioning/oauth";
+import { StripeProvisioner } from "./provisioning/stripe";
+import { ScimServer, ScimServerConfig } from "./scim";
+import { LevelDBStorage, LevelDBStorageConfig } from "./storage/leveldb";
+import { MongoDBStorage } from "./storage/mongodb";
+import { PostgresStorage } from "./storage/postgres";
+import { HTTPReceiver } from "./transport/http";
 
 const rootDir = resolve(__dirname, "../../..");
 const assetsDir = resolve(rootDir, process.env.PL_ASSETS_DIR || "assets");

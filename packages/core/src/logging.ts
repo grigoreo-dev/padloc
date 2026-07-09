@@ -5,10 +5,10 @@ import type { DeviceInfo } from "./platform";
 import type { ProvisioningStatus } from "./provisioning";
 import type { Context } from "./server";
 import {
-    type Storage,
     Storable,
-    type StorageListOptions,
     type StorableConstructor,
+    type Storage,
+    type StorageListOptions,
     type StorageQuery,
 } from "./storage";
 import { Request } from "./transport";

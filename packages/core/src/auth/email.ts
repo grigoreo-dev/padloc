@@ -6,8 +6,8 @@ import {
     type AuthServer,
     AuthType,
 } from "../auth";
-import { type Messenger, EmailAuthMessage } from "../messenger";
-import { ErrorCode, Err } from "../error";
+import { Err, ErrorCode } from "../error";
+import { EmailAuthMessage, type Messenger } from "../messenger";
 import { randomNumber } from "../util";
 
 export class EmailAuthServer implements AuthServer {

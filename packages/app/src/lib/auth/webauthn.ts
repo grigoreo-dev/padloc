@@ -1,9 +1,9 @@
 import { type AuthClient, AuthType } from "@padloc/core/src/auth";
 import {
-    startAuthentication,
-    startRegistration,
     browserSupportsWebauthn,
     platformAuthenticatorIsAvailable,
+    startAuthentication,
+    startRegistration,
 } from "@simplewebauthn/browser";
 import type {
     PublicKeyCredentialCreationOptionsJSON,

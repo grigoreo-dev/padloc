@@ -1,22 +1,22 @@
-import { PBKDF2Params, HMACParams, type HMACKey } from "./crypto";
-import { getCryptoProvider as getProvider } from "./platform";
-import { SimpleContainer } from "./container";
-import {
-    stringToBytes,
-    bytesToString,
-    bytesToHex,
-    marshal,
-    unmarshal,
-    concatBytes,
-    Serializable,
-    AsSerializable,
-    AsDate,
-    AsBytes,
-} from "./encoding";
 import type { Account, AccountID } from "./account";
-import type { Org, OrgID } from "./org";
-import { uuid } from "./util";
+import { SimpleContainer } from "./container";
+import { type HMACKey, HMACParams, PBKDF2Params } from "./crypto";
+import {
+    AsBytes,
+    AsDate,
+    AsSerializable,
+    bytesToHex,
+    bytesToString,
+    concatBytes,
+    marshal,
+    Serializable,
+    stringToBytes,
+    unmarshal,
+} from "./encoding";
 import { Err, ErrorCode } from "./error";
+import type { Org, OrgID } from "./org";
+import { getCryptoProvider as getProvider } from "./platform";
+import { uuid } from "./util";
 
 export type InvitePurpose = "join_org" | "confirm_membership";
 

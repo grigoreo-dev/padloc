@@ -1,7 +1,7 @@
 import { css, customElement, html, LitElement, property, query, state } from "@padloc/app/src/elements/lit";
+import { Routing } from "@padloc/app/src/mixins/routing";
 import { ServiceWorker } from "@padloc/app/src/mixins/service-worker";
 import { StateMixin } from "@padloc/app/src/mixins/state";
-import { Routing } from "@padloc/app/src/mixins/routing";
 import { mixins, shared } from "@padloc/app/src/styles";
 import "@padloc/app/src/elements/button";
 import "@padloc/app/src/elements/icon";

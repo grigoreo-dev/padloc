@@ -1,11 +1,10 @@
-import { createServer, type IncomingMessage } from "http";
-import { type Receiver, Request, type Sender, Response } from "@padloc/core/src/transport";
+import { Config, ConfigParam } from "@padloc/core/src/config";
 import { marshal, unmarshal } from "@padloc/core/src/encoding";
 import { Err, ErrorCode } from "@padloc/core/src/error";
-import { getLocation } from "../geoip";
+import { type Receiver, Request, Response, type Sender } from "@padloc/core/src/transport";
+import { createServer, type IncomingMessage, request as requestHttp } from "http";
 import { request as requestHttps } from "https";
-import { request as requestHttp } from "http";
-import { Config, ConfigParam } from "@padloc/core/src/config";
+import { getLocation } from "../geoip";
 
 export function readBody(request: IncomingMessage, maxSize = 1e7): Promise<string> {
     return new Promise((resolve, reject) => {

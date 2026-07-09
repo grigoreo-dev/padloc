@@ -1,11 +1,11 @@
 import type { OrgMember } from "@padloc/core/src/org";
 import { Vault } from "@padloc/core/src/vault";
 import { translate as $l } from "@padloc/locale/src/translate";
-import { shared } from "../styles";
 import { app } from "../globals";
 import { alert, prompt } from "../lib/dialog";
 import { Routing } from "../mixins/routing";
 import { StateMixin } from "../mixins/state";
+import { shared } from "../styles";
 import type { Button } from "./button";
 import "./icon";
 import "./member-item";
@@ -17,8 +17,8 @@ import type { Input } from "./input";
 import "./button";
 import "./input";
 import "./toggle";
-import { customElement, property, query, state } from "lit/decorators.js";
 import { css, html, LitElement } from "lit";
+import { customElement, property, query, state } from "lit/decorators.js";
 
 @customElement("pl-vault-view")
 export class VaultView extends Routing(StateMixin(LitElement)) {

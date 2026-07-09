@@ -1,11 +1,11 @@
 import { translate as $l } from "@padloc/locale/src/translate";
-import type { Input } from "./input";
 import type { Button } from "./button";
+import type { Input } from "./input";
 import "./input";
 import "./button";
-import { Dialog } from "./dialog";
-import { customElement, property, query } from "lit/decorators.js";
 import { css, html, type TemplateResult } from "lit";
+import { customElement, property, query } from "lit/decorators.js";
+import { Dialog } from "./dialog";
 
 const defaultConfirmLabel = $l("OK");
 const defaultCancelLabel = $l("Cancel");

@@ -1,10 +1,10 @@
-import { OrgRole, type Group, OrgMemberStatus } from "@padloc/core/src/org";
+import { type Group, OrgMemberStatus, OrgRole } from "@padloc/core/src/org";
 import { translate as $l } from "@padloc/locale/src/translate";
-import { shared } from "../styles";
 import { app } from "../globals";
 import { alert, confirm } from "../lib/dialog";
 import { Routing } from "../mixins/routing";
 import { StateMixin } from "../mixins/state";
+import { shared } from "../styles";
 import type { Button } from "./button";
 import "./button";
 import "./icon";
@@ -14,9 +14,9 @@ import "./scroller";
 import "./popover";
 import "./list";
 import "./toggle";
-import { customElement, property, query, state } from "lit/decorators.js";
-import { css, html, LitElement } from "lit";
 import { base64ToString } from "@padloc/core/src/encoding";
+import { css, html, LitElement } from "lit";
+import { customElement, property, query, state } from "lit/decorators.js";
 
 @customElement("pl-member-view")
 export class MemberView extends Routing(StateMixin(LitElement)) {

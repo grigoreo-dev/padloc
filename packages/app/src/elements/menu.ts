@@ -1,22 +1,22 @@
-import { translate as $l } from "@padloc/locale/src/translate";
 import { ErrorCode } from "@padloc/core/src/error";
 import type { Vault } from "@padloc/core/src/vault";
+import { translate as $l } from "@padloc/locale/src/translate";
 import { app } from "../globals";
-import { shared } from "../styles";
 import { alert } from "../lib/dialog";
-import { StateMixin } from "../mixins/state";
 import { Routing } from "../mixins/routing";
+import { StateMixin } from "../mixins/state";
+import { shared } from "../styles";
 import "./logo";
 import "./button";
 import "./drawer";
 import "./scroller";
 import "./list";
 import "./popover";
-import { customElement, property, state } from "lit/decorators.js";
-import { css, html, LitElement } from "lit";
-import { formatDateFromNow } from "../lib/util";
-import { until } from "lit/directives/until.js";
 import { ProvisioningStatus } from "@padloc/core/src/provisioning";
+import { css, html, LitElement } from "lit";
+import { customElement, property, state } from "lit/decorators.js";
+import { until } from "lit/directives/until.js";
+import { formatDateFromNow } from "../lib/util";
 import "./icon";
 
 const orgPages = [

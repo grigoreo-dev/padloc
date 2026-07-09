@@ -3,34 +3,34 @@ import "./popover";
 import "./list";
 import "./button";
 import "./scroller";
-import { html, LitElement, type TemplateResult } from "lit";
-import { StateMixin } from "../mixins/state";
+import { UpdateAuthParams } from "@padloc/core/src/api";
+import { type AuthenticatorInfo, AuthenticatorStatus, AuthPurpose, AuthType } from "@padloc/core/src/auth";
 import {
     authenticate,
-    registerAuthenticator,
     type DeviceInfo,
-    supportsPlatformAuthenticator,
     getPlatform,
+    registerAuthenticator,
+    supportsPlatformAuthenticator,
 } from "@padloc/core/src/platform";
-import { app, router } from "../globals";
-import { prompt, alert, confirm, choose } from "../lib/dialog";
 import { translate as $l } from "@padloc/locale/src/translate";
-import type { ToggleButton } from "./toggle-button";
+import { html, LitElement, type TemplateResult } from "lit";
 import { customElement, query } from "lit/decorators.js";
-import { shared } from "../styles";
-import type { Slider } from "./slider";
-import { UpdateAuthParams } from "@padloc/core/src/api";
-import { Routing } from "../mixins/routing";
-import { AuthPurpose, AuthType, type AuthenticatorInfo, AuthenticatorStatus } from "@padloc/core/src/auth";
-import { formatDate, formatDateFromNow, passwordStrength } from "../lib/util";
 import { until } from "lit/directives/until.js";
+import { app, router } from "../globals";
+import { alert, choose, confirm, prompt } from "../lib/dialog";
+import { formatDate, formatDateFromNow, passwordStrength } from "../lib/util";
+import { Routing } from "../mixins/routing";
+import { StateMixin } from "../mixins/state";
+import { shared } from "../styles";
 import type { Button } from "./button";
+import type { Slider } from "./slider";
+import type { ToggleButton } from "./toggle-button";
 import "./toggle-button";
 import "./slider";
-import type { SessionInfo } from "@padloc/core/src/session";
 import type { KeyStoreEntryInfo } from "@padloc/core/src/key-store";
-import { alertDisabledFeature } from "../lib/provisioning";
+import type { SessionInfo } from "@padloc/core/src/session";
 import { auditVaults } from "../lib/audit";
+import { alertDisabledFeature } from "../lib/provisioning";
 import "./icon";
 
 @customElement("pl-settings-security")

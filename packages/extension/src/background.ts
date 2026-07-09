@@ -1,12 +1,12 @@
-import browser from "webextension-polyfill";
-import type { Menus, Runtime } from "webextension-polyfill";
-import { setPlatform } from "@padloc/core/src/platform";
-import { App } from "@padloc/core/src/app";
-import { bytesToBase64, base64ToBytes } from "@padloc/core/src/encoding";
 import { AjaxSender } from "@padloc/app/src/lib/ajax";
-import { throttle, debounce } from "@padloc/core/src/util";
-import { ExtensionPlatform } from "./platform";
+import { App } from "@padloc/core/src/app";
+import { base64ToBytes, bytesToBase64 } from "@padloc/core/src/encoding";
+import { setPlatform } from "@padloc/core/src/platform";
+import { debounce, throttle } from "@padloc/core/src/util";
+import type { Menus, Runtime } from "webextension-polyfill";
+import browser from "webextension-polyfill";
 import { type Message, messageTab } from "./message";
+import { ExtensionPlatform } from "./platform";
 
 setPlatform(new ExtensionPlatform());
 

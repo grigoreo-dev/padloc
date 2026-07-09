@@ -1,7 +1,7 @@
-import type { VaultItem } from "@padloc/core/src/item";
 import { PBES2Container } from "@padloc/core/src/container";
 import { marshal, stringToBytes } from "@padloc/core/src/encoding";
-import { loadPapa, type ImportFormat, CSV, PBES2 } from "./import";
+import type { VaultItem } from "@padloc/core/src/item";
+import { CSV, type ImportFormat, loadPapa, PBES2 } from "./import";
 
 export const supportedFormats: ImportFormat[] = [CSV, PBES2];
 export { CSV, PBES2 } from "./import";

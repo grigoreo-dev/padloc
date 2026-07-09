@@ -1,4 +1,4 @@
-import { type Logger, LogEvent, type LoggerListOptions } from "@padloc/core/src/logging";
+import { LogEvent, type Logger, type LoggerListOptions } from "@padloc/core/src/logging";
 import type { Context } from "@padloc/core/src/server";
 import type { PostgresStorage } from "../storage/postgres";
 

@@ -1,8 +1,8 @@
+import { type Authenticator, type AuthRequest, type AuthServer, AuthType } from "../auth";
+import { base32ToBytes } from "../base32";
+import { Config, ConfigParam } from "../config";
 import { Err, ErrorCode } from "../error";
 import { generateSecret, getCounter, validateHotp } from "../otp";
-import { base32ToBytes } from "../base32";
-import { type AuthServer, AuthType, type Authenticator, type AuthRequest } from "../auth";
-import { Config, ConfigParam } from "../config";
 
 export class TotpAuthConfig extends Config {
     @ConfigParam()

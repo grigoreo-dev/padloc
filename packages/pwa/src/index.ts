@@ -1,5 +1,5 @@
-import { setPlatform } from "@padloc/core/src/platform";
 import { WebPlatform } from "@padloc/app/src/lib/platform";
+import { setPlatform } from "@padloc/core/src/platform";
 
 if (window.location.search !== "?spinner") {
     (async () => {

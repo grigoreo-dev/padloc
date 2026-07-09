@@ -1,15 +1,15 @@
 import type { VaultID } from "@padloc/core/src/vault";
-import { StateMixin } from "../mixins/state";
-import { Routing } from "../mixins/routing";
 import { app } from "../globals";
+import { Routing } from "../mixins/routing";
+import { StateMixin } from "../mixins/state";
 import { shared } from "../styles";
 import "./vault-item";
 import "./icon";
 import "./vault-view";
 import "./list";
 import "./org-nav";
-import { customElement, property } from "lit/decorators.js";
 import { html, LitElement } from "lit";
+import { customElement, property } from "lit/decorators.js";
 import { checkFeatureDisabled } from "../lib/provisioning";
 
 @customElement("pl-org-vaults")

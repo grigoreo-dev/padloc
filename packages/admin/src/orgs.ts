@@ -2,8 +2,8 @@ import { css, customElement, html, query, state } from "@padloc/app/src/elements
 import { View } from "@padloc/app/src/elements/view";
 import { $l } from "@padloc/locale/src/translate";
 import "@padloc/app/src/elements/icon";
-import { StateMixin } from "@padloc/app/src/mixins/state";
 import { Routing } from "@padloc/app/src/mixins/routing";
+import { StateMixin } from "@padloc/app/src/mixins/state";
 import { ListParams, ListResponse } from "@padloc/core/src/api";
 import "@padloc/app/src/elements/scroller";
 import "@padloc/app/src/elements/list";

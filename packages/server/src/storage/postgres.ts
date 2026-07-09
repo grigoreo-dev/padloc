@@ -1,4 +1,5 @@
-import { Pool } from "pg";
+import { Config, ConfigParam } from "@padloc/core/src/config";
+import { Err, ErrorCode } from "@padloc/core/src/error";
 import {
     Storable,
     type StorableConstructor,
@@ -6,11 +7,9 @@ import {
     type StorageListOptions,
     type StorageQuery,
 } from "@padloc/core/src/storage";
-import { ConfigParam } from "@padloc/core/src/config";
-import { Config } from "@padloc/core/src/config";
-import { Err, ErrorCode } from "@padloc/core/src/error";
 import { readFileSync } from "fs";
 import { resolve } from "path";
+import { Pool } from "pg";
 
 export class PostgresConfig extends Config {
     @ConfigParam()

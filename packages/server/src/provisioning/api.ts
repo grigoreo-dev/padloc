@@ -1,3 +1,6 @@
+import type { AccountID } from "@padloc/core/src/account";
+import { Config, ConfigParam } from "@padloc/core/src/config";
+import { ErrorCode } from "@padloc/core/src/error";
 import {
     type AccountQuota,
     BasicProvisioner,
@@ -5,13 +8,10 @@ import {
     Provisioning,
     ProvisioningStatus,
 } from "@padloc/core/src/provisioning";
-import { getIdFromEmail } from "@padloc/core/src/util";
 import type { Storage } from "@padloc/core/src/storage";
-import { ErrorCode } from "@padloc/core/src/error";
-import { Config, ConfigParam } from "@padloc/core/src/config";
+import { getIdFromEmail } from "@padloc/core/src/util";
 import { createServer, type IncomingMessage, type ServerResponse } from "http";
 import { readBody } from "../transport/http";
-import type { AccountID } from "@padloc/core/src/account";
 
 export class DefaultAccountQuota extends Config implements AccountQuota {
     @ConfigParam("number")

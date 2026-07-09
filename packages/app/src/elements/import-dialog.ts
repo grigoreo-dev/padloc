@@ -1,19 +1,19 @@
+import { FIELD_DEFS, FieldType, type VaultItem } from "@padloc/core/src/item";
 import type { Vault } from "@padloc/core/src/vault";
-import { type VaultItem, FIELD_DEFS, FieldType } from "@padloc/core/src/item";
 import { translate as $l } from "@padloc/locale/src/translate";
-import * as imp from "../lib/import";
-import { prompt, alert } from "../lib/dialog";
 import { app } from "../globals";
-import type { Select } from "./select";
-import type { Input } from "./input";
+import { alert, prompt } from "../lib/dialog";
+import * as imp from "../lib/import";
 import { Dialog } from "./dialog";
+import type { Input } from "./input";
+import type { Select } from "./select";
 import "./button";
 import type { ToggleButton } from "./toggle-button";
 import "./select";
 import "./input";
 import "./toggle-button";
-import { customElement, query, state, queryAll } from "lit/decorators.js";
-import { html, css } from "lit";
+import { css, html } from "lit";
+import { customElement, query, queryAll, state } from "lit/decorators.js";
 import { selectFile } from "../lib/util";
 
 const fieldTypeOptions = (Object.keys(FIELD_DEFS) as FieldType[]).map((fieldType) => ({

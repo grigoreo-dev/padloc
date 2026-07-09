@@ -1,8 +1,8 @@
-import * as http from "http";
-import * as https from "https";
-import type { LegacyServer } from "@padloc/core/src/server";
 import type { PBES2Container } from "@padloc/core/src/container";
 import { parseLegacyContainer } from "@padloc/core/src/legacy";
+import type { LegacyServer } from "@padloc/core/src/server";
+import * as http from "http";
+import * as https from "https";
 
 export interface NodeLegacyServerConfig {
     url: string;

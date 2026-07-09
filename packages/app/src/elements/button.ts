@@ -1,6 +1,6 @@
-import { shared, mixins } from "../styles";
-import { LitElement, html, css } from "lit";
+import { css, html, LitElement } from "lit";
 import { customElement, property, query } from "lit/decorators.js";
+import { mixins, shared } from "../styles";
 import "./icon";
 import "./spinner";
 import type { Toggle } from "./toggle";

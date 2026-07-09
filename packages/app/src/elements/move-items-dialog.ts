@@ -1,14 +1,14 @@
-import type { Vault } from "@padloc/core/src/vault";
 import type { VaultItem } from "@padloc/core/src/item";
+import type { Vault } from "@padloc/core/src/vault";
 import { translate as $l } from "@padloc/locale/src/translate";
 import { app } from "../globals";
-import type { Select } from "./select";
-import { Dialog } from "./dialog";
 import type { Button } from "./button";
+import { Dialog } from "./dialog";
+import type { Select } from "./select";
 import "./select";
 import "./button";
-import { customElement, property, query } from "lit/decorators.js";
 import { html } from "lit";
+import { customElement, property, query } from "lit/decorators.js";
 import { alert } from "../lib/dialog";
 
 @customElement("pl-move-items-dialog")

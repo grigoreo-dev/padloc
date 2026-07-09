@@ -1,6 +1,6 @@
-import { getCryptoProvider, getCryptoProvider as getProvider } from "./platform";
-import { bytesToHex, stringToBytes } from "./encoding";
 import { HashParams } from "./crypto";
+import { bytesToHex, stringToBytes } from "./encoding";
+import { getCryptoProvider, getCryptoProvider as getProvider } from "./platform";
 
 /** Generates a random UUID v4 */
 export async function uuid(): Promise<string> {

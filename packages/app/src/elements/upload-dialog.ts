@@ -1,7 +1,7 @@
-import { translate as $l } from "@padloc/locale/src/translate";
-import type { VaultItemID } from "@padloc/core/src/item";
 import type { Attachment } from "@padloc/core/src/attachment";
 import { ErrorCode } from "@padloc/core/src/error";
+import type { VaultItemID } from "@padloc/core/src/item";
+import { translate as $l } from "@padloc/locale/src/translate";
 import { app } from "../globals";
 import { fileIcon, fileSize } from "../lib/util";
 import { Dialog } from "./dialog";
@@ -10,8 +10,8 @@ import type { Button } from "./button";
 import type { Input } from "./input";
 import "./button";
 import "./input";
-import { customElement, property, query, state } from "lit/decorators.js";
 import { css, html } from "lit";
+import { customElement, property, query, state } from "lit/decorators.js";
 
 @customElement("pl-upload-dialog")
 export class UploadDialog extends Dialog<{ file: File; item: VaultItemID }, Attachment> {

@@ -1,8 +1,8 @@
-import { Org, type OrgID, OrgMember, OrgMemberStatus, Group } from "./org";
-import type { Controller } from "./server";
-import { getIdFromEmail, uuid } from "./util";
 import { Auth } from "./auth";
 import { Err, ErrorCode } from "./error";
+import { Group, Org, type OrgID, OrgMember, OrgMemberStatus } from "./org";
+import type { Controller } from "./server";
+import { getIdFromEmail, uuid } from "./util";
 
 export interface DirectoryUser {
     externalId?: string;

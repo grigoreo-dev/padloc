@@ -1,9 +1,9 @@
-import { Err, ErrorCode } from "./error";
-import { toByteArray, fromByteArray, byteLength, isBase64 } from "./base64";
-import { upgrade, downgrade } from "./migrations";
 import { BigInteger } from "../vendor/jsbn";
+import { byteLength, fromByteArray, isBase64, toByteArray } from "./base64";
+import { Err, ErrorCode } from "./error";
+import { downgrade, upgrade } from "./migrations";
 
-export { bytesToBase32, base32ToBytes } from "./base32";
+export { base32ToBytes, bytesToBase32 } from "./base32";
 
 export interface SerializationOptions {
     property: string;

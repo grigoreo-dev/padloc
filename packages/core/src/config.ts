@@ -1,4 +1,4 @@
-import { Serializable, AsSerializable } from "./encoding";
+import { AsSerializable, Serializable } from "./encoding";
 
 /**
  * Generic type representing the constructor of a class extending [[Config]]

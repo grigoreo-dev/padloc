@@ -1,21 +1,21 @@
-import { type Authenticator, type AuthServer, type AuthRequest, AuthType } from "@padloc/core/src/auth";
+import type { Auth } from "@padloc/core/src/auth";
+import { type Authenticator, type AuthRequest, type AuthServer, AuthType } from "@padloc/core/src/auth";
+import { Config, ConfigParam } from "@padloc/core/src/config";
+import { base64ToBytes, bytesToBase64 } from "@padloc/core/src/encoding";
+import { Err, ErrorCode } from "@padloc/core/src/error";
 import {
-    generateRegistrationOptions,
-    verifyRegistrationResponse,
     generateAuthenticationOptions,
-    verifyAuthenticationResponse,
+    generateRegistrationOptions,
     MetadataService,
+    verifyAuthenticationResponse,
+    verifyRegistrationResponse,
 } from "@simplewebauthn/server";
 import type {
-    PublicKeyCredentialCreationOptionsJSON,
-    RegistrationCredentialJSON,
-    PublicKeyCredentialRequestOptionsJSON,
     AuthenticationCredentialJSON,
+    PublicKeyCredentialCreationOptionsJSON,
+    PublicKeyCredentialRequestOptionsJSON,
+    RegistrationCredentialJSON,
 } from "@simplewebauthn/typescript-types";
-import { Err, ErrorCode } from "@padloc/core/src/error";
-import { base64ToBytes, bytesToBase64 } from "@padloc/core/src/encoding";
-import type { Auth } from "@padloc/core/src/auth";
-import { Config, ConfigParam } from "@padloc/core/src/config";
 
 export class WebAuthnConfig extends Config {
     constructor(init: Partial<WebAuthnConfig> = {}) {

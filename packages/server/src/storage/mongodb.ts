@@ -1,22 +1,22 @@
+import { Config, ConfigParam } from "@padloc/core/src/config";
+import { Err, ErrorCode } from "@padloc/core/src/error";
 import {
-    MongoClient,
-    type Db,
-    type Collection,
-    type CreateCollectionOptions,
-    ObjectId,
-    type Filter,
-    type FindOptions,
-} from "mongodb";
-import {
-    type Storage,
     Storable,
     type StorableConstructor,
+    type Storage,
     type StorageListOptions,
     type StorageQuery,
 } from "@padloc/core/src/storage";
-import { Err, ErrorCode } from "@padloc/core/src/error";
+import {
+    type Collection,
+    type CreateCollectionOptions,
+    type Db,
+    type Filter,
+    type FindOptions,
+    MongoClient,
+    ObjectId,
+} from "mongodb";
 import path from "path";
-import { Config, ConfigParam } from "@padloc/core/src/config";
 
 export class MongoDBStorageConfig extends Config {
     @ConfigParam()

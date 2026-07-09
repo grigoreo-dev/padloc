@@ -1,10 +1,10 @@
+import type { Account } from "./account";
 import { API, type PromiseWithProgress } from "./api";
-import { type Sender, Request, type Response, RequestProgress } from "./transport";
+import { Serializable } from "./encoding";
+import { Err, ErrorCode } from "./error";
 import type { DeviceInfo } from "./platform";
 import type { Session } from "./session";
-import type { Account } from "./account";
-import { Err, ErrorCode } from "./error";
-import { Serializable } from "./encoding";
+import { Request, RequestProgress, type Response, type Sender } from "./transport";
 
 /**
  * Client state, keeping track of [[session]], [[account]] and [[device]] info

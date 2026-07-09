@@ -1,13 +1,13 @@
-import { View } from "./view";
-import { StateMixin } from "../mixins/state";
 import { Routing } from "../mixins/routing";
-import type { ItemsList, ItemsFilter } from "./items-list";
+import { StateMixin } from "../mixins/state";
+import type { ItemsFilter, ItemsList } from "./items-list";
+import { View } from "./view";
 import "./items-list";
 import "./item-view";
-import { customElement, property, query } from "lit/decorators.js";
-import { html } from "lit";
-import { wait } from "@padloc/core/src/util";
 import type { AuditType } from "@padloc/core/src/item";
+import { wait } from "@padloc/core/src/util";
+import { html } from "lit";
+import { customElement, property, query } from "lit/decorators.js";
 
 @customElement("pl-items")
 export class ItemsView extends Routing(StateMixin(View)) {

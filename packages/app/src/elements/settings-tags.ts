@@ -1,19 +1,19 @@
 import "./button";
 import "./scroller";
-import { html, LitElement } from "lit";
-import { StateMixin } from "../mixins/state";
-import { router } from "../globals";
 import { translate as $l } from "@padloc/locale/src/translate";
+import { html, LitElement } from "lit";
 import { customElement, state } from "lit/decorators.js";
+import { router } from "../globals";
+import { StateMixin } from "../mixins/state";
 import { shared } from "../styles";
 import "./popover";
 import "./icon";
 import "./sortable-list";
 import "./color-input";
-import type { ColorInput } from "./color-input";
-import { Routing } from "../mixins/routing";
 import type { TagInfo } from "@padloc/core/src/item";
 import { confirm, prompt } from "../lib/dialog";
+import { Routing } from "../mixins/routing";
+import type { ColorInput } from "./color-input";
 
 @customElement("pl-settings-tags")
 export class SettingsTags extends Routing(StateMixin(LitElement)) {

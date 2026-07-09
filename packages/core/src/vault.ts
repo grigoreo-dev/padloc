@@ -1,10 +1,10 @@
-import { SharedContainer } from "./container";
-import type { Storable } from "./storage";
-import { VaultItemCollection } from "./collection";
 import type { AccountID, UnlockedAccount } from "./account";
-import type { OrgInfo } from "./org";
-import { Exclude, AsDate } from "./encoding";
+import { VaultItemCollection } from "./collection";
+import { SharedContainer } from "./container";
+import { AsDate, Exclude } from "./encoding";
 import type { Err } from "./error";
+import type { OrgInfo } from "./org";
+import type { Storable } from "./storage";
 
 /** Unique identifier for [[Vault]] objects */
 export type VaultID = string;
