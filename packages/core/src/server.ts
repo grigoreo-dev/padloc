@@ -1,50 +1,50 @@
 import { Serializable, stringToBase64, bytesToBase64 } from "./encoding";
 import {
     API,
-    StartCreateSessionParams,
+    type StartCreateSessionParams,
     StartCreateSessionResponse,
-    CreateAccountParams,
-    RecoverAccountParams,
-    CompleteCreateSessionParams,
-    GetInviteParams,
-    GetAttachmentParams,
-    DeleteAttachmentParams,
-    GetLegacyDataParams,
-    StartRegisterAuthenticatorParams,
+    type CreateAccountParams,
+    type RecoverAccountParams,
+    type CompleteCreateSessionParams,
+    type GetInviteParams,
+    type GetAttachmentParams,
+    type DeleteAttachmentParams,
+    type GetLegacyDataParams,
+    type StartRegisterAuthenticatorParams,
     StartRegisterAuthenticatorResponse,
-    CompleteRegisterMFAuthenticatorParams,
+    type CompleteRegisterMFAuthenticatorParams,
     CompleteRegisterMFAuthenticatorResponse,
     StartAuthRequestResponse,
     CompleteAuthRequestResponse,
-    CompleteAuthRequestParams,
-    StartAuthRequestParams,
-    CreateKeyStoreEntryParams,
-    GetKeyStoreEntryParams,
+    type CompleteAuthRequestParams,
+    type StartAuthRequestParams,
+    type CreateKeyStoreEntryParams,
+    type GetKeyStoreEntryParams,
     AuthInfo,
-    UpdateAuthParams,
-    ListParams,
+    type UpdateAuthParams,
+    type ListParams,
     ListResponse,
-    ChangeEmailParams,
+    type ChangeEmailParams,
 } from "./api";
-import { Storage } from "./storage";
-import { Attachment, AttachmentStorage } from "./attachment";
-import { Session, SessionID } from "./session";
-import { Account, AccountID } from "./account";
+import type { Storage } from "./storage";
+import type { Attachment, AttachmentStorage } from "./attachment";
+import { Session, type SessionID } from "./session";
+import { Account, type AccountID } from "./account";
 import { Auth, AccountStatus } from "./auth";
 import {
     AuthRequest,
     AuthPurpose,
     Authenticator,
-    AuthServer,
+    type AuthServer,
     AuthType,
     AuthenticatorStatus,
     AuthRequestStatus,
 } from "./auth";
-import { Request, Response } from "./transport";
+import { type Request, Response } from "./transport";
 import { Err, ErrorCode } from "./error";
-import { Vault, VaultID } from "./vault";
-import { Org, OrgID, OrgMember, OrgMemberStatus, OrgRole, ScimSettings } from "./org";
-import { Invite } from "./invite";
+import { Vault, type VaultID } from "./vault";
+import { Org, type OrgID, OrgMember, OrgMemberStatus, OrgRole, ScimSettings } from "./org";
+import type { Invite } from "./invite";
 import {
     ConfirmMembershipInviteMessage,
     PlainMessage,
@@ -53,17 +53,24 @@ import {
     JoinOrgInviteMessage,
     FailedLoginAttemptMessage,
     NewLoginMessage,
-    Messenger,
+    type Messenger,
 } from "./messenger";
 import { Server as SRPServer, SRPSession } from "./srp";
-import { DeviceInfo, getCryptoProvider } from "./platform";
+import { type DeviceInfo, getCryptoProvider } from "./platform";
 import { getIdFromEmail, uuid, removeTrailingSlash } from "./util";
 import { loadLanguage, translate as $l } from "@padloc/locale/src/translate";
-import { ChangeLogEntry, ChangeLogger, Logger, RequestLogEntry, RequestLogger, VoidLogger } from "./logging";
-import { PBES2Container } from "./container";
+import {
+    type ChangeLogEntry,
+    type ChangeLogger,
+    type Logger,
+    type RequestLogEntry,
+    type RequestLogger,
+    VoidLogger,
+} from "./logging";
+import type { PBES2Container } from "./container";
 import { KeyStoreEntry } from "./key-store";
 import { Config, ConfigParam } from "./config";
-import { Provisioner, Provisioning, ProvisioningStatus, StubProvisioner } from "./provisioning";
+import { type Provisioner, type Provisioning, ProvisioningStatus, StubProvisioner } from "./provisioning";
 import { V3Compat } from "./v3-compat";
 
 /** Server configuration */
@@ -142,7 +149,10 @@ export class Controller extends API {
     public changeLogger?: ChangeLogger;
     public requestLogger?: RequestLogger;
 
-    constructor(public server: Server, context: Context) {
+    constructor(
+        public server: Server,
+        context: Context
+    ) {
         super();
         this.context = context;
         this.logger = server.logger.withContext(context);
@@ -441,7 +451,7 @@ export class Controller extends API {
 
         const provider = this._getAuthServer(request.type);
 
-        let metaData: any = undefined;
+        let metaData: any;
 
         try {
             metaData = await provider.verifyAuthRequest(authenticator, request, data);

@@ -7,8 +7,10 @@ import { dialog } from "../lib/dialog";
 import { translate as $l } from "@padloc/locale/src/translate";
 import { customElement, query } from "lit/decorators.js";
 import { shared } from "../styles";
-import { ImportDialog } from "./import-dialog";
-import { ExportDialog } from "./export-dialog";
+import type { ImportDialog } from "./import-dialog";
+import type { ExportDialog } from "./export-dialog";
+import "./import-dialog";
+import "./export-dialog";
 
 @customElement("pl-settings-tools")
 export class SettingsTools extends StateMixin(LitElement) {

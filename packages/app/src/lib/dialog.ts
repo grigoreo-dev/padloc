@@ -3,10 +3,10 @@ import "../elements/generator";
 import "../elements/alert-dialog";
 import "../elements/prompt-dialog";
 import "../elements/export-dialog";
-import { AlertDialog, AlertOptions } from "../elements/alert-dialog";
-import { PromptDialog, PromptOptions } from "../elements/prompt-dialog";
+import type { AlertDialog, AlertOptions } from "../elements/alert-dialog";
+import type { PromptDialog, PromptOptions } from "../elements/prompt-dialog";
 import { getSingleton } from "./singleton";
-import { LitElement, TemplateResult } from "lit";
+import type { LitElement, TemplateResult } from "lit";
 
 let lastDialogPromise = Promise.resolve();
 let currentDialog: any;

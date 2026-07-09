@@ -6,7 +6,7 @@ import { bytesToBase64, base64ToBytes } from "@padloc/core/src/encoding";
 import { AjaxSender } from "@padloc/app/src/lib/ajax";
 import { throttle, debounce } from "@padloc/core/src/util";
 import { ExtensionPlatform } from "./platform";
-import { Message, messageTab } from "./message";
+import { type Message, messageTab } from "./message";
 
 setPlatform(new ExtensionPlatform());
 
@@ -100,7 +100,7 @@ class ExtensionBackground {
             return;
         }
 
-        const match = menuItemId.match(/^item\/([^\/]+)(?:\/(\d+))?$/);
+        const match = menuItemId.match(/^item\/([^/]+)(?:\/(\d+))?$/);
 
         if (!match) {
             return;

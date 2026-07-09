@@ -1,12 +1,14 @@
 import { translate as $l } from "@padloc/locale/src/translate";
-import { OrgMember } from "@padloc/core/src/org";
+import type { OrgMember } from "@padloc/core/src/org";
 import { StateMixin } from "../mixins/state";
 import { Routing } from "../mixins/routing";
 import { dialog, alert } from "../lib/dialog";
 import { app } from "../globals";
 import { shared } from "../styles";
-import { Input } from "./input";
-import { CreateInvitesDialog } from "./create-invites-dialog";
+import type { Input } from "./input";
+import type { CreateInvitesDialog } from "./create-invites-dialog";
+import "./input";
+import "./create-invites-dialog";
 import "./member-item";
 import "./icon";
 import "./member-view";
@@ -20,7 +22,7 @@ import { base64ToString, stringToBase64 } from "@padloc/core/src/encoding";
 
 @customElement("pl-org-members")
 export class OrgMembersView extends Routing(StateMixin(LitElement)) {
-    readonly routePattern = /^orgs\/([^\/]+)\/members(?:\/([^\/]+))?/;
+    readonly routePattern = /^orgs\/([^/]+)\/members(?:\/([^/]+))?/;
 
     @property()
     orgId: string = "";

@@ -1,19 +1,19 @@
 import {
-    CryptoProvider,
-    PBKDF2Params,
-    AESKey,
-    RSAPublicKey,
-    RSAPrivateKey,
-    HMACKey,
-    SymmetricKey,
-    AESKeyParams,
-    RSAKeyParams,
+    type CryptoProvider,
+    type PBKDF2Params,
+    type AESKey,
+    type RSAPublicKey,
+    type RSAPrivateKey,
+    type HMACKey,
+    type SymmetricKey,
+    type AESKeyParams,
+    type RSAKeyParams,
     HMACParams,
     HMACKeyParams,
-    AESEncryptionParams,
-    RSAEncryptionParams,
-    HashParams,
-    RSASigningParams,
+    type AESEncryptionParams,
+    type RSAEncryptionParams,
+    type HashParams,
+    type RSASigningParams,
 } from "@padloc/core/src/crypto";
 import { Err, ErrorCode } from "@padloc/core/src/error";
 import SJCLProvider from "@padloc/core/src/sjcl";
@@ -39,7 +39,7 @@ export class WebCryptoProvider implements CryptoProvider {
             case "AES":
             case "HMAC":
                 return this.randomBytes(params.keySize / 8);
-            case "RSA":
+            case "RSA": {
                 const keyPair = (await webCrypto.generateKey(Object.assign(params, { name: "RSA-OAEP" }), true, [
                     "encrypt",
                     "decrypt",
@@ -52,6 +52,7 @@ export class WebCryptoProvider implements CryptoProvider {
                     privateKey: new Uint8Array(privateKey),
                     publicKey: new Uint8Array(publicKey),
                 };
+            }
             // case "HMAC":
             //     const key = await webCrypto.generateKey(Object.assign({}, params, { name: params.algorithm }), true, [
             //         "sign",

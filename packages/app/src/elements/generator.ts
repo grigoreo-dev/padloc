@@ -3,9 +3,12 @@ import { generatePassphrase, AVAILABLE_LANGUAGES } from "@padloc/core/src/dicewa
 import { translate as $l } from "@padloc/locale/src/translate";
 import { animateElement } from "../lib/animation";
 import { app } from "../globals";
-import { Slider } from "./slider";
-import { ToggleButton } from "./toggle-button";
-import { Select } from "./select";
+import type { Slider } from "./slider";
+import type { ToggleButton } from "./toggle-button";
+import type { Select } from "./select";
+import "./slider";
+import "./toggle-button";
+import "./select";
 import "./icon";
 import "./button";
 import { customElement, property, query } from "lit/decorators.js";
@@ -181,7 +184,7 @@ export class Generator extends LitElement {
             case "words":
                 this.value = await generatePassphrase(this._wordCount.value, separator, [language]);
                 break;
-            case "chars":
+            case "chars": {
                 let charSet = "";
                 this._lower.active && (charSet += chars.lower);
                 this._upper.active && (charSet += chars.upper);
@@ -189,6 +192,7 @@ export class Generator extends LitElement {
                 this._other.active && (charSet += chars.other);
                 this.value = charSet ? await randomString(this._length.value, charSet) : "";
                 break;
+            }
         }
 
         animateElement(this._result, { animation: "bounce" });

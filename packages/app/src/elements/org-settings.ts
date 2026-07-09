@@ -5,21 +5,23 @@ import { Routing } from "../mixins/routing";
 import { alert, prompt, confirm } from "../lib/dialog";
 import { app } from "../globals";
 import { shared } from "../styles";
-import { Button } from "./button";
+import type { Button } from "./button";
 import "./list";
 import "./icon";
 import "./org-nav";
 import { customElement, property, query } from "lit/decorators.js";
 import { html, LitElement } from "lit";
 import "./drawer";
-import { ToggleButton } from "./toggle-button";
+import type { ToggleButton } from "./toggle-button";
+import "./button";
+import "./toggle-button";
 import { setClipboard } from "../lib/clipboard";
 import { live } from "lit/directives/live.js";
 import { checkFeatureDisabled } from "../lib/provisioning";
 
 @customElement("pl-org-settings")
 export class OrgSettingsView extends Routing(StateMixin(LitElement)) {
-    readonly routePattern = /^orgs\/([^\/]+)\/settings/;
+    readonly routePattern = /^orgs\/([^/]+)\/settings/;
 
     @property()
     orgId: string = "";

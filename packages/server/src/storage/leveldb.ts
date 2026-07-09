@@ -1,13 +1,13 @@
 // @ts-ignore
 import level from "level";
 import {
-    Storage,
+    type Storage,
     Storable,
-    StorableConstructor,
-    StorageListOptions,
+    type StorableConstructor,
+    type StorageListOptions,
     filterByQuery,
     sortBy,
-    StorageQuery,
+    type StorageQuery,
 } from "@padloc/core/src/storage";
 import { Err, ErrorCode } from "@padloc/core/src/error";
 import { Config, ConfigParam } from "@padloc/core/src/config";

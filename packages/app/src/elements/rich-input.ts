@@ -9,7 +9,7 @@ import "./popover";
 import { htmlToMarkdown, markdownToHtml } from "../lib/markdown";
 import { $l } from "@padloc/locale/src/translate";
 import "./textarea";
-import { Textarea } from "./textarea";
+import type { Textarea } from "./textarea";
 import "./select";
 import { customScrollbar } from "../styles/mixins";
 
@@ -130,13 +130,15 @@ export class RichInput extends LitElement {
                 <div class="small padded double-spacing horizontal layout border-bottom">
                     <div class="half-spacing wrapping horizontal layout stretch" ?disabled=${this.mode !== "wysiwyg"}>
                         <pl-button class="transparent slim" title="${$l("Text Mode")}">
-                            ${this._editor?.isActive("heading", { level: 1 })
-                                ? html` <pl-icon icon="heading-1"></pl-icon> `
-                                : this._editor?.isActive("heading", { level: 2 })
-                                ? html` <pl-icon icon="heading-2"></pl-icon> `
-                                : this._editor?.isActive("heading", { level: 3 })
-                                ? html` <pl-icon icon="heading-3"></pl-icon> `
-                                : html` <pl-icon icon="text"></pl-icon> `}
+                            ${
+                                this._editor?.isActive("heading", { level: 1 })
+                                    ? html` <pl-icon icon="heading-1"></pl-icon> `
+                                    : this._editor?.isActive("heading", { level: 2 })
+                                      ? html` <pl-icon icon="heading-2"></pl-icon> `
+                                      : this._editor?.isActive("heading", { level: 3 })
+                                        ? html` <pl-icon icon="heading-3"></pl-icon> `
+                                        : html` <pl-icon icon="text"></pl-icon> `
+                            }
 
                             <pl-icon class="small" icon="dropdown"></pl-icon>
                         </pl-button>

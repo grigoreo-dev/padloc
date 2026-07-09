@@ -7,7 +7,8 @@ import { CSV, PBES2 } from "../lib/import";
 import { supportedFormats, asCSV, asPBES2Container } from "../lib/export";
 import { app } from "../globals";
 import { prompt } from "../lib/dialog";
-import { Select } from "./select";
+import type { Select } from "./select";
+import "./select";
 import { Dialog } from "./dialog";
 import { html } from "lit";
 import { customElement, query } from "lit/decorators.js";
@@ -147,8 +148,8 @@ export class ExportDialog extends Dialog<void, void> {
             const zip = new JSZip();
 
             const date = new Date().toISOString().substring(0, 10);
-            let zipFileName = `All_Vaults_${date}.zip`;
-            let zipFileType = "application/zip";
+            const zipFileName = `All_Vaults_${date}.zip`;
+            const zipFileType = "application/zip";
 
             for (const vault of app.vaults) {
                 const result = await this._exportData(vault, password);

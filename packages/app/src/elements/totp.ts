@@ -116,9 +116,11 @@ export class TOTPElement extends LitElement {
 
     render() {
         return html`
-            ${this._error
-                ? html` <span class="error">${this._error}</span> `
-                : html` <span> ${this.token.substring(0, 3)}&nbsp;${this.token.substring(3, 6)} </span> `}
+            ${
+                this._error
+                    ? html` <span class="error">${this._error}</span> `
+                    : html` <span> ${this.token.substring(0, 3)}&nbsp;${this.token.substring(3, 6)} </span> `
+            }
             ${svg`
                 <svg class="countdown" viewBox="0 0 10 10" ?hidden=${!this.token}>
                     <circle cx="5" cy="5" r="4" class="bg" />

@@ -1,10 +1,12 @@
-import { Vault } from "@padloc/core/src/vault";
-import { VaultItem } from "@padloc/core/src/item";
+import type { Vault } from "@padloc/core/src/vault";
+import type { VaultItem } from "@padloc/core/src/item";
 import { translate as $l } from "@padloc/locale/src/translate";
 import { app } from "../globals";
-import { Select } from "./select";
+import type { Select } from "./select";
 import { Dialog } from "./dialog";
-import { Button } from "./button";
+import type { Button } from "./button";
+import "./select";
+import "./button";
 import { customElement, property, query } from "lit/decorators.js";
 import { html } from "lit";
 import { alert } from "../lib/dialog";
@@ -58,7 +60,7 @@ export class MoveItemsDialog extends Dialog<{ vault: Vault; item: VaultItem }[],
     private async _enter() {
         this._enterButton.start();
         try {
-            let start = Date.now();
+            const start = Date.now();
             const moved = await app.moveItems(
                 this.items.map((i) => i.item),
                 this._vaultSelect.value!

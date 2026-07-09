@@ -1,5 +1,5 @@
 import { app, BrowserWindow, Menu, dialog, shell, powerMonitor } from "electron";
-import { autoUpdater, UpdateInfo } from "electron-updater";
+import { autoUpdater, type UpdateInfo } from "electron-updater";
 // import * as os from "os";
 import ElectronStore from "electron-store";
 
@@ -151,7 +151,7 @@ function createWindow(path: string = "") {
     // });
 
     // Open links in browser
-    win.webContents.on("new-window", function (e, url) {
+    win.webContents.on("new-window", (e, url) => {
         e.preventDefault();
         shell.openExternal(url);
     });

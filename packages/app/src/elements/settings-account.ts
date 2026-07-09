@@ -9,7 +9,8 @@ import { shared } from "../styles";
 import { app, router } from "../globals";
 import { translate as $l } from "@padloc/locale/src/translate";
 import { prompt, confirm, alert } from "../lib/dialog";
-import { Input } from "./input";
+import type { Input } from "./input";
+import "./input";
 import { Routing } from "../mixins/routing";
 
 @customElement("pl-settings-account")
@@ -147,8 +148,9 @@ export class SettingsAccount extends Routing(StateMixin(LitElement)) {
                             "This action can not be undone!"
                     )}
                 </div>
-                ${ownedOrgs.length
-                    ? html`
+                ${
+                    ownedOrgs.length
+                        ? html`
                           <div class="padded top-margined negative highlighted box">
                               <strong>WARNING:</strong> ${$l(
                                   "The following organizations are owned by you and will be deleted along with your account:"
@@ -156,7 +158,8 @@ export class SettingsAccount extends Routing(StateMixin(LitElement)) {
                               <strong>${ownedOrgs.map((org) => org.name).join(", ")}</strong>
                           </div>
                       `
-                    : ""}
+                        : ""
+                }
             `,
             {
                 type: "destructive",

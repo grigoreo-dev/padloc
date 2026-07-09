@@ -1,5 +1,5 @@
-import { createServer, IncomingMessage } from "http";
-import { Receiver, Request, Sender, Response } from "@padloc/core/src/transport";
+import { createServer, type IncomingMessage } from "http";
+import { type Receiver, Request, type Sender, Response } from "@padloc/core/src/transport";
 import { marshal, unmarshal } from "@padloc/core/src/encoding";
 import { Err, ErrorCode } from "@padloc/core/src/error";
 import { getLocation } from "../geoip";
@@ -63,7 +63,7 @@ export class HTTPReceiver implements Receiver {
                 case "OPTIONS":
                     httpRes.end();
                     break;
-                case "GET":
+                case "GET": {
                     // httpReq.url will include searchParams, so we parse the pathname properly
                     const url = new URL(`http://localhost${httpReq.url || ""}`);
                     if (url.pathname === this.config.healthCheckPath) {
@@ -74,6 +74,7 @@ export class HTTPReceiver implements Receiver {
                     }
                     httpRes.end();
                     break;
+                }
                 case "POST":
                     try {
                         const body = await readBody(httpReq, this.config.maxRequestSize);

@@ -1,12 +1,14 @@
 import { translate as $l } from "@padloc/locale/src/translate";
-import { Invite } from "@padloc/core/src/invite";
+import type { Invite } from "@padloc/core/src/invite";
 import { StateMixin } from "../mixins/state";
 import { Routing } from "../mixins/routing";
 import { dialog, alert } from "../lib/dialog";
 import { app } from "../globals";
 import { shared } from "../styles";
-import { Input } from "./input";
-import { CreateInvitesDialog } from "./create-invites-dialog";
+import type { Input } from "./input";
+import type { CreateInvitesDialog } from "./create-invites-dialog";
+import "./input";
+import "./create-invites-dialog";
 import "./invite-item";
 import "./icon";
 import "./invite-view";
@@ -17,7 +19,7 @@ import { html, LitElement } from "lit";
 
 @customElement("pl-org-invites")
 export class OrgInvitesView extends Routing(StateMixin(LitElement)) {
-    readonly routePattern = /^orgs\/([^\/]+)\/invites(?:\/([^\/]+))?/;
+    readonly routePattern = /^orgs\/([^/]+)\/invites(?:\/([^/]+))?/;
 
     @property()
     orgId: string = "";

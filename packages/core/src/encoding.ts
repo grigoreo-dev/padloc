@@ -15,7 +15,7 @@ export interface SerializationOptions {
 }
 
 function registerSerializationOptions(proto: Serializable, property: string, opts: Partial<SerializationOptions>) {
-    if (!proto.hasOwnProperty("_propertySerializationOptions")) {
+    if (!Object.prototype.hasOwnProperty.call(proto, "_propertySerializationOptions")) {
         const parentOptions = proto._propertySerializationOptions || [];
         proto._propertySerializationOptions = parentOptions ? [...parentOptions] : [];
     }
@@ -258,7 +258,7 @@ export class Serializable {
      * special treatment.
      */
     protected _toRaw(version: string | undefined): any {
-        let raw = {} as any;
+        const raw = {} as any;
 
         for (const [prop, val] of Object.entries(this)) {
             const opts =
@@ -298,7 +298,7 @@ export class Serializable {
 
             // Skip properties that have no serialization options associated with them
             // and are not explicitly defined as a property on the class
-            if (!opts && !this.hasOwnProperty(prop)) {
+            if (!opts && !Object.prototype.hasOwnProperty.call(this, prop)) {
                 continue;
             }
 

@@ -1,7 +1,7 @@
 import { join } from "path";
 import { readFile, writeFile, ensureDir, remove, readdir, stat } from "fs-extra";
-import { Attachment, AttachmentID, AttachmentStorage } from "@padloc/core/src/attachment";
-import { VaultID } from "@padloc/core/src/vault";
+import { Attachment, type AttachmentID, type AttachmentStorage } from "@padloc/core/src/attachment";
+import type { VaultID } from "@padloc/core/src/vault";
 import { Err, ErrorCode } from "@padloc/core/src/error";
 import { Config, ConfigParam } from "@padloc/core/src/config";
 

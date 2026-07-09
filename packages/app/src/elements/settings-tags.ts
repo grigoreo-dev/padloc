@@ -10,9 +10,9 @@ import "./popover";
 import "./icon";
 import "./sortable-list";
 import "./color-input";
-import { ColorInput } from "./color-input";
+import type { ColorInput } from "./color-input";
 import { Routing } from "../mixins/routing";
-import { TagInfo } from "@padloc/core/src/item";
+import type { TagInfo } from "@padloc/core/src/item";
 import { confirm, prompt } from "../lib/dialog";
 
 @customElement("pl-settings-tags")
@@ -119,16 +119,18 @@ export class SettingsTags extends Routing(StateMixin(LitElement)) {
 
                 <pl-scroller class="stretch">
                     <div class="double-margined box">
-                        ${!this._tags.length
-                            ? html`<div class="double-padded subtle">${$l("You don't have any tags yet.")}</div>`
-                            : ""}
+                        ${
+                            !this._tags.length
+                                ? html`<div class="double-padded subtle">${$l("You don't have any tags yet.")}</div>`
+                                : ""
+                        }
 
                         <pl-sortable-list
                             .items=${this._tags}
                             @item-moved=${this._save}
                             .renderItem=${(tag: TagInfo, i: number) => html`
                                 <div
-                                    class="center-aligning horizontal layout ${!!i ? "border-top" : ""}"
+                                    class="center-aligning horizontal layout ${i ? "border-top" : ""}"
                                     style="cursor: grab"
                                 >
                                     <pl-color-input
@@ -195,20 +197,22 @@ export class SettingsTags extends Routing(StateMixin(LitElement)) {
                             </pl-popover>
                         </h2>
 
-                        ${!this._unlistedTags.length
-                            ? html`
+                        ${
+                            !this._unlistedTags.length
+                                ? html`
                                   <div class="double-padded subtle small">
                                       ${$l("You don't have any unlisted tags.")}
                                   </div>
                               `
-                            : ""}
+                                : ""
+                        }
 
                         <pl-sortable-list
                             .items=${this._unlistedTags}
                             @item-moved=${this._save}
                             .renderItem=${(tag: TagInfo, i: number) => html`
                                 <div
-                                    class="center-aligning horizontal layout ${!!i ? "border-top" : ""}"
+                                    class="center-aligning horizontal layout ${i ? "border-top" : ""}"
                                     style="cursor: grab"
                                 >
                                     <pl-icon icon="hide" style="margin: 0.7em"></pl-icon>

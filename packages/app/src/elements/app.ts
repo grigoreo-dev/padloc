@@ -1,7 +1,7 @@
 import { css, html, LitElement } from "lit";
 import { customElement, property, state, query } from "lit/decorators.js";
 import { translate as $l } from "@padloc/locale/src/translate";
-import { VaultItem } from "@padloc/core/src/item";
+import type { VaultItem } from "@padloc/core/src/item";
 import { shared, mixins } from "../styles";
 import { app, router } from "../globals";
 import { StateMixin } from "../mixins/state";
@@ -12,9 +12,9 @@ import { AutoSync } from "../mixins/auto-sync";
 import { ServiceWorker } from "../mixins/service-worker";
 import { alert, confirm, prompt, dialog } from "../lib/dialog";
 import { Dialog } from "./dialog";
-import { CreateOrgDialog } from "./create-org-dialog";
-import { CreateItemDialog } from "./create-item-dialog";
-import { TOTPElement } from "./totp";
+import type { CreateOrgDialog } from "./create-org-dialog";
+import type { CreateItemDialog } from "./create-item-dialog";
+import type { TOTPElement } from "./totp";
 import "./icon";
 import "./start";
 import "./org-view";
@@ -29,7 +29,11 @@ import { AuthPurpose } from "@padloc/core/src/auth";
 import { ProvisioningStatus } from "@padloc/core/src/provisioning";
 import "./rich-content";
 import { alertDisabledFeature, displayProvisioning, getDefaultStatusLabel } from "../lib/provisioning";
-import { ItemsView } from "./items";
+import type { ItemsView } from "./items";
+import "./create-org-dialog";
+import "./create-item-dialog";
+import "./totp";
+import "./items";
 import { wait, throttle } from "@padloc/core/src/util";
 import { auditVaults } from "../lib/audit";
 import { stringToBase64 } from "@padloc/core/src/encoding";
@@ -37,7 +41,7 @@ import { stringToBase64 } from "@padloc/core/src/encoding";
 @customElement("pl-app")
 export class App extends ServiceWorker(StateMixin(AutoSync(ErrorHandling(AutoLock(Routing(LitElement)))))) {
     @property({ attribute: false })
-    readonly routePattern = /^([^\/]*)(?:\/([^\/]+))?/;
+    readonly routePattern = /^([^/]*)(?:\/([^/]+))?/;
 
     @property({ type: Boolean, reflect: true, attribute: "singleton-container" })
     readonly singletonContainer = true;
@@ -303,8 +307,9 @@ export class App extends ServiceWorker(StateMixin(AutoSync(ErrorHandling(AutoLoc
     render() {
         const provisioning = app.getAccountProvisioning();
         return html`
-            ${app.offline
-                ? html`
+            ${
+                app.offline
+                    ? html`
                       <div class="offline-indicator">
                           ${$l("o f f l i n e")}
 
@@ -313,8 +318,8 @@ export class App extends ServiceWorker(StateMixin(AutoSync(ErrorHandling(AutoLoc
                           </pl-button>
                       </div>
                   `
-                : provisioning?.status === ProvisioningStatus.Frozen
-                ? html`
+                    : provisioning?.status === ProvisioningStatus.Frozen
+                      ? html`
                       <div class="offline-indicator">
                           ${provisioning.statusLabel || getDefaultStatusLabel(provisioning.status)}
 
@@ -323,7 +328,8 @@ export class App extends ServiceWorker(StateMixin(AutoSync(ErrorHandling(AutoLoc
                           </pl-button>
                       </div>
                   `
-                : ""}
+                      : ""
+            }
 
             <div class="main">
                 <pl-start id="startView" active></pl-start>
@@ -502,7 +508,7 @@ export class App extends ServiceWorker(StateMixin(AutoSync(ErrorHandling(AutoLoc
             return;
         }
 
-        let authenticatorId: string | undefined = undefined;
+        let authenticatorId: string | undefined;
 
         try {
             authenticatorId = await registerPlatformAuthenticator([AuthPurpose.AccessKeyStore]);

@@ -1,4 +1,4 @@
-import { PBKDF2Params, AESKey, AESEncryptionParams } from "./crypto";
+import type { PBKDF2Params, AESKey, AESEncryptionParams } from "./crypto";
 import { Err, ErrorCode } from "./error";
 import { sjcl } from "../vendor/sjcl";
 

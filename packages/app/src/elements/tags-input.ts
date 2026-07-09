@@ -1,4 +1,4 @@
-import { Tag } from "@padloc/core/src/item";
+import type { Tag } from "@padloc/core/src/item";
 import { $l } from "@padloc/locale/src/translate";
 import { css, customElement, html, LitElement, property, query } from "lit-element";
 import { app, router } from "../globals";
@@ -174,9 +174,10 @@ export class TagsInput extends LitElement {
                 </div>
 
                 <pl-list class="results" style="display: none">
-                    ${results.length
-                        ? results.map(
-                              ({ name, count, color }) => html`
+                    ${
+                        results.length
+                            ? results.map(
+                                  ({ name, count, color }) => html`
                                   <div
                                       class="padded half-spacing center-aligning horizontal layout list-item click hover"
                                       @click=${() => this._addTag(name)}
@@ -189,8 +190,9 @@ export class TagsInput extends LitElement {
                                       </div>
                                   </div>
                               `
-                          )
-                        : html` <div class="smaller padded subtle">${$l("Type tag name...")}</div> `}
+                              )
+                            : html` <div class="smaller padded subtle">${$l("Type tag name...")}</div> `
+                    }
                 </pl-list>
             </div>
         `;

@@ -1,4 +1,4 @@
-import { VaultID } from "@padloc/core/src/vault";
+import type { VaultID } from "@padloc/core/src/vault";
 import { StateMixin } from "../mixins/state";
 import { Routing } from "../mixins/routing";
 import { app } from "../globals";
@@ -14,7 +14,7 @@ import { checkFeatureDisabled } from "../lib/provisioning";
 
 @customElement("pl-org-vaults")
 export class OrgVaultsView extends Routing(StateMixin(LitElement)) {
-    readonly routePattern = /^orgs\/([^\/]+)\/vaults(?:\/([^\/]+))?/;
+    readonly routePattern = /^orgs\/([^/]+)\/vaults(?:\/([^/]+))?/;
 
     @property()
     orgId: string = "";

@@ -1,16 +1,16 @@
-import { Platform, StubPlatform, DeviceInfo } from "@padloc/core/src/platform";
+import { type Platform, StubPlatform, DeviceInfo } from "@padloc/core/src/platform";
 import { bytesToBase64 } from "@padloc/core/src/encoding";
 import { WebCryptoProvider } from "./crypto";
 import { LocalStorage } from "./storage";
-import { AuthPurpose, AuthRequestStatus, AuthType } from "@padloc/core/src/auth";
+import { type AuthPurpose, AuthRequestStatus, AuthType } from "@padloc/core/src/auth";
 import { webAuthnClient } from "./auth/webauthn";
 import {
-    StartRegisterAuthenticatorResponse,
+    type StartRegisterAuthenticatorResponse,
     CompleteRegisterMFAuthenticatorParams,
     StartAuthRequestParams,
     CompleteAuthRequestParams,
     StartRegisterAuthenticatorParams,
-    StartAuthRequestResponse,
+    type StartAuthRequestResponse,
 } from "@padloc/core/src/api";
 import { app } from "../globals";
 import { Err, ErrorCode } from "@padloc/core/src/error";

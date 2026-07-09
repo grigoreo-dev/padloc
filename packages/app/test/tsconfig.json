@@ -13,7 +13,6 @@
         "removeComments": false,
         "preserveConstEnums": true,
         "suppressImplicitAnyIndexErrors": true,
-        "declaration": false,
         "sourceMap": false,
         "declaration": true,
         "pretty": true,

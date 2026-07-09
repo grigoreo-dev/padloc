@@ -1,14 +1,17 @@
-import { Vault } from "@padloc/core/src/vault";
-import { VaultItem, FIELD_DEFS, FieldType } from "@padloc/core/src/item";
+import type { Vault } from "@padloc/core/src/vault";
+import { type VaultItem, FIELD_DEFS, FieldType } from "@padloc/core/src/item";
 import { translate as $l } from "@padloc/locale/src/translate";
 import * as imp from "../lib/import";
 import { prompt, alert } from "../lib/dialog";
 import { app } from "../globals";
-import { Select } from "./select";
-import { Input } from "./input";
+import type { Select } from "./select";
+import type { Input } from "./input";
 import { Dialog } from "./dialog";
 import "./button";
-import { ToggleButton } from "./toggle-button";
+import type { ToggleButton } from "./toggle-button";
+import "./select";
+import "./input";
+import "./toggle-button";
 import { customElement, query, state, queryAll } from "lit/decorators.js";
 import { html, css } from "lit";
 import { selectFile } from "../lib/util";
@@ -129,9 +132,11 @@ export class ImportDialog extends Dialog<File, void> {
                                 >
                                     <div class="small margined spacing horizontal layout">
                                         <div class="stretch">
-                                            ${csvHasColumnsOnFirstRow
-                                                ? itemColumn.name
-                                                : $l("Column {0}", (itemColumnIndex + 1).toString())}
+                                            ${
+                                                csvHasColumnsOnFirstRow
+                                                    ? itemColumn.name
+                                                    : $l("Column {0}", (itemColumnIndex + 1).toString())
+                                            }
                                         </div>
                                         <div class="subtle" ?hidden=${!csvHasColumnsOnFirstRow}>
                                             ${$l("Column {0}", (itemColumnIndex + 1).toString())}
@@ -157,8 +162,10 @@ export class ImportDialog extends Dialog<File, void> {
                                     <pl-select
                                         id=${`itemColumnSelect-${itemColumnIndex}`}
                                         class="field-type-select"
-                                        icon=${(FIELD_DEFS as Record<string, { icon?: string }>)[itemColumn.type]
-                                            ?.icon || "text"}
+                                        icon=${
+                                            (FIELD_DEFS as Record<string, { icon?: string }>)[itemColumn.type]?.icon ||
+                                            "text"
+                                        }
                                         .label=${$l("Field Type")}
                                         .options=${fieldTypeOptions}
                                         .value=${itemColumn.type}
@@ -289,7 +296,7 @@ export class ImportDialog extends Dialog<File, void> {
         const file = this._file;
 
         switch (this._formatSelect.value) {
-            case imp.PADLOCK_LEGACY.value:
+            case imp.PADLOCK_LEGACY.value: {
                 this.open = false;
                 const pwd = await prompt($l("This file is protected by a password."), {
                     title: $l("Enter Password"),
@@ -310,10 +317,11 @@ export class ImportDialog extends Dialog<File, void> {
                     this.done();
                 }
                 break;
+            }
             case imp.LASTPASS.value:
                 this._items = await imp.asLastPass(file);
                 break;
-            case imp.CSV.value:
+            case imp.CSV.value: {
                 const result = await imp.asCSV(
                     file,
                     resetCSVColumns ? [] : this._itemColumns,
@@ -326,6 +334,7 @@ export class ImportDialog extends Dialog<File, void> {
                 // +1 because the first item is "none" for tags
                 this._tagsColumnSelect.selectedIndex = this._itemColumns.findIndex(({ type }) => type === "tags") + 1;
                 break;
+            }
             case imp.ONEPUX.value:
                 this._items = await imp.as1Pux(file);
                 break;
@@ -350,7 +359,7 @@ export class ImportDialog extends Dialog<File, void> {
             case imp.FIREFOX.value:
                 this._items = await imp.asFirefox(file);
                 break;
-            case imp.PBES2.value:
+            case imp.PBES2.value: {
                 this.open = false;
                 const pwd2 = await prompt($l("This file is protected by a password."), {
                     title: $l("Enter Password"),
@@ -371,6 +380,7 @@ export class ImportDialog extends Dialog<File, void> {
                     this.done();
                 }
                 break;
+            }
             default:
                 this._items = [];
         }

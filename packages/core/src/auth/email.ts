@@ -1,5 +1,12 @@
-import { Auth, Authenticator, AuthenticatorStatus, AuthRequest, AuthServer, AuthType } from "../auth";
-import { Messenger, EmailAuthMessage } from "../messenger";
+import {
+    type Auth,
+    type Authenticator,
+    AuthenticatorStatus,
+    type AuthRequest,
+    type AuthServer,
+    AuthType,
+} from "../auth";
+import { type Messenger, EmailAuthMessage } from "../messenger";
 import { ErrorCode, Err } from "../error";
 import { randomNumber } from "../util";
 
@@ -41,7 +48,7 @@ export class EmailAuthServer implements AuthServer {
     }
 
     async initAuthRequest(authenticator: Authenticator, request: AuthRequest) {
-        let verificationCode = await this._generateCode();
+        const verificationCode = await this._generateCode();
         const email = authenticator.state.email;
         request.state = {
             email,
@@ -73,6 +80,6 @@ export class EmailAuthServer implements AuthServer {
     }
 
     private async _generateCode(len = 6) {
-        return (await randomNumber(0, Math.pow(10, len) - 1)).toString().padStart(len, "0");
+        return (await randomNumber(0, 10 ** len - 1)).toString().padStart(len, "0");
     }
 }

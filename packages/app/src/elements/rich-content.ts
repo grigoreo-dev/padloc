@@ -40,11 +40,12 @@ export class RichContent extends LitElement {
         switch (this.type) {
             case "markdown":
                 return markdownToLitTemplate(this.content, this.sanitize);
-            case "html":
+            case "html": {
                 const content = this.sanitize
                     ? sanitize(this.content, { ADD_TAGS: ["pl-icon"], ADD_ATTR: ["icon"] })
                     : this.content;
                 return html`${unsafeHTML(content)}`;
+            }
             default:
                 return html`${this.content}`;
         }

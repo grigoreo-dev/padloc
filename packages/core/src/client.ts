@@ -1,8 +1,8 @@
-import { API, PromiseWithProgress } from "./api";
-import { Sender, Request, Response, RequestProgress } from "./transport";
-import { DeviceInfo } from "./platform";
-import { Session } from "./session";
-import { Account } from "./account";
+import { API, type PromiseWithProgress } from "./api";
+import { type Sender, Request, type Response, RequestProgress } from "./transport";
+import type { DeviceInfo } from "./platform";
+import type { Session } from "./session";
+import type { Account } from "./account";
 import { Err, ErrorCode } from "./error";
 import { Serializable } from "./encoding";
 

@@ -6,7 +6,8 @@ import { router } from "../globals";
 import { translate as $l } from "@padloc/locale/src/translate";
 import { customElement, query } from "lit/decorators.js";
 import { shared } from "../styles";
-import { ToggleButton } from "./toggle-button";
+import type { ToggleButton } from "./toggle-button";
+import "./toggle-button";
 import "./popover";
 import "./icon";
 

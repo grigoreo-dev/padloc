@@ -7,8 +7,10 @@ import { uuid, capitalize } from "@padloc/core/src/util";
 import { translate as $l } from "@padloc/locale/src/translate";
 import { readFileAsText, readFileAsArrayBuffer } from "@padloc/core/src/attachment";
 
-import { OnePuxItem } from "./1pux-parser";
-import { BitwardenExport, BitwardenItem } from "./bitwarden-parser";
+import type { OnePuxItem } from "./1pux-parser";
+import type { BitwardenExport, BitwardenItem } from "./bitwarden-parser";
+import "./1pux-parser";
+import "./bitwarden-parser";
 
 export interface ImportFormat {
     value:
@@ -188,7 +190,7 @@ async function fromTable(
     return Promise.all(items);
 }
 
-export async function isCSV(data: string): Promise<Boolean> {
+export async function isCSV(data: string): Promise<boolean> {
     const papa = await loadPapa();
     return papa.parse(data).errors.length === 0;
 }

@@ -1,4 +1,4 @@
-import { Group } from "@padloc/core/src/org";
+import type { Group } from "@padloc/core/src/org";
 import { StateMixin } from "../mixins/state";
 import { Routing } from "../mixins/routing";
 import { shared } from "../styles";
@@ -15,7 +15,7 @@ import { checkFeatureDisabled } from "../lib/provisioning";
 
 @customElement("pl-org-groups")
 export class OrgGroupsView extends Routing(StateMixin(LitElement)) {
-    readonly routePattern = /^orgs\/([^\/]+)\/groups(?:\/([^\/]+))?/;
+    readonly routePattern = /^orgs\/([^/]+)\/groups(?:\/([^/]+))?/;
 
     @property()
     orgId: string = "";

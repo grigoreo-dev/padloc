@@ -1,10 +1,12 @@
 import { translate as $l } from "@padloc/locale/src/translate";
-import { Org } from "@padloc/core/src/org";
-import { Invite } from "@padloc/core/src/invite";
+import type { Org } from "@padloc/core/src/org";
+import type { Invite } from "@padloc/core/src/invite";
 import { app } from "../globals";
-import { Input } from "./input";
+import type { Input } from "./input";
 import { Dialog } from "./dialog";
-import { Button } from "./button";
+import type { Button } from "./button";
+import "./input";
+import "./button";
 import "./icon";
 import { customElement, query, state } from "lit/decorators.js";
 import { css, html } from "lit";
@@ -157,9 +159,9 @@ export class CreateInvitesDialog extends Dialog<Org, Invite[]> {
                     ${this._emails.map(
                         (email) => html`
                             <div
-                                class="small center-aligning horizontal layout tag ${this._isValid(email)
-                                    ? ""
-                                    : "warning"}"
+                                class="small center-aligning horizontal layout tag ${
+                                    this._isValid(email) ? "" : "warning"
+                                }"
                             >
                                 ${!this._isValid(email) ? html`<pl-icon icon="warning"></pl-icon>` : ""}
                                 <div>${email}</div>

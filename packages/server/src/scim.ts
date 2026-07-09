@@ -1,8 +1,8 @@
-import { Storage } from "@padloc/core/src/storage";
+import type { Storage } from "@padloc/core/src/storage";
 import { Config, ConfigParam } from "@padloc/core/src/config";
-import { Org, OrgID } from "@padloc/core/src/org";
-import { DirectoryProvider, DirectorySubscriber, DirectoryUser, DirectoryGroup } from "@padloc/core/src/directory";
-import { createServer, IncomingMessage, ServerResponse } from "http";
+import { Org, type OrgID } from "@padloc/core/src/org";
+import type { DirectoryProvider, DirectorySubscriber, DirectoryUser, DirectoryGroup } from "@padloc/core/src/directory";
+import { createServer, type IncomingMessage, type ServerResponse } from "http";
 import { getCryptoProvider } from "@padloc/core/src/platform";
 import { base64ToBytes } from "@padloc/core/src/encoding";
 import { setPath, uuid } from "@padloc/core/src/util";
@@ -113,7 +113,10 @@ interface ScimListResponse {
 export class ScimServer implements DirectoryProvider {
     private _subscribers: DirectorySubscriber[] = [];
 
-    constructor(public readonly config: ScimServerConfig, public readonly storage: Storage) {}
+    constructor(
+        public readonly config: ScimServerConfig,
+        public readonly storage: Storage
+    ) {}
 
     subscribe(sub: DirectorySubscriber) {
         this._subscribers.push(sub);

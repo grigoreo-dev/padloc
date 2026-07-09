@@ -2,8 +2,8 @@ import { Serializable, stringToBytes, AsBytes, AsSerializable, AsDate, bytesToBa
 import { PBKDF2Params } from "./crypto";
 import { getCryptoProvider as getProvider } from "./platform";
 import { DeviceInfo } from "./platform";
-import { Storable } from "./storage";
-import { AccountID } from "./account";
+import type { Storable } from "./storage";
+import type { AccountID } from "./account";
 import { KeyStoreEntryInfo } from "./key-store";
 import { SessionInfo } from "./session";
 import { SRPSession } from "./srp";

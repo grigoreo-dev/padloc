@@ -6,9 +6,11 @@ import { router } from "../globals";
 import { translate as $l } from "@padloc/locale/src/translate";
 import { customElement, query } from "lit/decorators.js";
 import { shared } from "../styles";
-import { Select } from "./select";
-import { Settings } from "@padloc/core/src/app";
-import { ToggleButton } from "./toggle-button";
+import type { Settings } from "@padloc/core/src/app";
+import type { Select } from "./select";
+import type { ToggleButton } from "./toggle-button";
+import "./select";
+import "./toggle-button";
 import "./popover";
 import "./icon";
 

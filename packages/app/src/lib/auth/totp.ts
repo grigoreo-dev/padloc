@@ -1,4 +1,4 @@
-import { AuthClient, AuthType } from "@padloc/core/src/auth";
+import { type AuthClient, AuthType } from "@padloc/core/src/auth";
 import { generateURL } from "@padloc/core/src/otp";
 import { html } from "lit-html";
 import { app } from "../../globals";

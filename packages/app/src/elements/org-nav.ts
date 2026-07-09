@@ -9,7 +9,7 @@ import "./button";
 
 @customElement("pl-org-nav")
 export class OrgNav extends Routing(LitElement) {
-    readonly routePattern = /^orgs\/([^\/]+)(?:\/(\w+))?/;
+    readonly routePattern = /^orgs\/([^/]+)(?:\/(\w+))?/;
 
     @property()
     orgId: string;
