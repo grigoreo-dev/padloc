@@ -23,29 +23,20 @@
         "@padloc/core": "workspace:*"
     },
     "devDependencies": {
-        "clean-webpack-plugin": "3.0.0",
-        "css-loader": "5.2.6",
-        "file-loader": "6.2.0",
-        "html-webpack-plugin": "5.6.7",
         "http-server": "14.1.1",
-        "raw-loader": "4.0.2",
+        "postcss": "8.5.16",
         "sharp": "0.29.3",
-        "style-loader": "2.0.0",
-        "ts-loader": "9.6.2",
         "ts-node": "10.9.2",
         "typescript": "5.8.3",
-        "webpack": "5.108.4",
-        "webpack-cli": "4.8.0",
-        "webpack-dev-server": "4.7.4",
-        "webpack-pwa-manifest": "4.3.0",
-        "workbox-cli": "6.5.3",
-        "workbox-webpack-plugin": "6.5.3",
-        "postcss": "8.5.16"
+        "vite": "5.4.19",
+        "vite-plugin-pwa": "0.21.2",
+        "workbox-build": "7.3.0",
+        "workbox-window": "7.3.0"
     },
     "description": "Padloc Progressive Web App",
     "scripts": {
-        "build": "webpack",
-        "dev": "webpack serve",
+        "build": "vite build",
+        "dev": "vite --host 0.0.0.0 --port ${PL_PWA_PORT:-8080}",
         "start": "http-server ${PL_PWA_DIR:-dist} -s -p ${PL_PWA_PORT:-8080} --proxy ${PL_PWA_URL:-http://0.0.0.0:${PL_PWA_PORT:-8080}}?",
         "build_and_start": "npm run build && npm start"
     }
