@@ -27,15 +27,16 @@ This repo is split into multiple packages:
 
 Day-to-day work targets the **web stack**:
 
-| Active                                              | Role                              |
-| --------------------------------------------------- | --------------------------------- |
-| `@padloc/core`, `@padloc/locale`, `@padloc/app`     | Shared foundation                 |
-| `@padloc/server`                                    | API                               |
-| `@padloc/pwa`                                       | Web client (`/`)                  |
-| `@padloc/admin`                                     | Admin portal (`admin.<domain>`)   |
-| `@padloc/extension`                                 | Browser extension (local/CI build)|
+| Active                                          | Role                               |
+| ----------------------------------------------- | ---------------------------------- |
+| `@padloc/core`, `@padloc/locale`, `@padloc/app` | Shared foundation                  |
+| `@padloc/server`                                | API                                |
+| `@padloc/pwa`                                   | Web client (`/`)                   |
+| `@padloc/admin`                                 | Admin portal (`admin.<domain>`)    |
+| `@padloc/extension`                             | Browser extension (local/CI build) |
 
-**Deferred** (still in `packages/`, not default scripts/CI): `@padloc/electron`, `@padloc/tauri`, `@padloc/cordova`.
+**Deferred** (still in `packages/`, not default scripts/CI): `@padloc/electron`,
+`@padloc/tauri`, `@padloc/cordova`.
 
 Production compose serves PWA on the primary domain, Admin on `admin.<domain>`,
 API at `/server`. See `deploy/README.md`.
