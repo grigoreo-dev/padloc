@@ -9,7 +9,7 @@ documentation, commit messages, pull requests, issues, and GitHub templates.
 
 ## Development prerequisites
 
--   Node.js 18 (see `.nvmrc`)
+-   Node.js 24 (see `.nvmrc`)
 -   pnpm 10.15.0 (see `packageManager` in `package.json`)
 -   Corepack
 
