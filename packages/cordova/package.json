@@ -56,7 +56,7 @@
         "cordova-plugin-statusbar": "2.4.3",
         "cordova-plugin-x-socialsharing": "6.0.3",
         "es6-promise-plugin": "4.2.2",
-        "typescript": "4.4.3"
+        "typescript": "5.8.3"
     },
     "devDependencies": {
         "@types/cordova-plugin-qrscanner": "1.0.31",
