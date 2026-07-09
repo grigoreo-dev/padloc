@@ -58,7 +58,7 @@ The PR title is checked automatically and should use the same format.
 Run the focused checks relevant to your change. The common checks are:
 
 ```bash
-pnpm run prettier:check
+pnpm run lint
 pnpm run locale:extract
 pnpm run pwa:build
 pnpm run web-extension:build
