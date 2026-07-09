@@ -1,5 +1,5 @@
+import { Field, FieldType, ITEM_TEMPLATES, type ItemTemplate, type VaultItem } from "@padloc/core/src/item";
 import type { Vault } from "@padloc/core/src/vault";
-import { type VaultItem, Field, type ItemTemplate, ITEM_TEMPLATES, FieldType } from "@padloc/core/src/item";
 import { translate as $l } from "@padloc/locale/src/translate";
 import { app, router } from "../globals";
 import type { Select } from "./select";
@@ -7,8 +7,8 @@ import "./select";
 import { Dialog } from "./dialog";
 import "./scroller";
 import "./button";
-import { customElement, query, state } from "lit/decorators.js";
 import { css, html } from "lit";
+import { customElement, query, state } from "lit/decorators.js";
 import "./icon";
 import { checkFeatureDisabled } from "../lib/provisioning";
 

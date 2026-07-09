@@ -1,15 +1,15 @@
-import { translate as $l } from "@padloc/locale/src/translate";
-import type { Org } from "@padloc/core/src/org";
 import type { Invite } from "@padloc/core/src/invite";
+import type { Org } from "@padloc/core/src/org";
+import { translate as $l } from "@padloc/locale/src/translate";
 import { app } from "../globals";
-import type { Input } from "./input";
-import { Dialog } from "./dialog";
 import type { Button } from "./button";
+import { Dialog } from "./dialog";
+import type { Input } from "./input";
 import "./input";
 import "./button";
 import "./icon";
-import { customElement, query, state } from "lit/decorators.js";
 import { css, html } from "lit";
+import { customElement, query, state } from "lit/decorators.js";
 
 @customElement("pl-create-invites-dialog")
 export class CreateInvitesDialog extends Dialog<Org, Invite[]> {

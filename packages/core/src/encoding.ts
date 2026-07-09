@@ -1,9 +1,9 @@
-import { Err, ErrorCode } from "./error";
-import { toByteArray, fromByteArray, byteLength, isBase64 } from "./base64";
-import { upgrade, downgrade } from "./migrations";
 import { BigInteger } from "../vendor/jsbn";
+import { byteLength, fromByteArray, isBase64, toByteArray } from "./base64";
+import { Err, ErrorCode } from "./error";
+import { downgrade, upgrade } from "./migrations";
 
-export { bytesToBase32, base32ToBytes } from "./base32";
+export { base32ToBytes, bytesToBase32 } from "./base32";
 
 export interface SerializationOptions {
     property: string;
@@ -15,7 +15,7 @@ export interface SerializationOptions {
 }
 
 function registerSerializationOptions(proto: Serializable, property: string, opts: Partial<SerializationOptions>) {
-    if (!Object.prototype.hasOwnProperty.call(proto, "_propertySerializationOptions")) {
+    if (!Object.hasOwn(proto, "_propertySerializationOptions")) {
         const parentOptions = proto._propertySerializationOptions || [];
         proto._propertySerializationOptions = parentOptions ? [...parentOptions] : [];
     }
@@ -298,7 +298,7 @@ export class Serializable {
 
             // Skip properties that have no serialization options associated with them
             // and are not explicitly defined as a property on the class
-            if (!opts && !Object.prototype.hasOwnProperty.call(this, prop)) {
+            if (!opts && !Object.hasOwn(this, prop)) {
                 continue;
             }
 

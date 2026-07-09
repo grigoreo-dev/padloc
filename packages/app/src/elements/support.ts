@@ -1,9 +1,9 @@
 import { translate as $l } from "@padloc/locale/src/translate";
+import { css, html } from "lit";
+import { customElement } from "lit/decorators.js";
+import { Routing } from "../mixins/routing";
 import { StateMixin } from "../mixins/state";
 import { View } from "./view";
-import { customElement } from "lit/decorators.js";
-import { css, html } from "lit";
-import { Routing } from "../mixins/routing";
 import "./rich-content";
 import content from "assets/support.md?raw";
 

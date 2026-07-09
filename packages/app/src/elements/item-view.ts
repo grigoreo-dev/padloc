@@ -1,47 +1,47 @@
 import "./item-icon";
 import "./popover";
-import { until } from "lit/directives/until.js";
-import { repeat } from "lit/directives/repeat.js";
+import type { AttachmentInfo } from "@padloc/core/src/attachment";
 import {
-    type VaultItemID,
+    AuditType,
+    FIELD_DEFS,
     Field,
     type FieldDef,
-    FIELD_DEFS,
-    type VaultItem,
     FieldType,
-    AuditType,
+    type VaultItem,
+    type VaultItemID,
 } from "@padloc/core/src/item";
-import { translate as $l } from "@padloc/locale/src/translate";
-import type { AttachmentInfo } from "@padloc/core/src/attachment";
 import { parseURL } from "@padloc/core/src/otp";
-import { formatDateFromNow, formatDateTime } from "../lib/util";
-import { alert, confirm, dialog } from "../lib/dialog";
+import { translate as $l } from "@padloc/locale/src/translate";
+import { repeat } from "lit/directives/repeat.js";
+import { until } from "lit/directives/until.js";
 // import { animateCascade } from "../lib/animation";
 import { app, router } from "../globals";
-import { shared } from "../styles";
 import { setClipboard } from "../lib/clipboard";
+import { alert, confirm, dialog } from "../lib/dialog";
+import { formatDateFromNow, formatDateTime } from "../lib/util";
 import { Routing } from "../mixins/routing";
 import { StateMixin } from "../mixins/state";
+import { shared } from "../styles";
 import "./icon";
-import type { Input } from "./input";
-import type { TagsInput } from "./tags-input";
-import type { MoveItemsDialog } from "./move-items-dialog";
 import type { FieldElement } from "./field";
+import type { Input } from "./input";
+import type { MoveItemsDialog } from "./move-items-dialog";
+import type { TagsInput } from "./tags-input";
 import "./field";
-import type { GeneratorDialog } from "./generator-dialog";
 import type { AttachmentDialog } from "./attachment-dialog";
-import type { UploadDialog } from "./upload-dialog";
+import type { GeneratorDialog } from "./generator-dialog";
 import type { QRDialog } from "./qr-dialog";
+import type { UploadDialog } from "./upload-dialog";
 import "./scroller";
 import "./button";
 import "./list";
 import "./attachment";
-import { customElement, property, query, queryAll, state } from "lit/decorators.js";
 import { css, html, LitElement } from "lit";
-import { checkFeatureDisabled } from "../lib/provisioning";
+import { customElement, property, query, queryAll, state } from "lit/decorators.js";
 import { auditVaults } from "../lib/audit";
-import type { Popover } from "./popover";
+import { checkFeatureDisabled } from "../lib/provisioning";
 import type { HistoryEntryDialog } from "./history-entry-dialog";
+import type { Popover } from "./popover";
 import "./input";
 import "./tags-input";
 import "./move-items-dialog";

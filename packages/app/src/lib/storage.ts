@@ -1,11 +1,11 @@
+import { Err, ErrorCode } from "@padloc/core/src/error";
 import {
-    type Storage,
     Storable,
     type StorableConstructor,
+    type Storage,
     type StorageListOptions,
     type StorageQuery,
 } from "@padloc/core/src/storage";
-import { Err, ErrorCode } from "@padloc/core/src/error";
 // @ts-ignore
 import localStorage from "localforage/src/localforage";
 

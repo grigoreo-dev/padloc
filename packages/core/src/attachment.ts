@@ -1,10 +1,10 @@
-import { Serializable, AsBytes } from "./encoding";
 import { SimpleContainer } from "./container";
-import type { VaultID } from "./vault";
 import type { AESKeyParams } from "./crypto";
-import { getCryptoProvider as getProvider } from "./platform";
+import { AsBytes, Serializable } from "./encoding";
 import { Err, ErrorCode } from "./error";
+import { getCryptoProvider as getProvider } from "./platform";
 import type { RequestProgress } from "./transport";
+import type { VaultID } from "./vault";
 
 export async function readFileAsUint8Array(blob: File): Promise<Uint8Array> {
     return new Promise((resolve, reject) => {

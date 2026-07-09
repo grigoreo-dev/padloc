@@ -1,10 +1,10 @@
-import { type OrgMember, Group } from "@padloc/core/src/org";
+import { Group, type OrgMember } from "@padloc/core/src/org";
 import { translate as $l } from "@padloc/locale/src/translate";
-import { shared } from "../styles";
 import { app } from "../globals";
 import { alert, confirm } from "../lib/dialog";
 import { Routing } from "../mixins/routing";
 import { StateMixin } from "../mixins/state";
+import { shared } from "../styles";
 import type { Button } from "./button";
 import "./icon";
 import "./member-item";
@@ -16,9 +16,9 @@ import type { Input } from "./input";
 import "./button";
 import "./input";
 import "./toggle";
+import type { AccountID } from "@padloc/core/src/account";
 import { css, html, LitElement } from "lit";
 import { customElement, property, query, state } from "lit/decorators.js";
-import type { AccountID } from "@padloc/core/src/account";
 
 @customElement("pl-group-view")
 export class GroupView extends Routing(StateMixin(LitElement)) {

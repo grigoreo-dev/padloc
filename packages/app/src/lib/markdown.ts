@@ -1,8 +1,8 @@
 import DOMPurify from "dompurify";
+import { html } from "lit";
+import { unsafeHTML } from "lit/directives/unsafe-html.js";
 import { marked } from "marked";
 import TurnDown from "turndown";
-import { unsafeHTML } from "lit/directives/unsafe-html.js";
-import { html } from "lit";
 
 const { addHook, sanitize } = DOMPurify;
 

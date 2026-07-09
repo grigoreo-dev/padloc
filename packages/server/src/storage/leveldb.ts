@@ -1,16 +1,17 @@
 // @ts-ignore
-import level from "level";
+
+import { Config, ConfigParam } from "@padloc/core/src/config";
+import { Err, ErrorCode } from "@padloc/core/src/error";
 import {
-    type Storage,
+    filterByQuery,
     Storable,
     type StorableConstructor,
+    type Storage,
     type StorageListOptions,
-    filterByQuery,
-    sortBy,
     type StorageQuery,
+    sortBy,
 } from "@padloc/core/src/storage";
-import { Err, ErrorCode } from "@padloc/core/src/error";
-import { Config, ConfigParam } from "@padloc/core/src/config";
+import level from "level";
 
 export class LevelDBStorageConfig extends Config {
     @ConfigParam()

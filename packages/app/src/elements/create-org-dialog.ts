@@ -1,14 +1,14 @@
+import { ORG_NAME_MAX_LENGTH, type Org } from "@padloc/core/src/org";
 import { translate as $l } from "@padloc/locale/src/translate";
-import { type Org, ORG_NAME_MAX_LENGTH } from "@padloc/core/src/org";
 import { app } from "../globals";
-import { Dialog } from "./dialog";
 import type { Button } from "./button";
+import { Dialog } from "./dialog";
 import type { Input } from "./input";
 import "./button";
 import "./input";
 import "./scroller";
-import { customElement, query, state } from "lit/decorators.js";
 import { css, html } from "lit";
+import { customElement, query, state } from "lit/decorators.js";
 
 @customElement("pl-create-org-dialog")
 export class CreateOrgDialog extends Dialog<void, Org> {

@@ -1,9 +1,9 @@
-import { type AuthClient, AuthType, type AuthServer, type Authenticator, type AuthRequest } from "../auth";
+import { type AuthClient, type Authenticator, type AuthRequest, type AuthServer, AuthType } from "../auth";
 import { SimpleContainer } from "../container";
-import { RSASigningParams, type RSAPublicKey, type RSAPrivateKey, RSAKeyParams, AESKeyParams } from "../crypto";
-import { Serializable, AsBytes, AsSerializable, Exclude, bytesToBase64, base64ToBytes } from "../encoding";
+import { AESKeyParams, RSAKeyParams, type RSAPrivateKey, type RSAPublicKey, RSASigningParams } from "../crypto";
+import { AsBytes, AsSerializable, base64ToBytes, bytesToBase64, Exclude, Serializable } from "../encoding";
 import { Err, ErrorCode } from "../error";
-import { getCryptoProvider, type BiometricKeyStore, getStorage } from "../platform";
+import { type BiometricKeyStore, getCryptoProvider, getStorage } from "../platform";
 import type { Storable } from "../storage";
 
 export class PublicKeyAuthChallenge extends Serializable {

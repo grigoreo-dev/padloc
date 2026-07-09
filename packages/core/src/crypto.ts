@@ -1,4 +1,4 @@
-import { Serializable, AsBytes } from "./encoding";
+import { AsBytes, Serializable } from "./encoding";
 
 // Default number of pbkdf2 iterations
 export const PBKDF2_ITER_DEFAULT = 1e6;

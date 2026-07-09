@@ -1,22 +1,22 @@
 import "./scroller";
 import { translate as $l } from "@padloc/locale/src/translate";
-import { StateMixin } from "../mixins/state";
-import { Routing } from "../mixins/routing";
-import { alert, prompt, confirm } from "../lib/dialog";
 import { app } from "../globals";
+import { alert, confirm, prompt } from "../lib/dialog";
+import { Routing } from "../mixins/routing";
+import { StateMixin } from "../mixins/state";
 import { shared } from "../styles";
 import type { Button } from "./button";
 import "./list";
 import "./icon";
 import "./org-nav";
-import { customElement, property, query } from "lit/decorators.js";
 import { html, LitElement } from "lit";
+import { customElement, property, query } from "lit/decorators.js";
 import "./drawer";
 import type { ToggleButton } from "./toggle-button";
 import "./button";
 import "./toggle-button";
-import { setClipboard } from "../lib/clipboard";
 import { live } from "lit/directives/live.js";
+import { setClipboard } from "../lib/clipboard";
 import { checkFeatureDisabled } from "../lib/provisioning";
 
 @customElement("pl-org-settings")

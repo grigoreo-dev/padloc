@@ -1,20 +1,20 @@
-import { until } from "lit/directives/until.js";
 import { translate as $l } from "@padloc/locale/src/translate";
-import { formatDateFromNow } from "../lib/util";
-import { shared } from "../styles";
+import { until } from "lit/directives/until.js";
 import { app } from "../globals";
 import { alert, confirm } from "../lib/dialog";
+import { formatDateFromNow } from "../lib/util";
 import { Routing } from "../mixins/routing";
 import { StateMixin } from "../mixins/state";
+import { shared } from "../styles";
 import type { Button } from "./button";
 import "./button";
 import "./icon";
 import "./scroller";
 import "./spinner";
-import type { UnlockedOrg } from "@padloc/core/src/org";
 import type { UnlockedAccount } from "@padloc/core/src/account";
-import { customElement, property, query, state } from "lit/decorators.js";
+import type { UnlockedOrg } from "@padloc/core/src/org";
 import { css, html, LitElement } from "lit";
+import { customElement, property, query, state } from "lit/decorators.js";
 import { checkFeatureDisabled } from "../lib/provisioning";
 
 @customElement("pl-invite-view")

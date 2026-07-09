@@ -1,64 +1,50 @@
-import { Serializable, stringToBase64, bytesToBase64 } from "./encoding";
+import { translate as $l, loadLanguage } from "@padloc/locale/src/translate";
+import { Account, type AccountID } from "./account";
 import {
     API,
-    type StartCreateSessionParams,
-    StartCreateSessionResponse,
-    type CreateAccountParams,
-    type RecoverAccountParams,
+    AuthInfo,
+    type ChangeEmailParams,
+    type CompleteAuthRequestParams,
+    CompleteAuthRequestResponse,
     type CompleteCreateSessionParams,
-    type GetInviteParams,
-    type GetAttachmentParams,
-    type DeleteAttachmentParams,
-    type GetLegacyDataParams,
-    type StartRegisterAuthenticatorParams,
-    StartRegisterAuthenticatorResponse,
     type CompleteRegisterMFAuthenticatorParams,
     CompleteRegisterMFAuthenticatorResponse,
-    StartAuthRequestResponse,
-    CompleteAuthRequestResponse,
-    type CompleteAuthRequestParams,
-    type StartAuthRequestParams,
+    type CreateAccountParams,
     type CreateKeyStoreEntryParams,
+    type DeleteAttachmentParams,
+    type GetAttachmentParams,
+    type GetInviteParams,
     type GetKeyStoreEntryParams,
-    AuthInfo,
-    type UpdateAuthParams,
+    type GetLegacyDataParams,
     type ListParams,
     ListResponse,
-    type ChangeEmailParams,
+    type RecoverAccountParams,
+    type StartAuthRequestParams,
+    StartAuthRequestResponse,
+    type StartCreateSessionParams,
+    StartCreateSessionResponse,
+    type StartRegisterAuthenticatorParams,
+    StartRegisterAuthenticatorResponse,
+    type UpdateAuthParams,
 } from "./api";
-import type { Storage } from "./storage";
 import type { Attachment, AttachmentStorage } from "./attachment";
-import { Session, type SessionID } from "./session";
-import { Account, type AccountID } from "./account";
-import { Auth, AccountStatus } from "./auth";
 import {
-    AuthRequest,
-    AuthPurpose,
+    AccountStatus,
+    Auth,
     Authenticator,
+    AuthenticatorStatus,
+    AuthPurpose,
+    AuthRequest,
+    AuthRequestStatus,
     type AuthServer,
     AuthType,
-    AuthenticatorStatus,
-    AuthRequestStatus,
 } from "./auth";
-import { type Request, Response } from "./transport";
+import { Config, ConfigParam } from "./config";
+import type { PBES2Container } from "./container";
+import { bytesToBase64, Serializable, stringToBase64 } from "./encoding";
 import { Err, ErrorCode } from "./error";
-import { Vault, type VaultID } from "./vault";
-import { Org, type OrgID, OrgMember, OrgMemberStatus, OrgRole, ScimSettings } from "./org";
 import type { Invite } from "./invite";
-import {
-    ConfirmMembershipInviteMessage,
-    PlainMessage,
-    JoinOrgInviteAcceptedMessage,
-    JoinOrgInviteCompletedMessage,
-    JoinOrgInviteMessage,
-    FailedLoginAttemptMessage,
-    NewLoginMessage,
-    type Messenger,
-} from "./messenger";
-import { Server as SRPServer, SRPSession } from "./srp";
-import { type DeviceInfo, getCryptoProvider } from "./platform";
-import { getIdFromEmail, uuid, removeTrailingSlash } from "./util";
-import { loadLanguage, translate as $l } from "@padloc/locale/src/translate";
+import { KeyStoreEntry } from "./key-store";
 import {
     type ChangeLogEntry,
     type ChangeLogger,
@@ -67,11 +53,26 @@ import {
     type RequestLogger,
     VoidLogger,
 } from "./logging";
-import type { PBES2Container } from "./container";
-import { KeyStoreEntry } from "./key-store";
-import { Config, ConfigParam } from "./config";
+import {
+    ConfirmMembershipInviteMessage,
+    FailedLoginAttemptMessage,
+    JoinOrgInviteAcceptedMessage,
+    JoinOrgInviteCompletedMessage,
+    JoinOrgInviteMessage,
+    type Messenger,
+    NewLoginMessage,
+    PlainMessage,
+} from "./messenger";
+import { Org, type OrgID, OrgMember, OrgMemberStatus, OrgRole, ScimSettings } from "./org";
+import { type DeviceInfo, getCryptoProvider } from "./platform";
 import { type Provisioner, type Provisioning, ProvisioningStatus, StubProvisioner } from "./provisioning";
+import { Session, type SessionID } from "./session";
+import { Server as SRPServer, SRPSession } from "./srp";
+import type { Storage } from "./storage";
+import { type Request, Response } from "./transport";
+import { getIdFromEmail, removeTrailingSlash, uuid } from "./util";
 import { V3Compat } from "./v3-compat";
+import { Vault, type VaultID } from "./vault";
 
 /** Server configuration */
 export class ServerConfig extends Config {

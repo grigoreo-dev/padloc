@@ -1,11 +1,11 @@
-import { until } from "lit/directives/until.js";
 import type { Invite } from "@padloc/core/src/invite";
 import { translate as $l } from "@padloc/locale/src/translate";
+import { until } from "lit/directives/until.js";
 import { formatDateFromNow } from "../lib/util";
 import { shared } from "../styles";
 import "./icon";
-import { customElement, property } from "lit/decorators.js";
 import { html, LitElement } from "lit";
+import { customElement, property } from "lit/decorators.js";
 
 @customElement("pl-invite-item")
 export class InviteItem extends LitElement {

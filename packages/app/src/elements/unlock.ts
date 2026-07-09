@@ -1,18 +1,18 @@
-import { translate as $l } from "@padloc/locale/src/translate";
 import { ErrorCode } from "@padloc/core/src/error";
+import { translate as $l } from "@padloc/locale/src/translate";
 import { app, router } from "../globals";
 import { isTouch } from "../lib/util";
-import { StartForm } from "./start-form";
-import type { PasswordInput } from "./password-input";
 import type { Button } from "./button";
+import type { PasswordInput } from "./password-input";
+import { StartForm } from "./start-form";
 import "./password-input";
 import "./button";
 import { alert, confirm } from "../lib/dialog";
 import "./logo";
-import { customElement, query, state } from "lit/decorators.js";
-import { css, html } from "lit";
-import { authenticate, getPlatformAuthType, supportsPlatformAuthenticator } from "@padloc/core/src/platform";
 import { AuthPurpose } from "@padloc/core/src/auth";
+import { authenticate, getPlatformAuthType, supportsPlatformAuthenticator } from "@padloc/core/src/platform";
+import { css, html } from "lit";
+import { customElement, query, state } from "lit/decorators.js";
 import "./popover";
 
 @customElement("pl-unlock")

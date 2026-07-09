@@ -1,59 +1,59 @@
-import { loadLanguage, translate as $l } from "@padloc/locale/src/translate";
-import { Storable } from "./storage";
-import { Serializable, Serialize, AsDate, AsSerializable, bytesToBase64, stringToBytes, equalBytes } from "./encoding";
-import { Invite, type InvitePurpose } from "./invite";
-import { Vault, type VaultID } from "./vault";
-import {
-    Org,
-    type OrgID,
-    type OrgMember,
-    OrgRole,
-    Group,
-    type UnlockedOrg,
-    type OrgInfo,
-    type ActiveOrgMember,
-    OrgMemberStatus,
-} from "./org";
-import {
-    VaultItem,
-    type VaultItemID,
-    type Field,
-    type Tag,
-    createVaultItem,
-    type AuditResult,
-    ItemHistoryEntry,
-    ITEM_HISTORY_ENTRIES_LIMIT,
-    type TagInfo,
-} from "./item";
+import { translate as $l, loadLanguage } from "@padloc/locale/src/translate";
 import { Account, type AccountID, type UnlockedAccount } from "./account";
-import { Auth, AuthPurpose, AuthType } from "./auth";
-import { Session, type SessionID } from "./session";
 import {
     type API,
-    CreateAccountParams,
-    RecoverAccountParams,
-    GetInviteParams,
-    GetAttachmentParams,
-    DeleteAttachmentParams,
-    CreateKeyStoreEntryParams,
-    GetKeyStoreEntryParams,
-    UpdateAuthParams,
     AuthInfo,
+    ChangeEmailParams,
     CompleteCreateSessionParams,
+    CreateAccountParams,
+    CreateKeyStoreEntryParams,
+    DeleteAttachmentParams,
+    GetAttachmentParams,
+    GetInviteParams,
+    GetKeyStoreEntryParams,
+    RecoverAccountParams,
     StartCreateSessionParams,
     type StartCreateSessionResponse,
-    ChangeEmailParams,
+    UpdateAuthParams,
 } from "./api";
-import { Client } from "./client";
-import type { Sender } from "./transport";
-import { DeviceInfo, getDeviceInfo, getCryptoProvider, getStorage, authenticate } from "./platform";
-import { uuid, throttle } from "./util";
-import { Client as SRPClient } from "./srp";
-import { Err, ErrorCode } from "./error";
 import { Attachment, type AttachmentInfo } from "./attachment";
+import { Auth, AuthPurpose, AuthType } from "./auth";
+import { Client } from "./client";
 import { SimpleContainer } from "./container";
 import { AESKeyParams, PBKDF2Params } from "./crypto";
+import { AsDate, AsSerializable, bytesToBase64, equalBytes, Serializable, Serialize, stringToBytes } from "./encoding";
+import { Err, ErrorCode } from "./error";
+import { Invite, type InvitePurpose } from "./invite";
+import {
+    type AuditResult,
+    createVaultItem,
+    type Field,
+    ITEM_HISTORY_ENTRIES_LIMIT,
+    ItemHistoryEntry,
+    type Tag,
+    type TagInfo,
+    VaultItem,
+    type VaultItemID,
+} from "./item";
+import {
+    type ActiveOrgMember,
+    Group,
+    Org,
+    type OrgID,
+    type OrgInfo,
+    type OrgMember,
+    OrgMemberStatus,
+    OrgRole,
+    type UnlockedOrg,
+} from "./org";
+import { authenticate, DeviceInfo, getCryptoProvider, getDeviceInfo, getStorage } from "./platform";
 import { AccountFeatures, AccountProvisioning, OrgFeatures, OrgProvisioning, ProvisioningStatus } from "./provisioning";
+import { Session, type SessionID } from "./session";
+import { Client as SRPClient } from "./srp";
+import { Storable } from "./storage";
+import type { Sender } from "./transport";
+import { throttle, uuid } from "./util";
+import { Vault, type VaultID } from "./vault";
 
 /** Various usage stats */
 export class Stats extends Serializable {

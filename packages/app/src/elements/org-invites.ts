@@ -1,12 +1,12 @@
-import { translate as $l } from "@padloc/locale/src/translate";
 import type { Invite } from "@padloc/core/src/invite";
-import { StateMixin } from "../mixins/state";
-import { Routing } from "../mixins/routing";
-import { dialog, alert } from "../lib/dialog";
+import { translate as $l } from "@padloc/locale/src/translate";
 import { app } from "../globals";
+import { alert, dialog } from "../lib/dialog";
+import { Routing } from "../mixins/routing";
+import { StateMixin } from "../mixins/state";
 import { shared } from "../styles";
-import type { Input } from "./input";
 import type { CreateInvitesDialog } from "./create-invites-dialog";
+import type { Input } from "./input";
 import "./input";
 import "./create-invites-dialog";
 import "./invite-item";
@@ -14,8 +14,8 @@ import "./icon";
 import "./invite-view";
 import "./list";
 import "./org-nav";
-import { customElement, property, query, state } from "lit/decorators.js";
 import { html, LitElement } from "lit";
+import { customElement, property, query, state } from "lit/decorators.js";
 
 @customElement("pl-org-invites")
 export class OrgInvitesView extends Routing(StateMixin(LitElement)) {

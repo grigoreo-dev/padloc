@@ -1,11 +1,11 @@
 import { translate as $l } from "@padloc/locale/src/translate";
-import { app } from "../globals";
-import { StateMixin } from "../mixins/state";
-import { View } from "./view";
-import { customElement, query } from "lit/decorators.js";
 import { css, html } from "lit";
+import { customElement, query } from "lit/decorators.js";
+import { app } from "../globals";
 import { Routing } from "../mixins/routing";
+import { StateMixin } from "../mixins/state";
 import type { Generator } from "./generator";
+import { View } from "./view";
 import "./generator";
 
 @customElement("pl-generator-view")

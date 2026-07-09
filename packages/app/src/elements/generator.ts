@@ -1,18 +1,18 @@
-import { randomString, chars } from "@padloc/core/src/util";
-import { generatePassphrase, AVAILABLE_LANGUAGES } from "@padloc/core/src/diceware";
+import { AVAILABLE_LANGUAGES, generatePassphrase } from "@padloc/core/src/diceware";
+import { chars, randomString } from "@padloc/core/src/util";
 import { translate as $l } from "@padloc/locale/src/translate";
-import { animateElement } from "../lib/animation";
 import { app } from "../globals";
+import { animateElement } from "../lib/animation";
+import type { Select } from "./select";
 import type { Slider } from "./slider";
 import type { ToggleButton } from "./toggle-button";
-import type { Select } from "./select";
 import "./slider";
 import "./toggle-button";
 import "./select";
 import "./icon";
 import "./button";
-import { customElement, property, query } from "lit/decorators.js";
 import { css, html, LitElement } from "lit";
+import { customElement, property, query } from "lit/decorators.js";
 
 export type GeneratorMode = "words" | "chars";
 

@@ -1,13 +1,13 @@
-import { css, customElement, html, LitElement, property, query } from "lit-element";
 import { Editor } from "@tiptap/core";
 import StarterKit from "@tiptap/starter-kit";
-import { shared, content } from "../styles";
+import { css, customElement, html, LitElement, property, query } from "lit-element";
+import { content, shared } from "../styles";
 import "./button";
 import "./icon";
 import "./list";
 import "./popover";
-import { htmlToMarkdown, markdownToHtml } from "../lib/markdown";
 import { $l } from "@padloc/locale/src/translate";
+import { htmlToMarkdown, markdownToHtml } from "../lib/markdown";
 import "./textarea";
 import type { Textarea } from "./textarea";
 import "./select";

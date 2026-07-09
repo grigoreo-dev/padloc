@@ -1,11 +1,11 @@
-import { translate as $l } from "@padloc/locale/src/translate";
-import type { VaultItemID } from "@padloc/core/src/item";
 import type { Attachment, AttachmentInfo } from "@padloc/core/src/attachment";
+import type { VaultItemID } from "@padloc/core/src/item";
 import { saveFile } from "@padloc/core/src/platform";
+import { translate as $l } from "@padloc/locale/src/translate";
 import { app } from "../globals";
-import { mixins } from "../styles";
-import { mediaType, fileIcon, fileSize } from "../lib/util";
 import { confirm, prompt } from "../lib/dialog";
+import { fileIcon, fileSize, mediaType } from "../lib/util";
+import { mixins } from "../styles";
 import { Dialog } from "./dialog";
 import "./icon";
 import { css, html, type TemplateResult } from "lit";

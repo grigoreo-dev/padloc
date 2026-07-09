@@ -1,38 +1,38 @@
 import {
-    randomBytes,
-    createHash,
-    createHmac,
-    // @ts-ignore
-    sign,
-    // @ts-ignore
-    verify,
-    constants,
-    generateKeyPair,
-    pbkdf2,
-    createCipheriv,
-    createDecipheriv,
-    publicEncrypt,
-    privateDecrypt,
-    timingSafeEqual,
-} from "crypto";
-import {
-    type CryptoProvider,
-    type AESKey,
-    type RSAPublicKey,
-    type RSAPrivateKey,
-    type HMACKey,
-    type SymmetricKey,
-    type AESKeyParams,
-    type RSAKeyParams,
-    type HMACParams,
-    type HMACKeyParams,
     type AESEncryptionParams,
-    type RSAEncryptionParams,
+    type AESKey,
+    type AESKeyParams,
+    type CryptoProvider,
     HashParams,
-    type RSASigningParams,
+    type HMACKey,
+    type HMACKeyParams,
+    type HMACParams,
     type PBKDF2Params,
+    type RSAEncryptionParams,
+    type RSAKeyParams,
+    type RSAPrivateKey,
+    type RSAPublicKey,
+    type RSASigningParams,
+    type SymmetricKey,
 } from "@padloc/core/src/crypto";
 import { Err, ErrorCode } from "@padloc/core/src/error";
+import {
+    constants,
+    createCipheriv,
+    createDecipheriv,
+    createHash,
+    createHmac,
+    generateKeyPair,
+    pbkdf2,
+    privateDecrypt,
+    publicEncrypt,
+    randomBytes,
+    // @ts-ignore
+    sign,
+    timingSafeEqual,
+    // @ts-ignore
+    verify,
+} from "crypto";
 
 // Converts hash algorithm name to a format that node can understand
 // E.g.: "SHA-256" => "sha256"

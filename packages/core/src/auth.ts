@@ -1,14 +1,13 @@
-import { Serializable, stringToBytes, AsBytes, AsSerializable, AsDate, bytesToBase64 } from "./encoding";
-import { PBKDF2Params } from "./crypto";
-import { getCryptoProvider as getProvider } from "./platform";
-import { DeviceInfo } from "./platform";
-import type { Storable } from "./storage";
 import type { AccountID } from "./account";
+import { PBES2Container } from "./container";
+import { PBKDF2Params } from "./crypto";
+import { AsBytes, AsDate, AsSerializable, bytesToBase64, Serializable, stringToBytes } from "./encoding";
 import { KeyStoreEntryInfo } from "./key-store";
+import { DeviceInfo, getCryptoProvider as getProvider } from "./platform";
 import { SessionInfo } from "./session";
 import { SRPSession } from "./srp";
+import type { Storable } from "./storage";
 import { getIdFromEmail, uuid } from "./util";
-import { PBES2Container } from "./container";
 
 export enum AuthPurpose {
     Signup = "signup",

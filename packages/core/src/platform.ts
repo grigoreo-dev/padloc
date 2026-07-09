@@ -1,13 +1,13 @@
 import { translate as $l } from "@padloc/locale/src/translate";
-import { Serializable } from "./encoding";
-import type { CryptoProvider } from "./crypto";
-import { Err, ErrorCode } from "./error";
-import { StubCryptoProvider } from "./stub-crypto-provider";
-import { type Storage, MemoryStorage } from "./storage";
-import type { AccountStatus, AuthPurpose, AuthType } from "./auth";
-import type { AccountProvisioning } from "./provisioning";
 import type { StartAuthRequestResponse } from "./api";
+import type { AccountStatus, AuthPurpose, AuthType } from "./auth";
 import type { PBES2Container } from "./container";
+import type { CryptoProvider } from "./crypto";
+import { Serializable } from "./encoding";
+import { Err, ErrorCode } from "./error";
+import type { AccountProvisioning } from "./provisioning";
+import { MemoryStorage, type Storage } from "./storage";
+import { StubCryptoProvider } from "./stub-crypto-provider";
 
 /**
  * Object representing all information available for a given device.

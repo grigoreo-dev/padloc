@@ -1,14 +1,14 @@
-import { translate as $l } from "@padloc/locale/src/translate";
-import { FIELD_DEFS } from "@padloc/core/src/item";
-import { confirm } from "../lib/dialog";
-import { Dialog } from "./dialog";
-import { html, css } from "lit";
-import { customElement } from "lit/decorators.js";
-import { formatDateFromNow, formatDateTime } from "../lib/util";
 import type { VaultItem } from "@padloc/core/src/item";
+import { FIELD_DEFS } from "@padloc/core/src/item";
 import type { Vault } from "@padloc/core/src/vault";
-import { app } from "../globals";
+import { translate as $l } from "@padloc/locale/src/translate";
+import { css, html } from "lit";
+import { customElement } from "lit/decorators.js";
 import { until } from "lit/directives/until.js";
+import { app } from "../globals";
+import { confirm } from "../lib/dialog";
+import { formatDateFromNow, formatDateTime } from "../lib/util";
+import { Dialog } from "./dialog";
 
 @customElement("pl-history-entry-dialog")
 export class HistoryEntryDialog extends Dialog<{ item: VaultItem; vault: Vault; historyIndex: number }, boolean> {
