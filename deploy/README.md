@@ -55,11 +55,11 @@ baked in at build time). `PL_SERVER_ADMINS` only needs a **server restart**.
 
 ## Paths / hosts
 
-| Host | Path | App |
-| --- | --- | --- |
-| `your-domain` | `/` | PWA |
-| `your-domain` | `/server` | API |
-| `admin.your-domain` | `/` | Admin portal |
+| Host                | Path      | App                                                                 |
+| ------------------- | --------- | ------------------------------------------------------------------- |
+| `your-domain`       | `/`       | PWA                                                                 |
+| `your-domain`       | `/server` | API                                                                 |
+| `admin.your-domain` | `/`       | Admin portal                                                        |
 | `admin.your-domain` | `/server` | API proxy (same backend; optional if admin uses main `/server` URL) |
 
 nginx matches admin hosts with `server_name ~^admin\.` (any host starting with
@@ -81,10 +81,10 @@ out and log in again on the **admin** host.
 
 ## Security note
 
-The admin UI is a public SPA. Authorization is enforced by the server for
-emails listed in `PL_SERVER_ADMINS`. Edge protection (Basic Auth, IP allowlist,
-SSO) can be applied later **only** on the admin domain without affecting the
-main app.
+The admin UI is a public SPA. Authorization is enforced by the server for emails
+listed in `PL_SERVER_ADMINS`. Edge protection (Basic Auth, IP allowlist, SSO)
+can be applied later **only** on the admin domain without affecting the main
+app.
 
 ## Data
 
