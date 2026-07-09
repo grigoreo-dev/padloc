@@ -16,6 +16,15 @@ function removeTrailingSlash(url: string) {
     return url.replace(/(\/*)$/, "");
 }
 
+function websocketOriginFor(url: string, fallbackPort: number) {
+    try {
+        const parsed = new URL(url);
+        return `${parsed.protocol === "https:" ? "wss:" : "ws:"}//${parsed.host}`;
+    } catch (_e) {
+        return `ws://localhost:${fallbackPort}`;
+    }
+}
+
 function listFiles(dir: string, base = dir): string[] {
     return readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
         const path = join(dir, entry.name);
@@ -48,8 +57,8 @@ function padlocCspPlugin(pwaUrl: string, serverUrl: string, disableCsp: boolean)
             let content = `default-src 'none'; base-uri 'none'; script-src blob: [REPLACE_SCRIPT]; connect-src ${serverUrl} https://api.pwnedpasswords.com [REPLACE_CONNECT]; style-src 'unsafe-inline' [REPLACE_STYLE]; font-src [REPLACE_FONT]; object-src blob:; frame-src blob:; img-src [REPLACE_IMG] blob: data: https://icons.duckduckgo.com; manifest-src [REPLACE_MANIFEST]; worker-src ${pwaUrl}/sw.js;`;
 
             if (context.server) {
-                const devServerUrl = pwaUrl;
-                const devWebsocketUrl = `ws://localhost:${process.env.PL_PWA_PORT || 8080}`;
+                const devServerUrl = `${pwaUrl}/`;
+                const devWebsocketUrl = websocketOriginFor(pwaUrl, Number(process.env.PL_PWA_PORT || 8080));
                 content = content
                     .replace("[REPLACE_SCRIPT]", devServerUrl)
                     .replace("[REPLACE_CONNECT]", `${devWebsocketUrl} ${devServerUrl}`)
