@@ -1,6 +1,6 @@
-import { Auth } from "@padloc/core/src/auth";
+import type { Auth } from "@padloc/core/src/auth";
 import { Config, ConfigParam } from "@padloc/core/src/config";
-import { AuthRequest, AuthServer, AuthType, Authenticator } from "@padloc/core/src/auth";
+import { type AuthRequest, type AuthServer, AuthType, type Authenticator } from "@padloc/core/src/auth";
 import { request } from "../transport/http";
 import { Err, ErrorCode } from "@padloc/core/src/error";
 import { bytesToBase64, stringToBytes } from "@padloc/core/src/encoding";

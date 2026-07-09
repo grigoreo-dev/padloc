@@ -6,7 +6,7 @@ import { Routing } from "../mixins/routing";
 import { shared } from "../styles";
 import { app } from "../globals";
 import { dialog, alert } from "../lib/dialog";
-import { CreateInvitesDialog } from "./create-invites-dialog";
+import type { CreateInvitesDialog } from "./create-invites-dialog";
 import "./group-item";
 import "./member-item";
 import "./vault-item";
@@ -23,7 +23,7 @@ import { stringToBase64 } from "@padloc/core/src/encoding";
 
 @customElement("pl-org-dashboard")
 export class OrgDashboard extends Routing(StateMixin(LitElement)) {
-    readonly routePattern = /^orgs\/([^\/]+)\/dashboard/;
+    readonly routePattern = /^orgs\/([^/]+)\/dashboard/;
 
     @property()
     orgId: string = "";

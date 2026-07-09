@@ -2,12 +2,12 @@ import { Serializable, stringToBytes, AsBytes, AsSerializable } from "./encoding
 import { Err, ErrorCode } from "./error";
 import {
     PBKDF2Params,
-    AESKey,
+    type AESKey,
     AESEncryptionParams,
     AESKeyParams,
     RSAEncryptionParams,
-    RSAPrivateKey,
-    RSAPublicKey,
+    type RSAPrivateKey,
+    type RSAPublicKey,
 } from "./crypto";
 import { getCryptoProvider as getProvider } from "./platform";
 

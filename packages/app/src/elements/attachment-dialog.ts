@@ -1,6 +1,6 @@
 import { translate as $l } from "@padloc/locale/src/translate";
-import { VaultItemID } from "@padloc/core/src/item";
-import { Attachment, AttachmentInfo } from "@padloc/core/src/attachment";
+import type { VaultItemID } from "@padloc/core/src/item";
+import type { Attachment, AttachmentInfo } from "@padloc/core/src/attachment";
 import { saveFile } from "@padloc/core/src/platform";
 import { app } from "../globals";
 import { mixins } from "../styles";
@@ -8,7 +8,7 @@ import { mediaType, fileIcon, fileSize } from "../lib/util";
 import { confirm, prompt } from "../lib/dialog";
 import { Dialog } from "./dialog";
 import "./icon";
-import { css, html, TemplateResult } from "lit";
+import { css, html, type TemplateResult } from "lit";
 import { customElement, property, state } from "lit/decorators.js";
 // import { View } from "./view";
 
@@ -191,9 +191,10 @@ export class AttachmentDialog extends Dialog<{ info?: AttachmentInfo; file?: Fil
                     </div>
                 `;
             case "text":
-            case "code":
+            case "code": {
                 const text = await att.toText();
                 return html`<pre class="content preview ${mType} stretch"><code>${text}</code></pre>`;
+            }
             default:
                 return null;
         }

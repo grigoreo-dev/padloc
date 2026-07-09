@@ -2,7 +2,7 @@ import { translate as $l } from "@padloc/locale/src/translate";
 import { base32ToBytes, Serializable, AsSerializable, AsDate } from "./encoding";
 import { totp } from "./otp";
 import { uuid } from "./util";
-import { AccountID } from "./account";
+import type { AccountID } from "./account";
 import { AttachmentInfo } from "./attachment";
 import { openExternalUrl } from "./platform";
 import { add } from "date-fns";
@@ -91,7 +91,7 @@ export const FIELD_DEFS: { [t in FieldType]: FieldDef } = {
     [FieldType.Email]: {
         type: FieldType.Email,
         pattern: /(.*)@(.*)/,
-        matchPattern: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,8}$/,
+        matchPattern: /^[\w-.]+@([\w-]+\.)+[\w-]{2,8}$/,
         mask: false,
         multiline: false,
         icon: "email",
@@ -102,7 +102,7 @@ export const FIELD_DEFS: { [t in FieldType]: FieldDef } = {
     [FieldType.Url]: {
         type: FieldType.Url,
         pattern: /.*/,
-        matchPattern: /[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,8}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/i,
+        matchPattern: /[(http(s)?)://(www.)?a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,8}\b([-a-zA-Z0-9@:%_+.~#?&//=]*)/i,
         mask: false,
         multiline: false,
         icon: "web",

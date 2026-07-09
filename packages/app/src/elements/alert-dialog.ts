@@ -1,5 +1,5 @@
 import { translate as $l } from "@padloc/locale/src/translate";
-import { html, css, TemplateResult } from "lit";
+import { html, css, type TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { Dialog } from "./dialog";
 import "./button";

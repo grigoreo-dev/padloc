@@ -1,5 +1,19 @@
-import { MongoClient, Db, Collection, CreateCollectionOptions, ObjectId, Filter, FindOptions } from "mongodb";
-import { Storage, Storable, StorableConstructor, StorageListOptions, StorageQuery } from "@padloc/core/src/storage";
+import {
+    MongoClient,
+    type Db,
+    type Collection,
+    type CreateCollectionOptions,
+    ObjectId,
+    type Filter,
+    type FindOptions,
+} from "mongodb";
+import {
+    type Storage,
+    Storable,
+    type StorableConstructor,
+    type StorageListOptions,
+    type StorageQuery,
+} from "@padloc/core/src/storage";
 import { Err, ErrorCode } from "@padloc/core/src/error";
 import path from "path";
 import { Config, ConfigParam } from "@padloc/core/src/config";
@@ -106,26 +120,22 @@ export class MongoDBStorage implements Storage {
         if (!this._collections.has(kind)) {
             this._collections.set(
                 kind,
-                new Promise(async (resolve, reject) => {
-                    try {
-                        const exists = await this._db.listCollections({ name: kind }).hasNext();
+                (async () => {
+                    const exists = await this._db.listCollections({ name: kind }).hasNext();
 
-                        if (!exists) {
-                            const opts: CreateCollectionOptions = {
-                                writeConcern: { w: this.config.acknowledgeWrites ? 1 : -1 },
-                            };
-                            if (this.config.maxSize) {
-                                opts.capped = true;
-                                opts.size = this.config.maxSize;
-                                opts.max = this.config.maxDocuments;
-                            }
-                            await this._db.createCollection(kind, opts);
+                    if (!exists) {
+                        const opts: CreateCollectionOptions = {
+                            writeConcern: { w: this.config.acknowledgeWrites ? 1 : -1 },
+                        };
+                        if (this.config.maxSize) {
+                            opts.capped = true;
+                            opts.size = this.config.maxSize;
+                            opts.max = this.config.maxDocuments;
                         }
-                        resolve(this._db.collection(kind));
-                    } catch (e) {
-                        reject(e);
+                        await this._db.createCollection(kind, opts);
                     }
-                })
+                    return this._db.collection(kind);
+                })()
             );
         }
 

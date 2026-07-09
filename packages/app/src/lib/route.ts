@@ -26,7 +26,7 @@ export class Router extends EventTarget {
         const canceled =
             !this._forceNextUpdate &&
             !this.dispatchEvent(
-                // @ts-ignore
+                // @ts-expect-error
                 new CustomEvent("before-route-changed", { detail: { path, direction }, cancelable: true })
             );
 
@@ -38,7 +38,7 @@ export class Router extends EventTarget {
             this._forceNextUpdate = false;
         }
 
-        // @ts-ignore
+        // @ts-expect-error
         this.dispatchEvent(new CustomEvent("route-changed", { detail: { path, direction } }));
     }
 
@@ -60,7 +60,7 @@ export class Router extends EventTarget {
             "",
             this.basePath + this.path + "?" + new URLSearchParams(params).toString()
         );
-        // @ts-ignore
+        // @ts-expect-error
         this.dispatchEvent(new CustomEvent("params-changed", { detail: { params } }));
     }
 

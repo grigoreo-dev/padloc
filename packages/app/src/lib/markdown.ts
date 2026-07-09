@@ -36,9 +36,7 @@ turndown.addRule("p", {
 
 turndown.addRule("strikethrough", {
     filter: ["s"],
-    replacement: function (content) {
-        return "~" + content + "~";
-    },
+    replacement: (content) => "~" + content + "~",
 });
 
 turndown.addRule("li", {
@@ -73,7 +71,7 @@ turndown.addRule("li", {
 // });
 
 // Add a hook to make all links open a new window
-addHook("afterSanitizeAttributes", function (node) {
+addHook("afterSanitizeAttributes", (node) => {
     // set all elements owning target to target=_blank
     if ("target" in node) {
         node.setAttribute("target", "_blank");

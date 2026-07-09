@@ -2,10 +2,10 @@ import { AsBytes, AsSerializable, Serializable } from "./encoding";
 import { CompleteCreateSessionParams, Handler, StartAuthRequestParams, StartCreateSessionParams } from "./api";
 import { AccountStatus, AuthPurpose, AuthRequest, AuthRequestStatus, AuthType } from "./auth";
 import { PBKDF2Params } from "./crypto";
-import { AccountID } from "./account";
+import type { AccountID } from "./account";
 import { Session } from "./session";
 import { Err, ErrorCode } from "./error";
-import { Controller } from "./server";
+import type { Controller } from "./server";
 
 /**
  * @deprecated
@@ -249,7 +249,7 @@ export const V3Compat = (base: Constructor<Controller>) => {
                     request.purpose = AuthPurpose.Signup;
                 }
 
-                let legacyToken: string | undefined = undefined;
+                let legacyToken: string | undefined;
                 if (hasLegacyAccount) {
                     const getLegacyDataMFARequest = new AuthRequest({
                         type: AuthType.Email,

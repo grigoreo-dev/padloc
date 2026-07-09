@@ -1,4 +1,4 @@
-import { Tag } from "@padloc/core/src/item";
+import type { Tag } from "@padloc/core/src/item";
 import { $l } from "@padloc/locale/src/translate";
 import { css, customElement, html, LitElement, property, query } from "lit-element";
 import { app, router } from "../globals";

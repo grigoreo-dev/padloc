@@ -8,16 +8,16 @@ import { ListParams, ListResponse } from "@padloc/core/src/api";
 import "@padloc/app/src/elements/scroller";
 import "@padloc/app/src/elements/list";
 import "@padloc/app/src/elements/button";
-import { Input } from "@padloc/app/src/elements/input";
-import { Popover } from "@padloc/app/src/elements/popover";
+import type { Input } from "@padloc/app/src/elements/input";
+import type { Popover } from "@padloc/app/src/elements/popover";
 import { singleton } from "@padloc/app/src/lib/singleton";
 import "@padloc/app/src/elements/spinner";
 import { alert } from "@padloc/app/src/lib/dialog";
-import { Select } from "@padloc/app/src/elements/select";
-import { StorageQuery } from "@padloc/core/src/storage";
-import { ChangeLogEntryDialog } from "./change-log-entry-dialog";
-import { ChangeLogEntry, RequestLogEntry } from "@padloc/core/src/logging";
-import { RequestLogEntryDialog } from "./request-log-entry-dialog";
+import type { Select } from "@padloc/app/src/elements/select";
+import type { StorageQuery } from "@padloc/core/src/storage";
+import type { ChangeLogEntryDialog } from "./change-log-entry-dialog";
+import type { ChangeLogEntry, RequestLogEntry } from "@padloc/core/src/logging";
+import type { RequestLogEntryDialog } from "./request-log-entry-dialog";
 
 @customElement("pl-admin-logs")
 export class Logs extends StateMixin(Routing(View)) {

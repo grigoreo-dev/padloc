@@ -5,8 +5,8 @@ import { Dialog } from "./dialog";
 import { html, css } from "lit";
 import { customElement } from "lit/decorators.js";
 import { formatDateFromNow, formatDateTime } from "../lib/util";
-import { VaultItem } from "@padloc/core/src/item";
-import { Vault } from "@padloc/core/src/vault";
+import type { VaultItem } from "@padloc/core/src/item";
+import type { Vault } from "@padloc/core/src/vault";
 import { app } from "../globals";
 import { until } from "lit/directives/until.js";
 

@@ -1,5 +1,5 @@
 import { Serializable, AsSerializable, AsDate, AsBytes } from "./encoding";
-import { Server } from "./server";
+import type { Server } from "./server";
 import { DeviceInfo } from "./platform";
 import { EventEmitter } from "./event-target";
 import { wait } from "./util";

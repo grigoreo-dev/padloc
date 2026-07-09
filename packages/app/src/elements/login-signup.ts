@@ -4,8 +4,8 @@ import { ErrorCode } from "@padloc/core/src/error";
 import { AccountStatus, AuthPurpose } from "@padloc/core/src/auth";
 import { router } from "../globals";
 import { StartForm } from "./start-form";
-import { Input } from "./input";
-import { Button } from "./button";
+import type { Input } from "./input";
+import type { Button } from "./button";
 import { alert, choose, dialog, prompt, confirm } from "../lib/dialog";
 import "./logo";
 import { customElement, property, query, state } from "lit/decorators.js";
@@ -14,16 +14,16 @@ import { completeAuthRequest, startAuthRequest } from "@padloc/core/src/platform
 import { mixins } from "../styles";
 import { isTouch, passwordStrength } from "../lib/util";
 import { generatePassphrase } from "@padloc/core/src/diceware";
-import { GeneratorDialog } from "./generator-dialog";
+import type { GeneratorDialog } from "./generator-dialog";
 import "./scroller";
-import { Drawer } from "./drawer";
-import { AccountProvisioning, ProvisioningStatus } from "@padloc/core/src/provisioning";
+import type { Drawer } from "./drawer";
+import { type AccountProvisioning, ProvisioningStatus } from "@padloc/core/src/provisioning";
 import "./rich-content";
 import { displayProvisioning } from "../lib/provisioning";
 import { StartAuthRequestResponse } from "@padloc/core/src/api";
-import { Confetti } from "./confetti";
+import type { Confetti } from "./confetti";
 import { singleton } from "../lib/singleton";
-import { PBES2Container } from "@padloc/core/src/container";
+import type { PBES2Container } from "@padloc/core/src/container";
 import { importLegacyContainer } from "../lib/import";
 import { ACCOUNT_EMAIL_MAX_LENGTH, ACCOUNT_NAME_MAX_LENGTH } from "@padloc/core/src/account";
 import { base64ToString } from "@padloc/core/src/encoding";
@@ -307,7 +307,7 @@ export class LoginOrSignup extends StartForm {
         this._loginPasswordInput.blur();
 
         const email = this._emailInput.value;
-        let password = this._loginPasswordInput.value;
+        const password = this._loginPasswordInput.value;
 
         if (this._emailInput.invalid) {
             await alert($l("Please enter a valid email address!"));

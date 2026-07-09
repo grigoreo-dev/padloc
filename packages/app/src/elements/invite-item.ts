@@ -1,5 +1,5 @@
 import { until } from "lit/directives/until.js";
-import { Invite } from "@padloc/core/src/invite";
+import type { Invite } from "@padloc/core/src/invite";
 import { translate as $l } from "@padloc/locale/src/translate";
 import { formatDateFromNow } from "../lib/util";
 import { shared } from "../styles";

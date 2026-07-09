@@ -50,10 +50,9 @@ export class Config extends Serializable {
 
             const varName = `${prefix}${prop.replace(/([a-z])([A-Z])/g, "$1_$2").toUpperCase()}`;
 
-            let str = env[varName];
+            const str = env[varName];
 
             if (typeof str === "undefined") {
-                continue;
             } else if (type === "number") {
                 const num = Number(str);
                 if (isNaN(num)) {

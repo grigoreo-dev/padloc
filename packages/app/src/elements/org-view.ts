@@ -12,7 +12,7 @@ import { html, LitElement } from "lit";
 
 @customElement("pl-org-view")
 export class OrgView extends Routing(StateMixin(LitElement)) {
-    readonly routePattern = /^orgs\/([^\/]+)(?:\/(\w+))?/;
+    readonly routePattern = /^orgs\/([^/]+)(?:\/(\w+))?/;
 
     private readonly _pages = ["dashboard", "members", "groups", "vaults", "invites", "settings"];
 

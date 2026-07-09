@@ -1,4 +1,4 @@
-import { css, html, LitElement, TemplateResult } from "lit";
+import { css, html, LitElement, type TemplateResult } from "lit";
 import { property, query } from "lit/decorators.js";
 import { shared } from "../styles";
 
@@ -270,7 +270,7 @@ export abstract class BaseInput extends LitElement {
                             this.label
                                 ? html`
                                   <label
-                                      class="${focused || !!value || !!placeholder ? "float" : ""}"
+                                      class="${focused || value || placeholder ? "float" : ""}"
                                       for=${this._inputId}
                                       >${this.label}</label
                                   >

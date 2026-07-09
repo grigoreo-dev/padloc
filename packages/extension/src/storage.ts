@@ -1,4 +1,10 @@
-import { Storage, Storable, StorableConstructor, StorageListOptions, StorageQuery } from "@padloc/core/src/storage";
+import {
+    type Storage,
+    Storable,
+    type StorableConstructor,
+    type StorageListOptions,
+    type StorageQuery,
+} from "@padloc/core/src/storage";
 import { Err, ErrorCode } from "@padloc/core/src/error";
 import browser from "webextension-polyfill";
 

@@ -3,7 +3,7 @@ import { App } from "@padloc/app/src/elements/app";
 import { debounce } from "@padloc/core/src/util";
 import { bytesToBase64, base64ToBytes } from "@padloc/core/src/encoding";
 import { Storable } from "@padloc/core/src/storage";
-import { VaultItem } from "@padloc/core/src/item";
+import type { VaultItem } from "@padloc/core/src/item";
 // import { messageTab } from "./message";
 
 const notifyStateChanged = debounce(() => {

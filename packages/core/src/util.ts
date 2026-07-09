@@ -26,7 +26,7 @@ export async function uuid(): Promise<string> {
  * NOT CRYPTOGRAPHICALLY SAFE!
  */
 export function unsafeUUID(): string {
-    return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) {
+    return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, (c) => {
         var r = (Math.random() * 16) | 0,
             v = c == "x" ? r : (r & 0x3) | 0x8;
         return v.toString(16);
@@ -82,14 +82,14 @@ export async function randomNumber(min: number = 0, max: number = 10): Promise<n
     }
 
     const bytesNeeded = Math.ceil(bitsNeeded / 8);
-    const mask = Math.pow(2, bitsNeeded) - 1;
+    const mask = 2 ** bitsNeeded - 1;
 
     // Fill a byte array with N random numbers
     const byteArray = await getProvider().randomBytes(bytesNeeded);
 
     let p = (bytesNeeded - 1) * 8;
     for (let i = 0; i < bytesNeeded; i++) {
-        rval += byteArray[i] * Math.pow(2, p);
+        rval += byteArray[i] * 2 ** p;
         p -= 8;
     }
 
@@ -113,7 +113,7 @@ export async function randomNumber(min: number = 0, max: number = 10): Promise<n
 export function debounce(fn: (...args: any[]) => any, delay: number) {
     let timeout: number;
 
-    return function (...args: any[]) {
+    return (...args: any[]) => {
         clearTimeout(timeout);
         timeout = window.setTimeout(() => fn(...args), delay);
     };

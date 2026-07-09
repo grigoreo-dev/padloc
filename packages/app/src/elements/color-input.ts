@@ -1,6 +1,6 @@
 import { LitElement, html, css } from "lit";
 import { customElement, property, query } from "lit/decorators.js";
-import { Popover } from "./popover";
+import type { Popover } from "./popover";
 import "./color-picker";
 import { shared } from "../styles";
 

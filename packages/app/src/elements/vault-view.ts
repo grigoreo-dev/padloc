@@ -1,4 +1,4 @@
-import { OrgMember } from "@padloc/core/src/org";
+import type { OrgMember } from "@padloc/core/src/org";
 import { Vault } from "@padloc/core/src/vault";
 import { translate as $l } from "@padloc/locale/src/translate";
 import { shared } from "../styles";
@@ -6,21 +6,21 @@ import { app } from "../globals";
 import { alert, prompt } from "../lib/dialog";
 import { Routing } from "../mixins/routing";
 import { StateMixin } from "../mixins/state";
-import { Button } from "./button";
+import type { Button } from "./button";
 import "./icon";
 import "./member-item";
 import "./group-item";
 import "./scroller";
 import "./popover";
 import "./list";
-import { Input } from "./input";
+import type { Input } from "./input";
 import "./toggle";
 import { customElement, property, query, state } from "lit/decorators.js";
 import { css, html, LitElement } from "lit";
 
 @customElement("pl-vault-view")
 export class VaultView extends Routing(StateMixin(LitElement)) {
-    readonly routePattern = /^orgs\/([^\/]+)\/vaults(?:\/([^\/]+))?/;
+    readonly routePattern = /^orgs\/([^/]+)\/vaults(?:\/([^/]+))?/;
 
     @property()
     vaultId: string;

@@ -6,7 +6,7 @@ import { ElectronPlatform } from "./platform";
 
     await import("@padloc/app/src/elements/app");
 
-    // @ts-ignore
+    // @ts-expect-error
     window.router.basePath = window.location.pathname.replace(/index.html$/, "");
 
     window.onload = () => {

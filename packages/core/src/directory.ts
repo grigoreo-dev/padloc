@@ -1,5 +1,5 @@
-import { Org, OrgID, OrgMember, OrgMemberStatus, Group } from "./org";
-import { Controller } from "./server";
+import { Org, type OrgID, OrgMember, OrgMemberStatus, Group } from "./org";
+import type { Controller } from "./server";
 import { getIdFromEmail, uuid } from "./util";
 import { Auth } from "./auth";
 import { Err, ErrorCode } from "./error";
@@ -136,7 +136,7 @@ export class DirectorySync implements DirectorySubscriber {
                 return;
             }
 
-            let members = [];
+            const members = [];
             for (const { email } of group.members) {
                 const member = org.getMember({ email });
                 if (!member) {
@@ -169,7 +169,7 @@ export class DirectorySync implements DirectorySubscriber {
 
             existingGroup.name = group.name;
 
-            let members = [];
+            const members = [];
             for (const { email } of group.members) {
                 const member = org.getMember({ email });
                 if (!member) {

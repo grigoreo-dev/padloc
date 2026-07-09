@@ -6,19 +6,19 @@ import { app } from "../globals";
 import { alert, confirm } from "../lib/dialog";
 import { Routing } from "../mixins/routing";
 import { StateMixin } from "../mixins/state";
-import { Button } from "./button";
+import type { Button } from "./button";
 import "./icon";
 import "./scroller";
 import "./spinner";
-import { UnlockedOrg } from "@padloc/core/src/org";
-import { UnlockedAccount } from "@padloc/core/src/account";
+import type { UnlockedOrg } from "@padloc/core/src/org";
+import type { UnlockedAccount } from "@padloc/core/src/account";
 import { customElement, property, query, state } from "lit/decorators.js";
 import { css, html, LitElement } from "lit";
 import { checkFeatureDisabled } from "../lib/provisioning";
 
 @customElement("pl-invite-view")
 export class InviteView extends Routing(StateMixin(LitElement)) {
-    readonly routePattern = /^orgs\/([^\/]+)\/invites(?:\/([^\/]+))?/;
+    readonly routePattern = /^orgs\/([^/]+)\/invites(?:\/([^/]+))?/;
 
     @property()
     inviteId: string;
@@ -105,7 +105,7 @@ export class InviteView extends Routing(StateMixin(LitElement)) {
             return;
         }
         this._resendButton.start();
-        let org = this._org!;
+        const org = this._org!;
         try {
             this._resendButton?.success();
             const newInvite = (await app.createInvites(org, [this._invite.email], this._invite.purpose))[0];

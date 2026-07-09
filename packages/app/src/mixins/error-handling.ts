@@ -40,7 +40,7 @@ export function ErrorHandling<B extends Constructor<Object>>(baseClass: B) {
                     return true;
                 case ErrorCode.INVALID_SESSION:
                 case ErrorCode.SESSION_EXPIRED:
-                    if (!!app.session) {
+                    if (app.session) {
                         await alert($l("Your session has expired. Please log in again!"), { preventAutoClose: true });
                         await app.logout();
                         router.go("login");
@@ -70,6 +70,7 @@ export function ErrorHandling<B extends Constructor<Object>>(baseClass: B) {
                             ),
                         { title: $l("Update Required"), type: "warning" }
                     );
+                    break;
 
                 default:
                     app.state._errors.push(error);

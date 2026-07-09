@@ -1,7 +1,7 @@
 import { assert } from "chai";
 import { suite, test } from "mocha";
 import { Vault } from "../src/vault";
-import { Account } from "../src/account";
+import type { Account } from "../src/account";
 import { createVaultItem } from "../src/item";
 import { RSAKeyParams } from "../src/crypto";
 import { StubCryptoProvider } from "../src/stub-crypto-provider";

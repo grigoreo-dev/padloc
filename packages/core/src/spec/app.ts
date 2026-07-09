@@ -149,7 +149,7 @@
 //         //     await otherApp.syncVault(vault);
 //         //     assert.isTrue(app.getVault(sharedVaultID)!.isAdmin(otherApp.account));
 //         //     assert.isTrue(otherApp.getVault(sharedVaultID)!.isAdmin(otherApp.account));
-//         //     // @ts-ignore
+//         //     // @ts-expect-error
 //         //     assert.isOk(otherApp.getVault(sharedVaultID)!._privateKey);
 //         //     await otherApp.syncVault(vault);
 //         //     await app.syncVault(vault);

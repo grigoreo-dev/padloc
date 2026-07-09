@@ -3,30 +3,30 @@ import "./popover";
 import "./list";
 import "./button";
 import "./scroller";
-import { html, LitElement, TemplateResult } from "lit";
+import { html, LitElement, type TemplateResult } from "lit";
 import { StateMixin } from "../mixins/state";
 import {
     authenticate,
     registerAuthenticator,
-    DeviceInfo,
+    type DeviceInfo,
     supportsPlatformAuthenticator,
     getPlatform,
 } from "@padloc/core/src/platform";
 import { app, router } from "../globals";
 import { prompt, alert, confirm, choose } from "../lib/dialog";
 import { translate as $l } from "@padloc/locale/src/translate";
-import { ToggleButton } from "./toggle-button";
+import type { ToggleButton } from "./toggle-button";
 import { customElement, query } from "lit/decorators.js";
 import { shared } from "../styles";
-import { Slider } from "./slider";
+import type { Slider } from "./slider";
 import { UpdateAuthParams } from "@padloc/core/src/api";
 import { Routing } from "../mixins/routing";
-import { AuthPurpose, AuthType, AuthenticatorInfo, AuthenticatorStatus } from "@padloc/core/src/auth";
+import { AuthPurpose, AuthType, type AuthenticatorInfo, AuthenticatorStatus } from "@padloc/core/src/auth";
 import { formatDate, formatDateFromNow, passwordStrength } from "../lib/util";
 import { until } from "lit/directives/until.js";
-import { Button } from "./button";
-import { SessionInfo } from "@padloc/core/src/session";
-import { KeyStoreEntryInfo } from "@padloc/core/src/key-store";
+import type { Button } from "./button";
+import type { SessionInfo } from "@padloc/core/src/session";
+import type { KeyStoreEntryInfo } from "@padloc/core/src/key-store";
 import { alertDisabledFeature } from "../lib/provisioning";
 import { auditVaults } from "../lib/audit";
 import "./icon";

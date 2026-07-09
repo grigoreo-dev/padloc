@@ -1,13 +1,13 @@
 import { translate as $l } from "@padloc/locale/src/translate";
-import { VaultItemID } from "@padloc/core/src/item";
-import { Attachment } from "@padloc/core/src/attachment";
+import type { VaultItemID } from "@padloc/core/src/item";
+import type { Attachment } from "@padloc/core/src/attachment";
 import { ErrorCode } from "@padloc/core/src/error";
 import { app } from "../globals";
 import { fileIcon, fileSize } from "../lib/util";
 import { Dialog } from "./dialog";
 import "./icon";
-import { Button } from "./button";
-import { Input } from "./input";
+import type { Button } from "./button";
+import type { Input } from "./input";
 import { customElement, property, query, state } from "lit/decorators.js";
 import { css, html } from "lit";
 

@@ -1,5 +1,5 @@
-import { Message, MessageData, Messenger } from "@padloc/core/src/messenger";
-import { createTransport, Transporter, TransportOptions } from "nodemailer";
+import type { Message, MessageData, Messenger } from "@padloc/core/src/messenger";
+import { createTransport, type Transporter, type TransportOptions } from "nodemailer";
 import { Config, ConfigParam } from "@padloc/core/src/config";
 import { readFileSync, readdirSync } from "fs";
 import { Err, ErrorCode } from "@padloc/core/src/error";
@@ -87,7 +87,7 @@ export class SMTPSender implements Messenger {
     async send<T extends MessageData>(email: string, message: Message<T>) {
         const { html, text } = this._getMessageContent(message);
 
-        let opts = {
+        const opts = {
             from: this.config.from || this.config.user,
             to: email,
             subject: message.title,

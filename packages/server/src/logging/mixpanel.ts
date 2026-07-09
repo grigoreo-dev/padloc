@@ -1,7 +1,7 @@
 import { Config, ConfigParam } from "@padloc/core/src/config";
-import { LogEvent, Logger, LoggerListOptions } from "@padloc/core/src/logging";
-import { Context } from "@padloc/core/src/server";
-import { Mixpanel, init } from "mixpanel";
+import { LogEvent, type Logger, type LoggerListOptions } from "@padloc/core/src/logging";
+import type { Context } from "@padloc/core/src/server";
+import { type Mixpanel, init } from "mixpanel";
 
 export class MixpanelConfig extends Config {
     @ConfigParam()

@@ -27,7 +27,7 @@ suite("Account", () => {
 
         account = new Account().fromRaw(account.toRaw());
 
-        // @ts-ignore
+        // @ts-expect-error
         assert.include(account, { email, name });
 
         await assertReject(assert, () => account.unlock("wrong password"), ErrorCode.DECRYPTION_FAILED);

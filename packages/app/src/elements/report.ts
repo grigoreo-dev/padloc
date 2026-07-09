@@ -1,5 +1,5 @@
 import { translate as $l } from "@padloc/locale/src/translate";
-import { AuditType, VaultItem } from "@padloc/core/src/item";
+import { AuditType, type VaultItem } from "@padloc/core/src/item";
 import { customElement, state } from "lit/decorators.js";
 import { css, html } from "lit";
 import { app } from "../globals";

@@ -9,7 +9,7 @@ import "./popover";
 import { htmlToMarkdown, markdownToHtml } from "../lib/markdown";
 import { $l } from "@padloc/locale/src/translate";
 import "./textarea";
-import { Textarea } from "./textarea";
+import type { Textarea } from "./textarea";
 import "./select";
 import { customScrollbar } from "../styles/mixins";
 

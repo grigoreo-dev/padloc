@@ -10,9 +10,9 @@ import "./popover";
 import "./icon";
 import "./sortable-list";
 import "./color-input";
-import { ColorInput } from "./color-input";
+import type { ColorInput } from "./color-input";
 import { Routing } from "../mixins/routing";
-import { TagInfo } from "@padloc/core/src/item";
+import type { TagInfo } from "@padloc/core/src/item";
 import { confirm, prompt } from "../lib/dialog";
 
 @customElement("pl-settings-tags")
@@ -130,7 +130,7 @@ export class SettingsTags extends Routing(StateMixin(LitElement)) {
                             @item-moved=${this._save}
                             .renderItem=${(tag: TagInfo, i: number) => html`
                                 <div
-                                    class="center-aligning horizontal layout ${!!i ? "border-top" : ""}"
+                                    class="center-aligning horizontal layout ${i ? "border-top" : ""}"
                                     style="cursor: grab"
                                 >
                                     <pl-color-input
@@ -212,7 +212,7 @@ export class SettingsTags extends Routing(StateMixin(LitElement)) {
                             @item-moved=${this._save}
                             .renderItem=${(tag: TagInfo, i: number) => html`
                                 <div
-                                    class="center-aligning horizontal layout ${!!i ? "border-top" : ""}"
+                                    class="center-aligning horizontal layout ${i ? "border-top" : ""}"
                                     style="cursor: grab"
                                 >
                                     <pl-icon icon="hide" style="margin: 0.7em"></pl-icon>

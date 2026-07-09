@@ -1,6 +1,6 @@
 import { debounce } from "@padloc/core/src/util";
 import { translate as $l } from "@padloc/locale/src/translate";
-import { LitElement } from "lit";
+import type { LitElement } from "lit";
 import { property } from "lit/decorators.js";
 import { app, router } from "../globals";
 

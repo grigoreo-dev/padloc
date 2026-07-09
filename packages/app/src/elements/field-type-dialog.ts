@@ -1,4 +1,4 @@
-import { FieldDef, FIELD_DEFS } from "@padloc/core/src/item";
+import { type FieldDef, FIELD_DEFS } from "@padloc/core/src/item";
 import { translate as $l } from "@padloc/locale/src/translate";
 import { Dialog } from "./dialog";
 import "./button";

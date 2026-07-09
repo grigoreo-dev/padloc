@@ -1,4 +1,4 @@
-import {
+import type {
     CryptoProvider,
     PBKDF2Params,
     AESKey,
@@ -46,12 +46,13 @@ export class StubCryptoProvider implements CryptoProvider {
             case "AES":
             case "HMAC":
                 return this.randomBytes(params.keySize / 8);
-            case "RSA":
+            case "RSA": {
                 const key = await this.randomBytes(32);
                 return {
                     publicKey: key,
                     privateKey: key,
                 };
+            }
         }
     }
 

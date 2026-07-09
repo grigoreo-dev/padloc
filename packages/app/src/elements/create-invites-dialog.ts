@@ -1,10 +1,10 @@
 import { translate as $l } from "@padloc/locale/src/translate";
-import { Org } from "@padloc/core/src/org";
-import { Invite } from "@padloc/core/src/invite";
+import type { Org } from "@padloc/core/src/org";
+import type { Invite } from "@padloc/core/src/invite";
 import { app } from "../globals";
-import { Input } from "./input";
+import type { Input } from "./input";
 import { Dialog } from "./dialog";
-import { Button } from "./button";
+import type { Button } from "./button";
 import "./icon";
 import { customElement, query, state } from "lit/decorators.js";
 import { css, html } from "lit";

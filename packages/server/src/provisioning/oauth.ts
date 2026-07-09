@@ -1,17 +1,17 @@
 import {
-    AccountProvisioning,
+    type AccountProvisioning,
     BasicProvisioner,
     BasicProvisionerConfig,
-    Provisioning,
+    type Provisioning,
     ProvisioningStatus,
 } from "@padloc/core/src/provisioning";
 import { getIdFromEmail } from "@padloc/core/src/util";
-import { Storage } from "@padloc/core/src/storage";
+import type { Storage } from "@padloc/core/src/storage";
 import { ConfigParam } from "@padloc/core/src/config";
 import { request } from "../transport/http";
-import { AccountID } from "@padloc/core/src/account";
+import type { AccountID } from "@padloc/core/src/account";
 import { Auth } from "@padloc/core/src/auth";
-import { OauthConfig, OauthUserInfo } from "../auth/oauth";
+import type { OauthConfig, OauthUserInfo } from "../auth/oauth";
 
 export class OauthProvisionerConfig extends BasicProvisionerConfig {
     @ConfigParam("number")

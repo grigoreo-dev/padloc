@@ -1,4 +1,4 @@
-import { Generator } from "./generator";
+import type { Generator } from "./generator";
 import { html } from "lit";
 import { $l } from "@padloc/locale/src/translate";
 import { Dialog } from "./dialog";

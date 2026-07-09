@@ -1,14 +1,14 @@
-import { Field, FieldType, FIELD_DEFS, AuditResult, AuditType } from "@padloc/core/src/item";
+import { type Field, FieldType, FIELD_DEFS, type AuditResult, AuditType } from "@padloc/core/src/item";
 import { translate as $l } from "@padloc/locale/src/translate";
 import { shared } from "../styles";
 import "./icon";
-import { Input } from "./input";
-import { Textarea } from "./textarea";
+import type { Input } from "./input";
+import type { Textarea } from "./textarea";
 import "./input";
 import "./textarea";
 import "./totp";
 import "./button";
-import { Drawer } from "./drawer";
+import type { Drawer } from "./drawer";
 import { customElement, property, query, state } from "lit/decorators.js";
 import { css, html, LitElement } from "lit";
 import { generatePassphrase } from "@padloc/core/src/diceware";
@@ -18,9 +18,9 @@ import { descriptionForAudit, iconForAudit, titleTextForAudit } from "../lib/aud
 import "./popover";
 import "./rich-input";
 import "./rich-content";
-import { RichInput } from "./rich-input";
+import type { RichInput } from "./rich-input";
 import { singleton } from "../lib/singleton";
-import { NoteDialog } from "./note-dialog";
+import type { NoteDialog } from "./note-dialog";
 
 @customElement("pl-field")
 export class FieldElement extends LitElement {
@@ -166,21 +166,23 @@ export class FieldElement extends LitElement {
 
     private async _updateSuggestions() {
         switch (this.field.type) {
-            case FieldType.Username:
+            case FieldType.Username: {
                 const value = this._valueInput?.value || "";
                 this._suggestions = this._existingUsernames.filter((val) => val.startsWith(value) && val !== value);
                 break;
+            }
             case FieldType.Password:
                 this._suggestions = this._valueInput?.value
                     ? []
                     : [await randomString(16, charSets.alphanum), await generatePassphrase()];
                 break;
-            case FieldType.Url:
+            case FieldType.Url: {
                 const url = app.state.context.browser?.url;
                 const origin = url && new URL(url).origin;
                 const host = url && new URL(url).host;
                 this._suggestions = !this._valueInput?.value && url && origin ? [origin, url, `*.${host}`] : [];
                 break;
+            }
             default:
                 this._suggestions = null;
         }
@@ -415,7 +417,7 @@ export class FieldElement extends LitElement {
                     </pl-input>
                 `;
 
-            default:
+            default: {
                 let inputType: string;
                 switch (this.field.type) {
                     case "email":
@@ -477,6 +479,7 @@ export class FieldElement extends LitElement {
                         }
                     </pl-input>
                 `;
+            }
         }
     }
 

@@ -1,6 +1,6 @@
 import { translate as $l } from "@padloc/locale/src/translate";
 import { ErrorCode } from "@padloc/core/src/error";
-import { Vault } from "@padloc/core/src/vault";
+import type { Vault } from "@padloc/core/src/vault";
 import { app } from "../globals";
 import { shared } from "../styles";
 import { alert } from "../lib/dialog";
@@ -30,7 +30,7 @@ const orgPages = [
 
 @customElement("pl-menu")
 export class Menu extends Routing(StateMixin(LitElement)) {
-    readonly routePattern = /^([^\/]+)(?:\/([^\/]+)\/([^\/]+))?/;
+    readonly routePattern = /^([^/]+)(?:\/([^/]+)\/([^/]+))?/;
 
     @property()
     selected: string;

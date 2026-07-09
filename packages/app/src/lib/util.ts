@@ -40,7 +40,7 @@ export function formatDateTime(date: Date | string | number) {
 }
 
 export async function passwordStrength(pwd: string): Promise<{ score: number }> {
-    // @ts-ignore
+    // @ts-expect-error
     const { default: zxcvbn } = await import(/* webpackChunkName: "zxcvbn" */ "zxcvbn");
     return zxcvbn(pwd);
 }
@@ -91,7 +91,6 @@ export function mediaType(mimeType: string) {
                 case "x-pkcs7-mime":
                 case "x-pkcs7-crl":
                 case "x-pem-file":
-                case "x-pkcs12":
                 case "x-pkcs7-certreqresp":
                     return "certificate";
                 case "zip":
@@ -103,6 +102,8 @@ export function mediaType(mimeType: string) {
                 case "x-rar-compressed":
                 case "x-tar":
                     return "archive";
+                default:
+                    return "";
             }
         default:
             return "";
@@ -154,8 +155,8 @@ export function highlightJson(json: string) {
     json = json.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
     json = json.replace(
-        /("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g,
-        function (match) {
+        /("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+-]?\d+)?)/g,
+        (match) => {
             var cls = "number";
             if (/^"/.test(match)) {
                 if (/:$/.test(match)) {

@@ -31,7 +31,14 @@
             "!**/packages/tauri/src-tauri/target",
             "!**/packages/tauri/tauri-update.json",
             "!**/.flatpak-builder",
-            "!**/purekeep/assets/email"
+            "!**/purekeep/assets/email",
+            "!**/packages/core/vendor",
+            "!**/packages/admin/src/index.html",
+            "!**/packages/cordova/src/index.html",
+            "!**/packages/electron/src/index.html",
+            "!**/packages/extension/src/popup.html",
+            "!**/packages/pwa/src/index.html",
+            "!**/packages/tauri/src/index.html"
         ]
     },
     "formatter": {
@@ -54,10 +61,49 @@
             "lineWidth": 120
         }
     },
+    "html": {
+        "parser": {
+            "interpolation": true
+        }
+    },
     "linter": {
         "enabled": true,
         "rules": {
-            "recommended": true
+            "recommended": true,
+            "a11y": {
+                "useHtmlLang": "off",
+                "noSvgWithoutTitle": "off"
+            },
+            "complexity": {
+                "noImportantStyles": "off",
+                "useOptionalChain": "off",
+                "useArrowFunction": "off",
+                "noUselessEscapeInRegex": "off"
+            },
+            "correctness": {
+                "noInnerDeclarations": "off",
+                "noSwitchDeclarations": "off",
+                "noUnusedVariables": "off",
+                "noUnusedFunctionParameters": "off",
+                "noUnusedPrivateClassMembers": "off"
+            },
+            "style": {
+                "useImportType": "off",
+                "noNonNullAssertion": "off",
+                "useNodejsImportProtocol": "off",
+                "useTemplate": "off",
+                "useConst": "off",
+                "noDescendingSpecificity": "off"
+            },
+            "suspicious": {
+                "noDoubleEquals": "off",
+                "noAssignInExpressions": "off",
+                "noExplicitAny": "off",
+                "useIterableCallbackReturn": "off",
+                "noImplicitAnyLet": "off",
+                "noTsIgnore": "off",
+                "noNonNullAssertedOptionalChain": "off"
+            }
         }
     },
     "assist": {

@@ -1,25 +1,35 @@
 import { loadLanguage, translate as $l } from "@padloc/locale/src/translate";
 import { Storable } from "./storage";
 import { Serializable, Serialize, AsDate, AsSerializable, bytesToBase64, stringToBytes, equalBytes } from "./encoding";
-import { Invite, InvitePurpose } from "./invite";
-import { Vault, VaultID } from "./vault";
-import { Org, OrgID, OrgMember, OrgRole, Group, UnlockedOrg, OrgInfo, ActiveOrgMember, OrgMemberStatus } from "./org";
+import { Invite, type InvitePurpose } from "./invite";
+import { Vault, type VaultID } from "./vault";
+import {
+    Org,
+    type OrgID,
+    type OrgMember,
+    OrgRole,
+    Group,
+    type UnlockedOrg,
+    type OrgInfo,
+    type ActiveOrgMember,
+    OrgMemberStatus,
+} from "./org";
 import {
     VaultItem,
-    VaultItemID,
-    Field,
-    Tag,
+    type VaultItemID,
+    type Field,
+    type Tag,
     createVaultItem,
-    AuditResult,
+    type AuditResult,
     ItemHistoryEntry,
     ITEM_HISTORY_ENTRIES_LIMIT,
-    TagInfo,
+    type TagInfo,
 } from "./item";
-import { Account, AccountID, UnlockedAccount } from "./account";
+import { Account, type AccountID, type UnlockedAccount } from "./account";
 import { Auth, AuthPurpose, AuthType } from "./auth";
-import { Session, SessionID } from "./session";
+import { Session, type SessionID } from "./session";
 import {
-    API,
+    type API,
     CreateAccountParams,
     RecoverAccountParams,
     GetInviteParams,
@@ -31,16 +41,16 @@ import {
     AuthInfo,
     CompleteCreateSessionParams,
     StartCreateSessionParams,
-    StartCreateSessionResponse,
+    type StartCreateSessionResponse,
     ChangeEmailParams,
 } from "./api";
 import { Client } from "./client";
-import { Sender } from "./transport";
+import type { Sender } from "./transport";
 import { DeviceInfo, getDeviceInfo, getCryptoProvider, getStorage, authenticate } from "./platform";
 import { uuid, throttle } from "./util";
 import { Client as SRPClient } from "./srp";
 import { Err, ErrorCode } from "./error";
-import { Attachment, AttachmentInfo } from "./attachment";
+import { Attachment, type AttachmentInfo } from "./attachment";
 import { SimpleContainer } from "./container";
 import { AESKeyParams, PBKDF2Params } from "./crypto";
 import { AccountFeatures, AccountProvisioning, OrgFeatures, OrgProvisioning, ProvisioningStatus } from "./provisioning";
@@ -405,7 +415,7 @@ export class App {
     }
 
     get auditedItems() {
-        let items: { item: VaultItem; vault: Vault }[] = [];
+        const items: { item: VaultItem; vault: Vault }[] = [];
         for (const vault of this.vaults) {
             for (const item of vault.items) {
                 if (item.auditResults?.length) {
@@ -941,7 +951,7 @@ export class App {
         await this._logout();
 
         // Initialize account with new password
-        let account = new Account();
+        const account = new Account();
         account.email = email;
         await account.initialize(password);
 
@@ -1238,7 +1248,7 @@ export class App {
             return null;
         }
 
-        let localVault = this.getVault(id);
+        const localVault = this.getVault(id);
 
         // If the revision to be fetched matches the revision stored locally,
         // we don't need to fetch anything
@@ -2120,7 +2130,7 @@ export class App {
         }
 
         for (const org of this.orgs.filter((org) => org.isOwner(this.account!))) {
-            let newMembers: string[] = [];
+            const newMembers: string[] = [];
 
             for (const member of org.members) {
                 if (

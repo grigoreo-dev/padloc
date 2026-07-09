@@ -9,7 +9,7 @@ import { shared } from "../styles";
 import { app, router } from "../globals";
 import { translate as $l } from "@padloc/locale/src/translate";
 import { prompt, confirm, alert } from "../lib/dialog";
-import { Input } from "./input";
+import type { Input } from "./input";
 import { Routing } from "../mixins/routing";
 
 @customElement("pl-settings-account")

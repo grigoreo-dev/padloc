@@ -1,11 +1,11 @@
 import { HashParams } from "@padloc/core/src/crypto";
 import { bytesToHex, stringToBytes } from "@padloc/core/src/encoding";
-import { AuditResult, AuditType, FieldType } from "@padloc/core/src/item";
+import { type AuditResult, AuditType, FieldType } from "@padloc/core/src/item";
 import { getCryptoProvider } from "@padloc/core/src/platform";
-import { Vault } from "@padloc/core/src/vault";
+import type { Vault } from "@padloc/core/src/vault";
 import { $l } from "@padloc/locale/src/translate";
 import { sub } from "date-fns";
-import { ListItem } from "../elements/items-list";
+import type { ListItem } from "../elements/items-list";
 import { app } from "../globals";
 import { passwordStrength } from "./util";
 

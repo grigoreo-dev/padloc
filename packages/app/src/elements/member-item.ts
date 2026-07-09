@@ -1,4 +1,4 @@
-import { Org, OrgMember, OrgMemberStatus, OrgRole } from "@padloc/core/src/org";
+import { type Org, type OrgMember, OrgMemberStatus, OrgRole } from "@padloc/core/src/org";
 import { translate as $l } from "@padloc/locale/src/translate";
 import { shared } from "../styles";
 import "./randomart";

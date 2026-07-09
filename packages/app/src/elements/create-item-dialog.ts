@@ -1,8 +1,8 @@
-import { Vault } from "@padloc/core/src/vault";
-import { VaultItem, Field, ItemTemplate, ITEM_TEMPLATES, FieldType } from "@padloc/core/src/item";
+import type { Vault } from "@padloc/core/src/vault";
+import { type VaultItem, Field, type ItemTemplate, ITEM_TEMPLATES, FieldType } from "@padloc/core/src/item";
 import { translate as $l } from "@padloc/locale/src/translate";
 import { app, router } from "../globals";
-import { Select } from "./select";
+import type { Select } from "./select";
 import { Dialog } from "./dialog";
 import "./scroller";
 import "./button";

@@ -2,9 +2,9 @@ import {
     randomBytes,
     createHash,
     createHmac,
-    // @ts-ignore
+    // @ts-expect-error
     sign,
-    // @ts-ignore
+    // @ts-expect-error
     verify,
     constants,
     generateKeyPair,
@@ -16,21 +16,21 @@ import {
     timingSafeEqual,
 } from "crypto";
 import {
-    CryptoProvider,
-    AESKey,
-    RSAPublicKey,
-    RSAPrivateKey,
-    HMACKey,
-    SymmetricKey,
-    AESKeyParams,
-    RSAKeyParams,
-    HMACParams,
-    HMACKeyParams,
-    AESEncryptionParams,
-    RSAEncryptionParams,
+    type CryptoProvider,
+    type AESKey,
+    type RSAPublicKey,
+    type RSAPrivateKey,
+    type HMACKey,
+    type SymmetricKey,
+    type AESKeyParams,
+    type RSAKeyParams,
+    type HMACParams,
+    type HMACKeyParams,
+    type AESEncryptionParams,
+    type RSAEncryptionParams,
     HashParams,
-    RSASigningParams,
-    PBKDF2Params,
+    type RSASigningParams,
+    type PBKDF2Params,
 } from "@padloc/core/src/crypto";
 import { Err, ErrorCode } from "@padloc/core/src/error";
 

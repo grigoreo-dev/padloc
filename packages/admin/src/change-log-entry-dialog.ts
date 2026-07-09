@@ -5,7 +5,7 @@ import "@padloc/app/src/elements/button";
 import { diffJson } from "diff";
 import "@padloc/app/src/elements/icon";
 import { highlightJson } from "@padloc/app/src/lib/util";
-import { ChangeLogEntry } from "@padloc/core/src/logging";
+import type { ChangeLogEntry } from "@padloc/core/src/logging";
 
 @customElement("pl-change-log-entry-dialog")
 export class ChangeLogEntryDialog extends Dialog<ChangeLogEntry, void> {

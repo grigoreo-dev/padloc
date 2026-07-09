@@ -1,14 +1,14 @@
 import { until } from "lit/directives/until.js";
 import { translate as $l } from "@padloc/locale/src/translate";
-import { Invite } from "@padloc/core/src/invite";
+import type { Invite } from "@padloc/core/src/invite";
 import { formatDateFromNow } from "../lib/util";
 import { shared } from "../styles";
 import { app } from "../globals";
 import { alert, confirm } from "../lib/dialog";
 import { Routing } from "../mixins/routing";
 import { StateMixin } from "../mixins/state";
-import { Button } from "./button";
-import { Input } from "./input";
+import type { Button } from "./button";
+import type { Input } from "./input";
 import "./icon";
 import "./scroller";
 import "./spinner";
@@ -17,7 +17,7 @@ import { css, html, LitElement } from "lit";
 
 @customElement("pl-invite-recipient")
 export class InviteRecipient extends Routing(StateMixin(LitElement)) {
-    readonly routePattern = /^invite\/([^\/]+)\/([^\/]+)/;
+    readonly routePattern = /^invite\/([^/]+)\/([^/]+)/;
 
     @state()
     private _invite: Invite | null = null;

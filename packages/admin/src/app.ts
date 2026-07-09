@@ -7,7 +7,7 @@ import "@padloc/app/src/elements/button";
 import "@padloc/app/src/elements/icon";
 import "@padloc/app/src/elements/start";
 import "@padloc/app/src/elements/logo";
-import { Dialog } from "@padloc/app/src/elements/dialog";
+import type { Dialog } from "@padloc/app/src/elements/dialog";
 import "@padloc/app/src/elements/list";
 import { $l } from "@padloc/locale/src/translate";
 import "./logs";
@@ -17,7 +17,7 @@ import "./orgs";
 @customElement("pl-admin-app")
 export class App extends ServiceWorker(StateMixin(Routing(LitElement))) {
     @property({ attribute: false })
-    readonly routePattern = /^([^\/]*)(?:\/([^\/]+))?/;
+    readonly routePattern = /^([^/]*)(?:\/([^/]+))?/;
 
     private _pages = ["start", "unlock", "login", "accounts", "orgs", "logs"];
 

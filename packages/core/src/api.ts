@@ -1,19 +1,19 @@
-import { Session, SessionID, SessionInfo } from "./session";
-import { Account, AccountID } from "./account";
-import { Vault, VaultID } from "./vault";
-import { Org, OrgID } from "./org";
-import { Invite, InviteID } from "./invite";
-import { Serializable, SerializableConstructor, AsBytes, AsSerializable } from "./encoding";
-import { Attachment, AttachmentID } from "./attachment";
+import { Session, type SessionID, SessionInfo } from "./session";
+import { Account, type AccountID } from "./account";
+import { Vault, type VaultID } from "./vault";
+import { Org, type OrgID } from "./org";
+import { Invite, type InviteID } from "./invite";
+import { Serializable, type SerializableConstructor, AsBytes, AsSerializable } from "./encoding";
+import { Attachment, type AttachmentID } from "./attachment";
 import { PBKDF2Params } from "./crypto";
 import { PBES2Container } from "./container";
-import { RequestProgress } from "./transport";
+import type { RequestProgress } from "./transport";
 import { AuthPurpose, AuthType, AuthenticatorInfo, Auth, AccountStatus, AuthRequestStatus } from "./auth";
 import { KeyStoreEntry, KeyStoreEntryInfo } from "./key-store";
 import { DeviceInfo } from "./platform";
 import { Provisioning, AccountProvisioning } from "./provisioning";
-import { StorageListOptions, StorageQuery } from "./storage";
-import { ChangeLogEntry, RequestLogEntry } from "./logging";
+import type { StorageListOptions, StorageQuery } from "./storage";
+import { ChangeLogEntry, type RequestLogEntry } from "./logging";
 
 /**
  * Api parameters for creating a new Account to be used with [[API.createAccount]].

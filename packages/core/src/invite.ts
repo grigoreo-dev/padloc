@@ -1,4 +1,4 @@
-import { PBKDF2Params, HMACParams, HMACKey } from "./crypto";
+import { PBKDF2Params, HMACParams, type HMACKey } from "./crypto";
 import { getCryptoProvider as getProvider } from "./platform";
 import { SimpleContainer } from "./container";
 import {
@@ -13,8 +13,8 @@ import {
     AsDate,
     AsBytes,
 } from "./encoding";
-import { Account, AccountID } from "./account";
-import { Org, OrgID } from "./org";
+import type { Account, AccountID } from "./account";
+import type { Org, OrgID } from "./org";
 import { uuid } from "./util";
 import { Err, ErrorCode } from "./error";
 

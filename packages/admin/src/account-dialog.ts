@@ -1,13 +1,13 @@
 import { Dialog } from "@padloc/app/src/elements/dialog";
 import { css, customElement, html, state } from "@padloc/app/src/elements/lit";
-import { Account } from "@padloc/core/src/account";
+import type { Account } from "@padloc/core/src/account";
 import { $l } from "@padloc/locale/src/translate";
 import "@padloc/app/src/elements/button";
 import "@padloc/app/src/elements/icon";
 import { highlightJson } from "@padloc/app/src/lib/util";
 import { alert, confirm } from "@padloc/app/src/lib/dialog";
 import { app } from "@padloc/app/src/globals";
-import { OrgInfo } from "@padloc/core/src/org";
+import type { OrgInfo } from "@padloc/core/src/org";
 
 @customElement("pl-account-dialog")
 export class AccountDialog extends Dialog<Account, void> {

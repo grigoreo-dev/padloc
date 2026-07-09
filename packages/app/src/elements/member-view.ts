@@ -1,11 +1,11 @@
-import { OrgRole, Group, OrgMemberStatus } from "@padloc/core/src/org";
+import { OrgRole, type Group, OrgMemberStatus } from "@padloc/core/src/org";
 import { translate as $l } from "@padloc/locale/src/translate";
 import { shared } from "../styles";
 import { app } from "../globals";
 import { alert, confirm } from "../lib/dialog";
 import { Routing } from "../mixins/routing";
 import { StateMixin } from "../mixins/state";
-import { Button } from "./button";
+import type { Button } from "./button";
 import "./icon";
 import "./group-item";
 import "./vault-item";
@@ -19,7 +19,7 @@ import { base64ToString } from "@padloc/core/src/encoding";
 
 @customElement("pl-member-view")
 export class MemberView extends Routing(StateMixin(LitElement)) {
-    readonly routePattern = /^orgs\/([^\/]+)\/members(?:\/([^\/]+))?/;
+    readonly routePattern = /^orgs\/([^/]+)\/members(?:\/([^/]+))?/;
 
     @property()
     email: string;
@@ -42,7 +42,7 @@ export class MemberView extends Routing(StateMixin(LitElement)) {
     private _vaults: { id: string; readonly: boolean }[] = [];
 
     private get _indirectVaults(): { id: string; readonly: boolean; groups: string[] }[] {
-        let vaults: { id: string; readonly: boolean; groups: string[] }[] = [];
+        const vaults: { id: string; readonly: boolean; groups: string[] }[] = [];
 
         for (const groupName of this._groups) {
             const group = this._org!.groups.find((g) => g.name === groupName)!;

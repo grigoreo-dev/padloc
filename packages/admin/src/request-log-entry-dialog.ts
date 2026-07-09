@@ -1,6 +1,6 @@
 import { Dialog } from "@padloc/app/src/elements/dialog";
 import { css, customElement, html, state } from "@padloc/app/src/elements/lit";
-import { RequestLogEntry } from "@padloc/core/src/logging";
+import type { RequestLogEntry } from "@padloc/core/src/logging";
 import { $l } from "@padloc/locale/src/translate";
 import "@padloc/app/src/elements/button";
 import "@padloc/app/src/elements/icon";

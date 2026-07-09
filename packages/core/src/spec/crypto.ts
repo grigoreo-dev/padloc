@@ -1,6 +1,6 @@
 import { stringToBytes, bytesToString, bytesToBase64, base64ToBytes } from "../encoding";
 import {
-    CryptoProvider,
+    type CryptoProvider,
     HashParams,
     AESKeyParams,
     AESEncryptionParams,
@@ -9,7 +9,7 @@ import {
     RSASigningParams,
     RSAEncryptionParams,
 } from "../crypto";
-import { Spec } from "./spec";
+import type { Spec } from "./spec";
 
 const fixtures = {
     rsa: {

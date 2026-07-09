@@ -1,6 +1,6 @@
-import { Logger, LogEvent, LoggerListOptions } from "@padloc/core/src/logging";
-import { Context } from "@padloc/core/src/server";
-import { PostgresStorage } from "../storage/postgres";
+import { type Logger, LogEvent, type LoggerListOptions } from "@padloc/core/src/logging";
+import type { Context } from "@padloc/core/src/server";
+import type { PostgresStorage } from "../storage/postgres";
 
 export class PostgresLogger implements Logger {
     constructor(

@@ -1,29 +1,29 @@
 import Stripe from "stripe";
-import { Storage } from "@padloc/core/src/storage";
+import type { Storage } from "@padloc/core/src/storage";
 import { readBody } from "../transport/http";
 import { ConfigParam } from "@padloc/core/src/config";
 import {
     AccountFeatures,
     AccountQuota,
-    RichContent,
+    type RichContent,
     OrgQuota,
     ProvisioningStatus,
     OrgProvisioning,
     OrgFeatures,
     BasicProvisioner,
-    AccountProvisioning,
-    Provisioning,
+    type AccountProvisioning,
+    type Provisioning,
     BasicProvisionerConfig,
 } from "@padloc/core/src/provisioning";
 import { uuid } from "@padloc/core/src/util";
-import { Org, OrgInfo } from "@padloc/core/src/org";
-import { createServer, IncomingMessage, ServerResponse } from "http";
+import { Org, type OrgInfo } from "@padloc/core/src/org";
+import { createServer, type IncomingMessage, type ServerResponse } from "http";
 import { getCryptoProvider } from "@padloc/core/src/platform";
 import { base64ToBytes, bytesToBase64, stringToBytes } from "@padloc/core/src/encoding";
 import { HMACKeyParams, HMACParams } from "@padloc/core/src/crypto";
-import { URLSearchParams } from "url";
+import type { URLSearchParams } from "url";
 import { Account } from "@padloc/core/src/account";
-import { Session } from "@padloc/core/src/session";
+import type { Session } from "@padloc/core/src/session";
 
 export class StripeProvisionerConfig extends BasicProvisionerConfig {
     @ConfigParam("string", true)
@@ -887,7 +887,7 @@ export class StripeProvisioner extends BasicProvisioner {
         });
 
         switch (action) {
-            case PortalAction.UpdateSubscription:
+            case PortalAction.UpdateSubscription: {
                 if (!subscription) {
                     return null;
                 }
@@ -909,6 +909,7 @@ export class StripeProvisioner extends BasicProvisioner {
                 }
 
                 return `${session.url}/subscriptions/${subscription.id}/preview/${price.id}`;
+            }
             case PortalAction.CancelSubscription:
                 if (!subscription) {
                     return null;
@@ -1524,7 +1525,7 @@ export class StripeProvisioner extends BasicProvisioner {
             return;
         }
 
-        let customer: Stripe.Customer | Stripe.DeletedCustomer | undefined = undefined;
+        let customer: Stripe.Customer | Stripe.DeletedCustomer | undefined;
 
         switch (event.type) {
             case "customer.updated":
@@ -1532,10 +1533,11 @@ export class StripeProvisioner extends BasicProvisioner {
                 break;
             case "customer.subscription.deleted":
             case "customer.subscription.created":
-            case "customer.subscription.updated":
+            case "customer.subscription.updated": {
                 const sub = event.data.object as Stripe.Subscription;
                 customer = await this._stripe.customers.retrieve(sub.customer as string);
                 break;
+            }
         }
         if (customer && !customer.deleted && customer.email) {
             const provisioning = await this.getProvisioning({

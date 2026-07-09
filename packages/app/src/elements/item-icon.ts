@@ -1,5 +1,5 @@
 import "./icon";
-import { FieldType, VaultItem } from "@padloc/core/src/item";
+import { FieldType, type VaultItem } from "@padloc/core/src/item";
 import { LitElement, html, css } from "lit";
 import { customElement, state } from "lit/decorators.js";
 import { app } from "../globals";
