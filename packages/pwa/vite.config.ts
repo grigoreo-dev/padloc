@@ -69,6 +69,7 @@ function padlocCspPlugin(pwaUrl: string, serverUrl: string, disableCsp: boolean)
                 [".css", "style-src"],
                 [".js", "script-src"],
                 [".json", "manifest-src"],
+                [".webmanifest", "manifest-src"],
                 [".png", "img-src"],
                 [".svg", "img-src"],
                 [".woff2", "font-src"],
