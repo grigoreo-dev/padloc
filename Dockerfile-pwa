@@ -1,4 +1,4 @@
-FROM node:18-bullseye
+FROM node:24-bookworm
 
 EXPOSE 8080
 
@@ -21,7 +21,7 @@ RUN pnpm install --frozen-lockfile --filter @padloc/pwa...
 
 # Now copy over source files and assets
 COPY packages/pwa/src ./packages/pwa/src
-COPY packages/pwa/tsconfig.json packages/pwa/webpack.config.js ./packages/pwa/
+COPY packages/pwa/tsconfig.json packages/pwa/vite.config.ts ./packages/pwa/
 COPY packages/app/src ./packages/app/src
 COPY packages/app/types ./packages/app/types
 COPY packages/app/tsconfig.json ./packages/app/

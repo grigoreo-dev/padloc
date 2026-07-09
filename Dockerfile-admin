@@ -1,4 +1,4 @@
-FROM node:18-bullseye
+FROM node:24-bookworm
 
 EXPOSE 9090
 
@@ -21,7 +21,7 @@ RUN pnpm install --frozen-lockfile --filter @padloc/admin...
 
 # Now copy over source files and assets
 COPY packages/admin/src ./packages/admin/src
-COPY packages/admin/tsconfig.json packages/admin/webpack.config.js ./packages/admin/
+COPY packages/admin/tsconfig.json packages/admin/vite.config.ts ./packages/admin/
 COPY packages/app/src ./packages/app/src
 COPY packages/app/types ./packages/app/types
 COPY packages/app/tsconfig.json ./packages/app/
