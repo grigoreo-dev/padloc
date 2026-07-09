@@ -268,8 +268,8 @@ export class LoginOrSignup extends StartForm {
             authRes.accountStatus === AccountStatus.Active
                 ? "login"
                 : authRes.provisioning.skipTos
-                ? "signup/choose-password"
-                : "signup",
+                  ? "signup/choose-password"
+                  : "signup",
             {
                 ...this.router.params,
                 email,
@@ -696,15 +696,18 @@ export class LoginOrSignup extends StartForm {
                 <div class="fill centering double-padded vertical layout">
                     <pl-logo class="animated"></pl-logo>
 
-                    ${this.asAdmin
-                        ? html`
+                    ${
+                        this.asAdmin
+                            ? html`
                               <div class="animated subtle" style="margin-top: -2em; margin-bottom: 2em;">
                                   ${$l("Admin Portal")}
                               </div>
                           `
-                        : ""}
-                    ${invite
-                        ? html`
+                            : ""
+                    }
+                    ${
+                        invite
+                            ? html`
                               <div
                                   class="double-padded small box background animated"
                                   style="max-width: 25em; margin-bottom: 1.5em"
@@ -712,17 +715,20 @@ export class LoginOrSignup extends StartForm {
                                   Hi there! <strong>${invite.invitor}</strong>
                                   <span>${$l("has invited you to join their organization")}</span>
                                   <strong class="highlighted">${invite.orgName}</strong>.
-                                  ${this._page === "signup"
-                                      ? html`
+                                  ${
+                                      this._page === "signup"
+                                          ? html`
                                             Before you can accept, we'll need to <strong>create an account</strong> for
                                             you. This will only take a few moments.
                                         `
-                                      : html`
+                                          : html`
                                             Before you can accept, you'll need to
                                             <strong>login</strong>.
-                                        `}
-                                  ${this._emailInput && invite.email !== this._emailInput.value
-                                      ? html`
+                                        `
+}
+                                  ${
+                                      this._emailInput && invite.email !== this._emailInput.value
+                                          ? html`
                                             <div class="negative highlight top-margined">
                                                 <strong>Warning:</strong> This invite is meant for
                                                 <strong>${invite.email}</strong>, but you've entered
@@ -742,10 +748,12 @@ export class LoginOrSignup extends StartForm {
                                                 </a>
                                             </div>
                                         `
-                                      : ""}
+                                          : ""
+}
                               </div>
                           `
-                        : html``}
+                            : html``
+                    }
 
                     <form class="double-padded animated" style="box-sizing: border-box" autocomplete="off">
                         <pl-drawer .collapsed=${this._page === "signup" && this._step === "success"} class="springy">
@@ -847,13 +855,15 @@ export class LoginOrSignup extends StartForm {
                             >
                             </pl-password-input>
 
-                            ${this._loginError
-                                ? html`
+                            ${
+                                this._loginError
+                                    ? html`
                                       <div class="negative inverted padded text-centering bottom-margined card">
                                           ${this._loginError}
                                       </div>
                                   `
-                                : ""}
+                                    : ""
+                            }
 
                             <div class="horizontal spacing evenly stretching layout">
                                 <pl-button
@@ -869,8 +879,9 @@ export class LoginOrSignup extends StartForm {
                         </pl-drawer>
 
                         <pl-drawer
-                            .collapsed=${this._page !== "signup" ||
-                            !["choose-password", "confirm-password"].includes(this._step)}
+                            .collapsed=${
+                                this._page !== "signup" || !["choose-password", "confirm-password"].includes(this._step)
+                            }
                             class="springy"
                             id="masterPasswordDrawer"
                         >

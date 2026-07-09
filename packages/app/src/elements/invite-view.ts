@@ -156,16 +156,16 @@ export class InviteView extends Routing(StateMixin(LitElement)) {
         const status = expired
             ? { icon: "time", class: "warning", text: $l("This invite has expired") }
             : accepted
-            ? { icon: "check", class: "", text: $l("Accepted") }
-            : {
-                  icon: "time",
-                  class: "",
-                  text: until(
-                      (async () => {
-                          return $l("expires {0}", await formatDateFromNow(expires));
-                      })()
-                  ),
-              };
+              ? { icon: "check", class: "", text: $l("Accepted") }
+              : {
+                    icon: "time",
+                    class: "",
+                    text: until(
+                        (async () => {
+                            return $l("expires {0}", await formatDateFromNow(expires));
+                        })()
+                    ),
+                };
 
         return html`
             <div class="fullbleed vertical layout">
@@ -209,8 +209,9 @@ export class InviteView extends Routing(StateMixin(LitElement)) {
                         </div>
 
                         <div class="horziontal margined evenly stretching spacing horizontal layout">
-                            ${accepted
-                                ? html`
+                            ${
+                                accepted
+                                    ? html`
                                       <pl-button
                                           ?disabled=${expired}
                                           id="confirmButton"
@@ -222,13 +223,14 @@ export class InviteView extends Routing(StateMixin(LitElement)) {
                                           <div>${$l(purpose === "confirm_membership" ? "Confirm" : "Add Member")}</div>
                                       </pl-button>
                                   `
-                                : html`
+                                    : html`
                                       <pl-button id="resendButton" class="tap" @click=${() => this._resend()}>
                                           <pl-icon icon="mail" class="right-margined"></pl-icon>
 
                                           <div>${$l("Resend")}</div>
                                       </pl-button>
-                                  `}
+                                  `
+                            }
 
                             <pl-button id="deleteButton" class="tap negative" @click=${() => this._delete()}>
                                 <pl-icon icon="delete" class="right-margined"></pl-icon>

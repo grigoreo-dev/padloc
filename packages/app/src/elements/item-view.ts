@@ -537,8 +537,9 @@ export class ItemView extends Routing(StateMixin(LitElement)) {
                             </pl-list>
                         </pl-popover>
                     </div>
-                    ${false
-                        ? html`
+                    ${
+                        false
+                            ? html`
                               <div class="tiny wrapping spacing horizontal layout" style="padding-left: 4.3em">
                                   ${this._item!.tags.map(
                                       (tag) =>
@@ -550,7 +551,8 @@ export class ItemView extends Routing(StateMixin(LitElement)) {
                                   )}
                               </div>
                           `
-                        : ""}
+                            : ""
+                    }
                 </header>
 
                 <pl-scroller class="stretch">
@@ -593,9 +595,11 @@ export class ItemView extends Routing(StateMixin(LitElement)) {
                                             .canMoveDown=${index < this._fields.length - 1}
                                             .field=${field}
                                             .editing=${this._editing}
-                                            .auditResults=${this._item?.auditResults.filter(
-                                                (auditResult) => auditResult.fieldIndex === index
-                                            ) || []}
+                                            .auditResults=${
+                                                this._item?.auditResults.filter(
+                                                    (auditResult) => auditResult.fieldIndex === index
+                                                ) || []
+                                            }
                                             @copy-clipboard=${() => this._copyToClipboard(this._item!, field)}
                                             @remove=${() => this._removeField(index)}
                                             @generate=${() => this._generateValue(index)}
@@ -667,8 +671,9 @@ export class ItemView extends Routing(StateMixin(LitElement)) {
                             </h2>
 
                             <div class="block" ?hidden=${!Boolean(this._expiresAfter)}>
-                                ${this._editing
-                                    ? html`
+                                ${
+                                    this._editing
+                                        ? html`
                                           <div
                                               class="small padded centering horizontal layout border-bottom border-top"
                                           >
@@ -703,22 +708,27 @@ export class ItemView extends Routing(StateMixin(LitElement)) {
                                               </span>
                                           </div>
                                       `
-                                    : html`
+                                        : html`
                                           <div
-                                              class="double-padded text-centering small border-top border-bottom ${isExpired
-                                                  ? "negative highlighted"
-                                                  : ""}"
+                                              class="double-padded text-centering small border-top border-bottom ${
+                                                  isExpired ? "negative highlighted" : ""
+}"
                                           >
-                                              ${this._item.expiresAt && this._item.expiresAt > now
-                                                  ? $l("Expires")
-                                                  : $l("Expired")}
+                                              ${
+                                                  this._item.expiresAt && this._item.expiresAt > now
+                                                      ? $l("Expires")
+                                                      : $l("Expired")
+}
                                               <strong>
-                                                  ${this._item.expiresAt
-                                                      ? until(formatDateFromNow(this._item.expiresAt))
-                                                      : ""}.
+                                                  ${
+                                                      this._item.expiresAt
+                                                          ? until(formatDateFromNow(this._item.expiresAt))
+                                                          : ""
+}.
                                               </strong>
                                           </div>
-                                      `}
+                                      `
+                                }
                             </div>
 
                             <div

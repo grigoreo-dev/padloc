@@ -306,6 +306,6 @@ export function descriptionForAudit(type: AuditType) {
                 "Expired items are those that have been identified as being past their set expiry date, which haven't been updated in a given number of days. These items should be rotated as soon as possible."
             );
         default:
-            "";
+            ("");
     }
 }

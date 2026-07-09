@@ -37,7 +37,11 @@ export class LogEvent<T = any> extends Storable {
         };
     } = undefined;
 
-    constructor(public type = "", public data?: T, context?: Context) {
+    constructor(
+        public type = "",
+        public data?: T,
+        context?: Context
+    ) {
         super();
         if (context) {
             this.context = {
@@ -242,7 +246,10 @@ export class ChangeLoggingStorage implements Storage {
 }
 
 export class ChangeLogger {
-    constructor(private _storage: Storage, private _config: ChangeLoggerConfig) {}
+    constructor(
+        private _storage: Storage,
+        private _config: ChangeLoggerConfig
+    ) {}
 
     async list(opts?: StorageListOptions) {
         return this._storage.list(ChangeLogEntry, opts);
@@ -279,7 +286,10 @@ export class RequestLoggerConfig extends Config {
 }
 
 export class RequestLogger {
-    constructor(private _storage: Storage, private _config: RequestLoggerConfig) {}
+    constructor(
+        private _storage: Storage,
+        private _config: RequestLoggerConfig
+    ) {}
 
     async list(opts?: StorageListOptions) {
         return this._storage.list(RequestLogEntry, opts);

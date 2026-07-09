@@ -3,7 +3,10 @@ import { Context } from "@padloc/core/src/server";
 import { LevelDBStorage } from "../storage/leveldb";
 
 export class LevelDBLogger implements Logger {
-    constructor(private _storage: LevelDBStorage, public context?: Context) {}
+    constructor(
+        private _storage: LevelDBStorage,
+        public context?: Context
+    ) {}
 
     withContext(context: Context) {
         return new LevelDBLogger(this._storage, context);

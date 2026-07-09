@@ -25,15 +25,17 @@ export class SettingsBilling extends StateMixin(LitElement) {
                     </pl-button>
                     <pl-icon icon="billing" class="left-margined vertically-padded wide-only"></pl-icon>
                     <div class="padded stretch ellipsis">${$l("Billing")}</div>
-                    ${provisioning.statusLabel
-                        ? html`<div
-                              class="small tag ${provisioning.status === ProvisioningStatus.Active
-                                  ? "highlight"
-                                  : "warning"}"
+                    ${
+                        provisioning.statusLabel
+                            ? html`<div
+                              class="small tag ${
+                                  provisioning.status === ProvisioningStatus.Active ? "highlight" : "warning"
+}"
                           >
                               ${provisioning.statusLabel}
                           </div>`
-                        : ""}
+                            : ""
+                    }
                 </header>
 
                 <pl-scroller class="stretch">

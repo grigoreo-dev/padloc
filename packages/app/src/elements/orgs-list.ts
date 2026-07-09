@@ -112,13 +112,15 @@ export class OrgsList extends StateMixin(View) {
                                             <div>${org.vaults.length}</div>
                                         </div>
 
-                                        ${app.getOrgProvisioning(org)?.status !== ProvisioningStatus.Active
-                                            ? html`
+                                        ${
+                                            app.getOrgProvisioning(org)?.status !== ProvisioningStatus.Active
+                                                ? html`
                                                   <div class="warning tag">
                                                       <pl-icon icon="error"></pl-icon>
                                                   </div>
                                               `
-                                            : ""}
+                                                : ""
+                                        }
                                     </div>
                                 </div>
                             </div>

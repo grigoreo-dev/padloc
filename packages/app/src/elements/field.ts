@@ -345,8 +345,9 @@ export class FieldElement extends LitElement {
                         >
                             <pl-icon icon="qrcode"></pl-icon>
                         </pl-button>
-                        ${!this.field.value
-                            ? html`
+                        ${
+                            !this.field.value
+                                ? html`
                                   <pl-drawer slot="below" collapsed>
                                       <div class="horizontal layout">
                                           <pl-button
@@ -359,7 +360,8 @@ export class FieldElement extends LitElement {
                                       </div>
                                   </pl-drawer>
                               `
-                            : ""}
+                                : ""
+                        }
                     </pl-input>
                 `;
             case "password":
@@ -384,8 +386,9 @@ export class FieldElement extends LitElement {
                         >
                             <pl-icon icon="generate"></pl-icon>
                         </pl-button>
-                        ${this._suggestions
-                            ? html`
+                        ${
+                            this._suggestions
+                                ? html`
                                   <pl-drawer slot="below" collapsed>
                                       <div class="scrolling hide-scrollbar">
                                           <div class="horizontal layout">
@@ -407,7 +410,8 @@ export class FieldElement extends LitElement {
                                       </div>
                                   </pl-drawer>
                               `
-                            : ""}
+                                : ""
+                        }
                     </pl-input>
                 `;
 
@@ -445,8 +449,9 @@ export class FieldElement extends LitElement {
                         @blur=${this._collapseSuggestions}
                         select-on-focus
                     >
-                        ${this._suggestions
-                            ? html`
+                        ${
+                            this._suggestions
+                                ? html`
                                   <pl-drawer slot="below" collapsed>
                                       <div class="scrolling hide-scrollbar">
                                           <div class="horizontal layout">
@@ -468,7 +473,8 @@ export class FieldElement extends LitElement {
                                       </div>
                                   </pl-drawer>
                               `
-                            : ""}
+                                : ""
+                        }
                     </pl-input>
                 `;
         }

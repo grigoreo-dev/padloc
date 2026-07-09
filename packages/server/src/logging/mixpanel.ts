@@ -46,7 +46,10 @@ function flatten(
 export class MixpanelLogger implements Logger {
     private _mixpanel: Mixpanel;
 
-    constructor(public config: MixpanelConfig, public context?: Context) {
+    constructor(
+        public config: MixpanelConfig,
+        public context?: Context
+    ) {
         this._mixpanel = init(this.config.token);
     }
 

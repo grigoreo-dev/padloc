@@ -45,43 +45,51 @@ export class MemberItem extends LitElement {
 
                     <div class="small top-half-margined wrapping spacing horizontal layout">
                         <div>${this.member.name}</div>
-                        ${this.hideInfo
-                            ? ""
-                            : html`
-                                  ${!groups.length
-                                      ? ""
-                                      : groups.length === 1
-                                      ? html`
+                        ${
+                            this.hideInfo
+                                ? ""
+                                : html`
+                                  ${
+                                      !groups.length
+                                          ? ""
+                                          : groups.length === 1
+                                            ? html`
                                             <div class="tiny tag">
                                                 <pl-icon icon="group" class="inline"></pl-icon>
                                                 ${groups[0].name}
                                             </div>
                                         `
-                                      : html`
+                                            : html`
                                             <div class="tiny tag">
                                                 <pl-icon icon="group" class="inline"></pl-icon>
                                                 ${groups.length}
                                             </div>
-                                        `}
-                                  ${isOwner
-                                      ? html`
+                                        `
+}
+                                  ${
+                                      isOwner
+                                          ? html`
                                             <div class="tiny tag warning">
                                                 <pl-icon class="inline" icon="owner"></pl-icon> ${$l("Owner")}
                                             </div>
                                         `
-                                      : isAdmin
-                                      ? html`
+                                          : isAdmin
+                                            ? html`
                                             <div class="tiny tag highlight">
                                                 <pl-icon class="inline" icon="admin"></pl-icon> ${$l("Admin")}
                                             </div>
                                         `
-                                      : ""}
-                                  ${isProvisioned
-                                      ? html` <div class="tiny tag subtle">${$l("Provisioned")}</div> `
-                                      : isSuspended
-                                      ? html` <div class="tiny tag warning">${$l("Suspended")}</div> `
-                                      : ""}
-                              `}
+                                            : ""
+}
+                                  ${
+                                      isProvisioned
+                                          ? html` <div class="tiny tag subtle">${$l("Provisioned")}</div> `
+                                          : isSuspended
+                                            ? html` <div class="tiny tag warning">${$l("Suspended")}</div> `
+                                            : ""
+}
+                              `
+                        }
                     </div>
 
                     <div class="small"></div>

@@ -32,7 +32,10 @@ export interface DirectoryProvider {
 }
 
 export class DirectorySync implements DirectorySubscriber {
-    constructor(public readonly controller: Controller, providers: DirectoryProvider[] = []) {
+    constructor(
+        public readonly controller: Controller,
+        providers: DirectoryProvider[] = []
+    ) {
         for (const provider of providers) {
             provider.subscribe(this);
         }

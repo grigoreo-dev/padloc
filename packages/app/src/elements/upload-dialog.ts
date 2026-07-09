@@ -118,13 +118,15 @@ export class UploadDialog extends Dialog<{ file: File; item: VaultItemID }, Atta
                     <pl-input id="nameInput" .label=${$l("Attachment Name")} .value=${this.file.name}></pl-input>
 
                     <div>
-                        ${this._progress
-                            ? $l(
-                                  "uploading... {0}/{1}",
-                                  fileSize(this._progress.loaded),
-                                  fileSize(this._progress.total)
-                              )
-                            : (this.file.type || $l("Unkown File Type")) + " - " + fileSize(this.file.size)}
+                        ${
+                            this._progress
+                                ? $l(
+                                      "uploading... {0}/{1}",
+                                      fileSize(this._progress.loaded),
+                                      fileSize(this._progress.total)
+                                  )
+                                : (this.file.type || $l("Unkown File Type")) + " - " + fileSize(this.file.size)
+                        }
                     </div>
 
                     <div class="negative" ?hidden=${!this._error}>${this._error}</div>

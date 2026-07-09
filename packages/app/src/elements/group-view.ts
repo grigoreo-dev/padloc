@@ -302,8 +302,9 @@ export class GroupView extends Routing(StateMixin(LitElement)) {
                             </pl-button>
 
                             <pl-popover hide-on-leave .preferAlignment=${"bottom-left"} style="min-width: 15em;">
-                                ${this._availableMembers.length
-                                    ? html`
+                                ${
+                                    this._availableMembers.length
+                                        ? html`
                                           <pl-list>
                                               ${this._availableMembers.map(
                                                   (member) => html`
@@ -321,22 +322,24 @@ export class GroupView extends Routing(StateMixin(LitElement)) {
                                               )}
                                           </pl-list>
                                       `
-                                    : html`
+                                        : html`
                                           <div class="double-padded small subtle text-centering">
                                               ${$l("No more Members available")}
                                           </div>
-                                      `}
+                                      `
+                                }
                             </pl-popover>
                         </h2>
 
                         <pl-list>
-                            ${this._members.length
-                                ? this._members.map((m) => {
-                                      const member = org.getMember(m);
-                                      if (!member) {
-                                          return;
-                                      }
-                                      return html`
+                            ${
+                                this._members.length
+                                    ? this._members.map((m) => {
+                                          const member = org.getMember(m);
+                                          if (!member) {
+                                              return;
+                                          }
+                                          return html`
                                           <div class="padded center-aligning horizontal layout list-item">
                                               <pl-member-item
                                                   .member=${member}
@@ -353,12 +356,13 @@ export class GroupView extends Routing(StateMixin(LitElement)) {
                                               </pl-button>
                                           </div>
                                       `;
-                                  })
-                                : html`
+                                      })
+                                    : html`
                                       <div class="double-padded small subtle">
                                           ${$l("This group does not have any members yet.")}
                                       </div>
-                                  `}
+                                  `
+                            }
                         </pl-list>
                     </section>
 
@@ -371,8 +375,9 @@ export class GroupView extends Routing(StateMixin(LitElement)) {
                             </pl-button>
 
                             <pl-popover hide-on-leave .preferAlignment=${"bottom-left"} style="min-width: 15em;">
-                                ${this._availableVaults.length
-                                    ? html`
+                                ${
+                                    this._availableVaults.length
+                                        ? html`
                                           <pl-list>
                                               ${this._availableVaults.map(
                                                   (vault) => html`
@@ -390,22 +395,24 @@ export class GroupView extends Routing(StateMixin(LitElement)) {
                                               )}
                                           </pl-list>
                                       `
-                                    : html`
+                                        : html`
                                           <div class="double-padded small subtle text-centering">
                                               ${$l("No more Vaults available")}
                                           </div>
-                                      `}
+                                      `
+                                }
                             </pl-popover>
                         </h2>
 
                         <pl-list>
-                            ${this._vaults.length
-                                ? this._vaults.map((v) => {
-                                      const vault = org.vaults.find((vault) => vault.id === v.id);
-                                      if (!vault) {
-                                          return;
-                                      }
-                                      return html`
+                            ${
+                                this._vaults.length
+                                    ? this._vaults.map((v) => {
+                                          const vault = org.vaults.find((vault) => vault.id === v.id);
+                                          if (!vault) {
+                                              return;
+                                          }
+                                          return html`
                                           <div class="padded list-item horizontal center-aligning layout">
                                               <pl-vault-item
                                                   .vault=${vault}
@@ -434,12 +441,13 @@ export class GroupView extends Routing(StateMixin(LitElement)) {
                                               </pl-button>
                                           </div>
                                       `;
-                                  })
-                                : html`
+                                      })
+                                    : html`
                                       <div class="double-padded small subtle">
                                           ${$l("This group does not have access to any vaults yet.")}
                                       </div>
-                                  `}
+                                  `
+                            }
                         </pl-list>
                     </section>
                 </pl-scroller>

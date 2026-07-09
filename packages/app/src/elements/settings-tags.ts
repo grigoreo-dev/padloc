@@ -119,9 +119,11 @@ export class SettingsTags extends Routing(StateMixin(LitElement)) {
 
                 <pl-scroller class="stretch">
                     <div class="double-margined box">
-                        ${!this._tags.length
-                            ? html`<div class="double-padded subtle">${$l("You don't have any tags yet.")}</div>`
-                            : ""}
+                        ${
+                            !this._tags.length
+                                ? html`<div class="double-padded subtle">${$l("You don't have any tags yet.")}</div>`
+                                : ""
+                        }
 
                         <pl-sortable-list
                             .items=${this._tags}
@@ -195,13 +197,15 @@ export class SettingsTags extends Routing(StateMixin(LitElement)) {
                             </pl-popover>
                         </h2>
 
-                        ${!this._unlistedTags.length
-                            ? html`
+                        ${
+                            !this._unlistedTags.length
+                                ? html`
                                   <div class="double-padded subtle small">
                                       ${$l("You don't have any unlisted tags.")}
                                   </div>
                               `
-                            : ""}
+                                : ""
+                        }
 
                         <pl-sortable-list
                             .items=${this._unlistedTags}

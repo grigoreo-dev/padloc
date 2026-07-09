@@ -261,8 +261,9 @@ export class Menu extends Routing(StateMixin(LitElement)) {
                 <pl-list itemSelector=".menu-item">
                     <div class="small subtle section-header">${$l("Vaults & Items")}</div>
 
-                    ${currentHost
-                        ? html`
+                    ${
+                        currentHost
+                            ? html`
                               <div
                                   class="menu-item"
                                   role="link"
@@ -277,7 +278,8 @@ export class Menu extends Routing(StateMixin(LitElement)) {
                                   <div class="small subtle">${count.currentHost}</div>
                               </div>
                           `
-                        : ""}
+                            : ""
+                    }
 
                     <div
                         class="menu-item"
@@ -329,8 +331,9 @@ export class Menu extends Routing(StateMixin(LitElement)) {
                         <div class="small subtle">${count.attachments}</div>
                     </div>
 
-                    ${mainVault
-                        ? html`
+                    ${
+                        mainVault
+                            ? html`
                               <div
                                   class="menu-item"
                                   @click=${() => this._goTo("items", { vault: mainVault.id })}
@@ -338,8 +341,9 @@ export class Menu extends Routing(StateMixin(LitElement)) {
                               >
                                   <pl-icon icon="vault"></pl-icon>
                                   <div class="stretch">${$l("My Vault")}</div>
-                                  ${mainVault.error
-                                      ? html`
+                                  ${
+                                      mainVault.error
+                                          ? html`
                                             <pl-button
                                                 class="small negative borderless skinny negatively-margined"
                                                 @click=${(e: Event) => this._displayVaultError(mainVault, e)}
@@ -347,10 +351,12 @@ export class Menu extends Routing(StateMixin(LitElement)) {
                                                 <pl-icon icon="error"></pl-icon>
                                             </pl-button>
                                         `
-                                      : html` <div class="small subtle">${mainVault.items.size}</div> `}
+                                          : html` <div class="small subtle">${mainVault.items.size}</div> `
+}
                               </div>
                           `
-                        : ""}
+                            : ""
+                    }
                     ${app.orgs.map((org) => {
                         const vaults = app.vaults.filter((v) => v.org && v.org.id === org.id);
                         const isAdmin = org.isAdmin(app.account!);
@@ -386,8 +392,9 @@ export class Menu extends Routing(StateMixin(LitElement)) {
                                                     <pl-icon icon="vault"></pl-icon>
                                                     <div class="stretch ellipsis">${vault.name}</div>
 
-                                                    ${vault.error
-                                                        ? html`
+                                                    ${
+                                                        vault.error
+                                                            ? html`
                                                               <pl-button
                                                                   class="small negative borderless skinny negatively-margined"
                                                                   @click=${(e: Event) =>
@@ -396,7 +403,8 @@ export class Menu extends Routing(StateMixin(LitElement)) {
                                                                   <pl-icon icon="error"></pl-icon>
                                                               </pl-button>
                                                           `
-                                                        : html` <div class="small subtle">${vault.items.size}</div> `}
+                                                            : html` <div class="small subtle">${vault.items.size}</div> `
+                                                    }
                                                 </div>
                                             `;
                                         })}
@@ -476,14 +484,16 @@ export class Menu extends Routing(StateMixin(LitElement)) {
                                         >
                                             <pl-icon icon="org"></pl-icon>
                                             <div class="stretch ellipsis">${org.name}</div>
-                                            ${app.getOrgProvisioning(org).status !== ProvisioningStatus.Active
-                                                ? html`
+                                            ${
+                                                app.getOrgProvisioning(org).status !== ProvisioningStatus.Active
+                                                    ? html`
                                                       <pl-icon
                                                           icon="warning"
                                                           class="small negative highlighted"
                                                       ></pl-icon>
                                                   `
-                                                : ""}
+                                                    : ""
+                                            }
                                             <pl-icon icon="chevron-down" class="small subtle dropdown-icon"></pl-icon>
                                         </div>
 
@@ -494,25 +504,29 @@ export class Menu extends Routing(StateMixin(LitElement)) {
                                                         class="menu-item"
                                                         aria-selected=${this.selected === `orgs/${org.id}/${path}`}
                                                         @click=${() => this._goTo(`orgs/${org.id}/${path}`)}
-                                                        ?hidden=${(["settings", "invites"].includes(path) &&
-                                                            !org.isOwner(account!)) ||
-                                                        (path === "groups" &&
-                                                            !org.groups.length &&
-                                                            app.getOrgFeatures(org).addGroup.hidden)}
+                                                        ?hidden=${
+                                                            (["settings", "invites"].includes(path) &&
+                                                                !org.isOwner(account!)) ||
+                                                            (path === "groups" &&
+                                                                !org.groups.length &&
+                                                                app.getOrgFeatures(org).addGroup.hidden)
+                                                        }
                                                     >
                                                         <pl-icon icon="${icon}"></pl-icon>
 
                                                         <div class="stretch ellipsis">${label}</div>
 
-                                                        ${app.getOrgProvisioning(org).status !==
-                                                            ProvisioningStatus.Active && path === "dashboard"
-                                                            ? html`
+                                                        ${
+                                                            app.getOrgProvisioning(org).status !==
+                                                                ProvisioningStatus.Active && path === "dashboard"
+                                                                ? html`
                                                                   <pl-icon
                                                                       icon="warning"
                                                                       class="small negative highlighted"
                                                                   ></pl-icon>
                                                               `
-                                                            : ""}
+                                                                : ""
+                                                        }
                                                     </div>`
                                                 )}
                                             </pl-list>
@@ -533,8 +547,9 @@ export class Menu extends Routing(StateMixin(LitElement)) {
                         </div>
                     </pl-list>
 
-                    ${app.authInfo?.invites.length
-                        ? html`
+                    ${
+                        app.authInfo?.invites.length
+                            ? html`
                               <div class="small subtle section-header">${$l("Invites")}</div>
                               ${app.authInfo.invites.map(
                                   (invite) => html`
@@ -552,7 +567,8 @@ export class Menu extends Routing(StateMixin(LitElement)) {
                                   `
                               )}
                           `
-                        : ""}
+                            : ""
+                    }
 
                     <div class="small subtle section-header">${$l("More")}</div>
 
@@ -588,9 +604,11 @@ export class Menu extends Routing(StateMixin(LitElement)) {
 
                         <div class="stretch">${$l("Settings")}</div>
 
-                        ${app.getAccountProvisioning().status !== ProvisioningStatus.Active
-                            ? html` <pl-icon icon="warning" class="small negative highlighted"></pl-icon> `
-                            : ""}
+                        ${
+                            app.getAccountProvisioning().status !== ProvisioningStatus.Active
+                                ? html` <pl-icon icon="warning" class="small negative highlighted"></pl-icon> `
+                                : ""
+                        }
                     </div>
 
                     <div
@@ -642,9 +660,9 @@ export class Menu extends Routing(StateMixin(LitElement)) {
                     trigger="hover"
                     .preferAlignment=${["top", "top-left", "top-right"]}
                 >
-                    <strong>${$l("Last Sync:")}</strong> ${app.state.stats.lastSync
-                        ? until(formatDateFromNow(app.state.stats.lastSync), "")
-                        : $l("Never")}
+                    <strong>${$l("Last Sync:")}</strong> ${
+                        app.state.stats.lastSync ? until(formatDateFromNow(app.state.stats.lastSync), "") : $l("Never")
+                    }
                 </pl-popover>
             </div>
         `;

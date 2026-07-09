@@ -16,16 +16,19 @@ export function AutoSync<B extends Constructor<ErrorHandling>>(baseClass: B) {
         }
 
         startPeriodicSync() {
-            setTimeout(async () => {
-                if (app.state.loggedIn && !app.state.locked) {
-                    try {
-                        await app.synchronize();
-                    } catch (e) {
-                        await this.handleError(e);
+            setTimeout(
+                async () => {
+                    if (app.state.loggedIn && !app.state.locked) {
+                        try {
+                            await app.synchronize();
+                        } catch (e) {
+                            await this.handleError(e);
+                        }
                     }
-                }
-                this.startPeriodicSync();
-            }, app.settings.syncInterval * 60 * 1000);
+                    this.startPeriodicSync();
+                },
+                app.settings.syncInterval * 60 * 1000
+            );
         }
     };
 }

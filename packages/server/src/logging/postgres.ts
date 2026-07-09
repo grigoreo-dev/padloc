@@ -3,7 +3,10 @@ import { Context } from "@padloc/core/src/server";
 import { PostgresStorage } from "../storage/postgres";
 
 export class PostgresLogger implements Logger {
-    constructor(private _storage: PostgresStorage, public context?: Context) {}
+    constructor(
+        private _storage: PostgresStorage,
+        public context?: Context
+    ) {}
 
     withContext(context: Context) {
         return new PostgresLogger(this._storage, context);

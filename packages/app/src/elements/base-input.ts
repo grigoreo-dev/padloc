@@ -266,15 +266,17 @@ export abstract class BaseInput extends LitElement {
                     ${this._renderBefore()}
 
                     <div class="input-container stretch">
-                        ${this.label
-                            ? html`
+                        ${
+                            this.label
+                                ? html`
                                   <label
                                       class="${focused || !!value || !!placeholder ? "float" : ""}"
                                       for=${this._inputId}
                                       >${this.label}</label
                                   >
                               `
-                            : ""}
+                                : ""
+                        }
                         ${this._renderInput()}
                     </div>
 

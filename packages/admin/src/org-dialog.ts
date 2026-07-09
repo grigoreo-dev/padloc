@@ -170,11 +170,13 @@ export class OrgDialog extends Dialog<Org, void> {
                                                 <div class="horizontally-margined">
                                                     ${member.name ? `${member.name} <${member.email}>` : member.email}
                                                 </div>
-                                                ${member.role === OrgRole.Owner
-                                                    ? html` <div class="tiny slim tag">${$l("owner")}</div> `
-                                                    : member.role === OrgRole.Admin
-                                                    ? html` <div class="tiny slim tag">${$l("admin")}</div> `
-                                                    : ""}
+                                                ${
+                                                    member.role === OrgRole.Owner
+                                                        ? html` <div class="tiny slim tag">${$l("owner")}</div> `
+                                                        : member.role === OrgRole.Admin
+                                                          ? html` <div class="tiny slim tag">${$l("admin")}</div> `
+                                                          : ""
+                                                }
                                             </pl-button>
                                         `
                                     )}

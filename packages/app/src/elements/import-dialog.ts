@@ -129,9 +129,11 @@ export class ImportDialog extends Dialog<File, void> {
                                 >
                                     <div class="small margined spacing horizontal layout">
                                         <div class="stretch">
-                                            ${csvHasColumnsOnFirstRow
-                                                ? itemColumn.name
-                                                : $l("Column {0}", (itemColumnIndex + 1).toString())}
+                                            ${
+                                                csvHasColumnsOnFirstRow
+                                                    ? itemColumn.name
+                                                    : $l("Column {0}", (itemColumnIndex + 1).toString())
+                                            }
                                         </div>
                                         <div class="subtle" ?hidden=${!csvHasColumnsOnFirstRow}>
                                             ${$l("Column {0}", (itemColumnIndex + 1).toString())}
@@ -157,8 +159,10 @@ export class ImportDialog extends Dialog<File, void> {
                                     <pl-select
                                         id=${`itemColumnSelect-${itemColumnIndex}`}
                                         class="field-type-select"
-                                        icon=${(FIELD_DEFS as Record<string, { icon?: string }>)[itemColumn.type]
-                                            ?.icon || "text"}
+                                        icon=${
+                                            (FIELD_DEFS as Record<string, { icon?: string }>)[itemColumn.type]?.icon ||
+                                            "text"
+                                        }
                                         .label=${$l("Field Type")}
                                         .options=${fieldTypeOptions}
                                         .value=${itemColumn.type}

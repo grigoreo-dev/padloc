@@ -42,7 +42,7 @@ module.exports = [
             }),
             {
                 apply(compiler) {
-                    const package = JSON.stringify({
+                    const packageJson = JSON.stringify({
                         name,
                         description,
                         version: process.env.PL_VENDOR_VERSION || version,
@@ -53,8 +53,8 @@ module.exports = [
                     compiler.hooks.emit.tapPromise("InjectAppPackage", async (compilation, callback) => {
                         // Insert this list into the webpack build as a new file asset:
                         compilation.assets["package.json"] = {
-                            source: () => package,
-                            size: () => package.length,
+                            source: () => packageJson,
+                            size: () => packageJson.length,
                         };
                     });
                 },

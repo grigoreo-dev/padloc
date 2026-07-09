@@ -70,7 +70,10 @@ export class ProvisioningEntry extends Provisioning {
 }
 
 export class ApiProvisioner extends BasicProvisioner {
-    constructor(public readonly config: ApiProvisionerConfig, public readonly storage: Storage) {
+    constructor(
+        public readonly config: ApiProvisionerConfig,
+        public readonly storage: Storage
+    ) {
         super(storage, config);
     }
 

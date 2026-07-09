@@ -73,9 +73,11 @@ export class CreateItemDialog extends Dialog<Vault, VaultItem> {
                                     @click=${() => this._selectTemplate(template)}
                                     .toggled=${this._template === template}
                                 >
-                                    ${template.iconSrc
-                                        ? html`<img .src=${template.iconSrc} />`
-                                        : html` <pl-icon icon=${template.icon} class="icon"></pl-icon> `}
+                                    ${
+                                        template.iconSrc
+                                            ? html`<img .src=${template.iconSrc} />`
+                                            : html` <pl-icon icon=${template.icon} class="icon"></pl-icon> `
+                                    }
                                     <div class="stretch ellipsis">${template.toString()}</div>
                                 </pl-button>
                             `

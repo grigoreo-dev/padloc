@@ -141,12 +141,15 @@ export function throttle(fn: (...args: any[]) => any, delay: number) {
             lastRan = Date.now();
         } else {
             clearTimeout(lastCall);
-            lastCall = setTimeout(() => {
-                if (Date.now() - lastRan >= delay) {
-                    fn(...args);
-                    lastRan = Date.now();
-                }
-            }, delay - (Date.now() - lastRan));
+            lastCall = setTimeout(
+                () => {
+                    if (Date.now() - lastRan >= delay) {
+                        fn(...args);
+                        lastRan = Date.now();
+                    }
+                },
+                delay - (Date.now() - lastRan)
+            );
         }
     };
 }

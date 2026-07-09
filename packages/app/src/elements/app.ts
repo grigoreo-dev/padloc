@@ -303,8 +303,9 @@ export class App extends ServiceWorker(StateMixin(AutoSync(ErrorHandling(AutoLoc
     render() {
         const provisioning = app.getAccountProvisioning();
         return html`
-            ${app.offline
-                ? html`
+            ${
+                app.offline
+                    ? html`
                       <div class="offline-indicator">
                           ${$l("o f f l i n e")}
 
@@ -313,8 +314,8 @@ export class App extends ServiceWorker(StateMixin(AutoSync(ErrorHandling(AutoLoc
                           </pl-button>
                       </div>
                   `
-                : provisioning?.status === ProvisioningStatus.Frozen
-                ? html`
+                    : provisioning?.status === ProvisioningStatus.Frozen
+                      ? html`
                       <div class="offline-indicator">
                           ${provisioning.statusLabel || getDefaultStatusLabel(provisioning.status)}
 
@@ -323,7 +324,8 @@ export class App extends ServiceWorker(StateMixin(AutoSync(ErrorHandling(AutoLoc
                           </pl-button>
                       </div>
                   `
-                : ""}
+                      : ""
+            }
 
             <div class="main">
                 <pl-start id="startView" active></pl-start>

@@ -273,8 +273,9 @@ export class AttachmentDialog extends Dialog<{ info?: AttachmentInfo; file?: Fil
                     </pl-button>
                 </header>
 
-                ${this._preview ||
-                html`
+                ${
+                    this._preview ||
+                    html`
                     <div class="stretch centering vertical layout">
                         <pl-spinner .active=${!!this._progress} ?hidden=${!this._progress}></pl-spinner>
 
@@ -285,18 +286,21 @@ export class AttachmentDialog extends Dialog<{ info?: AttachmentInfo; file?: Fil
                         <div class="padded margined inverted red card" ?hidden=${!this._error}>${this._error}</div>
 
                         <div class="size" ?hidden=${!!this._error}>
-                            ${this._progress
-                                ? $l(
-                                      "downloading... {0}/{1}",
-                                      fileSize(this._progress.loaded),
-                                      fileSize(this._progress.total)
-                                  )
-                                : fileSize(this.info.size)}
+                            ${
+                                this._progress
+                                    ? $l(
+                                          "downloading... {0}/{1}",
+                                          fileSize(this._progress.loaded),
+                                          fileSize(this._progress.total)
+                                      )
+                                    : fileSize(this.info.size)
+                            }
                         </div>
 
                         <div class="padded margined red card">${$l("No preview available.")}</div>
                     </div>
-                `}
+                `
+                }
             </div>
         `;
     }

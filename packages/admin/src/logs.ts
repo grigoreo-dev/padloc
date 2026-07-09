@@ -289,10 +289,12 @@ export class Logs extends StateMixin(Routing(View)) {
                     <pl-button class="skinny transparent">
                         <div class="horizontal spacing center-aligning layout">
                             <pl-icon icon="time"></pl-icon>
-                            ${this._after
-                                ? html`<div class="small">${this._formatDateTime(this._after)}</div>
+                            ${
+                                this._after
+                                    ? html`<div class="small">${this._formatDateTime(this._after)}</div>
                                       ${this._before ? html`<div>-</div>` : ""} `
-                                : ""}
+                                    : ""
+                            }
                             ${this._before ? html`<div class="small">${this._formatDateTime(this._before)}</div>` : ""}
                         </div>
                     </pl-button>
@@ -327,9 +329,9 @@ export class Logs extends StateMixin(Routing(View)) {
                             ${this._emails.map(
                                 (email) => html`
                                     <div
-                                        class="small center-aligning horizontal layout tag ${this._isEmailValid(email)
-                                            ? ""
-                                            : "warning"}"
+                                        class="small center-aligning horizontal layout tag ${
+                                            this._isEmailValid(email) ? "" : "warning"
+                                        }"
                                     >
                                         ${!this._isEmailValid(email) ? html`<pl-icon icon="warning"></pl-icon>` : ""}
                                         <div>${email}</div>
@@ -346,8 +348,9 @@ export class Logs extends StateMixin(Routing(View)) {
                     </pl-input>
                 </div>
                 <div class="stretch scrolling">
-                    ${this._page === "changes"
-                        ? html`
+                    ${
+                        this._page === "changes"
+                            ? html`
                               <table class="small table-with-truncated-cells">
                                   <thead>
                                       <tr>
@@ -365,11 +368,13 @@ export class Logs extends StateMixin(Routing(View)) {
                                                   <td>${item.objectKind}</td>
                                                   <td>${item.action}</td>
                                                   <td class="truncate">
-                                                      ${item.context?.account
-                                                          ? item.context?.account.name
-                                                              ? `${item.context.account.name} <${item.context.account.email}>`
-                                                              : item.context.account.email
-                                                          : ""}
+                                                      ${
+                                                          item.context?.account
+                                                              ? item.context?.account.name
+                                                                  ? `${item.context.account.name} <${item.context.account.email}>`
+                                                                  : item.context.account.email
+                                                              : ""
+}
                                                   </td>
                                               </tr>
                                           `
@@ -377,7 +382,7 @@ export class Logs extends StateMixin(Routing(View)) {
                                   </tbody>
                               </table>
                           `
-                        : html`
+                            : html`
                               <table class="small table-with-truncated-cells">
                                   <thead>
                                       <tr>
@@ -394,11 +399,13 @@ export class Logs extends StateMixin(Routing(View)) {
                                                   <td>${this._formatDateTime(new Date(entry.time))}</td>
                                                   <td>${entry.request.method}</td>
                                                   <td class="truncate">
-                                                      ${entry.context?.account
-                                                          ? entry.context?.account.name
-                                                              ? `${entry.context.account.name} <${entry.context.account.email}>`
-                                                              : entry.context.account.email
-                                                          : ""}
+                                                      ${
+                                                          entry.context?.account
+                                                              ? entry.context?.account.name
+                                                                  ? `${entry.context.account.name} <${entry.context.account.email}>`
+                                                                  : entry.context.account.email
+                                                              : ""
+}
                                                   </td>
                                                   <td>${entry.responseTime} ms</td>
                                               </tr>
@@ -406,7 +413,8 @@ export class Logs extends StateMixin(Routing(View)) {
                                       )}
                                   </tbody>
                               </table>
-                          `}
+                          `
+                    }
                 </div>
                 <div class="padded horizontal layout border-top">
                     <pl-select

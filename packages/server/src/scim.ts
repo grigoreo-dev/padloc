@@ -113,7 +113,10 @@ interface ScimListResponse {
 export class ScimServer implements DirectoryProvider {
     private _subscribers: DirectorySubscriber[] = [];
 
-    constructor(public readonly config: ScimServerConfig, public readonly storage: Storage) {}
+    constructor(
+        public readonly config: ScimServerConfig,
+        public readonly storage: Storage
+    ) {}
 
     subscribe(sub: DirectorySubscriber) {
         this._subscribers.push(sub);

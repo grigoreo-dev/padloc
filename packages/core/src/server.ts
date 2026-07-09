@@ -142,7 +142,10 @@ export class Controller extends API {
     public changeLogger?: ChangeLogger;
     public requestLogger?: RequestLogger;
 
-    constructor(public server: Server, context: Context) {
+    constructor(
+        public server: Server,
+        context: Context
+    ) {
         super();
         this.context = context;
         this.logger = server.logger.withContext(context);

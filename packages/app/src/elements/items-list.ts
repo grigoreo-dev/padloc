@@ -349,11 +349,13 @@ export class VaultItemListItem extends LitElement {
         return html`
             <div class="item-header spacing center-aligning horizontal layout">
                 <div class="large">
-                    ${this.selected === true
-                        ? html` <pl-icon icon="checkbox-checked"></pl-icon> `
-                        : this.selected === false
-                        ? html` <pl-icon icon="checkbox-unchecked" class="faded"></pl-icon> `
-                        : html` <pl-item-icon .item=${item}></pl-item-icon> `}
+                    ${
+                        this.selected === true
+                            ? html` <pl-icon icon="checkbox-checked"></pl-icon> `
+                            : this.selected === false
+                              ? html` <pl-icon icon="checkbox-unchecked" class="faded"></pl-icon> `
+                              : html` <pl-item-icon .item=${item}></pl-item-icon> `
+                    }
                 </div>
 
                 <div class="stretch collapse left-half-margined">
@@ -405,11 +407,13 @@ export class VaultItemListItem extends LitElement {
                                         <pl-icon class="inline" icon="${f.icon}"></pl-icon>
                                         ${f.name || $l("Unnamed")}
                                     </div>
-                                    ${f.type === "totp"
-                                        ? html`<pl-totp class="item-field-value" .secret=${f.value}></pl-totp>`
-                                        : f.value
-                                        ? html` <div class="item-field-value">${f.format(true)}</div>`
-                                        : html`<div class="item-field-value faded">[${$l("empty")}]</div>`}
+                                    ${
+                                        f.type === "totp"
+                                            ? html`<pl-totp class="item-field-value" .secret=${f.value}></pl-totp>`
+                                            : f.value
+                                              ? html` <div class="item-field-value">${f.format(true)}</div>`
+                                              : html`<div class="item-field-value faded">[${$l("empty")}]</div>`
+                                    }
                                 </div>
 
                                 <div class="copied-message">${$l("copied")}</div>
@@ -677,39 +681,39 @@ export class ItemsList extends StateMixin(LitElement) {
         const placeholder = this._listItems.length
             ? {}
             : this._filterShowing
-            ? {
-                  icon: "search",
-                  text: $l("Your search did not match any items."),
-              }
-            : vaultId
-            ? {
-                  icon: "vault",
-                  text: $l("This vault does not have any items yet."),
-              }
-            : attachments
-            ? {
-                  icon: "attachment",
-                  text: $l("You don't have any attachments yet."),
-              }
-            : favorites
-            ? {
-                  icon: "favorite",
-                  text: $l("You don't have any favorites yet."),
-              }
-            : recent
-            ? {
-                  icon: "time",
-                  text: $l("You don't have any recently used items!"),
-              }
-            : audit
-            ? {
-                  icon: "audit-pass",
-                  text: noItemsTextForAudit(audit),
-              }
-            : {
-                  icon: "vaults",
-                  text: $l("You don't have any items yet."),
-              };
+              ? {
+                    icon: "search",
+                    text: $l("Your search did not match any items."),
+                }
+              : vaultId
+                ? {
+                      icon: "vault",
+                      text: $l("This vault does not have any items yet."),
+                  }
+                : attachments
+                  ? {
+                        icon: "attachment",
+                        text: $l("You don't have any attachments yet."),
+                    }
+                  : favorites
+                    ? {
+                          icon: "favorite",
+                          text: $l("You don't have any favorites yet."),
+                      }
+                    : recent
+                      ? {
+                            icon: "time",
+                            text: $l("You don't have any recently used items!"),
+                        }
+                      : audit
+                        ? {
+                              icon: "audit-pass",
+                              text: noItemsTextForAudit(audit),
+                          }
+                        : {
+                              icon: "vaults",
+                              text: $l("You don't have any items yet."),
+                          };
 
         const vault = vaultId && app.getVault(vaultId);
         const org = vault && vault.org && app.getOrg(vault.org.id);
@@ -717,23 +721,23 @@ export class ItemsList extends StateMixin(LitElement) {
         const heading = favorites
             ? { title: $l("Favorites"), superTitle: "", icon: "favorite" }
             : recent
-            ? { title: $l("Recently Used"), superTitle: "", icon: "time" }
-            : attachments
-            ? { title: $l("Attachments"), superTitle: "", icon: "attachment" }
-            : host
-            ? {
-                  title: new URL(this.state.context.browser?.url!).hostname.replace(/^www\./, ""),
-                  superTitle: "",
-                  icon: "web",
-                  iconUrl: this.state.context.browser?.favIconUrl,
-              }
-            : vault
-            ? { title: vault.name, superTitle: org ? org.name : "", icon: "vaults" }
-            : tag
-            ? { title: tag, superTitle: "", icon: "tags" }
-            : audit
-            ? { title: titleTextForAudit(audit), superTitle: "", icon: iconForAudit(audit) }
-            : { title: $l("All Vaults"), superTitle: "", icon: "vaults" };
+              ? { title: $l("Recently Used"), superTitle: "", icon: "time" }
+              : attachments
+                ? { title: $l("Attachments"), superTitle: "", icon: "attachment" }
+                : host
+                  ? {
+                        title: new URL(this.state.context.browser?.url!).hostname.replace(/^www\./, ""),
+                        superTitle: "",
+                        icon: "web",
+                        iconUrl: this.state.context.browser?.favIconUrl,
+                    }
+                  : vault
+                    ? { title: vault.name, superTitle: org ? org.name : "", icon: "vaults" }
+                    : tag
+                      ? { title: tag, superTitle: "", icon: "tags" }
+                      : audit
+                        ? { title: titleTextForAudit(audit), superTitle: "", icon: iconForAudit(audit) }
+                        : { title: $l("All Vaults"), superTitle: "", icon: "vaults" };
 
         return html`
             <header
@@ -748,13 +752,17 @@ export class ItemsList extends StateMixin(LitElement) {
                     <div
                         class="half-margined fill-horizontally horizontal spacing center-aligning layout text-left-aligning"
                     >
-                        ${heading.iconUrl
-                            ? html` <img .src=${heading.iconUrl} class="header-icon" /> `
-                            : html` <pl-icon icon="${heading.icon}"></pl-icon> `}
+                        ${
+                            heading.iconUrl
+                                ? html` <img .src=${heading.iconUrl} class="header-icon" /> `
+                                : html` <pl-icon icon="${heading.icon}"></pl-icon> `
+                        }
                         <div class="stretch collapse ellipsis">
-                            ${heading.superTitle
-                                ? html`<span class="highlighted">${truncate(heading.superTitle, 10)} / </span>`
-                                : ""}${heading.title}
+                            ${
+                                heading.superTitle
+                                    ? html`<span class="highlighted">${truncate(heading.superTitle, 10)} / </span>`
+                                    : ""
+                            }${heading.title}
                         </div>
                     </div>
                 </pl-button>
@@ -840,15 +848,17 @@ export class ItemsList extends StateMixin(LitElement) {
                     class="fullbleed"
                     .data=${this._listItems}
                     .renderItem=${((item: ListItem, i: number) => this._renderItem(item, i)) as any}
-                    .guard=${(({ item, vault }: ListItem) => [
-                        item.name,
-                        item.tags,
-                        item.fields,
-                        vault,
-                        item.id === this.selected,
-                        this.multiSelect,
-                        this._multiSelect.has(item.id),
-                    ]) as any}
+                    .guard=${
+                        (({ item, vault }: ListItem) => [
+                            item.name,
+                            item.tags,
+                            item.fields,
+                            vault,
+                            item.id === this.selected,
+                            this.multiSelect,
+                            this._multiSelect.has(item.id),
+                        ]) as any
+                    }
                 ></pl-virtual-list>
 
                 <div

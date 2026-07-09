@@ -30,8 +30,8 @@ export function ErrorHandling<B extends Constructor<Object>>(baseClass: B) {
                 error instanceof Err
                     ? error
                     : error instanceof Error
-                    ? new Err(ErrorCode.UNKNOWN_ERROR, error.message, { error })
-                    : new Err(ErrorCode.UNKNOWN_ERROR, error.toString());
+                      ? new Err(ErrorCode.UNKNOWN_ERROR, error.message, { error })
+                      : new Err(ErrorCode.UNKNOWN_ERROR, error.toString());
 
             switch (error.code) {
                 case ErrorCode.FAILED_CONNECTION:

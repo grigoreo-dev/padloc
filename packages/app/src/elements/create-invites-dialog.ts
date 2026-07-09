@@ -157,9 +157,9 @@ export class CreateInvitesDialog extends Dialog<Org, Invite[]> {
                     ${this._emails.map(
                         (email) => html`
                             <div
-                                class="small center-aligning horizontal layout tag ${this._isValid(email)
-                                    ? ""
-                                    : "warning"}"
+                                class="small center-aligning horizontal layout tag ${
+                                    this._isValid(email) ? "" : "warning"
+                                }"
                             >
                                 ${!this._isValid(email) ? html`<pl-icon icon="warning"></pl-icon>` : ""}
                                 <div>${email}</div>
