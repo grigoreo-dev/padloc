@@ -5,6 +5,8 @@ import { app } from "../globals";
 import type { Select } from "./select";
 import { Dialog } from "./dialog";
 import type { Button } from "./button";
+import "./select";
+import "./button";
 import { customElement, property, query } from "lit/decorators.js";
 import { html } from "lit";
 import { alert } from "../lib/dialog";

@@ -13,6 +13,8 @@ import { customElement, property, query } from "lit/decorators.js";
 import { html, LitElement } from "lit";
 import "./drawer";
 import type { ToggleButton } from "./toggle-button";
+import "./button";
+import "./toggle-button";
 import { setClipboard } from "../lib/clipboard";
 import { live } from "lit/directives/live.js";
 import { checkFeatureDisabled } from "../lib/provisioning";

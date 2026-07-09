@@ -18,6 +18,8 @@ import type { StorageQuery } from "@padloc/core/src/storage";
 import type { ChangeLogEntryDialog } from "./change-log-entry-dialog";
 import type { ChangeLogEntry, RequestLogEntry } from "@padloc/core/src/logging";
 import type { RequestLogEntryDialog } from "./request-log-entry-dialog";
+import "./change-log-entry-dialog";
+import "./request-log-entry-dialog";
 
 @customElement("pl-admin-logs")
 export class Logs extends StateMixin(Routing(View)) {

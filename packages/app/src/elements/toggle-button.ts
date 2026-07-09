@@ -1,5 +1,6 @@
 import { shared } from "../styles";
 import type { Toggle } from "./toggle";
+import "./toggle";
 import "./button";
 import { customElement, property, query } from "lit/decorators.js";
 import { css, html, LitElement, type TemplateResult } from "lit";

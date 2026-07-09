@@ -25,6 +25,8 @@ import { AuthPurpose, AuthType, type AuthenticatorInfo, AuthenticatorStatus } fr
 import { formatDate, formatDateFromNow, passwordStrength } from "../lib/util";
 import { until } from "lit/directives/until.js";
 import type { Button } from "./button";
+import "./toggle-button";
+import "./slider";
 import type { SessionInfo } from "@padloc/core/src/session";
 import type { KeyStoreEntryInfo } from "@padloc/core/src/key-store";
 import { alertDisabledFeature } from "../lib/provisioning";

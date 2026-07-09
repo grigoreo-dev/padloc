@@ -6,6 +6,7 @@ import { customElement, query } from "lit/decorators.js";
 import { css, html } from "lit";
 import { Routing } from "../mixins/routing";
 import type { Generator } from "./generator";
+import "./generator";
 
 @customElement("pl-generator-view")
 export class Settings extends StateMixin(Routing(View)) {

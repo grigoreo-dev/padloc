@@ -8,6 +8,8 @@ import { Dialog } from "./dialog";
 import "./icon";
 import type { Button } from "./button";
 import type { Input } from "./input";
+import "./button";
+import "./input";
 import { customElement, property, query, state } from "lit/decorators.js";
 import { css, html } from "lit";
 

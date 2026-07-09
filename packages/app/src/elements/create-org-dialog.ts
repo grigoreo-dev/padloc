@@ -4,6 +4,8 @@ import { app } from "../globals";
 import { Dialog } from "./dialog";
 import type { Button } from "./button";
 import type { Input } from "./input";
+import "./button";
+import "./input";
 import "./scroller";
 import { customElement, query, state } from "lit/decorators.js";
 import { css, html } from "lit";

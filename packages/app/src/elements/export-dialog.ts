@@ -8,6 +8,7 @@ import { supportedFormats, asCSV, asPBES2Container } from "../lib/export";
 import { app } from "../globals";
 import { prompt } from "../lib/dialog";
 import type { Select } from "./select";
+import "./select";
 import { Dialog } from "./dialog";
 import { html } from "lit";
 import { customElement, query } from "lit/decorators.js";

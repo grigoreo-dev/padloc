@@ -2,6 +2,7 @@ import { View } from "./view";
 import { StateMixin } from "../mixins/state";
 import { Routing } from "../mixins/routing";
 import type { ItemsList, ItemsFilter } from "./items-list";
+import "./items-list";
 import "./item-view";
 import { customElement, property, query } from "lit/decorators.js";
 import { html } from "lit";

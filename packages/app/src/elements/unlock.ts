@@ -5,6 +5,8 @@ import { isTouch } from "../lib/util";
 import { StartForm } from "./start-form";
 import type { PasswordInput } from "./password-input";
 import type { Button } from "./button";
+import "./password-input";
+import "./button";
 import { alert, confirm } from "../lib/dialog";
 import "./logo";
 import { customElement, query, state } from "lit/decorators.js";

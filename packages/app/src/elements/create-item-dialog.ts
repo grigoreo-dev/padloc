@@ -3,6 +3,7 @@ import { type VaultItem, Field, type ItemTemplate, ITEM_TEMPLATES, FieldType } f
 import { translate as $l } from "@padloc/locale/src/translate";
 import { app, router } from "../globals";
 import type { Select } from "./select";
+import "./select";
 import { Dialog } from "./dialog";
 import "./scroller";
 import "./button";

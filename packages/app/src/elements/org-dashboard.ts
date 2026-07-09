@@ -7,6 +7,7 @@ import { shared } from "../styles";
 import { app } from "../globals";
 import { dialog, alert } from "../lib/dialog";
 import type { CreateInvitesDialog } from "./create-invites-dialog";
+import "./create-invites-dialog";
 import "./group-item";
 import "./member-item";
 import "./vault-item";

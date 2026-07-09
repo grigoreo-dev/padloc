@@ -25,6 +25,11 @@ import { iconForAudit, noItemsTextForAudit, titleTextForAudit } from "../lib/aud
 import { singleton } from "../lib/singleton";
 import type { NoteDialog } from "./note-dialog";
 import type { ImportDialog } from "./import-dialog";
+import "./input";
+import "./move-items-dialog";
+import "./attachment-dialog";
+import "./note-dialog";
+import "./import-dialog";
 
 export interface ListItem {
     item: VaultItem;

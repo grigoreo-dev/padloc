@@ -7,6 +7,7 @@ import { alert, confirm } from "../lib/dialog";
 import { Routing } from "../mixins/routing";
 import { StateMixin } from "../mixins/state";
 import type { Button } from "./button";
+import "./button";
 import "./icon";
 import "./scroller";
 import "./spinner";

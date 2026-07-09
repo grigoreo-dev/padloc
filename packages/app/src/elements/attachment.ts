@@ -4,6 +4,7 @@ import { fileIcon, fileSize } from "../lib/util";
 import { shared } from "../styles";
 import "./button";
 import type { Input } from "./input";
+import "./input";
 import "./icon";
 import { customElement, property, query } from "lit/decorators.js";
 import { css, html, LitElement } from "lit";

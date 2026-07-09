@@ -18,6 +18,7 @@ import type { Select } from "@padloc/app/src/elements/select";
 import type { Account } from "@padloc/core/src/account";
 import { singleton } from "@padloc/app/src/lib/singleton";
 import type { AccountDialog } from "./account-dialog";
+import "./account-dialog";
 import type { OrgInfo } from "@padloc/core/src/org";
 
 @customElement("pl-admin-accounts")

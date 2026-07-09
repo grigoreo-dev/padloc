@@ -1,5 +1,6 @@
 import { app } from "../globals";
 import type { ErrorHandling } from "./error-handling";
+import "./error-handling";
 
 type Constructor<T> = new (...args: any[]) => T;
 

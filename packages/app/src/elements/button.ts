@@ -4,6 +4,7 @@ import { customElement, property, query } from "lit/decorators.js";
 import "./icon";
 import "./spinner";
 import type { Toggle } from "./toggle";
+import "./toggle";
 
 type ButtonState = "idle" | "loading" | "success" | "fail";
 type ButtonRole = "button" | "switch" | "link";

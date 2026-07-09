@@ -62,6 +62,7 @@ export function ErrorHandling<B extends Constructor<Object>>(baseClass: B) {
                 case ErrorCode.INVALID_CREDENTIALS:
                     return true;
 
+                // biome-ignore lint/suspicious/noFallthroughSwitchClause: alert then record error via default
                 case ErrorCode.UNSUPPORTED_VERSION:
                     await alert(
                         error.message ||
@@ -70,7 +71,6 @@ export function ErrorHandling<B extends Constructor<Object>>(baseClass: B) {
                             ),
                         { title: $l("Update Required"), type: "warning" }
                     );
-                    break;
 
                 default:
                     app.state._errors.push(error);

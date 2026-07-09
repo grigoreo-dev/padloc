@@ -9,6 +9,8 @@ import { Routing } from "../mixins/routing";
 import { StateMixin } from "../mixins/state";
 import type { Button } from "./button";
 import type { Input } from "./input";
+import "./button";
+import "./input";
 import "./icon";
 import "./scroller";
 import "./spinner";

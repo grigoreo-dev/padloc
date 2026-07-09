@@ -3,6 +3,7 @@ import { Routing } from "../mixins/routing";
 import { StateMixin } from "../mixins/state";
 import { animateElement, animateCascade } from "../lib/animation";
 import type { Logo } from "./logo";
+import "./logo";
 import "./icon";
 import { css, LitElement } from "lit";
 import { query, state } from "lit/decorators.js";

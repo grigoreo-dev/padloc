@@ -13,6 +13,8 @@ import "./scroller";
 import "./popover";
 import "./list";
 import type { Input } from "./input";
+import "./button";
+import "./input";
 import "./toggle";
 import { css, html, LitElement } from "lit";
 import { customElement, property, query, state } from "lit/decorators.js";

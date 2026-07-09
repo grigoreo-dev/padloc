@@ -21,6 +21,8 @@ import "./rich-content";
 import type { RichInput } from "./rich-input";
 import { singleton } from "../lib/singleton";
 import type { NoteDialog } from "./note-dialog";
+import "./drawer";
+import "./note-dialog";
 
 @customElement("pl-field")
 export class FieldElement extends LitElement {

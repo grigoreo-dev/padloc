@@ -42,6 +42,14 @@ import { checkFeatureDisabled } from "../lib/provisioning";
 import { auditVaults } from "../lib/audit";
 import type { Popover } from "./popover";
 import type { HistoryEntryDialog } from "./history-entry-dialog";
+import "./input";
+import "./tags-input";
+import "./move-items-dialog";
+import "./generator-dialog";
+import "./attachment-dialog";
+import "./upload-dialog";
+import "./qr-dialog";
+import "./history-entry-dialog";
 
 @customElement("pl-item-view")
 export class ItemView extends Routing(StateMixin(LitElement)) {

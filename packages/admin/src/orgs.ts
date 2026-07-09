@@ -17,6 +17,7 @@ import "@padloc/app/src/elements/select";
 import type { Select } from "@padloc/app/src/elements/select";
 import { singleton } from "@padloc/app/src/lib/singleton";
 import type { OrgDialog } from "./org-dialog";
+import "./org-dialog";
 import type { Org, OrgMember } from "@padloc/core/src/org";
 
 @customElement("pl-admin-orgs")

@@ -9,6 +9,8 @@ import { readFileAsText, readFileAsArrayBuffer } from "@padloc/core/src/attachme
 
 import type { OnePuxItem } from "./1pux-parser";
 import type { BitwardenExport, BitwardenItem } from "./bitwarden-parser";
+import "./1pux-parser";
+import "./bitwarden-parser";
 
 export interface ImportFormat {
     value:

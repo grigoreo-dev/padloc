@@ -313,12 +313,12 @@ export class App extends ServiceWorker(StateMixin(Routing(LitElement))) {
         const dialog = e.target as Dialog<any, any>;
         this.classList.add("dialog-open");
         if (dialog.hideApp) {
-            this.classList.add("hide-this.app");
+            this.classList.add("hide-app");
         }
     }
 
     _dialogClose() {
         this.classList.remove("dialog-open");
-        this.classList.remove("hide-this.app");
+        this.classList.remove("hide-app");
     }
 }

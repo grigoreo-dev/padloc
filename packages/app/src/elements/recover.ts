@@ -4,6 +4,8 @@ import { app, router } from "../globals";
 import { StartForm } from "./start-form";
 import type { Input } from "./input";
 import type { Button } from "./button";
+import "./input";
+import "./button";
 import { alert, choose, confirm } from "../lib/dialog";
 import { passwordStrength } from "../lib/util";
 import { customElement, query, state } from "lit/decorators.js";
