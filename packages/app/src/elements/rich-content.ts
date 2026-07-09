@@ -1,11 +1,13 @@
 import { openExternalUrl } from "@padloc/core/src/platform";
-import { sanitize } from "dompurify";
+import DOMPurify from "dompurify";
 import { html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { unsafeHTML } from "lit/directives/unsafe-html.js";
 import { markdownToLitTemplate } from "../lib/markdown";
 import { content, shared } from "../styles";
 import { icons } from "../styles/icons";
+
+const { sanitize } = DOMPurify;
 
 @customElement("pl-rich-content")
 export class RichContent extends LitElement {

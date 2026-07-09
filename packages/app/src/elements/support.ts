@@ -5,7 +5,7 @@ import { customElement } from "lit/decorators.js";
 import { css, html } from "lit";
 import { Routing } from "../mixins/routing";
 import "./rich-content";
-import content from "assets/support.md";
+import content from "assets/support.md?raw";
 
 @customElement("pl-support")
 export class Support extends StateMixin(Routing(View)) {

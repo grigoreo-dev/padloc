@@ -1,6 +1,8 @@
-import { sanitize } from "dompurify";
+import DOMPurify from "dompurify";
 import { html } from "lit";
 import { unsafeHTML } from "lit/directives/unsafe-html.js";
+
+const { sanitize } = DOMPurify;
 
 const loaded: Map<string, Promise<any>> = new Map<string, Promise<any>>();
 export function loadScript(src: string, global?: string): Promise<any> {
