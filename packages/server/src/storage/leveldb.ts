@@ -1,4 +1,4 @@
-// @ts-expect-error
+// @ts-ignore
 import level from "level";
 import {
     type Storage,

@@ -29,7 +29,7 @@ Cypress.Commands.add("getCodeFromEmail", (options: any = {}) => {
 
     const resolveValue = () => {
         getCode().then((value) => {
-            // @ts-expect-error
+            // @ts-ignore
             return cy.verifyUpcomingAssertions(value, options, {
                 onRetry: resolveValue,
             });
@@ -285,7 +285,7 @@ Cypress.Commands.add("v3_login", (email: string) => {
 
     // This is required because the email validation requirement on login throws an error in the console, and without it, Cypress will halt
     cy.on("uncaught:exception", (error) => {
-        // @ts-expect-error this exists
+        // @ts-ignore this exists
         if (error.code === "email_verification_required") {
             return false;
         }

@@ -6,7 +6,7 @@ import {
     type StorageQuery,
 } from "@padloc/core/src/storage";
 import { Err, ErrorCode } from "@padloc/core/src/error";
-// @ts-expect-error
+// @ts-ignore
 import localStorage from "localforage/src/localforage";
 
 export class LocalStorage implements Storage {

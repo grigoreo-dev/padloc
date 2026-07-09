@@ -40,7 +40,7 @@ export function formatDateTime(date: Date | string | number) {
 }
 
 export async function passwordStrength(pwd: string): Promise<{ score: number }> {
-    // @ts-expect-error
+    // @ts-ignore
     const { default: zxcvbn } = await import(/* webpackChunkName: "zxcvbn" */ "zxcvbn");
     return zxcvbn(pwd);
 }

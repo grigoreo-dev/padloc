@@ -247,7 +247,7 @@ class ExtensionBackground {
     }
 }
 
-//@ts-expect-error
+//@ts-ignore
 const extension = (window.extension = new ExtensionBackground());
 
 extension.init();

@@ -2,9 +2,9 @@ import {
     randomBytes,
     createHash,
     createHmac,
-    // @ts-expect-error
+    // @ts-ignore
     sign,
-    // @ts-expect-error
+    // @ts-ignore
     verify,
     constants,
     generateKeyPair,
