@@ -1,5 +1,3 @@
-// @ts-ignore
-
 import { Config, ConfigParam } from "@padloc/core/src/config";
 import { Err, ErrorCode } from "@padloc/core/src/error";
 import {
@@ -11,6 +9,7 @@ import {
     type StorageQuery,
     sortBy,
 } from "@padloc/core/src/storage";
+// @ts-ignore - level has no bundled types in this setup
 import level from "level";
 
 export class LevelDBStorageConfig extends Config {

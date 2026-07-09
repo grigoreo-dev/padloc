@@ -15,7 +15,7 @@ export interface SerializationOptions {
 }
 
 function registerSerializationOptions(proto: Serializable, property: string, opts: Partial<SerializationOptions>) {
-    if (!Object.hasOwn(proto, "_propertySerializationOptions")) {
+    if (!Object.prototype.hasOwnProperty.call(proto, "_propertySerializationOptions")) {
         const parentOptions = proto._propertySerializationOptions || [];
         proto._propertySerializationOptions = parentOptions ? [...parentOptions] : [];
     }
@@ -298,7 +298,7 @@ export class Serializable {
 
             // Skip properties that have no serialization options associated with them
             // and are not explicitly defined as a property on the class
-            if (!opts && !Object.hasOwn(this, prop)) {
+            if (!opts && !Object.prototype.hasOwnProperty.call(this, prop)) {
                 continue;
             }
 
