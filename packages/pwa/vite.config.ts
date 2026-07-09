@@ -10,7 +10,7 @@ const packageDir = dirname(fileURLToPath(import.meta.url));
 const sourceDir = resolve(packageDir, "src");
 const rootDir = resolve(packageDir, "../..");
 const assetsDir = resolve(rootDir, process.env.PL_ASSETS_DIR || "assets");
-const outDir = process.env.PL_PWA_DIR || resolve(packageDir, "dist");
+const outDir = resolve(packageDir, process.env.PL_PWA_DIR || "dist");
 
 function removeTrailingSlash(url: string) {
     return url.replace(/(\/*)$/, "");
@@ -40,12 +40,25 @@ function padlocAssetsPlugin(): Plugin {
 function padlocCspPlugin(pwaUrl: string, serverUrl: string, disableCsp: boolean): Plugin {
     return {
         name: "padloc-csp",
-        transformIndexHtml(html) {
+        transformIndexHtml(html, context) {
             if (disableCsp) {
                 return html;
             }
 
-            const content = `default-src 'none'; base-uri 'none'; script-src blob: [REPLACE_SCRIPT]; connect-src ${serverUrl} https://api.pwnedpasswords.com [REPLACE_CONNECT]; style-src 'unsafe-inline' [REPLACE_STYLE]; font-src [REPLACE_FONT]; object-src blob:; frame-src blob:; img-src [REPLACE_IMG] blob: data: https://icons.duckduckgo.com; manifest-src [REPLACE_MANIFEST]; worker-src ${pwaUrl}/sw.js;`;
+            let content = `default-src 'none'; base-uri 'none'; script-src blob: [REPLACE_SCRIPT]; connect-src ${serverUrl} https://api.pwnedpasswords.com [REPLACE_CONNECT]; style-src 'unsafe-inline' [REPLACE_STYLE]; font-src [REPLACE_FONT]; object-src blob:; frame-src blob:; img-src [REPLACE_IMG] blob: data: https://icons.duckduckgo.com; manifest-src [REPLACE_MANIFEST]; worker-src ${pwaUrl}/sw.js;`;
+
+            if (context.server) {
+                const devServerUrl = pwaUrl;
+                const devWebsocketUrl = `ws://localhost:${process.env.PL_PWA_PORT || 8080}`;
+                content = content
+                    .replace("[REPLACE_SCRIPT]", devServerUrl)
+                    .replace("[REPLACE_CONNECT]", `${devWebsocketUrl} ${devServerUrl}`)
+                    .replace("[REPLACE_STYLE]", devServerUrl)
+                    .replace("[REPLACE_FONT]", devServerUrl)
+                    .replace("[REPLACE_IMG]", devServerUrl)
+                    .replace("[REPLACE_MANIFEST]", devServerUrl);
+            }
+
             return html.replace(
                 "</head>",
                 `        <meta http-equiv="Content-Security-Policy" content="${content}" />\n    </head>`

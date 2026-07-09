@@ -10,7 +10,7 @@ const packageDir = dirname(fileURLToPath(import.meta.url));
 const sourceDir = resolve(packageDir, "src");
 const rootDir = resolve(packageDir, "../..");
 const assetsDir = resolve(rootDir, process.env.PL_ASSETS_DIR || "assets");
-const outDir = process.env.PL_ADMIN_DIR || resolve(packageDir, "dist");
+const outDir = resolve(packageDir, process.env.PL_ADMIN_DIR || "dist");
 
 function removeTrailingSlash(url: string) {
     return url.replace(/(\/*)$/, "");
@@ -44,8 +44,21 @@ function padlocAssetsPlugin(): Plugin {
 function padlocCspPlugin(adminUrl: string, serverUrl: string): Plugin {
     return {
         name: "padloc-csp",
-        transformIndexHtml(html) {
-            const content = `default-src 'none'; base-uri 'none'; script-src blob: [REPLACE_SCRIPT]; connect-src ${serverUrl} https://api.pwnedpasswords.com [REPLACE_CONNECT]; style-src 'unsafe-inline' [REPLACE_STYLE]; font-src [REPLACE_FONT]; object-src blob:; frame-src blob:; img-src [REPLACE_IMG] blob: data: https://icons.duckduckgo.com; manifest-src [REPLACE_MANIFEST]; worker-src ${adminUrl}/sw.js;`;
+        transformIndexHtml(html, context) {
+            let content = `default-src 'none'; base-uri 'none'; script-src blob: [REPLACE_SCRIPT]; connect-src ${serverUrl} https://api.pwnedpasswords.com [REPLACE_CONNECT]; style-src 'unsafe-inline' [REPLACE_STYLE]; font-src [REPLACE_FONT]; object-src blob:; frame-src blob:; img-src [REPLACE_IMG] blob: data: https://icons.duckduckgo.com; manifest-src [REPLACE_MANIFEST]; worker-src ${adminUrl}/sw.js;`;
+
+            if (context.server) {
+                const devServerUrl = adminUrl;
+                const devWebsocketUrl = `ws://localhost:${process.env.PL_ADMIN_PORT || 9090}`;
+                content = content
+                    .replace("[REPLACE_SCRIPT]", devServerUrl)
+                    .replace("[REPLACE_CONNECT]", `${devWebsocketUrl} ${devServerUrl}`)
+                    .replace("[REPLACE_STYLE]", devServerUrl)
+                    .replace("[REPLACE_FONT]", devServerUrl)
+                    .replace("[REPLACE_IMG]", devServerUrl)
+                    .replace("[REPLACE_MANIFEST]", devServerUrl);
+            }
+
             return html.replace(
                 "</head>",
                 `        <meta http-equiv="Content-Security-Policy" content="${content}" />\n    </head>`
@@ -98,7 +111,7 @@ function padlocCspPlugin(adminUrl: string, serverUrl: string): Plugin {
 
 const manifest = JSON.parse(readFileSync(resolve(assetsDir, "manifest.json"), "utf-8"));
 const serverUrl = process.env.PL_SERVER_URL || `http://0.0.0.0:${process.env.PL_SERVER_PORT || 3000}`;
-const pwaUrl = process.env.PL_PWA_URL || `http://localhost:${process.env.PL_ADMIN_PORT || 9090}`;
+const pwaUrl = removeTrailingSlash(process.env.PL_PWA_URL || `http://localhost:${process.env.PL_ADMIN_PORT || 9090}`);
 const adminUrlPath = normalizeBasePath(process.env.PL_ADMIN_URL_PATH || "/");
 const adminUrl = removeTrailingSlash(process.env.PL_ADMIN_URL || `${pwaUrl}${adminUrlPath}`);
 
