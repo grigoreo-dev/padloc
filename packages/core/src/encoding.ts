@@ -302,13 +302,14 @@ export class Serializable {
                 continue;
             }
 
+            const self = this as Record<string, any>;
             if (opts && typeof val !== "undefined" && val !== null) {
-                this[opts.property] =
+                self[opts.property] =
                     Array.isArray(val) && opts.arrayDeserializeIndividually
                         ? val.map((v) => opts.fromRaw(v))
                         : opts.fromRaw(val);
             } else {
-                this[prop] = val;
+                self[prop] = val;
             }
         }
     }

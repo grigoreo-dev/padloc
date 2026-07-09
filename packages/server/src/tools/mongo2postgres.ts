@@ -65,7 +65,7 @@ async function main() {
         for await (const obj of entries) {
             i++;
             console.log(`copying ${collName} ${i}/${count}`);
-            delete obj._id;
+            delete (obj as { _id?: unknown })._id;
             await postgres.query(
                 `
                 INSERT INTO ${collName} (id, data) values($1, $2) ON CONFLICT (id) DO

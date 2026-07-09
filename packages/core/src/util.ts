@@ -214,9 +214,10 @@ export function capitalize(string: string) {
 }
 
 export function stripPropertiesRecursive(obj: object, properties: string[]) {
-    for (const [key, value] of Object.entries(obj)) {
+    const record = obj as Record<string, any>;
+    for (const [key, value] of Object.entries(record)) {
         if (properties.includes(key)) {
-            delete obj[key];
+            delete record[key];
             continue;
         }
         if (typeof value === "object") {
