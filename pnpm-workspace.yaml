@@ -7,3 +7,7 @@ onlyBuiltDependencies:
 
 publicHoistPattern:
     - "*sharp*"
+    # Single webpack instance across packages (avoids "compilation must be
+    # an instance of Compilation" from peer-dep-isolated webpack copies).
+    - "*webpack*"
+    - "*webpack-cli*"

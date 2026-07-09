@@ -417,8 +417,7 @@ export function guessFieldType({
     // We skip some because they can match anything, and are only really valuable when matched by name
     const fieldTypesToSkipByValue = [FieldType.Username, FieldType.Password];
 
-    const matchedTypeByValue = Object.keys(FIELD_DEFS)
-        // @ts-ignore this is a string, deal with it, TypeScript (can't `as` as well)
+    const matchedTypeByValue = (Object.keys(FIELD_DEFS) as FieldType[])
         .filter((fieldType) => !fieldTypesToSkipByValue.includes(fieldType))
         .filter((fieldType) => FIELD_DEFS[fieldType].matchPattern.test(value))[0] as FieldType;
 

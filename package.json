@@ -18,7 +18,8 @@
     "main": "main.js",
     "pnpm": {
         "overrides": {
-            "@types/node": "16.11.7",
+            "@types/node": "18.19.68",
+            "webpack": "5.108.4",
             "pg-protocol": "1.5.0",
             "@tiptap/extension-blockquote": "2.0.0-beta.29",
             "@tiptap/extension-bold": "2.0.0-beta.28",
@@ -57,7 +58,7 @@
         "maildev": "git+https://github.com/padloc/maildev.git#master",
         "prettier": "2.8.4",
         "ts-node": "10.0.0",
-        "typescript": "4.4.3",
+        "typescript": "5.8.3",
         "wait-on": "7.0.1"
     },
     "scripts": {

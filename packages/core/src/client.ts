@@ -35,7 +35,7 @@ export class Client extends API {
         super();
 
         for (const { method, output } of this.handlerDefinitions) {
-            this[method] = (input: Serializable | string | undefined) => {
+            (this as Record<string, any>)[method] = (input: Serializable | string | undefined) => {
                 const progress = new RequestProgress();
                 const promise = this.call(
                     method,
