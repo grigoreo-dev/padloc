@@ -139,7 +139,7 @@ fi
 
 export PATH="${ROOT}/node_modules/.bin:${PATH}"
 
-exec concurrently \
+concurrently \
     --prefix=name \
     --prefix-length=30 \
     --kill-others \
@@ -147,3 +147,5 @@ exec concurrently \
     -n app,playwright \
     "${APP_CMD}" \
     "${WAIT_CMD} && E2E_MAILDEV_URL=${E2E_MAILDEV_URL} ${PW_CMD}"
+status=$?
+exit "$status"
