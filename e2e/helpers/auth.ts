@@ -84,12 +84,26 @@ export async function signup(page: Page, email: string): Promise<void> {
         .poll(async () => login.evaluate((el: { _password: string }) => el._password), { timeout: 5_000 })
         .toBe(e2eEnv.password);
 
-    await login.locator("pl-drawer").nth(5).locator("pl-button").filter({ hasText: "Continue" }).click({ force: true });
-    await fillField(login.locator("pl-password-input#repeatPasswordInput"), e2eEnv.password);
-    await login.locator("pl-button#confirmPasswordButton").click({ force: true });
+    await login.evaluate((el: { _submitPassword: () => void }) => {
+        el._submitPassword();
+    });
+    await expect(page).toHaveURL(/signup\/confirm-password/, { timeout: 15_000 });
+
+    const repeat = login.locator("pl-password-input#repeatPasswordInput");
+    await expect(repeat).toBeVisible({ timeout: 10_000 });
+    await fillField(repeat, e2eEnv.password);
+    await expect
+        .poll(async () => repeat.evaluate((el: { value: string }) => el.value), { timeout: 5_000 })
+        .toBe(e2eEnv.password);
+
+    await login.evaluate(async (el: { _confirmPassword: () => Promise<void> | void }) => {
+        await el._confirmPassword();
+    });
 
     await expect(page).toHaveURL(/\/signup\/success/, { timeout: 30_000 });
-    await login.locator("pl-button").filter({ hasText: "Get Started" }).click({ force: true });
+    await login.evaluate((el: { _done: () => void }) => {
+        el._done();
+    });
     await expect(page).toHaveURL(/\/items/, { timeout: 30_000 });
 }
 

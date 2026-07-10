@@ -35,3 +35,13 @@ packages/admin/dist
 
 # SDD workflow scratch (internal, not part of project)
 .superpowers/
+
+# Playwright
+test-results/
+playwright-report/
+playwright/.cache/
+
+# Playwright
+test-results/
+playwright-report/
+playwright/.cache/
