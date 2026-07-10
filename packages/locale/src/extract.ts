@@ -1,7 +1,7 @@
 import { execSync } from "child_process";
 import { existsSync, readdirSync, readFileSync, writeFileSync } from "fs";
 import { resolve } from "path";
-import * as ts from "typescript";
+import * as ts from "@typescript/typescript6";
 import * as YAML from "yaml";
 
 function parseExpression(expr: ts.Expression): string {

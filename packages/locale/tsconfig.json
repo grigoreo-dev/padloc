@@ -4,7 +4,8 @@
         "target": "es2017",
         "lib": ["esnext"],
         "module": "commonjs",
-        "declaration": false
+        "declaration": false,
+        "rootDir": "src"
     },
     "include": ["src/*.ts"],
     "exclude": ["node_modules/**/*.ts"],
