@@ -13,6 +13,18 @@ updates:
               update-types:
                   - "minor"
                   - "patch"
+      ignore:
+          # Human-driven compiler majors (see modernization design)
+          - dependency-name: "typescript"
+            update-types: ["version-update:semver-major"]
+          # Soft-focus platforms — not CI build gates; avoid noise
+          - dependency-name: "electron"
+          - dependency-name: "electron-*"
+          - dependency-name: "@tauri-apps/*"
+          - dependency-name: "tauri"
+          - dependency-name: "cordova"
+          - dependency-name: "cordova-*"
+          - dependency-name: "@capacitor/*"
       commit-message:
           prefix: "chore"
           include: "scope"
