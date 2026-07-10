@@ -27,13 +27,18 @@ export class LevelDBStorage implements Storage {
         const res = cls instanceof Storable ? cls : new cls();
         try {
             const raw = await this._db.get(`${res.kind}_${id}`);
+            if (raw === undefined) {
+                throw new Err(ErrorCode.NOT_FOUND, `Cannot find object: ${res.kind}_${id}`);
+            }
             return res.fromJSON(raw);
         } catch (e) {
-            if ((e as { notFound?: boolean }).notFound) {
-                throw new Err(ErrorCode.NOT_FOUND, `Cannot find object: ${res.kind}_${id}`);
-            } else {
+            if (e instanceof Err) {
                 throw e;
             }
+            if ((e as { notFound?: boolean }).notFound) {
+                throw new Err(ErrorCode.NOT_FOUND, `Cannot find object: ${res.kind}_${id}`);
+            }
+            throw e;
         }
     }
 
