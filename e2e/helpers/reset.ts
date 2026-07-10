@@ -4,12 +4,7 @@ declare global {
     interface Window {
         app?: { logout: () => Promise<void>; state?: { loggedIn?: boolean } };
         router?: {
-            go: (
-                path: string,
-                params?: Record<string, string>,
-                replace?: boolean,
-                force?: boolean
-            ) => void;
+            go: (path: string, params?: Record<string, string>, replace?: boolean, force?: boolean) => void;
         };
     }
 }

@@ -8,9 +8,7 @@ export default defineConfig({
     forbidOnly: !!process.env.CI,
     // Fail the run if anything needed a retry — no silent flaky green.
     retries: process.env.CI ? 1 : 0,
-    reporter: process.env.CI
-        ? [["list"], ["html", { open: "never", outputFolder: "playwright-report" }]]
-        : "list",
+    reporter: process.env.CI ? [["list"], ["html", { open: "never", outputFolder: "playwright-report" }]] : "list",
     timeout: 180_000,
     expect: { timeout: 20_000 },
     use: {

@@ -29,9 +29,7 @@ async function fillField(host: Locator, text: string): Promise<void> {
         el.dispatchEvent(new Event("input", { bubbles: true, composed: true }));
         el.dispatchEvent(new Event("change", { bubbles: true, composed: true }));
     }, text);
-    await expect
-        .poll(async () => host.evaluate((el: { value: string }) => el.value), { timeout: 10_000 })
-        .toBe(text);
+    await expect.poll(async () => host.evaluate((el: { value: string }) => el.value), { timeout: 10_000 }).toBe(text);
 }
 
 async function setCheckbox(locator: Locator, checked = true): Promise<void> {
@@ -135,16 +133,19 @@ async function submitEmailForCode(page: Page, email: string): Promise<"login" | 
     await expect(page).toHaveURL(/authToken=/, { timeout: 30_000 });
 
     await expect
-        .poll(() => {
-            const u = page.url();
-            if (u.includes("/login")) {
-                return "login";
-            }
-            if (u.includes("signup")) {
-                return "signup";
-            }
-            return "";
-        }, { timeout: 15_000 })
+        .poll(
+            () => {
+                const u = page.url();
+                if (u.includes("/login")) {
+                    return "login";
+                }
+                if (u.includes("signup")) {
+                    return "signup";
+                }
+                return "";
+            },
+            { timeout: 15_000 }
+        )
         .not.toBe("");
 
     return page.url().includes("/login") ? "login" : "signup";
@@ -242,10 +243,9 @@ export async function lock(page: Page): Promise<void> {
         await clickButton(menuButton, { force: true });
     }
     // Menu footer Lock can sit under list header hit-testing
-    await clickButton(
-        deep(page, "pl-app", "pl-menu").locator("pl-button").filter({ hasText: "Lock" }),
-        { force: true }
-    );
+    await clickButton(deep(page, "pl-app", "pl-menu").locator("pl-button").filter({ hasText: "Lock" }), {
+        force: true,
+    });
     await expect(page).toHaveURL(/\/unlock/, { timeout: 15_000 });
 }
 

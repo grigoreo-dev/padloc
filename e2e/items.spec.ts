@@ -42,15 +42,24 @@ test.describe("items flows", () => {
         await expect(itemView.locator("pl-input#nameInput")).toBeVisible({ timeout: 15_000 });
         await typeIn(itemView.locator("pl-input#nameInput"), testItem.name);
         await typeIn(
-            itemView.locator("pl-scroller pl-list pl-field").nth(0).locator("pl-input.value-input, pl-textarea.value-input"),
+            itemView
+                .locator("pl-scroller pl-list pl-field")
+                .nth(0)
+                .locator("pl-input.value-input, pl-textarea.value-input"),
             testItem.username
         );
         await typeIn(
-            itemView.locator("pl-scroller pl-list pl-field").nth(1).locator("pl-input.value-input, pl-textarea.value-input"),
+            itemView
+                .locator("pl-scroller pl-list pl-field")
+                .nth(1)
+                .locator("pl-input.value-input, pl-textarea.value-input"),
             testItem.password
         );
         await typeIn(
-            itemView.locator("pl-scroller pl-list pl-field").nth(2).locator("pl-input.value-input, pl-textarea.value-input"),
+            itemView
+                .locator("pl-scroller pl-list pl-field")
+                .nth(2)
+                .locator("pl-input.value-input, pl-textarea.value-input"),
             testItem.url
         );
         await itemView.locator("pl-button.primary").click({ force: true });
