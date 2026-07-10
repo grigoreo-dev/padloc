@@ -108,6 +108,12 @@ function padlocCspPlugin(pwaUrl: string, serverUrl: string, disableCsp: boolean)
                 }
             }
 
+            for (const icon of ["favicon.png", "app-icon.png"]) {
+                if (!filesByRule.get("img-src")!.includes(icon)) {
+                    filesByRule.get("img-src")!.push(icon);
+                }
+            }
+
             for (const [rule, files] of filesByRule) {
                 files.sort();
                 html = html.replace(
@@ -156,7 +162,7 @@ export default defineConfig({
     build: {
         outDir,
         emptyOutDir: true,
-        sourcemap: true,
+        sourcemap: false,
     },
     server: {
         host: "0.0.0.0",
