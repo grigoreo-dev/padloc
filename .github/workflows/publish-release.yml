@@ -29,9 +29,9 @@ jobs:
         outputs:
             release_id: ${{ steps.create_release.outputs.id }}
         steps:
-            - uses: actions/checkout@v3
-            - uses: pnpm/action-setup@v4
-            - uses: actions/setup-node@v3
+            - uses: actions/checkout@v5
+            - uses: pnpm/action-setup@v5
+            - uses: actions/setup-node@v5
               with:
                   node-version-file: ".nvmrc"
                   cache: "pnpm"
@@ -62,9 +62,9 @@ jobs:
 
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v3
-            - uses: pnpm/action-setup@v4
-            - uses: actions/setup-node@v3
+            - uses: actions/checkout@v5
+            - uses: pnpm/action-setup@v5
+            - uses: actions/setup-node@v5
               with:
                   node-version-file: ".nvmrc"
                   cache: "pnpm"
@@ -155,9 +155,9 @@ jobs:
 
         runs-on: ${{ matrix.platform }}
         steps:
-            - uses: actions/checkout@v3
-            - uses: pnpm/action-setup@v4
-            - uses: actions/setup-node@v3
+            - uses: actions/checkout@v5
+            - uses: pnpm/action-setup@v5
+            - uses: actions/setup-node@v5
               with:
                   node-version-file: ".nvmrc"
                   cache: "pnpm"
@@ -264,9 +264,9 @@ jobs:
 
         runs-on: ${{ matrix.platform }}
         steps:
-            - uses: actions/checkout@v3
-            - uses: pnpm/action-setup@v4
-            - uses: actions/setup-node@v3
+            - uses: actions/checkout@v5
+            - uses: pnpm/action-setup@v5
+            - uses: actions/setup-node@v5
               with:
                   node-version-file: ".nvmrc"
                   cache: "pnpm"
@@ -404,8 +404,8 @@ jobs:
 
         runs-on: ${{ matrix.platform }}
         steps:
-            - uses: actions/checkout@v3
-            - uses: actions/setup-java@v3
+            - uses: actions/checkout@v5
+            - uses: actions/setup-java@v5
               if: matrix.platform == 'ubuntu-latest'
               with:
                   distribution: "adopt"
@@ -415,10 +415,10 @@ jobs:
               with:
                   candidate: gradle
                   version: 7.2
-            - uses: android-actions/setup-android@v2
+            - uses: android-actions/setup-android@v4
               if: matrix.platform == 'ubuntu-latest'
-            - uses: pnpm/action-setup@v4
-            - uses: actions/setup-node@v3
+            - uses: pnpm/action-setup@v5
+            - uses: actions/setup-node@v5
               with:
                   node-version-file: ".nvmrc"
                   cache: "pnpm"
@@ -561,9 +561,9 @@ jobs:
 
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v3
-            - uses: pnpm/action-setup@v4
-            - uses: actions/setup-node@v3
+            - uses: actions/checkout@v5
+            - uses: pnpm/action-setup@v5
+            - uses: actions/setup-node@v5
               with:
                   node-version-file: ".nvmrc"
                   cache: "pnpm"
@@ -614,7 +614,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Check out the repo
-              uses: actions/checkout@v3
+              uses: actions/checkout@v5
 
             - name: Log in to Docker Hub
               uses: docker/login-action@v2
