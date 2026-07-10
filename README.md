@@ -144,16 +144,19 @@ To run unit tests, use:
 npm run test
 ```
 
-Cypress end-to-end tests can be run via:
+### End-to-end tests
 
-```sh
-npm run test:e2e
+Requires Docker (used for maildev SMTP/REST). Install the browser once per machine:
+
+```bash
+pnpm exec playwright install chromium
+pnpm run test:e2e
 ```
 
-And to start cypress tests in "dev mode":
+Interactive UI mode:
 
-```ssh
-npm run test:e2e:dev
+```bash
+pnpm run test:e2e:dev
 ```
 
 ### Adding / removing dependencies

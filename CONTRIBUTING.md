@@ -12,6 +12,7 @@ documentation, commit messages, pull requests, issues, and GitHub templates.
 -   Node.js 24 (see `.nvmrc`)
 -   pnpm 10.15.0 (see `packageManager` in `package.json`)
 -   Corepack
+-   Docker (for e2e maildev)
 
 Recommended setup:
 
@@ -70,11 +71,14 @@ pnpm -r run test
 it, review `git status` and commit any translation updates. Required CI fails if
 the extract step leaves a dirty worktree.
 
-E2E tests are slower and can be run with:
+E2E tests (Playwright + Docker maildev) are slower. Install Chromium once, then:
 
 ```bash
+pnpm exec playwright install chromium
 pnpm run test:e2e
 ```
+
+Interactive UI mode: `pnpm run test:e2e:dev`.
 
 ## Pull request review
 
