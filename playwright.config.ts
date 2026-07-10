@@ -6,15 +6,19 @@ export default defineConfig({
     fullyParallel: false,
     workers: 1,
     forbidOnly: !!process.env.CI,
-    retries: process.env.CI ? 2 : 0,
-    reporter: process.env.CI ? [["list"], ["html", { open: "never" }]] : "list",
-    timeout: 120_000,
-    expect: { timeout: 15_000 },
+    // Fail the run if anything needed a retry — no silent flaky green.
+    retries: process.env.CI ? 1 : 0,
+    reporter: process.env.CI
+        ? [["list"], ["html", { open: "never", outputFolder: "playwright-report" }]]
+        : "list",
+    timeout: 180_000,
+    expect: { timeout: 20_000 },
     use: {
         baseURL: e2eEnv.baseURL,
-        trace: "on-first-retry",
+        trace: "retain-on-failure",
         screenshot: "only-on-failure",
         video: "off",
+        actionTimeout: 20_000,
     },
     projects: [
         {

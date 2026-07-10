@@ -74,6 +74,7 @@
         "test": "pnpm -r run test",
         "test:e2e": "bash scripts/e2e.sh run",
         "test:e2e:dev": "bash scripts/e2e.sh ui",
+        "test:e2e:ci": "bash scripts/e2e.sh run -- --fail-on-flaky-tests",
         "locale:extract": "pnpm --filter @padloc/locale run extract",
         "add": "echo 'Use: pnpm add <pkg> --filter @padloc/<scope>' && exit 1",
         "format": "biome format --write .",
