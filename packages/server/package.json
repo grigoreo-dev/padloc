@@ -11,14 +11,14 @@
     "author": "Martin Kleinschrodt <martin@maklesoft.com>",
     "license": "GPLv3",
     "devDependencies": {
-        "@types/chai": "4.2.18",
+        "@types/chai": "5.2.3",
         "@types/dompurify": "2.3.3",
         "@types/jsdom": "16.2.14",
-        "@types/mocha": "8.2.2",
+        "@types/mocha": "10.0.10",
         "@types/parse5": "6.0.3",
         "@typescript/typescript6": "6.0.2",
-        "chai": "4.3.4",
-        "mocha": "9.2.2",
+        "chai": "6.2.2",
+        "mocha": "11.7.6",
         "ts-node": "10.9.2",
         "ts-node-dev": "1.1.8"
     },
