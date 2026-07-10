@@ -1,13 +1,13 @@
 import { type AuthClient, AuthType } from "@padloc/core/src/auth";
+import type {
+    PublicKeyCredentialCreationOptionsJSON,
+    PublicKeyCredentialRequestOptionsJSON,
+} from "@simplewebauthn/browser";
 import {
     browserSupportsWebAuthn,
     platformAuthenticatorIsAvailable,
     startAuthentication,
     startRegistration,
-} from "@simplewebauthn/browser";
-import type {
-    PublicKeyCredentialCreationOptionsJSON,
-    PublicKeyCredentialRequestOptionsJSON,
 } from "@simplewebauthn/browser";
 
 export class WebAuthnClient implements AuthClient {

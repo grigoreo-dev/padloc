@@ -3,6 +3,12 @@ import { type Authenticator, type AuthRequest, type AuthServer, AuthType } from 
 import { Config, ConfigParam } from "@padloc/core/src/config";
 import { base64ToBytes, bytesToBase64 } from "@padloc/core/src/encoding";
 import { Err, ErrorCode } from "@padloc/core/src/error";
+import type {
+    AuthenticationResponseJSON,
+    PublicKeyCredentialCreationOptionsJSON,
+    PublicKeyCredentialRequestOptionsJSON,
+    RegistrationResponseJSON,
+} from "@simplewebauthn/server";
 import {
     generateAuthenticationOptions,
     generateRegistrationOptions,
@@ -11,12 +17,6 @@ import {
     verifyRegistrationResponse,
 } from "@simplewebauthn/server";
 import { isoUint8Array } from "@simplewebauthn/server/helpers";
-import type {
-    AuthenticationResponseJSON,
-    PublicKeyCredentialCreationOptionsJSON,
-    PublicKeyCredentialRequestOptionsJSON,
-    RegistrationResponseJSON,
-} from "@simplewebauthn/server";
 
 export class WebAuthnConfig extends Config {
     constructor(init: Partial<WebAuthnConfig> = {}) {
