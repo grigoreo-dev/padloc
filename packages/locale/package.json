@@ -15,7 +15,7 @@
     "devDependencies": {
         "@types/node": "18.19.68",
         "ts-node": "10.9.2",
-        "typescript": "5.8.3",
+        "typescript": "7.0.2",
         "yaml": "1.10.2"
     },
     "repository": {

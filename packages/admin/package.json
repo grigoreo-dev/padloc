@@ -28,7 +28,7 @@
         "http-server": "14.1.1",
         "sharp": "0.29.3",
         "ts-node": "10.9.2",
-        "typescript": "5.8.3",
+        "typescript": "7.0.2",
         "vite": "5.4.19",
         "vite-plugin-pwa": "0.21.2",
         "workbox-build": "7.3.0",

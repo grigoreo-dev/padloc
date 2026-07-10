@@ -53,7 +53,7 @@
         "qrcode": "1.5.4",
         "reflect-metadata": "0.1.13",
         "turndown": "7.2.4",
-        "typescript": "5.8.3",
+        "typescript": "7.0.2",
         "ua-parser-js": "0.7.28",
         "workbox-precaching": "6.2.0",
         "workbox-routing": "6.6.0",
