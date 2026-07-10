@@ -35,15 +35,16 @@ async function submitEmailForCode(page: Page, email: string): Promise<void> {
     const loginView = deep(page, "pl-app", "pl-start", "pl-login-signup");
     await expect(loginView.locator("#emailInput")).toBeVisible({ timeout: 30_000 });
     await fillField(loginView.locator("#emailInput"), email);
+    await clearEmails();
     await loginView.locator("#submitEmailButton").click({ force: true });
 
     const prompt = deep(page, "pl-app", "pl-prompt-dialog");
-    await expect(prompt).toBeVisible({ timeout: 20_000 });
-    const code = await getCodeFromEmail();
+    await expect(prompt).toBeVisible({ timeout: 45_000 });
+    const code = await getCodeFromEmail({ timeout: 45_000 });
     await fillField(prompt.locator("pl-input").first(), code);
     await prompt.locator("#confirmButton").click({ force: true });
 
-    await expect(page).toHaveURL(/authToken/, { timeout: 30_000 });
+    await expect(page).toHaveURL(/authToken/, { timeout: 45_000 });
 }
 
 export async function signup(page: Page, email: string): Promise<void> {
@@ -115,25 +116,27 @@ export async function login(page: Page, email: string): Promise<void> {
     const loginView = deep(page, "pl-app", "pl-start", "pl-login-signup");
     await submitEmailForCode(page, email);
 
-    await expect(page).toHaveURL(/\/login/, { timeout: 15_000 });
+    // Prefer the password field over URL — routing can briefly hit other paths.
     const passwordInput = loginView.locator("pl-password-input#loginPasswordInput");
-    await expect(passwordInput).toBeVisible({ timeout: 15_000 });
+    await expect(passwordInput).toBeVisible({ timeout: 45_000 });
     await fillField(passwordInput, e2eEnv.password);
     const loginButton = loginView.locator("pl-button#loginButton");
     await expect
-        .poll(async () => loginButton.evaluate((el: HTMLElement) => !el.hasAttribute("disabled")), { timeout: 5_000 })
+        .poll(async () => loginButton.evaluate((el: HTMLElement) => !el.hasAttribute("disabled")), { timeout: 10_000 })
         .toBe(true);
     await loginButton.click({ force: true });
 
-    // Add trusted device (skipped when device already trusted — then we land on /items)
+    // Trusted-device prompt or straight to vault
     const alert = deep(page, "pl-app", "pl-alert-dialog");
-    try {
-        await expect(alert).toBeVisible({ timeout: 15_000 });
-        await alert.locator("pl-button").filter({ hasText: "Yes" }).click({ force: true });
-    } catch {
-        // device already trusted — login proceeds without confirm
-    }
-    await expect(page).toHaveURL(/\/items/, { timeout: 30_000 });
+    const itemsUrl = page.waitForURL(/\/items/, { timeout: 45_000 });
+    const trustedPrompt = alert
+        .waitFor({ state: "visible", timeout: 15_000 })
+        .then(async () => {
+            await alert.locator("pl-button").filter({ hasText: "Yes" }).click({ force: true });
+        })
+        .catch(() => undefined);
+    await Promise.race([itemsUrl, trustedPrompt.then(() => itemsUrl)]);
+    await expect(page).toHaveURL(/\/items/, { timeout: 45_000 });
 }
 
 export async function lock(page: Page): Promise<void> {

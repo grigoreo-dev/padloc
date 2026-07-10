@@ -2,6 +2,7 @@ import { test } from "@playwright/test";
 import { lock, login, signup, unlock } from "./helpers/auth";
 
 test.describe("Signup/Login", () => {
+    test.describe.configure({ mode: "serial" });
     const email = `${Math.floor(Math.random() * 1e8)}@example.com`;
 
     test("can signup without errors", async ({ page }) => {
