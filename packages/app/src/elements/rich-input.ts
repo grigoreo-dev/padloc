@@ -1,6 +1,7 @@
 import { Editor } from "@tiptap/core";
 import StarterKit from "@tiptap/starter-kit";
-import { css, customElement, html, LitElement, property, query } from "lit-element";
+import { css, html, LitElement } from "lit";
+import { customElement, property, query } from "lit/decorators.js";
 import { content, shared } from "../styles";
 import "./button";
 import "./icon";
