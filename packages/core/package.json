@@ -12,7 +12,7 @@
     ],
     "dependencies": {
         "@padloc/locale": "workspace:*",
-        "date-fns": "2.22.1",
+        "date-fns": "4.4.0",
         "typescript": "7.0.2"
     },
     "devDependencies": {
