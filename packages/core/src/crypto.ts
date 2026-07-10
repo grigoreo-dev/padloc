@@ -20,7 +20,7 @@ export class AESEncryptionParams extends Serializable {
     iv: Uint8Array = new Uint8Array();
 
     @AsBytes()
-    additionalData = new Uint8Array();
+    additionalData: Uint8Array = new Uint8Array();
 
     validate() {
         return (

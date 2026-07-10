@@ -39,6 +39,10 @@ module.exports = {
             {
                 test: /\.ts$/,
                 loader: "ts-loader",
+                options: {
+                    compiler: "@typescript/typescript6",
+                    transpileOnly: true,
+                },
             },
             {
                 test: /\.css$/,

@@ -47,6 +47,9 @@ importers:
       '@playwright/test':
         specifier: 1.61.1
         version: 1.61.1
+      '@typescript/typescript6':
+        specifier: 6.0.2
+        version: 6.0.2
       concurrently:
         specifier: 7.6.0
         version: 7.6.0
@@ -54,8 +57,8 @@ importers:
         specifier: 14.1.0
         version: 14.1.0
       ts-node:
-        specifier: 10.0.0
-        version: 10.0.0(@types/node@24.13.3)(typescript@7.0.2)
+        specifier: 10.9.2
+        version: 10.9.2(@types/node@24.13.3)(typescript@7.0.2)
       typescript:
         specifier: 7.0.2
         version: 7.0.2
@@ -84,6 +87,9 @@ importers:
         specifier: 2.3.1
         version: 2.3.1
     devDependencies:
+      '@typescript/typescript6':
+        specifier: 6.0.2
+        version: 6.0.2
       http-server:
         specifier: 14.1.1
         version: 14.1.1
@@ -384,6 +390,9 @@ importers:
       '@types/node':
         specifier: 24.13.3
         version: 24.13.3
+      '@typescript/typescript6':
+        specifier: 6.0.2
+        version: 6.0.2
       chai:
         specifier: 4.3.4
         version: 4.3.4
@@ -476,6 +485,9 @@ importers:
       '@types/webextension-polyfill':
         specifier: 0.12.5
         version: 0.12.5
+      '@typescript/typescript6':
+        specifier: 6.0.2
+        version: 6.0.2
       clean-webpack-plugin:
         specifier: 3.0.0
         version: 3.0.0(webpack@5.108.4)
@@ -504,8 +516,8 @@ importers:
         specifier: 9.6.2
         version: 9.6.2(loader-utils@2.0.4)(typescript@7.0.2)(webpack@5.108.4)
       ts-node:
-        specifier: 10.0.0
-        version: 10.0.0(@types/node@24.13.3)(typescript@7.0.2)
+        specifier: 10.9.2
+        version: 10.9.2(@types/node@24.13.3)(typescript@7.0.2)
       typescript:
         specifier: 7.0.2
         version: 7.0.2
@@ -521,6 +533,9 @@ importers:
       '@types/node':
         specifier: 24.13.3
         version: 24.13.3
+      '@typescript/typescript6':
+        specifier: 6.0.2
+        version: 6.0.2
       ts-node:
         specifier: 10.9.2
         version: 10.9.2(@types/node@24.13.3)(typescript@7.0.2)
@@ -540,6 +555,9 @@ importers:
         specifier: workspace:*
         version: link:../core
     devDependencies:
+      '@typescript/typescript6':
+        specifier: 6.0.2
+        version: 6.0.2
       http-server:
         specifier: 14.1.1
         version: 14.1.1
@@ -648,9 +666,6 @@ importers:
       stripe:
         specifier: 8.212.0
         version: 8.212.0
-      ts-node:
-        specifier: 10.9.2
-        version: 10.9.2(@types/node@24.13.3)(typescript@7.0.2)
       typescript:
         specifier: 7.0.2
         version: 7.0.2
@@ -670,12 +685,18 @@ importers:
       '@types/parse5':
         specifier: 6.0.3
         version: 6.0.3
+      '@typescript/typescript6':
+        specifier: 6.0.2
+        version: 6.0.2
       chai:
         specifier: 4.3.4
         version: 4.3.4
       mocha:
         specifier: 9.2.2
         version: 9.2.2
+      ts-node:
+        specifier: 10.9.2
+        version: 10.9.2(@types/node@24.13.3)(typescript@7.0.2)
       ts-node-dev:
         specifier: 1.1.8
         version: 1.1.8(typescript@7.0.2)
@@ -2457,6 +2478,10 @@ packages:
     engines: {node: '>=16.20.0'}
     cpu: [x64]
     os: [win32]
+
+  '@typescript/typescript6@6.0.2':
+    resolution: {integrity: sha512-mbCddXd+jm7hfx7w2YU64/Av4/NqqeG3GoRZgxPcgoTxYjhrcfJRw9ULch71SS4G+Q3bOXFhRvPqjguN0Hyp5w==}
+    hasBin: true
 
   '@ungap/promise-all-settled@1.1.2':
     resolution: {integrity: sha512-sL/cEvJWAnClXw0wHk85/2L0G6Sj8UB0Ctc1TEMbKSsmpRosqhwj9gWgFRZSrBr2f9tiXISwNhCPmlfqUqyb9Q==}
@@ -6798,6 +6823,11 @@ packages:
     peerDependencies:
       typescript: 4.0.x || 4.1.x || 4.2.x || 4.3.x || 4.4.x || 4.5.x || 4.6.x
 
+  typescript@6.0.3:
+    resolution: {integrity: sha512-y2TvuxSZPDyQakkFRPZHKFm+KKVqIisdg9/CZwm9ftvKXLP8NRWj38/ODjNbr43SsoXqNuAisEf1GdCxqWcdBw==}
+    engines: {node: '>=14.17'}
+    hasBin: true
+
   typescript@7.0.2:
     resolution: {integrity: sha512-8FYau96o3NKOhbjKi/qNvG/W5jhzxkbdm5sj9AbZ/5T5sWqn3hJgLfGx27sRKZWTvyzCP8dLRBTf5tBTSRVUNA==}
     engines: {node: '>=16.20.0'}
@@ -9370,6 +9400,10 @@ snapshots:
 
   '@typescript/typescript-win32-x64@7.0.2':
     optional: true
+
+  '@typescript/typescript6@6.0.2':
+    dependencies:
+      '@typescript/old': typescript@6.0.3
 
   '@ungap/promise-all-settled@1.1.2': {}
 
@@ -14400,6 +14434,8 @@ snapshots:
       minimatch: 5.1.9
       shiki: 0.10.1
       typescript: 7.0.2
+
+  typescript@6.0.3: {}
 
   typescript@7.0.2:
     optionalDependencies:

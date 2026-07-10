@@ -143,7 +143,7 @@ export class Attachment extends SimpleContainer {
 
     async toFile(): Promise<File> {
         const data = await this.getData();
-        return new File([data], this.name, { type: this.type });
+        return new File([new Uint8Array(data)], this.name, { type: this.type });
     }
 
     async toDataURL(): Promise<string> {

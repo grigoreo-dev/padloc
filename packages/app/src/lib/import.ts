@@ -613,7 +613,7 @@ export async function isBitwarden(file: File): Promise<boolean> {
     try {
         const content = await readFileAsText(file);
         const data = JSON.parse(content);
-        return Object.prototype.hasOwnProperty.call(data, "items");
+        return Object.hasOwn(data, "items");
     } catch (error) {
         return false;
     }

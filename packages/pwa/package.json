@@ -22,6 +22,7 @@
         "@padloc/core": "workspace:*"
     },
     "devDependencies": {
+        "@typescript/typescript6": "6.0.2",
         "http-server": "14.1.1",
         "postcss": "8.5.16",
         "sharp": "0.29.3",

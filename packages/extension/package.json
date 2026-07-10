@@ -27,6 +27,7 @@
     },
     "devDependencies": {
         "@types/webextension-polyfill": "0.12.5",
+        "@typescript/typescript6": "6.0.2",
         "clean-webpack-plugin": "3.0.0",
         "css-loader": "5.2.6",
         "file-loader": "6.2.0",
@@ -36,7 +37,7 @@
         "sharp": "0.30.6",
         "style-loader": "2.0.0",
         "ts-loader": "9.6.2",
-        "ts-node": "10.0.0",
+        "ts-node": "10.9.2",
         "typescript": "7.0.2",
         "webpack": "5.108.4",
         "webpack-cli": "4.8.0"

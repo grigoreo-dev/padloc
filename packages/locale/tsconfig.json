@@ -4,9 +4,12 @@
         "target": "es2017",
         "lib": ["esnext"],
         "module": "commonjs",
-        "declaration": false,
-        "baseUrl": "."
+        "declaration": false
     },
     "include": ["src/*.ts"],
-    "exclude": ["node_modules/**/*.ts"]
+    "exclude": ["node_modules/**/*.ts"],
+    "ts-node": {
+        "transpileOnly": true,
+        "compiler": "@typescript/typescript6"
+    }
 }
