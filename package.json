@@ -53,10 +53,11 @@
     "devDependencies": {
         "@biomejs/biome": "2.5.3",
         "@playwright/test": "1.61.1",
+        "@typescript/typescript6": "6.0.2",
         "concurrently": "7.6.0",
         "http-server": "14.1.0",
-        "ts-node": "10.0.0",
-        "typescript": "5.8.3",
+        "ts-node": "10.9.2",
+        "typescript": "7.0.2",
         "wait-on": "7.0.1"
     },
     "scripts": {

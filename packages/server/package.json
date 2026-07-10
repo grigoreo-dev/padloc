@@ -16,8 +16,10 @@
         "@types/jsdom": "16.2.14",
         "@types/mocha": "8.2.2",
         "@types/parse5": "6.0.3",
+        "@typescript/typescript6": "6.0.2",
         "chai": "4.3.4",
         "mocha": "9.2.2",
+        "ts-node": "10.9.2",
         "ts-node-dev": "1.1.8"
     },
     "dependencies": {
@@ -47,16 +49,15 @@
         "nodemailer": "6.6.1",
         "pg": "8.22.0",
         "stripe": "8.212.0",
-        "ts-node": "10.9.2",
-        "typescript": "5.8.3"
+        "typescript": "7.0.2"
     },
     "scripts": {
-        "start": "ts-node src/init.ts",
-        "start-dry": "ts-node src/init.ts --dryrun",
-        "repl": "ts-node src/init-repl-client.ts",
-        "dev": "ts-node-dev src/init.ts",
-        "dev-inspect": "node -r ts-node/register --inspect-brk --stack-trace-limit=1000 src/init.ts",
-        "test": "tsc --noEmit && cd test && TS_NODE_TRANSPILE_ONLY=true mocha -r ts-node/register *.ts --timeout 5000"
+        "start": "TS_NODE_COMPILER=@typescript/typescript6 ts-node src/init.ts",
+        "start-dry": "TS_NODE_COMPILER=@typescript/typescript6 ts-node src/init.ts --dryrun",
+        "repl": "TS_NODE_COMPILER=@typescript/typescript6 ts-node src/init-repl-client.ts",
+        "dev": "TS_NODE_COMPILER=@typescript/typescript6 ts-node-dev src/init.ts",
+        "dev-inspect": "TS_NODE_COMPILER=@typescript/typescript6 node -r ts-node/register --inspect-brk --stack-trace-limit=1000 src/init.ts",
+        "test": "tsc --noEmit && cd test && TS_NODE_COMPILER=@typescript/typescript6 TS_NODE_TRANSPILE_ONLY=true mocha -r ts-node/register *.ts --timeout 5000"
     },
     "repository": {
         "type": "git",
