@@ -154,7 +154,7 @@ export default defineConfig({
             PL_SUPPORT_EMAIL: "support@padloc.app",
             PL_VERSION: version,
             PL_VENDOR_VERSION: version,
-            PL_DISABLE_SW: false,
+            PL_DISABLE_SW: process.env.PL_DISABLE_SW === "true",
             PL_CLIENT_SUPPORTED_AUTH_TYPES: "email",
             PL_TERMS_OF_SERVICE: manifest.terms_of_service,
         }),
