@@ -232,7 +232,7 @@ export class SettingsSecurity extends StateMixin(Routing(LitElement)) {
             $l("What kind of multi-factor authenticator would you like to add?"),
             choices.map((c) => c.label),
             {
-                title: "New MFA-Method",
+                title: $l("Add MFA Method"),
                 icon: "key",
             }
         );

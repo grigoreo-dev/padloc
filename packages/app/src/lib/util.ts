@@ -1,4 +1,4 @@
-import { getDefaultLanguage } from "@padloc/locale/src/translate";
+import { translate as $l, getDefaultLanguage } from "@padloc/locale/src/translate";
 import type { Locale } from "date-fns";
 import DOMPurify from "dompurify";
 import { html } from "lit";
@@ -27,6 +27,18 @@ export function loadScript(src: string, global?: string): Promise<any> {
 
 const dateLocalePromises = new Map<string, Promise<Locale | undefined>>();
 
+function activeLanguage() {
+    const loaded = getDefaultLanguage();
+    if (loaded && loaded !== "en") {
+        return loaded;
+    }
+    return (typeof navigator !== "undefined" && navigator.language) || loaded || "en";
+}
+
+function localeFrom(mod: { default?: Locale } & Record<string, Locale | undefined>, name: string) {
+    return mod[name] || mod.default;
+}
+
 function loadDateFnsLocale(lang: string): Promise<Locale | undefined> {
     const code = lang.toLowerCase().split("-")[0];
     const cached = dateLocalePromises.get(code);
@@ -37,23 +49,23 @@ function loadDateFnsLocale(lang: string): Promise<Locale | undefined> {
     const promise = (async () => {
         switch (code) {
             case "ru":
-                return (await import("date-fns/locale/ru")).ru;
+                return localeFrom(await import("date-fns/locale/ru"), "ru");
             case "de":
-                return (await import("date-fns/locale/de")).de;
+                return localeFrom(await import("date-fns/locale/de"), "de");
             case "es":
-                return (await import("date-fns/locale/es")).es;
+                return localeFrom(await import("date-fns/locale/es"), "es");
             case "fr":
-                return (await import("date-fns/locale/fr")).fr;
+                return localeFrom(await import("date-fns/locale/fr"), "fr");
             case "it":
-                return (await import("date-fns/locale/it")).it;
+                return localeFrom(await import("date-fns/locale/it"), "it");
             case "mk":
-                return (await import("date-fns/locale/mk")).mk;
+                return localeFrom(await import("date-fns/locale/mk"), "mk");
             case "pl":
-                return (await import("date-fns/locale/pl")).pl;
+                return localeFrom(await import("date-fns/locale/pl"), "pl");
             case "tr":
-                return (await import("date-fns/locale/tr")).tr;
+                return localeFrom(await import("date-fns/locale/tr"), "tr");
             case "tw":
-                return (await import("date-fns/locale/zh-TW")).zhTW;
+                return localeFrom(await import("date-fns/locale/zh-TW"), "zhTW");
             default:
                 return undefined;
         }
@@ -66,9 +78,20 @@ function loadDateFnsLocale(lang: string): Promise<Locale | undefined> {
 export async function formatDateFromNow(date: Date | string | number, addSuffix = true) {
     const [{ formatDistanceToNow }, locale] = await Promise.all([
         import(/* webpackChunkName: "date-fns" */ "date-fns"),
-        loadDateFnsLocale(getDefaultLanguage()),
+        loadDateFnsLocale(activeLanguage()),
     ]);
     return formatDistanceToNow(new Date(date), { addSuffix, locale });
+}
+
+export function formatTheme(theme: string) {
+    switch (theme) {
+        case "light":
+            return $l("Light");
+        case "dark":
+            return $l("Dark");
+        default:
+            return $l("Auto");
+    }
 }
 
 export function formatDate(date: Date | string | number) {

@@ -260,6 +260,10 @@
     ""
   ],
   [
+    "Need to download attachment first!",
+    ""
+  ],
+  [
     "Do you want to save this file to your disk? WARNING: Doing this will leave the file exposed and unprotected on your harddrive!",
     ""
   ],
@@ -456,11 +460,19 @@
     ""
   ],
   [
+    "Enter Password",
+    ""
+  ],
+  [
     "Please choose a password!",
     ""
   ],
   [
     "Please repeat the password!",
+    ""
+  ],
+  [
+    "Repeat Password",
     ""
   ],
   [
@@ -497,10 +509,6 @@
   ],
   [
     "Scan QR Code",
-    ""
-  ],
-  [
-    "Enter Password",
     ""
   ],
   [
@@ -820,11 +828,31 @@
     ""
   ],
   [
+    "Member Added",
+    ""
+  ],
+  [
     "No invite selected.",
     ""
   ],
   [
+    "A membership confirmation request was sent to:",
+    ""
+  ],
+  [
+    "An invite was sent to:",
+    ""
+  ],
+  [
     "They will also need the following confirmation code, which you should communicate to them separately:",
+    ""
+  ],
+  [
+    "Confirm",
+    ""
+  ],
+  [
+    "Add Member",
     ""
   ],
   [
@@ -941,6 +969,10 @@
   ],
   [
     "File uploaded successfully!",
+    ""
+  ],
+  [
+    "Upload Complete",
     ""
   ],
   [
@@ -1120,6 +1152,10 @@
     ""
   ],
   [
+    "Incorrect Master Password",
+    ""
+  ],
+  [
     "Server error.",
     ""
   ],
@@ -1149,6 +1185,10 @@
   ],
   [
     "You don't have a Padloc 4 account yet but we've found an account from an older version. Would you like to migrate your account to Padloc 4 now?",
+    ""
+  ],
+  [
+    "Account Migration",
     ""
   ],
   [
@@ -1408,7 +1448,15 @@
     ""
   ],
   [
+    "Update Required",
+    ""
+  ],
+  [
     "This vault could not be synchronized because you no longer have access to it.",
+    ""
+  ],
+  [
+    "Sync Failed",
     ""
   ],
   [
@@ -1568,10 +1616,6 @@
     ""
   ],
   [
-    "Confirm",
-    ""
-  ],
-  [
     "The organization's cryptographic keys have been rotated successfully and membership confirmation requests for all members have been sent out.",
     ""
   ],
@@ -1681,6 +1725,26 @@
   ],
   [
     "Account Recovery",
+    ""
+  ],
+  [
+    "Padloc Error Report",
+    ""
+  ],
+  [
+    "----- enter your comment above -----",
+    ""
+  ],
+  [
+    "IMPORTANT: Please verify that the message below does not contain any sensitive data before sending this email!",
+    ""
+  ],
+  [
+    "The following errors occurred:",
+    ""
+  ],
+  [
+    "Device Info:",
     ""
   ],
   [
@@ -1796,6 +1860,18 @@
     ""
   ],
   [
+    "Auto",
+    ""
+  ],
+  [
+    "Light",
+    ""
+  ],
+  [
+    "Dark",
+    ""
+  ],
+  [
     "Favicons",
     ""
   ],
@@ -1904,6 +1980,10 @@
     ""
   ],
   [
+    "Add MFA Method",
+    ""
+  ],
+  [
     "Failed to add authenticator",
     ""
   ],
@@ -1985,10 +2065,6 @@
   ],
   [
     "Test",
-    ""
-  ],
-  [
-    "Add MFA Method",
     ""
   ],
   [
@@ -2577,10 +2653,6 @@
   ],
   [
     "Some data associated with your account was saved with a newer version of this app and cannot be decoded. Please install the latest version!",
-    ""
-  ],
-  [
-    "Update Required",
     ""
   ],
   [

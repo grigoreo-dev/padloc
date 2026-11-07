@@ -562,7 +562,7 @@ export class LoginOrSignup extends StartForm {
         if (this._password !== this._repeatPasswordInput.value) {
             await alert($l("You didn't repeat your master password correctly. Try again!"), {
                 type: "warning",
-                title: "Incorrect Master Password",
+                title: $l("Incorrect Master Password"),
             });
             return;
         }
@@ -647,7 +647,7 @@ export class LoginOrSignup extends StartForm {
                     "Would you like to migrate your account to Padloc 4 now?"
             ),
             {
-                title: "Account Migration",
+                title: $l("Account Migration"),
                 icon: "user",
                 options: [$l("Migrate"), $l("Learn More"), $l("Cancel")],
             }

@@ -202,7 +202,7 @@ export class AttachmentDialog extends Dialog<{ info?: AttachmentInfo; file?: Fil
 
     private async _saveToDisk() {
         if (!this._attachment || !this.info) {
-            throw "Need to download attachment first!";
+            throw $l("Need to download attachment first!");
         }
 
         this.open = false;

@@ -260,6 +260,10 @@
     "下載失敗！"
   ],
   [
+    "Need to download attachment first!",
+    ""
+  ],
+  [
     "Do you want to save this file to your disk? WARNING: Doing this will leave the file exposed and unprotected on your harddrive!",
     "您要將此檔案保存到儲存空間嗎？ 警告：此行為會讓您的檔案失去保護並處風險當中！"
   ],
@@ -456,12 +460,20 @@
     "選擇密碼"
   ],
   [
+    "Enter Password",
+    "輸入密碼"
+  ],
+  [
     "Please choose a password!",
     "請選擇一個密碼！"
   ],
   [
     "Please repeat the password!",
     "請重複一次密碼！"
+  ],
+  [
+    "Repeat Password",
+    ""
   ],
   [
     "Password not repeated correctly!",
@@ -498,10 +510,6 @@
   [
     "Scan QR Code",
     "掃描QR碼"
-  ],
-  [
-    "Enter Password",
-    "輸入密碼"
   ],
   [
     "Enter Value Here",
@@ -820,12 +828,32 @@
     "{0} 已成功加入到您的組織！"
   ],
   [
+    "Member Added",
+    ""
+  ],
+  [
     "No invite selected.",
     "沒有已選擇的邀請。"
   ],
   [
+    "A membership confirmation request was sent to:",
+    ""
+  ],
+  [
+    "An invite was sent to:",
+    ""
+  ],
+  [
     "They will also need the following confirmation code, which you should communicate to them separately:",
     "他們會需要以下的確認碼，因此您應該分開發送給他們："
+  ],
+  [
+    "Confirm",
+    "確認"
+  ],
+  [
+    "Add Member",
+    ""
   ],
   [
     "Resend",
@@ -942,6 +970,10 @@
   [
     "File uploaded successfully!",
     "檔案上傳成功"
+  ],
+  [
+    "Upload Complete",
+    ""
   ],
   [
     "Invalid Code! Please try again!",
@@ -1120,6 +1152,10 @@
     "您沒有正確的重複主密碼。請重試！"
   ],
   [
+    "Incorrect Master Password",
+    ""
+  ],
+  [
     "Server error.",
     "伺服器錯誤。"
   ],
@@ -1150,6 +1186,10 @@
   [
     "You don't have a Padloc 4 account yet but we've found an account from an older version. Would you like to migrate your account to Padloc 4 now?",
     "您沒有 Padloc 4 的帳戶，但在我們在舊版本找到您的帳戶。您是否要將帳號轉移至 Padloc 4 ？"
+  ],
+  [
+    "Account Migration",
+    ""
   ],
   [
     "Migrate",
@@ -1408,8 +1448,16 @@
     "必須要使用新版本的 {0} 才能同步此密碼庫。請立即更新至最新版本！"
   ],
   [
+    "Update Required",
+    "需要更新"
+  ],
+  [
     "This vault could not be synchronized because you no longer have access to it.",
     "因您不再有存取權限，此密碼庫無法同步"
+  ],
+  [
+    "Sync Failed",
+    ""
   ],
   [
     "This vault could not be synchronized because you currently don't have access to it's data.",
@@ -1568,10 +1616,6 @@
     "您確定要倒換此組織的密鑰？所有組織成員會需要重新確認，但不會對資料產生任何影響。"
   ],
   [
-    "Confirm",
-    "確認"
-  ],
-  [
     "The organization's cryptographic keys have been rotated successfully and membership confirmation requests for all members have been sent out.",
     "組織的密鑰已倒換成功，且所有成員的確認請求也已經送出。"
   ],
@@ -1682,6 +1726,26 @@
   [
     "Account Recovery",
     "復原帳戶"
+  ],
+  [
+    "Padloc Error Report",
+    ""
+  ],
+  [
+    "----- enter your comment above -----",
+    ""
+  ],
+  [
+    "IMPORTANT: Please verify that the message below does not contain any sensitive data before sending this email!",
+    ""
+  ],
+  [
+    "The following errors occurred:",
+    ""
+  ],
+  [
+    "Device Info:",
+    ""
   ],
   [
     "Report Errors",
@@ -1796,6 +1860,18 @@
     "顯示"
   ],
   [
+    "Auto",
+    ""
+  ],
+  [
+    "Light",
+    ""
+  ],
+  [
+    "Dark",
+    ""
+  ],
+  [
     "Favicons",
     "網頁圖示"
   ],
@@ -1904,6 +1980,10 @@
     "您要新增什麼類型的多重要素驗證？"
   ],
   [
+    "Add MFA Method",
+    "新增多重要素驗證方式"
+  ],
+  [
     "Failed to add authenticator",
     "驗證新增失敗"
   ],
@@ -1986,10 +2066,6 @@
   [
     "Test",
     "測試"
-  ],
-  [
-    "Add MFA Method",
-    "新增多重要素驗證方式"
   ],
   [
     "Active Sessions",
@@ -2578,10 +2654,6 @@
   [
     "Some data associated with your account was saved with a newer version of this app and cannot be decoded. Please install the latest version!",
     ""
-  ],
-  [
-    "Update Required",
-    "需要更新"
   ],
   [
     "Are you sure you want to leave this page? Any changes will be lost.",

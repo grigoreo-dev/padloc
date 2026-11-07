@@ -16,7 +16,7 @@ import { ProvisioningStatus } from "@padloc/core/src/provisioning";
 import { css, html, LitElement } from "lit";
 import { customElement, property, state } from "lit/decorators.js";
 import { until } from "lit/directives/until.js";
-import { formatDateFromNow } from "../lib/util";
+import { formatDateFromNow, formatTheme } from "../lib/util";
 import "./icon";
 
 const orgPages = [
@@ -107,7 +107,7 @@ export class Menu extends Routing(StateMixin(LitElement)) {
                             process.env.PL_APP_NAME!
                         ),
                     {
-                        title: "Update Required",
+                        title: $l("Update Required"),
                         type: "warning",
                     }
                 );
@@ -117,7 +117,7 @@ export class Menu extends Routing(StateMixin(LitElement)) {
                     error.message ||
                         $l("This vault could not be synchronized because you no longer have access to it."),
                     {
-                        title: "Sync Failed",
+                        title: $l("Sync Failed"),
                         type: "warning",
                     }
                 );
@@ -130,7 +130,7 @@ export class Menu extends Routing(StateMixin(LitElement)) {
                             "This vault could not be synchronized because you currently don't have access to it's data."
                         ),
                     {
-                        title: "Sync Failed",
+                        title: $l("Sync Failed"),
                         type: "warning",
                     }
                 );
@@ -142,7 +142,7 @@ export class Menu extends Routing(StateMixin(LitElement)) {
                             "An unknown error occured while synchronizing this vault. If this problem persists please contact customer support."
                         ),
                     {
-                        title: "Sync Failed",
+                        title: $l("Sync Failed"),
                         type: "warning",
                     }
                 );
@@ -632,7 +632,11 @@ export class Menu extends Routing(StateMixin(LitElement)) {
                         <div class="menu-footer-button-label">${$l("Lock")}</div>
                     </div>
                 </pl-button>
-                <pl-button class="menu-footer-button" @click=${this._nextTheme} title="${$l("Theme:")} ${app.settings.theme}">
+                <pl-button
+                    class="menu-footer-button"
+                    @click=${this._nextTheme}
+                    title="${$l("Theme:")} ${formatTheme(app.settings.theme)}"
+                >
                     <div class="vertical centering layout">
                         <pl-icon icon="theme-${app.settings.theme}" class="menu-footer-button-icon"></pl-icon>
                         <div class="menu-footer-button-label">${$l("Theme")}</div>
@@ -643,7 +647,7 @@ export class Menu extends Routing(StateMixin(LitElement)) {
                     trigger="hover"
                     .preferAlignment=${["top", "top-left", "top-right"]}
                 >
-                    <strong>${$l("Theme:")}</strong> ${app.settings.theme}
+                    <strong>${$l("Theme:")}</strong> ${formatTheme(app.settings.theme)}
                 </pl-popover>
                 <pl-button
                     class="menu-footer-button"

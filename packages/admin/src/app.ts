@@ -1,4 +1,5 @@
 import { css, customElement, html, LitElement, property, query, state } from "@padloc/app/src/elements/lit";
+import { formatTheme } from "@padloc/app/src/lib/util";
 import { Routing } from "@padloc/app/src/mixins/routing";
 import { ServiceWorker } from "@padloc/app/src/mixins/service-worker";
 import { StateMixin } from "@padloc/app/src/mixins/state";
@@ -270,7 +271,7 @@ export class App extends ServiceWorker(StateMixin(Routing(LitElement))) {
                             <pl-button
                                 class="slim transparent"
                                 @click=${this._nextTheme}
-                                title="Theme: ${this.app.settings.theme}"
+                                title="${$l("Theme:")} ${formatTheme(this.app.settings.theme)}"
                             >
                                 <div class="vertical centering layout">
                                     <pl-icon icon="theme-${this.app.settings.theme}"></pl-icon>
@@ -281,7 +282,7 @@ export class App extends ServiceWorker(StateMixin(Routing(LitElement))) {
                                 trigger="hover"
                                 .preferAlignment=${["top", "top-left", "top-right"]}
                             >
-                                <strong>${$l("Theme:")}</strong> ${this.app.settings.theme}
+                                <strong>${$l("Theme:")}</strong> ${formatTheme(this.app.settings.theme)}
                             </pl-popover>
                         </div>
                     </div>
