@@ -340,8 +340,8 @@
     "已複製到剪貼簿"
   ],
   [
-    "More",
-    "更多"
+    "More colors",
+    ""
   ],
   [
     "Please enter at least one email address!",
@@ -1422,6 +1422,10 @@
   [
     "New Organization",
     "新團隊"
+  ],
+  [
+    "More",
+    "更多"
   ],
   [
     "Security Report",

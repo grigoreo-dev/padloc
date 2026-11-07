@@ -340,8 +340,8 @@
     "Копирано на посредна меморија"
   ],
   [
-    "More",
-    "Повеќе"
+    "More colors",
+    ""
   ],
   [
     "Please enter at least one email address!",
@@ -1422,6 +1422,10 @@
   [
     "New Organization",
     "Нова Организација"
+  ],
+  [
+    "More",
+    "Повеќе"
   ],
   [
     "Security Report",

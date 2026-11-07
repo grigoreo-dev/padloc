@@ -340,8 +340,8 @@
     "Skopiowano do schowka"
   ],
   [
-    "More",
-    "Więcej"
+    "More colors",
+    ""
   ],
   [
     "Please enter at least one email address!",
@@ -1422,6 +1422,10 @@
   [
     "New Organization",
     "Nowa organizacja"
+  ],
+  [
+    "More",
+    "Więcej"
   ],
   [
     "Security Report",
