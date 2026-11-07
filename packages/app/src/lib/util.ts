@@ -1,3 +1,5 @@
+import { getDefaultLanguage } from "@padloc/locale/src/translate";
+import type { Locale } from "date-fns";
 import DOMPurify from "dompurify";
 import { html } from "lit";
 import { unsafeHTML } from "lit/directives/unsafe-html.js";
@@ -23,9 +25,50 @@ export function loadScript(src: string, global?: string): Promise<any> {
     return p;
 }
 
+const dateLocalePromises = new Map<string, Promise<Locale | undefined>>();
+
+function loadDateFnsLocale(lang: string): Promise<Locale | undefined> {
+    const code = lang.toLowerCase().split("-")[0];
+    const cached = dateLocalePromises.get(code);
+    if (cached) {
+        return cached;
+    }
+
+    const promise = (async () => {
+        switch (code) {
+            case "ru":
+                return (await import("date-fns/locale/ru")).ru;
+            case "de":
+                return (await import("date-fns/locale/de")).de;
+            case "es":
+                return (await import("date-fns/locale/es")).es;
+            case "fr":
+                return (await import("date-fns/locale/fr")).fr;
+            case "it":
+                return (await import("date-fns/locale/it")).it;
+            case "mk":
+                return (await import("date-fns/locale/mk")).mk;
+            case "pl":
+                return (await import("date-fns/locale/pl")).pl;
+            case "tr":
+                return (await import("date-fns/locale/tr")).tr;
+            case "tw":
+                return (await import("date-fns/locale/zh-TW")).zhTW;
+            default:
+                return undefined;
+        }
+    })();
+
+    dateLocalePromises.set(code, promise);
+    return promise;
+}
+
 export async function formatDateFromNow(date: Date | string | number, addSuffix = true) {
-    const { formatDistanceToNow } = await import(/* webpackChunkName: "date-fns" */ "date-fns");
-    return formatDistanceToNow(new Date(date), { addSuffix });
+    const [{ formatDistanceToNow }, locale] = await Promise.all([
+        import(/* webpackChunkName: "date-fns" */ "date-fns"),
+        loadDateFnsLocale(getDefaultLanguage()),
+    ]);
+    return formatDistanceToNow(new Date(date), { addSuffix, locale });
 }
 
 export function formatDate(date: Date | string | number) {

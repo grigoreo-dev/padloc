@@ -89,7 +89,7 @@ export class ColorPicker extends LitElement {
                 )}
             </div>
             <div class="small relative text-centering padded top-margined more-button hover click">
-                ${$l("More")}...
+                ${$l("More colors")}...
                 <input type="color" @change=${(e: Event) => this._selectColor((e.target as HTMLInputElement).value)} />
             </div>
         `;

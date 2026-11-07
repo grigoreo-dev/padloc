@@ -340,8 +340,8 @@
     "Panoya Kopyalandı"
   ],
   [
-    "More",
-    "Daha"
+    "More colors",
+    ""
   ],
   [
     "Please enter at least one email address!",
@@ -1422,6 +1422,10 @@
   [
     "New Organization",
     "Yeni Organizasyon"
+  ],
+  [
+    "More",
+    "Daha"
   ],
   [
     "Security Report",

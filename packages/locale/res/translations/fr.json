@@ -340,8 +340,8 @@
     "Copié dans le presse-papiers"
   ],
   [
-    "More",
-    "Plus"
+    "More colors",
+    ""
   ],
   [
     "Please enter at least one email address!",
@@ -1422,6 +1422,10 @@
   [
     "New Organization",
     "Nouvelle Organisation"
+  ],
+  [
+    "More",
+    "Plus"
   ],
   [
     "Security Report",
