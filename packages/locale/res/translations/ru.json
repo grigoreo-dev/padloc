@@ -1033,11 +1033,11 @@
   ],
   [
     "Could not check the registration link. Please check your connection and try again.",
-    ""
+    "Не удалось проверить ссылку для регистрации. Проверьте подключение к интернету и попробуйте ещё раз."
   ],
   [
     "Could Not Check Link",
-    ""
+    "Не удалось проверить ссылку"
   ],
   [
     "An account with this email address does not exist!",
@@ -1125,11 +1125,11 @@
   ],
   [
     "This registration link is no longer valid. It may have expired or already been used. Please ask your administrator to send a new invitation.",
-    ""
+    "Эта ссылка для регистрации больше не действует. Возможно, срок её действия истёк или она уже была использована. Попросите администратора отправить новое приглашение."
   ],
   [
     "Registration Link Expired",
-    ""
+    "Ссылка для регистрации недействительна"
   ],
   [
     "An account with this email address already exists!",
@@ -1185,7 +1185,7 @@
   ],
   [
     "Checking registration link...",
-    ""
+    "Проверяем ссылку для регистрации…"
   ],
   [
     "Hi there!",
@@ -1197,7 +1197,7 @@
   ],
   [
     "Before you can accept, we'll need to create an account for you. This will only take a few moments.",
-    "Чтобы принять приглашение, сначала нужно создать аккаунт. Это займёт совсем немного времени."
+    "Чтобы принять приглашение, сначала нужно создать аккаунт. Это быстро."
   ],
   [
     "Before you can accept, you'll need to login.",
