@@ -1032,6 +1032,14 @@
     "Algunos elementos en tu selección son de Almacénes sobre los que no tienes premiso de escritura y no se pueden mover. ¿Quieres proceder a mover el resto de elementos?"
   ],
   [
+    "Could not check the registration link. Please check your connection and try again.",
+    ""
+  ],
+  [
+    "Could Not Check Link",
+    ""
+  ],
+  [
     "An account with this email address does not exist!",
     "¡No existe una cuenta con esta dirección de email!"
   ],
@@ -1116,6 +1124,14 @@
     ""
   ],
   [
+    "This registration link is no longer valid. It may have expired or already been used. Please ask your administrator to send a new invitation.",
+    ""
+  ],
+  [
+    "Registration Link Expired",
+    ""
+  ],
+  [
     "An account with this email address already exists!",
     "¡Una cuenta con esta dirección email ya existe!"
   ],
@@ -1165,6 +1181,10 @@
   ],
   [
     "Unfortunately we could not complete migration of your data.",
+    ""
+  ],
+  [
+    "Checking registration link...",
     ""
   ],
   [

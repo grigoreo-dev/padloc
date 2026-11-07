@@ -1032,6 +1032,14 @@
     "Seçtiğiniz kayıtlardan bazıları yazma erişiminiz olmayan Kasalardan ve taşınamıyor. Diğer kayıtları taşımaya devam etmek ister misiniz?"
   ],
   [
+    "Could not check the registration link. Please check your connection and try again.",
+    ""
+  ],
+  [
+    "Could Not Check Link",
+    ""
+  ],
+  [
     "An account with this email address does not exist!",
     "Bu eposta adresiyle kayıtlı bir hesap yok!"
   ],
@@ -1116,6 +1124,14 @@
     "Sunucu hatası."
   ],
   [
+    "This registration link is no longer valid. It may have expired or already been used. Please ask your administrator to send a new invitation.",
+    ""
+  ],
+  [
+    "Registration Link Expired",
+    ""
+  ],
+  [
     "An account with this email address already exists!",
     "Bu eposta adresiyle kayıtlı bir hesap zaten var! "
   ],
@@ -1166,6 +1182,10 @@
   [
     "Unfortunately we could not complete migration of your data.",
     "Maalesef verilerinizin aktarımını tamamlayamadık."
+  ],
+  [
+    "Checking registration link...",
+    ""
   ],
   [
     "Hi there!",

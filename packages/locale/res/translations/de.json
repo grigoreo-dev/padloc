@@ -1032,6 +1032,14 @@
     "Einige der selektierten Einträge sind aus Tresoren, auf die du keinen Schreibzugriff hast und können nicht verschoben werden. Möchtest du die restlichen Einträge trotzdem verschieben?"
   ],
   [
+    "Could not check the registration link. Please check your connection and try again.",
+    ""
+  ],
+  [
+    "Could Not Check Link",
+    ""
+  ],
+  [
     "An account with this email address does not exist!",
     "Es existiert kein Benutzerkonto mit dieser Emailadresse!"
   ],
@@ -1116,6 +1124,14 @@
     "Serverfehler."
   ],
   [
+    "This registration link is no longer valid. It may have expired or already been used. Please ask your administrator to send a new invitation.",
+    ""
+  ],
+  [
+    "Registration Link Expired",
+    ""
+  ],
+  [
     "An account with this email address already exists!",
     "Ein Benutzerkonto mit dieser Emailadresse existiert bereits!"
   ],
@@ -1166,6 +1182,10 @@
   [
     "Unfortunately we could not complete migration of your data.",
     "Die Migration deiner Daten konnte leider nicht fertiggestellt werden."
+  ],
+  [
+    "Checking registration link...",
+    ""
   ],
   [
     "Hi there!",
