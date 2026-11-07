@@ -1,0 +1,7 @@
+{
+  "database": "dolt",
+  "backend": "dolt",
+  "dolt_mode": "embedded",
+  "dolt_database": "padloc",
+  "project_id": "b6a04c4e-4aac-4ad1-bf04-69826b39eb77"
+}
