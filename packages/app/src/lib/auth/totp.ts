@@ -26,11 +26,11 @@ export class TotpAuthCLient implements AuthClient {
                 </div>
                 <div class="centering vertical layout">
                     <pl-qr-code .value=${url} class="huge"></pl-qr-code>
-                    <div class="tiny subtle top-margined"><strong>Secret:</strong> ${secret}</div>
+                    <div class="tiny subtle top-margined"><strong>${$l("Secret:")}</strong> ${secret}</div>
                 </div>
             `,
             {
-                title: $l("Add MFA-Method"),
+                title: $l("Add MFA Method"),
                 placeholder: $l("Enter Verification Code"),
                 confirmLabel: $l("Submit"),
                 type: "number",

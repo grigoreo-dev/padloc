@@ -152,7 +152,7 @@ export class SettingsAccount extends Routing(StateMixin(LitElement)) {
                     ownedOrgs.length
                         ? html`
                           <div class="padded top-margined negative highlighted box">
-                              <strong>WARNING:</strong> ${$l(
+                              <strong>${$l("WARNING:")}</strong> ${$l(
                                   "The following organizations are owned by you and will be deleted along with your account:"
                               )}
                               <strong>${ownedOrgs.map((org) => org.name).join(", ")}</strong>

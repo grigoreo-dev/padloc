@@ -53,7 +53,9 @@ export const LASTPASS: ImportFormat = {
 
 export const PBES2: ImportFormat = {
     value: "padloc",
-    label: "Encrypted Container",
+    get label() {
+        return $l("Encrypted Container");
+    },
 };
 
 export const ONEPUX: ImportFormat = {
@@ -204,12 +206,12 @@ export async function asCSV(
     const papa = await loadPapa();
     const parsed = papa.parse(data);
     if (parsed.errors.length) {
-        throw new Err(ErrorCode.INVALID_CSV, "Failed to parse .csv file.");
+        throw new Err(ErrorCode.INVALID_CSV, $l("Failed to parse .csv file."));
     }
     const rows = parsed.data as string[][];
 
     if (rows.length === 0) {
-        throw new Err(ErrorCode.INVALID_CSV, "No rows found in .csv file.");
+        throw new Err(ErrorCode.INVALID_CSV, $l("No rows found in .csv file."));
     }
 
     const columnNames = columnsOnFirstRow
@@ -512,7 +514,7 @@ export async function as1Pux(file: File): Promise<VaultItem[]> {
 
         return items;
     } catch (error) {
-        throw new Err(ErrorCode.INVALID_1PUX, "Failed to parse .1pux file.");
+        throw new Err(ErrorCode.INVALID_1PUX, $l("Failed to parse .1pux file."));
     }
 }
 
@@ -605,7 +607,7 @@ export async function asBitwarden(file: File): Promise<VaultItem[]> {
 
         return items;
     } catch (error) {
-        throw new Err(ErrorCode.INVALID_BITWARDEN, "Failed to parse Bitwarden .json file.");
+        throw new Err(ErrorCode.INVALID_BITWARDEN, $l("Failed to parse Bitwarden .json file."));
     }
 }
 

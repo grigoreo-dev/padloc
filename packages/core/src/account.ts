@@ -1,3 +1,4 @@
+import { translate as $l } from "@padloc/locale/src/translate";
 import { PBES2Container } from "./container";
 import { type HMACKey, HMACKeyParams, HMACParams, RSAKeyParams, type RSAPrivateKey, type RSAPublicKey } from "./crypto";
 import { AsBytes, AsDate, AsSerializable, AsSet, concatBytes, Exclude, Serializable, stringToBytes } from "./encoding";
@@ -234,7 +235,7 @@ export class Account extends PBES2Container implements Storable {
         const member = org.getMember(this);
 
         if (!member) {
-            throw new Err(ErrorCode.VERIFICATION_ERROR, "Account is not a member.");
+            throw new Err(ErrorCode.VERIFICATION_ERROR, $l("Account is not a member."));
         }
 
         const verified =
@@ -247,7 +248,7 @@ export class Account extends PBES2Container implements Storable {
             ));
 
         if (!verified) {
-            throw new Err(ErrorCode.VERIFICATION_ERROR, `Failed to verify public key of ${org.name}!`);
+            throw new Err(ErrorCode.VERIFICATION_ERROR, $l("Failed to verify public key of {0}!", org.name));
         }
     }
 

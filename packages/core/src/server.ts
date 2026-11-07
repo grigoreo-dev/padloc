@@ -211,7 +211,7 @@ export class Controller extends API {
 
         // Verify request signature
         if (!(await session.verify(req))) {
-            throw new Err(ErrorCode.INVALID_REQUEST, "Failed to verify request signature!");
+            throw new Err(ErrorCode.INVALID_REQUEST, $l("Failed to verify request signature!"));
         }
 
         // Reject requests/responses older than a certain age to mitigate replay attacks
@@ -219,8 +219,9 @@ export class Controller extends API {
         if (age > this.config.maxRequestAge) {
             throw new Err(
                 ErrorCode.MAX_REQUEST_AGE_EXCEEDED,
-                "The request was rejected because it's timestamp is too far in the past. " +
-                    "Please make sure your local clock is set to the correct time and try again!"
+                $l(
+                    "The request was rejected because it's timestamp is too far in the past. Please make sure your local clock is set to the correct time and try again!"
+                )
             );
         }
 
@@ -295,7 +296,7 @@ export class Controller extends API {
         const { auth } = this._requireAuth();
         const authenticator = auth.authenticators.find((m) => m.id === id);
         if (!authenticator) {
-            throw new Err(ErrorCode.AUTHENTICATION_FAILED, "Failed to complete authenticator registration.");
+            throw new Err(ErrorCode.AUTHENTICATION_FAILED, $l("Failed to complete authenticator registration."));
         }
         const provider = this._getAuthServer(authenticator.type);
         const responseData = await provider.activateAuthenticator(authenticator, data);
@@ -325,7 +326,7 @@ export class Controller extends API {
         const index = auth.authenticators.findIndex((a) => a.id === id);
         const authenticator = auth.authenticators[index];
         if (index < 0) {
-            throw new Err(ErrorCode.NOT_FOUND, "An authenticator with this ID does not exist!");
+            throw new Err(ErrorCode.NOT_FOUND, $l("An authenticator with this ID does not exist!"));
         }
         auth.authenticators.splice(index, 1);
         await this.storage.save(auth);
@@ -365,7 +366,7 @@ export class Controller extends API {
 
         const authenticator = availableAuthenticators[authenticatorIndex || 0];
         if (!authenticator) {
-            throw new Err(ErrorCode.NOT_FOUND, "No appropriate authenticator found!");
+            throw new Err(ErrorCode.NOT_FOUND, $l("No appropriate authenticator found!"));
         }
 
         const provider = this._getAuthServer(authenticator.type);
@@ -429,24 +430,24 @@ export class Controller extends API {
 
         const request = auth.authRequests.find((m) => m.id === id);
         if (!request) {
-            throw new Err(ErrorCode.AUTHENTICATION_FAILED, "Failed to complete auth request.");
+            throw new Err(ErrorCode.AUTHENTICATION_FAILED, $l("Failed to complete auth request."));
         }
 
         if (request.tries >= 3) {
-            throw new Err(ErrorCode.AUTHENTICATION_TRIES_EXCEEDED, "You have exceed your allowed numer of tries!");
+            throw new Err(ErrorCode.AUTHENTICATION_TRIES_EXCEEDED, $l("You have exceed your allowed numer of tries!"));
         }
 
         const authenticators = await this._getAuthenticators(auth);
 
         const authenticator = authenticators.find((m) => m.id === request.authenticatorId);
         if (!authenticator) {
-            throw new Err(ErrorCode.AUTHENTICATION_FAILED, "Failed to start auth request.");
+            throw new Err(ErrorCode.AUTHENTICATION_FAILED, $l("Failed to start auth request."));
         }
 
         if (request.type !== authenticator.type) {
             throw new Err(
                 ErrorCode.AUTHENTICATION_FAILED,
-                "The auth request type and authenticator type do not match!"
+                $l("The auth request type and authenticator type do not match!")
             );
         }
 
@@ -539,7 +540,7 @@ export class Controller extends API {
         const index = auth.trustedDevices.findIndex((d) => d.id === id);
         const device = auth.trustedDevices[index];
         if (index < 0) {
-            throw new Err(ErrorCode.NOT_FOUND, "No trusted device with this ID was found!");
+            throw new Err(ErrorCode.NOT_FOUND, $l("No trusted device with this ID was found!"));
         }
         auth.trustedDevices.splice(index, 1);
         this.log("account.removeTrustedDevice", { removedDevice: device.toRaw() });
@@ -571,14 +572,14 @@ export class Controller extends API {
         if (asAdmin && !this._isAdmin(email)) {
             throw new Err(
                 ErrorCode.INSUFFICIENT_PERMISSIONS,
-                "This feature is only available for service administrators."
+                $l("This feature is only available for service administrators.")
             );
         }
 
         if (!auth.account) {
             // The user has successfully verified their email address so it's safe to
             // tell them that this account doesn't exist.
-            throw new Err(ErrorCode.NOT_FOUND, "An account with this email does not exist!");
+            throw new Err(ErrorCode.NOT_FOUND, $l("An account with this email does not exist!"));
         }
 
         const srpSession = new SRPSession();
@@ -633,7 +634,7 @@ export class Controller extends API {
         const srpSession = auth.srpSessions.find((s) => s.id === srpId);
 
         if (!srpSession) {
-            throw new Err(ErrorCode.INVALID_SESSION, "No srp session with the given id found!");
+            throw new Err(ErrorCode.INVALID_SESSION, $l("No srp session with the given id found!"));
         }
 
         const srp = new SRPServer(srpSession);
@@ -760,7 +761,7 @@ export class Controller extends API {
 
         // Make sure that no account with this email exists and that the email is not blocked from signing up
         if (auth.account) {
-            throw new Err(ErrorCode.ACCOUNT_EXISTS, "This account already exists!");
+            throw new Err(ErrorCode.ACCOUNT_EXISTS, $l("This account already exists!"));
         }
 
         // Most of the account object is constructed locally but account id and
@@ -892,11 +893,11 @@ export class Controller extends API {
         const { account, auth, provisioning } = this._requireAuth();
 
         if (provisioning.account.features.changeEmail.disabled) {
-            throw new Err(ErrorCode.PROVISIONING_NOT_ALLOWED, "You are not allowed to change your email address.");
+            throw new Err(ErrorCode.PROVISIONING_NOT_ALLOWED, $l("You are not allowed to change your email address."));
         }
 
         if ((await this._getAuth(email)).accountId) {
-            throw new Err(ErrorCode.BAD_REQUEST, "There already exists an account with this email address!");
+            throw new Err(ErrorCode.BAD_REQUEST, $l("There already exists an account with this email address!"));
         }
 
         await this.storage.delete(auth);
@@ -940,7 +941,7 @@ export class Controller extends API {
         this.context.provisioning = await this.provisioner.getProvisioning(auth);
 
         if (!auth.account) {
-            throw new Err(ErrorCode.NOT_FOUND, "There is no account with this email address!");
+            throw new Err(ErrorCode.NOT_FOUND, $l("There is no account with this email address!"));
         }
 
         // Fetch existing account
@@ -1035,7 +1036,7 @@ export class Controller extends API {
         const { account, provisioning } = this._requireAuth();
 
         if (!org.name) {
-            throw new Err(ErrorCode.BAD_REQUEST, "Please provide an organization name!");
+            throw new Err(ErrorCode.BAD_REQUEST, $l("Please provide an organization name!"));
         }
 
         if (
@@ -1044,7 +1045,7 @@ export class Controller extends API {
         ) {
             throw new Err(
                 ErrorCode.PROVISIONING_NOT_ALLOWED,
-                "You're not allowed to create an organization right now."
+                $l("You're not allowed to create an organization right now.")
             );
         }
 
@@ -1113,7 +1114,7 @@ export class Controller extends API {
         const orgProvisioning = provisioning.orgs.find((o) => o.orgId === id);
 
         if (!orgProvisioning) {
-            throw new Err(ErrorCode.PROVISIONING_NOT_ALLOWED, "Could not find provisioning for this organization!");
+            throw new Err(ErrorCode.PROVISIONING_NOT_ALLOWED, $l("Could not find provisioning for this organization!"));
         }
 
         // Check the revision id to make sure the changes are based on the most
@@ -1129,14 +1130,14 @@ export class Controller extends API {
 
         // Only admins can make any changes to organizations at all.
         if (!isAdmin) {
-            throw new Err(ErrorCode.INSUFFICIENT_PERMISSIONS, "Only admins can make changes to organizations!");
+            throw new Err(ErrorCode.INSUFFICIENT_PERMISSIONS, $l("Only admins can make changes to organizations!"));
         }
 
         // Verify that `minMemberUpdated` is equal to or larger than the previous value
         if (minMemberUpdated < org.minMemberUpdated) {
             throw new Err(
                 ErrorCode.BAD_REQUEST,
-                "`minMemberUpdated` property needs to be equal to or larger than the previous one!"
+                $l("`minMemberUpdated` property needs to be equal to or larger than the previous one!")
             );
         }
 
@@ -1161,7 +1162,7 @@ export class Controller extends API {
         ) {
             throw new Err(
                 ErrorCode.INSUFFICIENT_PERMISSIONS,
-                "Only organization owners can add or remove members, change roles or create invites!"
+                $l("Only organization owners can add or remove members, change roles or create invites!")
             );
         }
 
@@ -1173,7 +1174,7 @@ export class Controller extends API {
         ) {
             throw new Err(
                 ErrorCode.PROVISIONING_QUOTA_EXCEEDED,
-                "You have reached the maximum number of members for this organization!"
+                $l("You have reached the maximum number of members for this organization!")
             );
         }
 
@@ -1181,7 +1182,7 @@ export class Controller extends API {
         if (addedGroups.length && orgProvisioning.quota.groups !== -1 && groups.length > orgProvisioning.quota.groups) {
             throw new Err(
                 ErrorCode.PROVISIONING_QUOTA_EXCEEDED,
-                "You have reached the maximum number of groups for this organization!"
+                $l("You have reached the maximum number of groups for this organization!")
             );
         }
 
@@ -1412,7 +1413,7 @@ export class Controller extends API {
         if (org && org.isSuspended(account)) {
             throw new Err(
                 ErrorCode.INSUFFICIENT_PERMISSIONS,
-                "This vault cannot be synchronized because you're suspended from it's organization."
+                $l("This vault cannot be synchronized because you're suspended from it's organization.")
             );
         }
 
@@ -1440,13 +1441,13 @@ export class Controller extends API {
         const prov = orgProvisioning || provisioning.account;
 
         if (!prov) {
-            throw new Err(ErrorCode.PROVISIONING_NOT_ALLOWED, "No provisioning found for this vault!");
+            throw new Err(ErrorCode.PROVISIONING_NOT_ALLOWED, $l("No provisioning found for this vault!"));
         }
 
         if (org && org.isSuspended(account)) {
             throw new Err(
                 ErrorCode.INSUFFICIENT_PERMISSIONS,
-                "This vault cannot be synchronized because you're suspended from it's organization."
+                $l("This vault cannot be synchronized because you're suspended from it's organization.")
             );
         }
 
@@ -1465,8 +1466,8 @@ export class Controller extends API {
             throw new Err(
                 ErrorCode.PROVISIONING_NOT_ALLOWED,
                 org
-                    ? 'You can not make any updates to a vault while it\'s organization is in "frozen" state!'
-                    : 'You can\'t make any updates to your vault while your account is in "frozen" state!'
+                    ? $l('You can not make any updates to a vault while it\'s organization is in "frozen" state!')
+                    : $l('You can\'t make any updates to your vault while your account is in "frozen" state!')
             );
         }
 
@@ -1512,14 +1513,14 @@ export class Controller extends API {
         // Explicitly creating vaults only works in the context of an
         // organization (private vaults are created automatically)
         if (!vault.org) {
-            throw new Err(ErrorCode.BAD_REQUEST, "Shared vaults have to be attached to an organization.");
+            throw new Err(ErrorCode.BAD_REQUEST, $l("Shared vaults have to be attached to an organization."));
         }
 
         const org = await this.storage.get(Org, vault.org.id);
         const orgProvisioning = org && provisioning.orgs.find((o) => o.orgId === org.id);
 
         if (!orgProvisioning) {
-            throw new Err(ErrorCode.PROVISIONING_NOT_ALLOWED, "No provisioning found for this vault!");
+            throw new Err(ErrorCode.PROVISIONING_NOT_ALLOWED, $l("No provisioning found for this vault!"));
         }
 
         // Only admins can create new vaults for an organization
@@ -1541,7 +1542,7 @@ export class Controller extends API {
         if (orgProvisioning.quota.vaults !== -1 && org.vaults.length > orgProvisioning.quota.vaults) {
             throw new Err(
                 ErrorCode.PROVISIONING_QUOTA_EXCEEDED,
-                "You have reached the maximum number of vaults for this organization!"
+                $l("You have reached the maximum number of vaults for this organization!")
             );
         }
 
@@ -1640,7 +1641,7 @@ export class Controller extends API {
 
         // Only the invite recipient can accept the invite
         if (existing.email !== account.email) {
-            throw new Err(ErrorCode.INSUFFICIENT_PERMISSIONS, "Only the invite recipient can accept the invite.");
+            throw new Err(ErrorCode.INSUFFICIENT_PERMISSIONS, $l("Only the invite recipient can accept the invite."));
         }
 
         if (!existing.accepted && invite.invitedBy) {
@@ -1694,7 +1695,7 @@ export class Controller extends API {
             if (quota !== -1 && usage + att.size > quota * 1e6) {
                 throw new Err(
                     ErrorCode.PROVISIONING_QUOTA_EXCEEDED,
-                    "You have reached the file storage limit for this org!"
+                    $l("You have reached the file storage limit for this org!")
                 );
             }
         } else {
@@ -1704,7 +1705,7 @@ export class Controller extends API {
             if (quota !== -1 && usage + att.size > quota * 1e6) {
                 throw new Err(
                     ErrorCode.PROVISIONING_QUOTA_EXCEEDED,
-                    "You have reached the file storage limit for this account!"
+                    $l("You have reached the file storage limit for this account!")
                 );
             }
         }
@@ -1779,13 +1780,13 @@ export class Controller extends API {
         }
 
         if (!this.legacyServer) {
-            throw new Err(ErrorCode.NOT_SUPPORTED, "This Padloc instance does not support this feature!");
+            throw new Err(ErrorCode.NOT_SUPPORTED, $l("This Padloc instance does not support this feature!"));
         }
 
         const data = await this.legacyServer.getStore(email);
 
         if (!data) {
-            throw new Err(ErrorCode.NOT_FOUND, "No legacy account found.");
+            throw new Err(ErrorCode.NOT_FOUND, $l("No legacy account found."));
         }
 
         this.log("account.getLegacyData");
@@ -1795,7 +1796,7 @@ export class Controller extends API {
 
     async deleteLegacyAccount() {
         if (!this.legacyServer) {
-            throw new Err(ErrorCode.NOT_SUPPORTED, "This Padloc instance does not support this feature!");
+            throw new Err(ErrorCode.NOT_SUPPORTED, $l("This Padloc instance does not support this feature!"));
         }
 
         const { account } = this._requireAuth();
@@ -1889,7 +1890,7 @@ export class Controller extends API {
             (a) => a.id === authenticatorId && a.purposes.includes(AuthPurpose.AccessKeyStore)
         );
         if (!authenticator) {
-            throw new Err(ErrorCode.NOT_FOUND, "No suitable authenticator found!");
+            throw new Err(ErrorCode.NOT_FOUND, $l("No suitable authenticator found!"));
         }
 
         const entry = new KeyStoreEntry({ accountId: account.id, data, authenticatorId });
@@ -1934,7 +1935,7 @@ export class Controller extends API {
         if (entry.accountId !== account.id) {
             throw new Err(
                 ErrorCode.INSUFFICIENT_PERMISSIONS,
-                "You don't have the necessary permissions to perform this action!"
+                $l("You don't have the necessary permissions to perform this action!")
             );
         }
 
@@ -1993,10 +1994,10 @@ export class Controller extends API {
             if (!this._isAdmin(account.email)) {
                 throw new Err(
                     ErrorCode.INSUFFICIENT_PERMISSIONS,
-                    "You don't have the necessary permissions to use this feature!"
+                    $l("You don't have the necessary permissions to use this feature!")
                 );
             } else if (!session.asAdmin) {
-                throw new Err(ErrorCode.INVALID_SESSION, "Your current session is not valid in this context!");
+                throw new Err(ErrorCode.INVALID_SESSION, $l("Your current session is not valid in this context!"));
             }
         }
 
@@ -2124,7 +2125,7 @@ export class Controller extends API {
         if (!provider) {
             throw new Err(
                 ErrorCode.NOT_SUPPORTED,
-                `This multi factor authentication type is not supported by this server!`
+                $l("This multi factor authentication type is not supported by this server!")
             );
         }
         return provider;
@@ -2145,7 +2146,7 @@ export class Controller extends API {
     }) {
         const auth = await this._getAuth(email);
         if (!auth) {
-            throw new Err(ErrorCode.AUTHENTICATION_FAILED, "Failed to verify auth token");
+            throw new Err(ErrorCode.AUTHENTICATION_FAILED, $l("Failed to verify auth token"));
         }
 
         const request = auth.authRequests.find(
@@ -2158,7 +2159,7 @@ export class Controller extends API {
         );
 
         if (!request) {
-            throw new Err(ErrorCode.AUTHENTICATION_FAILED, "Failed to verify auth token");
+            throw new Err(ErrorCode.AUTHENTICATION_FAILED, $l("Failed to verify auth token"));
         }
 
         auth.authRequests = auth.authRequests.filter((r) => r.id !== request.id);

@@ -29,7 +29,7 @@ export class OauthClient implements AuthClient {
                     // If the window is still `null`, it may be because the browser requires windows
                     // to be opened directly from a click handler (looking at you, Safari...).
                     if (!authWindow) {
-                        await alert(html`Redirecting you to <span class="mono">${url.origin}</span>...`, {
+                        await alert(html`${$l("Redirecting you to")} <span class="mono">${url.origin}</span>...`, {
                             options: [
                                 html`<div class="spacing horizontal layout">
                                     <div>${$l("Continue")}</div>
@@ -47,13 +47,15 @@ export class OauthClient implements AuthClient {
                 }
 
                 if (!authWindow) {
-                    reject(new Err(ErrorCode.AUTHENTICATION_FAILED, "Failed to open authentication window!"));
+                    reject(new Err(ErrorCode.AUTHENTICATION_FAILED, $l("Failed to open authentication window!")));
                     return;
                 }
 
                 checkWindowClosedInterval = window.setInterval(() => {
                     if (authWindow?.closed) {
-                        reject(new Err(ErrorCode.AUTHENTICATION_FAILED, "The authentication process was canceled."));
+                        reject(
+                            new Err(ErrorCode.AUTHENTICATION_FAILED, $l("The authentication process was canceled."))
+                        );
                     }
                 }, 1000);
 

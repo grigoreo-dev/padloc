@@ -1,3 +1,4 @@
+import { translate as $l } from "@padloc/locale/src/translate";
 import type { Account, AccountID, UnlockedAccount } from "./account";
 import { SharedContainer } from "./container";
 import {
@@ -586,7 +587,7 @@ export class Org extends SharedContainer implements Storable {
      */
     async verify(member: OrgMember): Promise<void> {
         if (!member.signature || !member.publicKey || !this.publicKey) {
-            throw new Err(ErrorCode.VERIFICATION_ERROR, "No signed public key provided!");
+            throw new Err(ErrorCode.VERIFICATION_ERROR, $l("No signed public key provided!"));
         }
 
         const verified =
@@ -608,7 +609,7 @@ export class Org extends SharedContainer implements Storable {
             ));
 
         if (!verified) {
-            throw new Err(ErrorCode.VERIFICATION_ERROR, `Failed to verify public key of ${member.name}!`);
+            throw new Err(ErrorCode.VERIFICATION_ERROR, $l("Failed to verify public key of {0}!", member.name));
         }
     }
 

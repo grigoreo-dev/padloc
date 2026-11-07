@@ -1,3 +1,4 @@
+import { translate as $l } from "@padloc/locale/src/translate";
 import {
     type Auth,
     type Authenticator,
@@ -30,7 +31,7 @@ export class EmailAuthServer implements AuthServer {
                 );
                 return { email, requestId, sentAt };
             } catch (e) {
-                throw new Err(ErrorCode.AUTHENTICATION_FAILED, `Failed to send email to ${email}`);
+                throw new Err(ErrorCode.AUTHENTICATION_FAILED, $l("Failed to send email to {0}", email));
             }
         } else {
             return { email };
@@ -41,7 +42,7 @@ export class EmailAuthServer implements AuthServer {
         if (activationCode !== authenticator.state.activationCode) {
             throw new Err(
                 ErrorCode.AUTHENTICATION_FAILED,
-                "Failed to activate authenticator. Incorrect activation code!"
+                $l("Failed to activate authenticator. Incorrect activation code!")
             );
         }
         authenticator.description = authenticator.state.email;
@@ -61,7 +62,7 @@ export class EmailAuthServer implements AuthServer {
             await this.messenger.send(authenticator.state.email, message);
             return { email, subject: message.title, sentAt };
         } catch (e) {
-            throw new Err(ErrorCode.AUTHENTICATION_FAILED, `Failed to send email to ${email}`);
+            throw new Err(ErrorCode.AUTHENTICATION_FAILED, $l("Failed to send email to {0}", email));
         }
     }
 
@@ -75,7 +76,7 @@ export class EmailAuthServer implements AuthServer {
             !!verificationCode &&
             request.state.verificationCode === verificationCode;
         if (!verified) {
-            throw new Err(ErrorCode.AUTHENTICATION_FAILED, "Incorrect verification code.");
+            throw new Err(ErrorCode.AUTHENTICATION_FAILED, $l("Incorrect verification code."));
         }
     }
 

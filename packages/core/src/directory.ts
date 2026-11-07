@@ -1,3 +1,4 @@
+import { translate as $l } from "@padloc/locale/src/translate";
 import { Auth } from "./auth";
 import { Err, ErrorCode } from "./error";
 import { Group, Org, type OrgID, OrgMember, OrgMemberStatus } from "./org";
@@ -80,7 +81,7 @@ export class DirectorySync implements DirectorySubscriber {
             // involved than that. Let's disable it for now.
 
             if (previousEmail && previousEmail !== user.email) {
-                throw new Err(ErrorCode.NOT_SUPPORTED, "Updating user emails is not supported at this time");
+                throw new Err(ErrorCode.NOT_SUPPORTED, $l("Updating user emails is not supported at this time"));
             }
             // if (user.email) {
             //     existingMember.email = user.email;

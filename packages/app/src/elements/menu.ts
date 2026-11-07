@@ -629,13 +629,13 @@ export class Menu extends Routing(StateMixin(LitElement)) {
                 <pl-button class="menu-footer-button" @click=${this._lock} title="${$l("Lock App")}">
                     <div class="vertical centering layout">
                         <pl-icon icon="lock" class="menu-footer-button-icon"></pl-icon>
-                        <div class="menu-footer-button-label">Lock</div>
+                        <div class="menu-footer-button-label">${$l("Lock")}</div>
                     </div>
                 </pl-button>
-                <pl-button class="menu-footer-button" @click=${this._nextTheme} title="Theme: ${app.settings.theme}">
+                <pl-button class="menu-footer-button" @click=${this._nextTheme} title="${$l("Theme:")} ${app.settings.theme}">
                     <div class="vertical centering layout">
                         <pl-icon icon="theme-${app.settings.theme}" class="menu-footer-button-icon"></pl-icon>
-                        <div class="menu-footer-button-label">Theme</div>
+                        <div class="menu-footer-button-label">${$l("Theme")}</div>
                     </div>
                 </pl-button>
                 <pl-popover
@@ -652,7 +652,7 @@ export class Menu extends Routing(StateMixin(LitElement)) {
                 >
                     <div class="vertical centering layout">
                         <pl-icon icon="refresh" class="menu-footer-button-icon"></pl-icon>
-                        <div class="menu-footer-button-label">Sync</div>
+                        <div class="menu-footer-button-label">${$l("Sync")}</div>
                     </div>
                 </pl-button>
                 <pl-popover

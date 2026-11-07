@@ -3,6 +3,7 @@ import { type Authenticator, type AuthRequest, type AuthServer, AuthType } from 
 import { Config, ConfigParam } from "@padloc/core/src/config";
 import { base64ToBytes, bytesToBase64 } from "@padloc/core/src/encoding";
 import { Err, ErrorCode } from "@padloc/core/src/error";
+import { translate as $l } from "@padloc/locale/src/translate";
 import type {
     AuthenticationResponseJSON,
     PublicKeyCredentialCreationOptionsJSON,
@@ -65,7 +66,7 @@ export class WebAuthnServer implements AuthServer {
         if (!auth.account) {
             throw new Err(
                 ErrorCode.AUTHENTICATION_FAILED,
-                "This authentication type can only be initialized for active accounts."
+                $l("This authentication type can only be initialized for active accounts.")
             );
         }
 
@@ -100,7 +101,7 @@ export class WebAuthnServer implements AuthServer {
         if (!authenticator.state?.registrationOptions) {
             throw new Err(
                 ErrorCode.AUTHENTICATION_FAILED,
-                "Failed to activate authenticator. No registration options provided."
+                $l("Failed to activate authenticator. No registration options provided.")
             );
         }
         const { verified, registrationInfo } = await verifyRegistrationResponse({
@@ -113,7 +114,7 @@ export class WebAuthnServer implements AuthServer {
         if (!verified || !registrationInfo) {
             throw new Err(
                 ErrorCode.AUTHENTICATION_FAILED,
-                "Failed to activate authenticator. Failed to verify Registration options."
+                $l("Failed to activate authenticator. Failed to verify Registration options.")
             );
         }
 
@@ -133,7 +134,7 @@ export class WebAuthnServer implements AuthServer {
         request: AuthRequest<WebAuthnRequestData>
     ) {
         if (!authenticator.state?.registrationInfo) {
-            throw new Err(ErrorCode.AUTHENTICATION_FAILED, "Authenticator not fully registered.");
+            throw new Err(ErrorCode.AUTHENTICATION_FAILED, $l("Authenticator not fully registered."));
         }
 
         const options = await generateAuthenticationOptions({
@@ -155,7 +156,7 @@ export class WebAuthnServer implements AuthServer {
         credential: AuthenticationResponseJSON
     ) {
         if (!authenticator.state?.registrationInfo || !request.state?.authenticationOptions) {
-            throw new Err(ErrorCode.AUTHENTICATION_FAILED, "Failed to complete authentication request.");
+            throw new Err(ErrorCode.AUTHENTICATION_FAILED, $l("Failed to complete authentication request."));
         }
 
         const { credentialPublicKey, credentialID, counter } = authenticator.state.registrationInfo;
@@ -175,7 +176,7 @@ export class WebAuthnServer implements AuthServer {
         authenticator.state.registrationInfo.counter = authenticationInfo.newCounter;
 
         if (!verified) {
-            throw new Err(ErrorCode.AUTHENTICATION_FAILED, "Failed to complete authentication request.");
+            throw new Err(ErrorCode.AUTHENTICATION_FAILED, $l("Failed to complete authentication request."));
         }
     }
 

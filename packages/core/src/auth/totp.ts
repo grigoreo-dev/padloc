@@ -1,3 +1,4 @@
+import { translate as $l } from "@padloc/locale/src/translate";
 import { type Authenticator, type AuthRequest, type AuthServer, AuthType } from "../auth";
 import { base32ToBytes } from "../base32";
 import { Config, ConfigParam } from "../config";
@@ -38,7 +39,7 @@ export class TotpAuthServer implements AuthServer {
         if (!(await this._verifyCode(authenticator, code))) {
             throw new Err(
                 ErrorCode.AUTHENTICATION_FAILED,
-                "Failed to activate authenticator. Incorrect activation code!"
+                $l("Failed to activate authenticator. Incorrect activation code!")
             );
         }
     }
@@ -49,7 +50,7 @@ export class TotpAuthServer implements AuthServer {
 
     async verifyAuthRequest(authenticator: Authenticator, _request: AuthRequest, { code }: { code: string }) {
         if (!(await this._verifyCode(authenticator, code))) {
-            throw new Err(ErrorCode.AUTHENTICATION_FAILED, "Incorrect verification code!");
+            throw new Err(ErrorCode.AUTHENTICATION_FAILED, $l("Incorrect verification code!"));
         }
     }
 
@@ -60,7 +61,7 @@ export class TotpAuthServer implements AuthServer {
         if (counter <= lastCounter) {
             throw new Err(
                 ErrorCode.AUTHENTICATION_FAILED,
-                "Authentication request denied. Please wait for the next time window!"
+                $l("Authentication request denied. Please wait for the next time window!")
             );
         }
         const verified = await validateHotp(secret, code, counter, this._config);

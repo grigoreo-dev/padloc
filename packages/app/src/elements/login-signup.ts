@@ -209,11 +209,11 @@ export class LoginOrSignup extends StartForm {
             }
         } catch (e: any) {
             if (e.code === ErrorCode.NOT_FOUND) {
-                await alert(e.message, { title: $l("Authentication Failed"), options: [$l("Cancel")] });
+                await alert($l(e.message), { title: $l("Authentication Failed"), options: [$l("Cancel")] });
                 return null;
             }
 
-            const choice = await alert(e.message, {
+            const choice = await alert($l(e.message), {
                 title: $l("Authentication Failed"),
                 options: [$l("Try Again"), $l("Try Another Method"), $l("Cancel")],
             });
@@ -419,7 +419,7 @@ export class LoginOrSignup extends StartForm {
                     await this.app.logout();
 
                     router.go("start", { email });
-                    alert(e.message, { type: "warning" });
+                    alert($l(e.message), { type: "warning" });
                     throw e;
             }
         }
@@ -528,7 +528,7 @@ export class LoginOrSignup extends StartForm {
                     this._accountExists();
                     return;
                 default:
-                    alert(e.message || $l("Server error."), { type: "warning" });
+                    alert($l(e.message || "Server error."), { type: "warning" });
                     throw e;
             }
         }
@@ -717,26 +717,22 @@ export class LoginOrSignup extends StartForm {
                                   class="double-padded small box background animated"
                                   style="max-width: 25em; margin-bottom: 1.5em"
                               >
-                                  Hi there! <strong>${invite.invitor}</strong>
+                                  ${$l("Hi there!")} <strong>${invite.invitor}</strong>
                                   <span>${$l("has invited you to join their organization")}</span>
                                   <strong class="highlighted">${invite.orgName}</strong>.
                                   ${
                                       this._page === "signup"
-                                          ? html`
-                                            Before you can accept, we'll need to <strong>create an account</strong> for
-                                            you. This will only take a few moments.
-                                        `
-                                          : html`
-                                            Before you can accept, you'll need to
-                                            <strong>login</strong>.
-                                        `
+                                          ? $l(
+                                                "Before you can accept, we'll need to create an account for you. This will only take a few moments."
+                                            )
+                                          : $l("Before you can accept, you'll need to login.")
 }
                                   ${
                                       this._emailInput && invite.email !== this._emailInput.value
                                           ? html`
                                             <div class="negative highlight top-margined">
-                                                <strong>Warning:</strong> This invite is meant for
-                                                <strong>${invite.email}</strong>, but you've entered
+                                                ${$l("Warning: This invite is meant for")}
+                                                <strong>${invite.email}</strong>${$l(", but you've entered")}
                                                 <strong>${this._emailInput.value}</strong>.
                                                 <a
                                                     href="#"
@@ -748,8 +744,10 @@ export class LoginOrSignup extends StartForm {
                                                         this._emailInput.value = invite.email;
                                                     }}
                                                 >
-                                                    <pl-icon icon="arrow-right" class="inline"></pl-icon>Switch to
-                                                    ${invite.email}
+                                                    <pl-icon icon="arrow-right" class="inline"></pl-icon> ${$l(
+                                                        "Switch to {0}",
+                                                        invite.email
+                                                    )}
                                                 </a>
                                             </div>
                                         `
@@ -827,8 +825,8 @@ export class LoginOrSignup extends StartForm {
                             <div class="small padded">
                                 <label>
                                     <input type="checkbox" id="tosCheckbox" @input=${() => this.requestUpdate()} />
-                                    I have read and agree to the
-                                    <a href="${process.env.PL_TERMS_OF_SERVICE || "#"}">Terms of Service</a>
+                                    ${$l("I have read and agree to the")}
+                                    <a href="${process.env.PL_TERMS_OF_SERVICE || "#"}">${$l("Terms of Service")}</a>
                                 </label>
                             </div>
 

@@ -1,3 +1,4 @@
+import { translate as $l } from "@padloc/locale/src/translate";
 import { type AuthClient, type Authenticator, type AuthRequest, type AuthServer, AuthType } from "../auth";
 import { SimpleContainer } from "../container";
 import { AESKeyParams, RSAKeyParams, type RSAPrivateKey, type RSAPublicKey, RSASigningParams } from "../crypto";
@@ -112,7 +113,7 @@ export class PublicKeyAuthServer implements AuthServer {
     ): Promise<any> {
         const challenge = new PublicKeyAuthChallenge().fromRaw(authenticator.state.activationChallenge);
         if (!(await this._verify(base64ToBytes(publicKey), challenge, base64ToBytes(signedChallenge)))) {
-            throw new Err(ErrorCode.AUTHENTICATION_FAILED, "Failed to activate authenticator. Invalid signature!");
+            throw new Err(ErrorCode.AUTHENTICATION_FAILED, $l("Failed to activate authenticator. Invalid signature!"));
         }
         authenticator.state = { publicKey };
         return {};
@@ -138,7 +139,7 @@ export class PublicKeyAuthServer implements AuthServer {
         const verified = await this._verify(publicKey, challenge, signedChallenge);
 
         if (!verified) {
-            throw new Err(ErrorCode.AUTHENTICATION_FAILED, "Invalid signature.");
+            throw new Err(ErrorCode.AUTHENTICATION_FAILED, $l("Invalid signature."));
         }
     }
 

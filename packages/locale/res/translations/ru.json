@@ -1,5 +1,193 @@
 [
   [
+    "Are you sure you want to delete this account? All associated vaults and the data within them will be lost and any active subscriptions will be canceled immediately. This action can not be undone!",
+    "Удалить этот аккаунт? Все связанные хранилища и данные в них будут потеряны, а активные подписки сразу отменятся. Это действие нельзя отменить."
+  ],
+  [
+    "The following organizations are owned by you and will be deleted along with your account:",
+    "Вместе с аккаунтом будут удалены организации, которыми вы владеете:"
+  ],
+  [
+    "Delete",
+    "Удалить"
+  ],
+  [
+    "Cancel",
+    "Отмена"
+  ],
+  [
+    "Delete Account",
+    "Удалить аккаунт"
+  ],
+  [
+    "Account",
+    "Аккаунт"
+  ],
+  [
+    "Created",
+    "Создано"
+  ],
+  [
+    "Email",
+    "Эл. почта"
+  ],
+  [
+    "Name",
+    "Имя"
+  ],
+  [
+    "Orgs",
+    "Организации"
+  ],
+  [
+    "owner",
+    "владелец"
+  ],
+  [
+    "Raw Data",
+    "Исходные данные"
+  ],
+  [
+    "Done",
+    "Готово"
+  ],
+  [
+    "Accounts",
+    "Аккаунты"
+  ],
+  [
+    "Search...",
+    "Поиск..."
+  ],
+  [
+    "Admin Portal",
+    "Портал администратора"
+  ],
+  [
+    "Logs",
+    "Журналы"
+  ],
+  [
+    "Lock App",
+    "Заблокировать"
+  ],
+  [
+    "Theme:",
+    "Тема:"
+  ],
+  [
+    "lines",
+    "строк"
+  ],
+  [
+    "Time",
+    "Время"
+  ],
+  [
+    "Class",
+    "Класс"
+  ],
+  [
+    "User",
+    "Пользователь"
+  ],
+  [
+    "Device",
+    "Устройство"
+  ],
+  [
+    "App Version",
+    "Версия приложения"
+  ],
+  [
+    "Location",
+    "Место"
+  ],
+  [
+    "Unknown Location",
+    "Неизвестное место"
+  ],
+  [
+    "Changes",
+    "Изменения"
+  ],
+  [
+    "Object",
+    "Объект"
+  ],
+  [
+    "Audit Logs",
+    "Журнал аудита"
+  ],
+  [
+    "API Requests",
+    "Запросы API"
+  ],
+  [
+    "Display events between",
+    "Показывать события с"
+  ],
+  [
+    "and",
+    "по"
+  ],
+  [
+    "Apply",
+    "Применить"
+  ],
+  [
+    "Filter By Email Address...",
+    "Фильтр по адресу электронной почты..."
+  ],
+  [
+    "Action",
+    "Действие"
+  ],
+  [
+    "Endpoint",
+    "Эндпоинт"
+  ],
+  [
+    "Response Time",
+    "Время ответа"
+  ],
+  [
+    "Are you sure you want to delete this organization? All associated vaults and the data within them will be lost! This action can not be undone.",
+    "Удалить эту организацию? Все её хранилища и данные в них будут потеряны. Это действие нельзя отменить."
+  ],
+  [
+    "Delete Org",
+    "Удалить организацию"
+  ],
+  [
+    "Org",
+    "Организация"
+  ],
+  [
+    "Members",
+    "Участники"
+  ],
+  [
+    "admin",
+    "администратор"
+  ],
+  [
+    "Owner",
+    "Владелец"
+  ],
+  [
+    "Request",
+    "Запрос"
+  ],
+  [
+    "Method",
+    "Метод"
+  ],
+  [
+    "Params",
+    "Параметры"
+  ],
+  [
     "OK",
     "OK"
   ],
@@ -32,10 +220,6 @@
     "Настройка"
   ],
   [
-    "Cancel",
-    "Отмена"
-  ],
-  [
     "Biometric Unlock",
     "Биометрическая разблокировка"
   ],
@@ -66,10 +250,6 @@
   [
     "Are you sure you want to delete this attachment?",
     "Удалить это вложение?"
-  ],
-  [
-    "Delete",
-    "Удалить"
   ],
   [
     "Delete Attachment",
@@ -412,12 +592,12 @@
     "Группа не выбрана."
   ],
   [
-    "Duplicate",
-    "Дублировать"
+    "Enter Group Name",
+    "Введите название группы"
   ],
   [
-    "Members",
-    "Участники"
+    "Duplicate",
+    "Дублировать"
   ],
   [
     "No more Members available",
@@ -460,8 +640,8 @@
     "от {0}"
   ],
   [
-    "Name",
-    "Имя"
+    "You",
+    "Вы"
   ],
   [
     "<Unnamed>",
@@ -668,6 +848,10 @@
     "Поле"
   ],
   [
+    "Attachment",
+    "Вложение"
+  ],
+  [
     "More Options",
     "Другие действия"
   ],
@@ -758,6 +942,10 @@
   [
     "File uploaded successfully!",
     "Файл загружен."
+  ],
+  [
+    "Invalid Code! Please try again!",
+    "Неверный код. Попробуйте ещё раз!"
   ],
   [
     "New Item",
@@ -980,12 +1168,32 @@
     "К сожалению, не удалось завершить перенос данных."
   ],
   [
-    "Admin Portal",
-    "Портал администратора"
+    "Hi there!",
+    "Здравствуйте!"
   ],
   [
     "has invited you to join their organization",
     "приглашает вас в организацию"
+  ],
+  [
+    "Before you can accept, we'll need to create an account for you. This will only take a few moments.",
+    "Чтобы принять приглашение, сначала нужно создать аккаунт. Это займёт совсем немного времени."
+  ],
+  [
+    "Before you can accept, you'll need to login.",
+    "Чтобы принять приглашение, сначала нужно войти."
+  ],
+  [
+    "Warning: This invite is meant for",
+    "Внимание: это приглашение предназначено для"
+  ],
+  [
+    ", but you've entered",
+    ", а вы указали"
+  ],
+  [
+    "Switch to {0}",
+    "Переключиться на {0}"
   ],
   [
     "Welcome! Please enter your email address to continue.",
@@ -994,6 +1202,14 @@
   [
     "Your Name (Optional)",
     "Ваше имя (необязательно)"
+  ],
+  [
+    "I have read and agree to the",
+    "Я принимаю"
+  ],
+  [
+    "Terms of Service",
+    "Условия использования"
   ],
   [
     "Create Account",
@@ -1058,10 +1274,6 @@
   [
     "Get Started",
     "Начать работу"
-  ],
-  [
-    "Owner",
-    "Владелец"
   ],
   [
     "Admin",
@@ -1220,12 +1432,16 @@
     "Поддержка"
   ],
   [
-    "Lock App",
-    "Заблокировать"
+    "Lock",
+    "Блокировка"
   ],
   [
-    "Theme:",
-    "Тема:"
+    "Theme",
+    "Тема"
+  ],
+  [
+    "Sync",
+    "Синхронизация"
   ],
   [
     "Last Sync:",
@@ -1264,8 +1480,20 @@
     "Создано приглашений: {0}."
   ],
   [
+    "New Member",
+    "Новый участник"
+  ],
+  [
+    "New Group",
+    "Новая группа"
+  ],
+  [
     "This org is frozen",
     "Организация заморожена"
+  ],
+  [
+    "Review Billing",
+    "Проверить оплату"
   ],
   [
     "Show All",
@@ -1286,14 +1514,6 @@
   [
     "Create Vault",
     "Создать хранилище"
-  ],
-  [
-    "Search...",
-    "Поиск..."
-  ],
-  [
-    "Are you sure you want to delete this organization? All associated vaults and the data within them will be lost! This action can not be undone.",
-    "Удалить эту организацию? Все её хранилища и данные в них будут потеряны. Это действие нельзя отменить."
   ],
   [
     "Delete Organization",
@@ -1452,6 +1672,10 @@
     "За время работы Padloc зафиксировал ошибки ({0}). Они могут не влиять на функции, и часто их можно не учитывать, но отчёт поможет найти причину и сделать приложение стабильнее."
   ],
   [
+    "Report",
+    "Отправить"
+  ],
+  [
     "All Security Reports have been disabled.",
     "Все отчёты о безопасности отключены."
   ],
@@ -1528,28 +1752,12 @@
     "Введите мастер-пароль, чтобы продолжить."
   ],
   [
-    "Delete Account",
-    "Удалить аккаунт"
-  ],
-  [
-    "Are you sure you want to delete this account? All associated vaults and the data within them will be lost and any active subscriptions will be canceled immediately. This action can not be undone!",
-    "Удалить этот аккаунт? Все связанные хранилища и данные в них будут потеряны, а активные подписки сразу отменятся. Это действие нельзя отменить."
-  ],
-  [
-    "The following organizations are owned by you and will be deleted along with your account:",
-    "Вместе с аккаунтом будут удалены организации, которыми вы владеете:"
-  ],
-  [
-    "Account",
-    "Аккаунт"
+    "WARNING:",
+    "ВНИМАНИЕ:"
   ],
   [
     "Profile",
     "Профиль"
-  ],
-  [
-    "Email",
-    "Эл. почта"
   ],
   [
     "Display Name",
@@ -1562,10 +1770,6 @@
   [
     "Display",
     "Оформление"
-  ],
-  [
-    "Theme",
-    "Тема"
   ],
   [
     "Favicons",
@@ -1656,6 +1860,22 @@
     "Отключить биометрическую разблокировку"
   ],
   [
+    "Hardware Key",
+    "Аппаратный ключ"
+  ],
+  [
+    "YubiKey, Google Titan etc.",
+    "YubiKey, Google Titan и другие"
+  ],
+  [
+    "TOTP",
+    "TOTP"
+  ],
+  [
+    "Google Authenticator, Authy etc.",
+    "Google Authenticator, Authy и другие"
+  ],
+  [
     "What kind of multi-factor authenticator would you like to add?",
     "Какой способ многофакторной аутентификации добавить?"
   ],
@@ -1712,6 +1932,10 @@
     "Отозвать биометрическую разблокировку для устройства «{0}»?"
   ],
   [
+    "Unknown Device",
+    "Неизвестное устройство"
+  ],
+  [
     "Revoke Biometric Unlock",
     "Отозвать биометрическую разблокировку"
   ],
@@ -1726,6 +1950,10 @@
   [
     "revoked",
     "отозвана"
+  ],
+  [
+    "Last Used: {0}",
+    "Последнее использование: {0}"
   ],
   [
     "never",
@@ -1760,12 +1988,16 @@
     "Неизвестная страна"
   ],
   [
-    "Unknown Device",
-    "Неизвестное устройство"
-  ],
-  [
     "Current Session",
     "Текущий сеанс"
+  ],
+  [
+    "Last Active: {0}",
+    "Последняя активность: {0}"
+  ],
+  [
+    "Last Known Location: {0}",
+    "Последнее место: {0}"
   ],
   [
     "Trusted Devices",
@@ -1780,16 +2012,36 @@
     "Это устройство"
   ],
   [
+    "Last Login: {0}",
+    "Последний вход: {0}"
+  ],
+  [
     "You don't have any trusted devices yet.",
     "Доверенных устройств пока нет."
+  ],
+  [
+    "Supported on this device.",
+    "Поддерживается на этом устройстве."
   ],
   [
     "Supported",
     "Поддерживается"
   ],
   [
+    "Not supported on this device.",
+    "Не поддерживается на этом устройстве."
+  ],
+  [
     "Not Supported",
     "Не поддерживается"
+  ],
+  [
+    "Enable",
+    "Включить"
+  ],
+  [
+    "Enabled",
+    "Включено"
   ],
   [
     "Weak Passwords",
@@ -1900,6 +2152,10 @@
     "Экспорт..."
   ],
   [
+    "Add Tag...",
+    "Добавить тег..."
+  ],
+  [
     "Type tag name...",
     "Введите название тега..."
   ],
@@ -1912,12 +2168,36 @@
     "Неверный код"
   ],
   [
+    "Before you can accept, you'll need to unlock the app.",
+    "Чтобы принять приглашение, сначала нужно разблокировать приложение."
+  ],
+  [
+    ", but you're logged in as",
+    ", а вы вошли как"
+  ],
+  [
+    "Before you can accept the invite, you'll have to",
+    "Чтобы принять приглашение, сначала нужно"
+  ],
+  [
+    "log out",
+    "выйти"
+  ],
+  [
+    "of the current account first.",
+    "из текущего аккаунта."
+  ],
+  [
     "Welcome back! Please enter your master password to unlock the app.",
     "С возвращением! Введите мастер-пароль, чтобы разблокировать приложение."
   ],
   [
     "Logged In As",
     "Вы вошли как"
+  ],
+  [
+    "Forgot Password",
+    "Забыли пароль?"
   ],
   [
     "Unlock",
@@ -2016,6 +2296,10 @@
     "Хранилище не выбрано."
   ],
   [
+    "Enter Vault Name",
+    "Введите название хранилища"
+  ],
+  [
     "No Groups have been given access to this vault yet.",
     "Группам пока не дан доступ к этому хранилищу."
   ],
@@ -2072,6 +2356,58 @@
     "Просроченные записи — те, у которых истёк заданный срок и которые давно не обновлялись. Их стоит обновить как можно скорее."
   ],
   [
+    "Please enter the six digit verification code sent to {0}!",
+    "Введите шестизначный код, отправленный на {0}!"
+  ],
+  [
+    "Sent:",
+    "Отправлено:"
+  ],
+  [
+    "Subject:",
+    "Тема:"
+  ],
+  [
+    "Email Authentication",
+    "Подтверждение по почте"
+  ],
+  [
+    "Enter Verification Code",
+    "Введите код подтверждения"
+  ],
+  [
+    "Please enter the 6-digit verification code!",
+    "Введите 6-значный код подтверждения!"
+  ],
+  [
+    "Redirecting you to",
+    "Сейчас откроется"
+  ],
+  [
+    "Failed to open authentication window!",
+    "Не удалось открыть окно аутентификации."
+  ],
+  [
+    "The authentication process was canceled.",
+    "Аутентификация отменена."
+  ],
+  [
+    "Please scan the following qr-code in your authenticator app, then enter the displayed code to confirm!",
+    "Отсканируйте этот QR-код в приложении-аутентификаторе и введите показанный код для подтверждения."
+  ],
+  [
+    "Secret:",
+    "Секрет:"
+  ],
+  [
+    "Please enter the code displayed in your authenticator app to proceed!",
+    "Введите код из приложения-аутентификатора, чтобы продолжить."
+  ],
+  [
+    "TOTP Authentication",
+    "Аутентификация TOTP"
+  ],
+  [
     "Card Number",
     "Номер карты"
   ],
@@ -2088,12 +2424,32 @@
     "CVC"
   ],
   [
+    "Encrypted Container",
+    "Зашифрованный контейнер"
+  ],
+  [
+    "Failed to parse .csv file.",
+    "Не удалось разобрать файл CSV."
+  ],
+  [
+    "No rows found in .csv file.",
+    "В файле CSV нет строк."
+  ],
+  [
     "Notes",
     "Заметки"
   ],
   [
     "One-Time Password",
     "Одноразовый пароль"
+  ],
+  [
+    "Failed to parse .1pux file.",
+    "Не удалось разобрать файл 1pux."
+  ],
+  [
+    "Failed to parse Bitwarden .json file.",
+    "Не удалось разобрать JSON-файл Bitwarden."
   ],
   [
     "Other Username",
@@ -2224,132 +2580,12 @@
     "Доступно обновление"
   ],
   [
-    "Created",
-    "Создано"
+    "Account is not a member.",
+    "Аккаунт не является участником."
   ],
   [
-    "Orgs",
-    "Организации"
-  ],
-  [
-    "owner",
-    "владелец"
-  ],
-  [
-    "Raw Data",
-    "Исходные данные"
-  ],
-  [
-    "Done",
-    "Готово"
-  ],
-  [
-    "Accounts",
-    "Аккаунты"
-  ],
-  [
-    "Logs",
-    "Журналы"
-  ],
-  [
-    "lines",
-    "строк"
-  ],
-  [
-    "Time",
-    "Время"
-  ],
-  [
-    "Class",
-    "Класс"
-  ],
-  [
-    "User",
-    "Пользователь"
-  ],
-  [
-    "Device",
-    "Устройство"
-  ],
-  [
-    "App Version",
-    "Версия приложения"
-  ],
-  [
-    "Location",
-    "Место"
-  ],
-  [
-    "Unknown Location",
-    "Неизвестное место"
-  ],
-  [
-    "Changes",
-    "Изменения"
-  ],
-  [
-    "Object",
-    "Объект"
-  ],
-  [
-    "Audit Logs",
-    "Журнал аудита"
-  ],
-  [
-    "API Requests",
-    "Запросы API"
-  ],
-  [
-    "Display events between",
-    "Показывать события с"
-  ],
-  [
-    "and",
-    "по"
-  ],
-  [
-    "Apply",
-    "Применить"
-  ],
-  [
-    "Filter By Email Address...",
-    "Фильтр по адресу электронной почты..."
-  ],
-  [
-    "Action",
-    "Действие"
-  ],
-  [
-    "Endpoint",
-    "Эндпоинт"
-  ],
-  [
-    "Response Time",
-    "Время ответа"
-  ],
-  [
-    "Delete Org",
-    "Удалить организацию"
-  ],
-  [
-    "Org",
-    "Организация"
-  ],
-  [
-    "admin",
-    "администратор"
-  ],
-  [
-    "Request",
-    "Запрос"
-  ],
-  [
-    "Method",
-    "Метод"
-  ],
-  [
-    "Params",
-    "Параметры"
+    "Failed to verify public key of {0}!",
+    "Не удалось проверить открытый ключ {0}."
   ],
   [
     "You have been granted access to this vault, but before you can see its contents somebody else with access to it has to log into their account first. Once you have full access, this warning will disappear automatically.",
@@ -2368,8 +2604,48 @@
     "Не удалось синхронизировать локальные изменения: у вас нет права изменять это хранилище."
   ],
   [
+    "'minMemberUpdated' property may not decrease!",
+    "Значение minMemberUpdated нельзя уменьшить."
+  ],
+  [
     "This group name is not available!",
     "Это название группы уже занято."
+  ],
+  [
+    "Failed to verify invitee information!",
+    "Не удалось проверить данные приглашённого."
+  ],
+  [
+    "Failed to send email to {0}",
+    "Не удалось отправить письмо на {0}."
+  ],
+  [
+    "Failed to activate authenticator. Incorrect activation code!",
+    "Не удалось включить аутентификатор: неверный код активации."
+  ],
+  [
+    "Incorrect verification code.",
+    "Неверный код подтверждения."
+  ],
+  [
+    "Failed to activate authenticator. Invalid signature!",
+    "Не удалось включить аутентификатор: неверная подпись."
+  ],
+  [
+    "Invalid signature.",
+    "Неверная подпись."
+  ],
+  [
+    "Incorrect verification code!",
+    "Неверный код подтверждения."
+  ],
+  [
+    "Authentication request denied. Please wait for the next time window!",
+    "Запрос отклонён. Дождитесь следующего интервала кода."
+  ],
+  [
+    "Updating user emails is not supported at this time",
+    "Смена адреса электронной почты пользователя пока не поддерживается."
   ],
   [
     "Open",
@@ -2472,7 +2748,211 @@
     "Свой тип"
   ],
   [
+    "No signed public key provided!",
+    "Нет подписанного открытого ключа."
+  ],
+  [
+    "Failed to verify request signature!",
+    "Не удалось проверить подпись запроса."
+  ],
+  [
+    "The request was rejected because it's timestamp is too far in the past. Please make sure your local clock is set to the correct time and try again!",
+    "Запрос отклонён: его метка времени слишком старая. Проверьте, что на устройстве верное время, и повторите попытку."
+  ],
+  [
+    "Failed to complete authenticator registration.",
+    "Не удалось завершить регистрацию аутентификатора."
+  ],
+  [
+    "An authenticator with this ID does not exist!",
+    "Аутентификатор с таким идентификатором не найден."
+  ],
+  [
+    "No appropriate authenticator found!",
+    "Подходящий аутентификатор не найден."
+  ],
+  [
+    "Failed to complete auth request.",
+    "Не удалось завершить запрос аутентификации."
+  ],
+  [
+    "You have exceed your allowed numer of tries!",
+    "Превышено число попыток."
+  ],
+  [
+    "Failed to start auth request.",
+    "Не удалось начать запрос аутентификации."
+  ],
+  [
+    "The auth request type and authenticator type do not match!",
+    "Тип запроса не совпадает с типом аутентификатора."
+  ],
+  [
+    "No trusted device with this ID was found!",
+    "Доверенное устройство с таким идентификатором не найдено."
+  ],
+  [
+    "This feature is only available for service administrators.",
+    "Эта функция доступна только администраторам сервиса."
+  ],
+  [
+    "An account with this email does not exist!",
+    "Аккаунта с этим адресом электронной почты не существует."
+  ],
+  [
     "unknown location",
     "неизвестное место"
+  ],
+  [
+    "No srp session with the given id found!",
+    "Сеанс входа с таким идентификатором не найден."
+  ],
+  [
+    "This account already exists!",
+    "Этот аккаунт уже существует."
+  ],
+  [
+    "You are not allowed to change your email address.",
+    "Вам нельзя изменить адрес электронной почты."
+  ],
+  [
+    "There already exists an account with this email address!",
+    "Аккаунт с этим адресом электронной почты уже существует."
+  ],
+  [
+    "There is no account with this email address!",
+    "Аккаунта с этим адресом электронной почты нет."
+  ],
+  [
+    "Please provide an organization name!",
+    "Укажите название организации."
+  ],
+  [
+    "You're not allowed to create an organization right now.",
+    "Сейчас вам нельзя создать организацию."
+  ],
+  [
+    "Could not find provisioning for this organization!",
+    "Не найдены параметры предоставления для этой организации."
+  ],
+  [
+    "Only admins can make changes to organizations!",
+    "Изменять организацию могут только администраторы."
+  ],
+  [
+    "`minMemberUpdated` property needs to be equal to or larger than the previous one!",
+    "Значение minMemberUpdated должно быть не меньше предыдущего."
+  ],
+  [
+    "Only organization owners can add or remove members, change roles or create invites!",
+    "Добавлять и удалять участников, менять роли и создавать приглашения может только владелец организации."
+  ],
+  [
+    "You have reached the maximum number of members for this organization!",
+    "Достигнут предел числа участников организации."
+  ],
+  [
+    "You have reached the maximum number of groups for this organization!",
+    "Достигнут предел числа групп организации."
+  ],
+  [
+    "This vault cannot be synchronized because you're suspended from it's organization.",
+    "Нельзя синхронизировать хранилище: ваше участие в организации приостановлено."
+  ],
+  [
+    "No provisioning found for this vault!",
+    "Не найдены параметры предоставления для этого хранилища."
+  ],
+  [
+    "You can not make any updates to a vault while it's organization is in \"frozen\" state!",
+    "Нельзя изменять хранилище, пока его организация заморожена."
+  ],
+  [
+    "You can't make any updates to your vault while your account is in \"frozen\" state!",
+    "Нельзя изменять хранилище, пока аккаунт заморожен."
+  ],
+  [
+    "Shared vaults have to be attached to an organization.",
+    "Общее хранилище должно принадлежать организации."
+  ],
+  [
+    "You have reached the maximum number of vaults for this organization!",
+    "Достигнут предел числа хранилищ организации."
+  ],
+  [
+    "Only the invite recipient can accept the invite.",
+    "Принять приглашение может только тот, кому оно адресовано."
+  ],
+  [
+    "You have reached the file storage limit for this org!",
+    "Достигнут предел хранилища файлов организации."
+  ],
+  [
+    "You have reached the file storage limit for this account!",
+    "Достигнут предел хранилища файлов аккаунта."
+  ],
+  [
+    "This Padloc instance does not support this feature!",
+    "Этот сервер Padloc не поддерживает эту функцию."
+  ],
+  [
+    "No legacy account found.",
+    "Старый аккаунт не найден."
+  ],
+  [
+    "No suitable authenticator found!",
+    "Подходящий аутентификатор не найден."
+  ],
+  [
+    "You don't have the necessary permissions to perform this action!",
+    "Недостаточно прав для этого действия."
+  ],
+  [
+    "You don't have the necessary permissions to use this feature!",
+    "Недостаточно прав для этой функции."
+  ],
+  [
+    "Your current session is not valid in this context!",
+    "Текущий сеанс недействителен в этом контексте."
+  ],
+  [
+    "This multi factor authentication type is not supported by this server!",
+    "Этот сервер не поддерживает такой тип многофакторной аутентификации."
+  ],
+  [
+    "Failed to verify auth token",
+    "Не удалось проверить токен аутентификации."
+  ],
+  [
+    "There was something wrong with this request. Please try again!",
+    "С запросом что-то не так. Попробуйте ещё раз."
+  ],
+  [
+    "Email returned from authenticator does not match.",
+    "Адрес электронной почты от аутентификатора не совпадает."
+  ],
+  [
+    "Failed to retrieve auth token.",
+    "Не удалось получить токен аутентификации."
+  ],
+  [
+    "This authentication type can only be initialized for active accounts.",
+    "Этот тип аутентификации можно включить только для активного аккаунта."
+  ],
+  [
+    "Failed to activate authenticator. No registration options provided.",
+    "Не удалось включить аутентификатор: нет параметров регистрации."
+  ],
+  [
+    "Failed to activate authenticator. Failed to verify Registration options.",
+    "Не удалось включить аутентификатор: не удалось проверить параметры регистрации."
+  ],
+  [
+    "Authenticator not fully registered.",
+    "Аутентификатор зарегистрирован не до конца."
+  ],
+  [
+    "Failed to complete authentication request.",
+    "Не удалось завершить запрос аутентификации."
   ]
 ]

@@ -73,11 +73,11 @@ export class Auth extends StartForm {
             return res;
         } catch (e: any) {
             if (e.code === ErrorCode.NOT_FOUND) {
-                await alert(e.message, { title: $l("Authentication Failed"), options: [$l("Cancel")] });
+                await alert($l(e.message), { title: $l("Authentication Failed"), options: [$l("Cancel")] });
                 return null;
             }
 
-            const choice = await alert(e.message, {
+            const choice = await alert($l(e.message), {
                 title: $l("Authentication Failed"),
                 options: [$l("Try Again"), $l("Try Another Method"), $l("Cancel")],
             });

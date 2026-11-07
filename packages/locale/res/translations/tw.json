@@ -1,5 +1,193 @@
 [
   [
+    "Are you sure you want to delete this account? All associated vaults and the data within them will be lost and any active subscriptions will be canceled immediately. This action can not be undone!",
+    "您是否確定要刪除此帳戶？所有相關的密碼庫與其中的資料將會消失，所有現有訂閱也將被取消。此動作無法被還原。"
+  ],
+  [
+    "The following organizations are owned by you and will be deleted along with your account:",
+    "以下的組織由您擁有，因此也將隨您的帳號同時被刪除："
+  ],
+  [
+    "Delete",
+    "刪除"
+  ],
+  [
+    "Cancel",
+    "取消"
+  ],
+  [
+    "Delete Account",
+    "刪除帳戶"
+  ],
+  [
+    "Account",
+    "帳戶"
+  ],
+  [
+    "Created",
+    "已創建"
+  ],
+  [
+    "Email",
+    "Email"
+  ],
+  [
+    "Name",
+    "名稱"
+  ],
+  [
+    "Orgs",
+    "組織"
+  ],
+  [
+    "owner",
+    "擁有者"
+  ],
+  [
+    "Raw Data",
+    "原始資料"
+  ],
+  [
+    "Done",
+    "完成"
+  ],
+  [
+    "Accounts",
+    "帳戶"
+  ],
+  [
+    "Search...",
+    "搜尋..."
+  ],
+  [
+    "Admin Portal",
+    "管理員入口"
+  ],
+  [
+    "Logs",
+    "記錄"
+  ],
+  [
+    "Lock App",
+    "鎖定應用程式"
+  ],
+  [
+    "Theme:",
+    "主題："
+  ],
+  [
+    "lines",
+    "行"
+  ],
+  [
+    "Time",
+    "時間"
+  ],
+  [
+    "Class",
+    "類型"
+  ],
+  [
+    "User",
+    "使用者"
+  ],
+  [
+    "Device",
+    "裝置"
+  ],
+  [
+    "App Version",
+    "應用程式版本"
+  ],
+  [
+    "Location",
+    "位置"
+  ],
+  [
+    "Unknown Location",
+    "未知的位置"
+  ],
+  [
+    "Changes",
+    "改變"
+  ],
+  [
+    "Object",
+    "物件"
+  ],
+  [
+    "Audit Logs",
+    "審核記錄"
+  ],
+  [
+    "API Requests",
+    "API 請求"
+  ],
+  [
+    "Display events between",
+    "顯示其中的事件"
+  ],
+  [
+    "and",
+    "和"
+  ],
+  [
+    "Apply",
+    "應用"
+  ],
+  [
+    "Filter By Email Address...",
+    "以 Email 地址篩選..."
+  ],
+  [
+    "Action",
+    "動作"
+  ],
+  [
+    "Endpoint",
+    "終點"
+  ],
+  [
+    "Response Time",
+    "回應時間"
+  ],
+  [
+    "Are you sure you want to delete this organization? All associated vaults and the data within them will be lost! This action can not be undone.",
+    "您確定要刪除此組織嗎？所有相關的密碼庫與其中的資料將會消失。此動作無法被還原。"
+  ],
+  [
+    "Delete Org",
+    "刪除組織"
+  ],
+  [
+    "Org",
+    "組織"
+  ],
+  [
+    "Members",
+    "成員"
+  ],
+  [
+    "admin",
+    "管理員"
+  ],
+  [
+    "Owner",
+    "擁有者"
+  ],
+  [
+    "Request",
+    "請求"
+  ],
+  [
+    "Method",
+    "方法"
+  ],
+  [
+    "Params",
+    "參數"
+  ],
+  [
     "OK",
     "確定"
   ],
@@ -32,10 +220,6 @@
     "設置"
   ],
   [
-    "Cancel",
-    "取消"
-  ],
-  [
     "Biometric Unlock",
     "生物識別解鎖"
   ],
@@ -66,10 +250,6 @@
   [
     "Are you sure you want to delete this attachment?",
     "您確定要刪除此附件嗎？"
-  ],
-  [
-    "Delete",
-    "刪除"
   ],
   [
     "Delete Attachment",
@@ -412,12 +592,12 @@
     "沒有已選擇的團隊。"
   ],
   [
-    "Duplicate",
-    "重複"
+    "Enter Group Name",
+    ""
   ],
   [
-    "Members",
-    "成員"
+    "Duplicate",
+    "重複"
   ],
   [
     "No more Members available",
@@ -460,8 +640,8 @@
     "由 {0}"
   ],
   [
-    "Name",
-    "名稱"
+    "You",
+    ""
   ],
   [
     "<Unnamed>",
@@ -668,6 +848,10 @@
     "表格"
   ],
   [
+    "Attachment",
+    ""
+  ],
+  [
     "More Options",
     "更多選項"
   ],
@@ -758,6 +942,10 @@
   [
     "File uploaded successfully!",
     "檔案上傳成功"
+  ],
+  [
+    "Invalid Code! Please try again!",
+    ""
   ],
   [
     "New Item",
@@ -980,12 +1168,32 @@
     "很不幸地，我們無法完全轉移您的資料。"
   ],
   [
-    "Admin Portal",
-    "管理員入口"
+    "Hi there!",
+    ""
   ],
   [
     "has invited you to join their organization",
     "已邀請您加入他們的組織"
+  ],
+  [
+    "Before you can accept, we'll need to create an account for you. This will only take a few moments.",
+    ""
+  ],
+  [
+    "Before you can accept, you'll need to login.",
+    ""
+  ],
+  [
+    "Warning: This invite is meant for",
+    ""
+  ],
+  [
+    ", but you've entered",
+    ""
+  ],
+  [
+    "Switch to {0}",
+    ""
   ],
   [
     "Welcome! Please enter your email address to continue.",
@@ -994,6 +1202,14 @@
   [
     "Your Name (Optional)",
     "你的名稱 (非必要)"
+  ],
+  [
+    "I have read and agree to the",
+    ""
+  ],
+  [
+    "Terms of Service",
+    ""
   ],
   [
     "Create Account",
@@ -1058,10 +1274,6 @@
   [
     "Get Started",
     "入門"
-  ],
-  [
-    "Owner",
-    "擁有者"
   ],
   [
     "Admin",
@@ -1220,12 +1432,16 @@
     "支援"
   ],
   [
-    "Lock App",
-    "鎖定應用程式"
+    "Lock",
+    ""
   ],
   [
-    "Theme:",
-    "主題："
+    "Theme",
+    "主題"
+  ],
+  [
+    "Sync",
+    ""
   ],
   [
     "Last Sync:",
@@ -1264,8 +1480,20 @@
     "成功創建 {0} 個邀請！"
   ],
   [
+    "New Member",
+    ""
+  ],
+  [
+    "New Group",
+    ""
+  ],
+  [
     "This org is frozen",
     "此組織已凍結"
+  ],
+  [
+    "Review Billing",
+    ""
   ],
   [
     "Show All",
@@ -1286,14 +1514,6 @@
   [
     "Create Vault",
     "創建密碼庫"
-  ],
-  [
-    "Search...",
-    "搜尋..."
-  ],
-  [
-    "Are you sure you want to delete this organization? All associated vaults and the data within them will be lost! This action can not be undone.",
-    "您確定要刪除此組織嗎？所有相關的密碼庫與其中的資料將會消失。此動作無法被還原。"
   ],
   [
     "Delete Organization",
@@ -1452,6 +1672,10 @@
     "Padloc 在您使用的過程中記錄下了 {0} 錯誤。這些錯誤或許不會有任何影響且可以被忽略，但將回報它們可以幫助我們找出問題，並以此改進應用程式的穩定性。"
   ],
   [
+    "Report",
+    ""
+  ],
+  [
     "All Security Reports have been disabled.",
     "已停用所有安全性報告。"
   ],
@@ -1528,28 +1752,12 @@
     "輸入您的主密碼以繼續。"
   ],
   [
-    "Delete Account",
-    "刪除帳戶"
-  ],
-  [
-    "Are you sure you want to delete this account? All associated vaults and the data within them will be lost and any active subscriptions will be canceled immediately. This action can not be undone!",
-    "您是否確定要刪除此帳戶？所有相關的密碼庫與其中的資料將會消失，所有現有訂閱也將被取消。此動作無法被還原。"
-  ],
-  [
-    "The following organizations are owned by you and will be deleted along with your account:",
-    "以下的組織由您擁有，因此也將隨您的帳號同時被刪除："
-  ],
-  [
-    "Account",
-    "帳戶"
+    "WARNING:",
+    ""
   ],
   [
     "Profile",
     "個人資料"
-  ],
-  [
-    "Email",
-    "Email"
   ],
   [
     "Display Name",
@@ -1562,10 +1770,6 @@
   [
     "Display",
     "顯示"
-  ],
-  [
-    "Theme",
-    "主題"
   ],
   [
     "Favicons",
@@ -1656,6 +1860,22 @@
     "停用生物識別解鎖"
   ],
   [
+    "Hardware Key",
+    ""
+  ],
+  [
+    "YubiKey, Google Titan etc.",
+    ""
+  ],
+  [
+    "TOTP",
+    ""
+  ],
+  [
+    "Google Authenticator, Authy etc.",
+    ""
+  ],
+  [
     "What kind of multi-factor authenticator would you like to add?",
     "您要新增什麼類型的多重要素驗證？"
   ],
@@ -1712,6 +1932,10 @@
     "您是否要從裝置 \"{0}\" 撤回生物識別解鎖？"
   ],
   [
+    "Unknown Device",
+    "未知裝置"
+  ],
+  [
     "Revoke Biometric Unlock",
     "撤回生物識別解鎖"
   ],
@@ -1726,6 +1950,10 @@
   [
     "revoked",
     "已撤回"
+  ],
+  [
+    "Last Used: {0}",
+    ""
   ],
   [
     "never",
@@ -1760,12 +1988,16 @@
     "未知國家"
   ],
   [
-    "Unknown Device",
-    "未知裝置"
-  ],
-  [
     "Current Session",
     "當前的連線階段"
+  ],
+  [
+    "Last Active: {0}",
+    ""
+  ],
+  [
+    "Last Known Location: {0}",
+    ""
   ],
   [
     "Trusted Devices",
@@ -1780,16 +2012,36 @@
     "當前的裝置"
   ],
   [
+    "Last Login: {0}",
+    ""
+  ],
+  [
     "You don't have any trusted devices yet.",
     "您目前沒有任何信任的裝置。"
+  ],
+  [
+    "Supported on this device.",
+    ""
   ],
   [
     "Supported",
     "支援"
   ],
   [
+    "Not supported on this device.",
+    ""
+  ],
+  [
     "Not Supported",
     "不支援"
+  ],
+  [
+    "Enable",
+    ""
+  ],
+  [
+    "Enabled",
+    ""
   ],
   [
     "Weak Passwords",
@@ -1900,6 +2152,10 @@
     "匯出..."
   ],
   [
+    "Add Tag...",
+    ""
+  ],
+  [
     "Type tag name...",
     "輸入標籤名稱..."
   ],
@@ -1912,12 +2168,36 @@
     "無效的代碼"
   ],
   [
+    "Before you can accept, you'll need to unlock the app.",
+    ""
+  ],
+  [
+    ", but you're logged in as",
+    ""
+  ],
+  [
+    "Before you can accept the invite, you'll have to",
+    ""
+  ],
+  [
+    "log out",
+    ""
+  ],
+  [
+    "of the current account first.",
+    ""
+  ],
+  [
     "Welcome back! Please enter your master password to unlock the app.",
     "歡迎回來！請輸入您的主密碼以解鎖應用程式。"
   ],
   [
     "Logged In As",
     "登入為"
+  ],
+  [
+    "Forgot Password",
+    ""
   ],
   [
     "Unlock",
@@ -2016,6 +2296,10 @@
     "沒有已選擇的密碼庫。"
   ],
   [
+    "Enter Vault Name",
+    ""
+  ],
+  [
     "No Groups have been given access to this vault yet.",
     "尚未授予任何團隊此密碼庫的存取權。"
   ],
@@ -2072,6 +2356,58 @@
     "已經到達所設定期限而未有任何更新的項目，將被判定為已到期的項目。這些項目應該要儘快被輪換。"
   ],
   [
+    "Please enter the six digit verification code sent to {0}!",
+    ""
+  ],
+  [
+    "Sent:",
+    ""
+  ],
+  [
+    "Subject:",
+    ""
+  ],
+  [
+    "Email Authentication",
+    ""
+  ],
+  [
+    "Enter Verification Code",
+    ""
+  ],
+  [
+    "Please enter the 6-digit verification code!",
+    ""
+  ],
+  [
+    "Redirecting you to",
+    ""
+  ],
+  [
+    "Failed to open authentication window!",
+    ""
+  ],
+  [
+    "The authentication process was canceled.",
+    ""
+  ],
+  [
+    "Please scan the following qr-code in your authenticator app, then enter the displayed code to confirm!",
+    ""
+  ],
+  [
+    "Secret:",
+    ""
+  ],
+  [
+    "Please enter the code displayed in your authenticator app to proceed!",
+    ""
+  ],
+  [
+    "TOTP Authentication",
+    ""
+  ],
+  [
     "Card Number",
     "卡號"
   ],
@@ -2088,12 +2424,32 @@
     "安全碼"
   ],
   [
+    "Encrypted Container",
+    ""
+  ],
+  [
+    "Failed to parse .csv file.",
+    ""
+  ],
+  [
+    "No rows found in .csv file.",
+    ""
+  ],
+  [
     "Notes",
     "筆記"
   ],
   [
     "One-Time Password",
     "一次性密碼"
+  ],
+  [
+    "Failed to parse .1pux file.",
+    ""
+  ],
+  [
+    "Failed to parse Bitwarden .json file.",
+    ""
   ],
   [
     "Other Username",
@@ -2224,132 +2580,12 @@
     "有更新可用"
   ],
   [
-    "Created",
-    "已創建"
+    "Account is not a member.",
+    ""
   ],
   [
-    "Orgs",
-    "組織"
-  ],
-  [
-    "owner",
-    "擁有者"
-  ],
-  [
-    "Raw Data",
-    "原始資料"
-  ],
-  [
-    "Done",
-    "完成"
-  ],
-  [
-    "Accounts",
-    "帳戶"
-  ],
-  [
-    "Logs",
-    "記錄"
-  ],
-  [
-    "lines",
-    "行"
-  ],
-  [
-    "Time",
-    "時間"
-  ],
-  [
-    "Class",
-    "類型"
-  ],
-  [
-    "User",
-    "使用者"
-  ],
-  [
-    "Device",
-    "裝置"
-  ],
-  [
-    "App Version",
-    "應用程式版本"
-  ],
-  [
-    "Location",
-    "位置"
-  ],
-  [
-    "Unknown Location",
-    "未知的位置"
-  ],
-  [
-    "Changes",
-    "改變"
-  ],
-  [
-    "Object",
-    "物件"
-  ],
-  [
-    "Audit Logs",
-    "審核記錄"
-  ],
-  [
-    "API Requests",
-    "API 請求"
-  ],
-  [
-    "Display events between",
-    "顯示其中的事件"
-  ],
-  [
-    "and",
-    "和"
-  ],
-  [
-    "Apply",
-    "應用"
-  ],
-  [
-    "Filter By Email Address...",
-    "以 Email 地址篩選..."
-  ],
-  [
-    "Action",
-    "動作"
-  ],
-  [
-    "Endpoint",
-    "終點"
-  ],
-  [
-    "Response Time",
-    "回應時間"
-  ],
-  [
-    "Delete Org",
-    "刪除組織"
-  ],
-  [
-    "Org",
-    "組織"
-  ],
-  [
-    "admin",
-    "管理員"
-  ],
-  [
-    "Request",
-    "請求"
-  ],
-  [
-    "Method",
-    "方法"
-  ],
-  [
-    "Params",
-    "參數"
+    "Failed to verify public key of {0}!",
+    ""
   ],
   [
     "You have been granted access to this vault, but before you can see its contents somebody else with access to it has to log into their account first. Once you have full access, this warning will disappear automatically.",
@@ -2368,8 +2604,48 @@
     "對此密碼庫的本機變更無法被同步，因為您沒有此密碼庫的寫入權限。"
   ],
   [
+    "'minMemberUpdated' property may not decrease!",
+    ""
+  ],
+  [
     "This group name is not available!",
     "此團隊名稱不可用！"
+  ],
+  [
+    "Failed to verify invitee information!",
+    ""
+  ],
+  [
+    "Failed to send email to {0}",
+    ""
+  ],
+  [
+    "Failed to activate authenticator. Incorrect activation code!",
+    ""
+  ],
+  [
+    "Incorrect verification code.",
+    ""
+  ],
+  [
+    "Failed to activate authenticator. Invalid signature!",
+    ""
+  ],
+  [
+    "Invalid signature.",
+    ""
+  ],
+  [
+    "Incorrect verification code!",
+    ""
+  ],
+  [
+    "Authentication request denied. Please wait for the next time window!",
+    ""
+  ],
+  [
+    "Updating user emails is not supported at this time",
+    ""
   ],
   [
     "Open",
@@ -2472,7 +2748,211 @@
     "自訂"
   ],
   [
+    "No signed public key provided!",
+    ""
+  ],
+  [
+    "Failed to verify request signature!",
+    ""
+  ],
+  [
+    "The request was rejected because it's timestamp is too far in the past. Please make sure your local clock is set to the correct time and try again!",
+    ""
+  ],
+  [
+    "Failed to complete authenticator registration.",
+    ""
+  ],
+  [
+    "An authenticator with this ID does not exist!",
+    ""
+  ],
+  [
+    "No appropriate authenticator found!",
+    ""
+  ],
+  [
+    "Failed to complete auth request.",
+    ""
+  ],
+  [
+    "You have exceed your allowed numer of tries!",
+    ""
+  ],
+  [
+    "Failed to start auth request.",
+    ""
+  ],
+  [
+    "The auth request type and authenticator type do not match!",
+    ""
+  ],
+  [
+    "No trusted device with this ID was found!",
+    ""
+  ],
+  [
+    "This feature is only available for service administrators.",
+    ""
+  ],
+  [
+    "An account with this email does not exist!",
+    ""
+  ],
+  [
     "unknown location",
     "未知的位置"
+  ],
+  [
+    "No srp session with the given id found!",
+    ""
+  ],
+  [
+    "This account already exists!",
+    ""
+  ],
+  [
+    "You are not allowed to change your email address.",
+    ""
+  ],
+  [
+    "There already exists an account with this email address!",
+    ""
+  ],
+  [
+    "There is no account with this email address!",
+    ""
+  ],
+  [
+    "Please provide an organization name!",
+    ""
+  ],
+  [
+    "You're not allowed to create an organization right now.",
+    ""
+  ],
+  [
+    "Could not find provisioning for this organization!",
+    ""
+  ],
+  [
+    "Only admins can make changes to organizations!",
+    ""
+  ],
+  [
+    "`minMemberUpdated` property needs to be equal to or larger than the previous one!",
+    ""
+  ],
+  [
+    "Only organization owners can add or remove members, change roles or create invites!",
+    ""
+  ],
+  [
+    "You have reached the maximum number of members for this organization!",
+    ""
+  ],
+  [
+    "You have reached the maximum number of groups for this organization!",
+    ""
+  ],
+  [
+    "This vault cannot be synchronized because you're suspended from it's organization.",
+    ""
+  ],
+  [
+    "No provisioning found for this vault!",
+    ""
+  ],
+  [
+    "You can not make any updates to a vault while it's organization is in \"frozen\" state!",
+    ""
+  ],
+  [
+    "You can't make any updates to your vault while your account is in \"frozen\" state!",
+    ""
+  ],
+  [
+    "Shared vaults have to be attached to an organization.",
+    ""
+  ],
+  [
+    "You have reached the maximum number of vaults for this organization!",
+    ""
+  ],
+  [
+    "Only the invite recipient can accept the invite.",
+    ""
+  ],
+  [
+    "You have reached the file storage limit for this org!",
+    ""
+  ],
+  [
+    "You have reached the file storage limit for this account!",
+    ""
+  ],
+  [
+    "This Padloc instance does not support this feature!",
+    ""
+  ],
+  [
+    "No legacy account found.",
+    ""
+  ],
+  [
+    "No suitable authenticator found!",
+    ""
+  ],
+  [
+    "You don't have the necessary permissions to perform this action!",
+    ""
+  ],
+  [
+    "You don't have the necessary permissions to use this feature!",
+    ""
+  ],
+  [
+    "Your current session is not valid in this context!",
+    ""
+  ],
+  [
+    "This multi factor authentication type is not supported by this server!",
+    ""
+  ],
+  [
+    "Failed to verify auth token",
+    ""
+  ],
+  [
+    "There was something wrong with this request. Please try again!",
+    ""
+  ],
+  [
+    "Email returned from authenticator does not match.",
+    ""
+  ],
+  [
+    "Failed to retrieve auth token.",
+    ""
+  ],
+  [
+    "This authentication type can only be initialized for active accounts.",
+    ""
+  ],
+  [
+    "Failed to activate authenticator. No registration options provided.",
+    ""
+  ],
+  [
+    "Failed to activate authenticator. Failed to verify Registration options.",
+    ""
+  ],
+  [
+    "Authenticator not fully registered.",
+    ""
+  ],
+  [
+    "Failed to complete authentication request.",
+    ""
   ]
 ]
