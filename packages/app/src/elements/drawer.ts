@@ -14,17 +14,25 @@ export class Drawer extends LitElement {
 
     private _mutationObserver = new MutationObserver(() => this.updateInnerSize());
     private _intersectionObserver = new IntersectionObserver(() => this.updateInnerSize());
+    private _resizeObserver?: ResizeObserver;
 
     connectedCallback() {
         super.connectedCallback();
         this._mutationObserver.observe(this, { childList: true, subtree: true });
         this._intersectionObserver.observe(this);
+        this._observeInnerSize();
     }
 
     disconnectedCallback() {
         super.disconnectedCallback();
         this._mutationObserver.disconnect();
         this._intersectionObserver.disconnect();
+        this._resizeObserver?.disconnect();
+    }
+
+    firstUpdated() {
+        this._observeInnerSize();
+        this.updateInnerSize();
     }
 
     updated() {
@@ -32,7 +40,19 @@ export class Drawer extends LitElement {
     }
 
     updateInnerSize() {
-        setTimeout(() => (this._innerSize = (this._inner && this._inner.offsetHeight) || 0), 100);
+        const next = (this._inner && this._inner.offsetHeight) || 0;
+        if (next !== this._innerSize) {
+            this._innerSize = next;
+        }
+    }
+
+    private _observeInnerSize() {
+        if (!this._resizeObserver) {
+            this._resizeObserver = new ResizeObserver(() => this.updateInnerSize());
+        }
+        if (this._inner) {
+            this._resizeObserver.observe(this._inner);
+        }
     }
 
     static styles = [
