@@ -212,7 +212,7 @@ export class Recover extends StartForm {
             router.go("");
         } catch (e) {
             this._submitButton.fail();
-            await alert(e.message, { type: "warning", title: $l("Authentication Failed") });
+            await alert($l(e.message), { type: "warning", title: $l("Authentication Failed") });
             throw e;
         }
     }

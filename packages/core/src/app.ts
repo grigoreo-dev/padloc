@@ -1825,7 +1825,7 @@ export class App {
         // Verify that the updated organization object has a `minMemberUpdated`
         // property equal to or higher than the previous (local) one.
         if (existing && org.minMemberUpdated < existing.minMemberUpdated) {
-            throw new Err(ErrorCode.VERIFICATION_ERROR, "'minMemberUpdated' property may not decrease!");
+            throw new Err(ErrorCode.VERIFICATION_ERROR, $l("'minMemberUpdated' property may not decrease!"));
         }
 
         const account = this.account;
@@ -2101,7 +2101,7 @@ export class App {
 
         // Verify invitee information
         if (!(await invite.verifyInvitee())) {
-            throw new Err(ErrorCode.VERIFICATION_ERROR, "Failed to verify invitee information!");
+            throw new Err(ErrorCode.VERIFICATION_ERROR, $l("Failed to verify invitee information!"));
         }
 
         // Add member and update organization

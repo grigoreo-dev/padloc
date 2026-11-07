@@ -116,19 +116,20 @@ export class Unlock extends StartForm {
                               class="double-padded small box background animated"
                               style="max-width: 25em; margin-bottom: 1.5em"
                           >
-                              Hi there! <strong>${invite.invitor}</strong>
+                              ${$l("Hi there!")} <strong>${invite.invitor}</strong>
                               <span>${$l("has invited you to join their organization")}</span>
                               <strong class="highlighted">${invite.orgName}</strong>.
                               ${
                                   invite.email === email
-                                      ? html` Before you can accept, you'll need to <strong>unlock the app</strong>. `
+                                      ? $l("Before you can accept, you'll need to unlock the app.")
                                       : html`
                                         <div class="negative highlight top-margined">
-                                            <strong>Warning:</strong> This invite is meant for
-                                            <strong>${invite.email}</strong>, but you're logged in as
-                                            <strong>${email}</strong>. Before you can accept the invite, you'll have to
-                                            <a href="#" class="bold" @click=${this._logout}>log out</a> of the current
-                                            account first.
+                                            ${$l("Warning: This invite is meant for")}
+                                            <strong>${invite.email}</strong>${$l(", but you're logged in as")}
+                                            <strong>${email}</strong>.
+                                            ${$l("Before you can accept the invite, you'll have to")}
+                                            <a href="#" class="bold" @click=${this._logout}>${$l("log out")}</a>
+                                            ${$l("of the current account first.")}
                                         </div>
                                     `
 }
@@ -154,7 +155,7 @@ export class Unlock extends StartForm {
                                     @click=${this._logout}
                                 >
                                     <pl-icon icon="logout"></pl-icon>
-                                    <div class="ellipsis">Log Out</div>
+                                    <div class="ellipsis">${$l("Log Out")}</div>
                                 </div>
 
                                 <div
@@ -162,7 +163,7 @@ export class Unlock extends StartForm {
                                     @click=${() => router.go("recover", { email: app.account!.email })}
                                 >
                                     <pl-icon icon="question"></pl-icon>
-                                    <div class="ellipsis">Forgot Password</div>
+                                    <div class="ellipsis">${$l("Forgot Password")}</div>
                                 </div>
                             </pl-list>
                         </pl-popover>

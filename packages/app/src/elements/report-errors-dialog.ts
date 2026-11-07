@@ -60,8 +60,8 @@ ${JSON.stringify(app.state.device.toRaw(), null, 4)}
                     )}
                 </div>
                 <div class="actions">
-                    <button class="primary tap" @click=${this._reportErrors}>Report</button>
-                    <button class="tap" @click=${this._dismissErrors}>Dismiss</button>
+                    <button class="primary tap" @click=${this._reportErrors}>${$l("Report")}</button>
+                    <button class="tap" @click=${this._dismissErrors}>${$l("Dismiss")}</button>
                 </div>
             </div>
         `;

@@ -1,5 +1,193 @@
 [
   [
+    "Are you sure you want to delete this account? All associated vaults and the data within them will be lost and any active subscriptions will be canceled immediately. This action can not be undone!",
+    "Czy na pewno chcesz usunąć to konto? Wszystkie powiązane sejfy i znajdujące się w nich dane zostaną utracone, a wszelkie aktywne subskrypcje zostaną natychmiast anulowane. Tej akcji nie można cofnąć!"
+  ],
+  [
+    "The following organizations are owned by you and will be deleted along with your account:",
+    "Poniższe organizacje są własnością użytkownika i zostaną usunięte wraz z jego kontem:"
+  ],
+  [
+    "Delete",
+    "Usuń"
+  ],
+  [
+    "Cancel",
+    "Anuluj"
+  ],
+  [
+    "Delete Account",
+    "Usuń konto"
+  ],
+  [
+    "Account",
+    "Konto"
+  ],
+  [
+    "Created",
+    "Utworzone"
+  ],
+  [
+    "Email",
+    "E-mail"
+  ],
+  [
+    "Name",
+    "Nazwa"
+  ],
+  [
+    "Orgs",
+    "Organizacje"
+  ],
+  [
+    "owner",
+    "właściciel"
+  ],
+  [
+    "Raw Data",
+    "Dane nieprzetworzone"
+  ],
+  [
+    "Done",
+    "Gotowe"
+  ],
+  [
+    "Accounts",
+    "Konta"
+  ],
+  [
+    "Search...",
+    "Szukaj..."
+  ],
+  [
+    "Admin Portal",
+    "Portal administratora"
+  ],
+  [
+    "Logs",
+    "Rejestry"
+  ],
+  [
+    "Lock App",
+    "Zablokuj aplikację"
+  ],
+  [
+    "Theme:",
+    "Motyw"
+  ],
+  [
+    "lines",
+    "linie"
+  ],
+  [
+    "Time",
+    "Czas"
+  ],
+  [
+    "Class",
+    "Kategoria"
+  ],
+  [
+    "User",
+    "Użytkownik"
+  ],
+  [
+    "Device",
+    "Urządzenie"
+  ],
+  [
+    "App Version",
+    "Wersja aplikacji"
+  ],
+  [
+    "Location",
+    "Lokalizacja"
+  ],
+  [
+    "Unknown Location",
+    "Nieznana lokalizacja"
+  ],
+  [
+    "Changes",
+    "Zmiany"
+  ],
+  [
+    "Object",
+    "Przedmiot"
+  ],
+  [
+    "Audit Logs",
+    "Audyt rejestrów"
+  ],
+  [
+    "API Requests",
+    "Prośby o API"
+  ],
+  [
+    "Display events between",
+    "Wyświetlanie zdarzeń pomiędzy"
+  ],
+  [
+    "and",
+    "i"
+  ],
+  [
+    "Apply",
+    "Zastosuj"
+  ],
+  [
+    "Filter By Email Address...",
+    "Filtruj według adresu e-mail..."
+  ],
+  [
+    "Action",
+    "Działanie"
+  ],
+  [
+    "Endpoint",
+    "Punkt końcowy"
+  ],
+  [
+    "Response Time",
+    "Czas odpowiedzi"
+  ],
+  [
+    "Are you sure you want to delete this organization? All associated vaults and the data within them will be lost! This action can not be undone.",
+    "Czy na pewno chcesz usunąć tę organizację? Wszystkie powiązane sejfy i znajdujące się w nich dane zostaną utracone! Tej czynności nie można cofnąć."
+  ],
+  [
+    "Delete Org",
+    "Usuń organizacje"
+  ],
+  [
+    "Org",
+    "Organizacja"
+  ],
+  [
+    "Members",
+    "Członkowie"
+  ],
+  [
+    "admin",
+    "administrator"
+  ],
+  [
+    "Owner",
+    "Właściciel"
+  ],
+  [
+    "Request",
+    "Prośby"
+  ],
+  [
+    "Method",
+    "Sposób"
+  ],
+  [
+    "Params",
+    "Parametry"
+  ],
+  [
     "OK",
     "OK"
   ],
@@ -32,10 +220,6 @@
     "Konfiguracja"
   ],
   [
-    "Cancel",
-    "Anuluj"
-  ],
-  [
     "Biometric Unlock",
     "Odblokowanie biometryczne"
   ],
@@ -66,10 +250,6 @@
   [
     "Are you sure you want to delete this attachment?",
     "Czy na pewno chcesz usunąć ten załącznik?"
-  ],
-  [
-    "Delete",
-    "Usuń"
   ],
   [
     "Delete Attachment",
@@ -412,12 +592,12 @@
     "Nie wybrano grupy."
   ],
   [
-    "Duplicate",
-    "Sporządź kopię"
+    "Enter Group Name",
+    ""
   ],
   [
-    "Members",
-    "Członkowie"
+    "Duplicate",
+    "Sporządź kopię"
   ],
   [
     "No more Members available",
@@ -460,8 +640,8 @@
     "przez {0}"
   ],
   [
-    "Name",
-    "Nazwa"
+    "You",
+    ""
   ],
   [
     "<Unnamed>",
@@ -668,6 +848,10 @@
     "Pole"
   ],
   [
+    "Attachment",
+    ""
+  ],
+  [
     "More Options",
     "Więcej opcji"
   ],
@@ -758,6 +942,10 @@
   [
     "File uploaded successfully!",
     "Plik wgrany pomyślnie"
+  ],
+  [
+    "Invalid Code! Please try again!",
+    ""
   ],
   [
     "New Item",
@@ -980,12 +1168,32 @@
     "Niestety nie udało nam się zakończyć migracji Twoich danych."
   ],
   [
-    "Admin Portal",
-    "Portal administratora"
+    "Hi there!",
+    ""
   ],
   [
     "has invited you to join their organization",
     "zaprosił cię do przyłączenia się do ich organizacji"
+  ],
+  [
+    "Before you can accept, we'll need to create an account for you. This will only take a few moments.",
+    ""
+  ],
+  [
+    "Before you can accept, you'll need to login.",
+    ""
+  ],
+  [
+    "Warning: This invite is meant for",
+    ""
+  ],
+  [
+    ", but you've entered",
+    ""
+  ],
+  [
+    "Switch to {0}",
+    ""
   ],
   [
     "Welcome! Please enter your email address to continue.",
@@ -994,6 +1202,14 @@
   [
     "Your Name (Optional)",
     "Twoja nazwa (opcjonalnie)"
+  ],
+  [
+    "I have read and agree to the",
+    ""
+  ],
+  [
+    "Terms of Service",
+    ""
   ],
   [
     "Create Account",
@@ -1058,10 +1274,6 @@
   [
     "Get Started",
     "Rozpocznij"
-  ],
-  [
-    "Owner",
-    "Właściciel"
   ],
   [
     "Admin",
@@ -1220,12 +1432,16 @@
     "Wsparcie"
   ],
   [
-    "Lock App",
-    "Zablokuj aplikację"
+    "Lock",
+    ""
   ],
   [
-    "Theme:",
+    "Theme",
     "Motyw"
+  ],
+  [
+    "Sync",
+    ""
   ],
   [
     "Last Sync:",
@@ -1264,8 +1480,20 @@
     "Pomyślnie stworzono zaproszenia: {0}"
   ],
   [
+    "New Member",
+    ""
+  ],
+  [
+    "New Group",
+    ""
+  ],
+  [
     "This org is frozen",
     "Ta organizacja jest zamrożona"
+  ],
+  [
+    "Review Billing",
+    ""
   ],
   [
     "Show All",
@@ -1286,14 +1514,6 @@
   [
     "Create Vault",
     "Utwórz sejf"
-  ],
-  [
-    "Search...",
-    "Szukaj..."
-  ],
-  [
-    "Are you sure you want to delete this organization? All associated vaults and the data within them will be lost! This action can not be undone.",
-    "Czy na pewno chcesz usunąć tę organizację? Wszystkie powiązane sejfy i znajdujące się w nich dane zostaną utracone! Tej czynności nie można cofnąć."
   ],
   [
     "Delete Organization",
@@ -1452,6 +1672,10 @@
     "Podczas korzystania z aplikacji Padloc zarejestrował błędy w liczbie: {0}. Błędy te mogą nie mieć żadnego wpływu na funkcjonalność i często można je zignorować, ale ich zgłoszenie może pomóc nam zdiagnozować problemy, określić możliwe tryby awarii i ogólnie poprawić stabilność aplikacji."
   ],
   [
+    "Report",
+    ""
+  ],
+  [
     "All Security Reports have been disabled.",
     "Wszystkie raporty bezpieczeństwa zostały wyłączone."
   ],
@@ -1528,28 +1752,12 @@
     "Proszę wpisać hasło główne, aby kontynuować."
   ],
   [
-    "Delete Account",
-    "Usuń konto"
-  ],
-  [
-    "Are you sure you want to delete this account? All associated vaults and the data within them will be lost and any active subscriptions will be canceled immediately. This action can not be undone!",
-    "Czy na pewno chcesz usunąć to konto? Wszystkie powiązane sejfy i znajdujące się w nich dane zostaną utracone, a wszelkie aktywne subskrypcje zostaną natychmiast anulowane. Tej akcji nie można cofnąć!"
-  ],
-  [
-    "The following organizations are owned by you and will be deleted along with your account:",
-    "Poniższe organizacje są własnością użytkownika i zostaną usunięte wraz z jego kontem:"
-  ],
-  [
-    "Account",
-    "Konto"
+    "WARNING:",
+    ""
   ],
   [
     "Profile",
     "Profil"
-  ],
-  [
-    "Email",
-    "E-mail"
   ],
   [
     "Display Name",
@@ -1562,10 +1770,6 @@
   [
     "Display",
     "Wyświetl"
-  ],
-  [
-    "Theme",
-    "Motyw"
   ],
   [
     "Favicons",
@@ -1656,6 +1860,22 @@
     "Wyłącz odblokowanie biometryczne"
   ],
   [
+    "Hardware Key",
+    ""
+  ],
+  [
+    "YubiKey, Google Titan etc.",
+    ""
+  ],
+  [
+    "TOTP",
+    ""
+  ],
+  [
+    "Google Authenticator, Authy etc.",
+    ""
+  ],
+  [
     "What kind of multi-factor authenticator would you like to add?",
     "Jaki rodzaj autentykatora wieloskładnikowego chcesz dodać?"
   ],
@@ -1712,6 +1932,10 @@
     "Czy na pewno chcesz unieważnić odblokowanie biometryczne dla urządzenia \"{0}\"?"
   ],
   [
+    "Unknown Device",
+    "Nieznane urządzenie"
+  ],
+  [
     "Revoke Biometric Unlock",
     "Unieważnij odblokowanie biometryczne"
   ],
@@ -1726,6 +1950,10 @@
   [
     "revoked",
     "unieważniona"
+  ],
+  [
+    "Last Used: {0}",
+    ""
   ],
   [
     "never",
@@ -1760,12 +1988,16 @@
     "Nieznane państwo"
   ],
   [
-    "Unknown Device",
-    "Nieznane urządzenie"
-  ],
-  [
     "Current Session",
     "Bieżąca sesja"
+  ],
+  [
+    "Last Active: {0}",
+    ""
+  ],
+  [
+    "Last Known Location: {0}",
+    ""
   ],
   [
     "Trusted Devices",
@@ -1780,16 +2012,36 @@
     "Bieżące urządzenie"
   ],
   [
+    "Last Login: {0}",
+    ""
+  ],
+  [
     "You don't have any trusted devices yet.",
     "Nie masz jeszcze żadnych zaufanych urządzeń."
+  ],
+  [
+    "Supported on this device.",
+    ""
   ],
   [
     "Supported",
     "Wspierane"
   ],
   [
+    "Not supported on this device.",
+    ""
+  ],
+  [
     "Not Supported",
     "Niewspierane"
+  ],
+  [
+    "Enable",
+    ""
+  ],
+  [
+    "Enabled",
+    ""
   ],
   [
     "Weak Passwords",
@@ -1900,6 +2152,10 @@
     "Eskportuj..."
   ],
   [
+    "Add Tag...",
+    ""
+  ],
+  [
     "Type tag name...",
     "Wpisz nazwę znacznika..."
   ],
@@ -1912,12 +2168,36 @@
     "Niepoprawny kod"
   ],
   [
+    "Before you can accept, you'll need to unlock the app.",
+    ""
+  ],
+  [
+    ", but you're logged in as",
+    ""
+  ],
+  [
+    "Before you can accept the invite, you'll have to",
+    ""
+  ],
+  [
+    "log out",
+    ""
+  ],
+  [
+    "of the current account first.",
+    ""
+  ],
+  [
     "Welcome back! Please enter your master password to unlock the app.",
     "Witamy ponownie! Wpisz swoje hasło główne, aby odblokować aplikację."
   ],
   [
     "Logged In As",
     "Zalogowany jako"
+  ],
+  [
+    "Forgot Password",
+    ""
   ],
   [
     "Unlock",
@@ -2016,6 +2296,10 @@
     "Nie wybrano żadnego sejfu."
   ],
   [
+    "Enter Vault Name",
+    ""
+  ],
+  [
     "No Groups have been given access to this vault yet.",
     "Żadne grupy nie otrzymały jeszcze dostępu do tego sejfu."
   ],
@@ -2072,6 +2356,58 @@
     "Wygasłe elementy to takie, które zostały zidentyfikowane jako te, które przekroczyły ustaloną datę ważności i nie były zaktualizowane w ciągu określonej liczby dni. Takie elementy powinny być jak najszybciej poddane odnowieniu."
   ],
   [
+    "Please enter the six digit verification code sent to {0}!",
+    ""
+  ],
+  [
+    "Sent:",
+    ""
+  ],
+  [
+    "Subject:",
+    ""
+  ],
+  [
+    "Email Authentication",
+    ""
+  ],
+  [
+    "Enter Verification Code",
+    ""
+  ],
+  [
+    "Please enter the 6-digit verification code!",
+    ""
+  ],
+  [
+    "Redirecting you to",
+    ""
+  ],
+  [
+    "Failed to open authentication window!",
+    ""
+  ],
+  [
+    "The authentication process was canceled.",
+    ""
+  ],
+  [
+    "Please scan the following qr-code in your authenticator app, then enter the displayed code to confirm!",
+    ""
+  ],
+  [
+    "Secret:",
+    ""
+  ],
+  [
+    "Please enter the code displayed in your authenticator app to proceed!",
+    ""
+  ],
+  [
+    "TOTP Authentication",
+    ""
+  ],
+  [
     "Card Number",
     "Numer karty"
   ],
@@ -2088,12 +2424,32 @@
     "CVC"
   ],
   [
+    "Encrypted Container",
+    ""
+  ],
+  [
+    "Failed to parse .csv file.",
+    ""
+  ],
+  [
+    "No rows found in .csv file.",
+    ""
+  ],
+  [
     "Notes",
     "Notatki"
   ],
   [
     "One-Time Password",
     "Hasło jednorazowe"
+  ],
+  [
+    "Failed to parse .1pux file.",
+    ""
+  ],
+  [
+    "Failed to parse Bitwarden .json file.",
+    ""
   ],
   [
     "Other Username",
@@ -2224,132 +2580,12 @@
     "Dostępna aktualizacja"
   ],
   [
-    "Created",
-    "Utworzone"
+    "Account is not a member.",
+    ""
   ],
   [
-    "Orgs",
-    "Organizacje"
-  ],
-  [
-    "owner",
-    "właściciel"
-  ],
-  [
-    "Raw Data",
-    "Dane nieprzetworzone"
-  ],
-  [
-    "Done",
-    "Gotowe"
-  ],
-  [
-    "Accounts",
-    "Konta"
-  ],
-  [
-    "Logs",
-    "Rejestry"
-  ],
-  [
-    "lines",
-    "linie"
-  ],
-  [
-    "Time",
-    "Czas"
-  ],
-  [
-    "Class",
-    "Kategoria"
-  ],
-  [
-    "User",
-    "Użytkownik"
-  ],
-  [
-    "Device",
-    "Urządzenie"
-  ],
-  [
-    "App Version",
-    "Wersja aplikacji"
-  ],
-  [
-    "Location",
-    "Lokalizacja"
-  ],
-  [
-    "Unknown Location",
-    "Nieznana lokalizacja"
-  ],
-  [
-    "Changes",
-    "Zmiany"
-  ],
-  [
-    "Object",
-    "Przedmiot"
-  ],
-  [
-    "Audit Logs",
-    "Audyt rejestrów"
-  ],
-  [
-    "API Requests",
-    "Prośby o API"
-  ],
-  [
-    "Display events between",
-    "Wyświetlanie zdarzeń pomiędzy"
-  ],
-  [
-    "and",
-    "i"
-  ],
-  [
-    "Apply",
-    "Zastosuj"
-  ],
-  [
-    "Filter By Email Address...",
-    "Filtruj według adresu e-mail..."
-  ],
-  [
-    "Action",
-    "Działanie"
-  ],
-  [
-    "Endpoint",
-    "Punkt końcowy"
-  ],
-  [
-    "Response Time",
-    "Czas odpowiedzi"
-  ],
-  [
-    "Delete Org",
-    "Usuń organizacje"
-  ],
-  [
-    "Org",
-    "Organizacja"
-  ],
-  [
-    "admin",
-    "administrator"
-  ],
-  [
-    "Request",
-    "Prośby"
-  ],
-  [
-    "Method",
-    "Sposób"
-  ],
-  [
-    "Params",
-    "Parametry"
+    "Failed to verify public key of {0}!",
+    ""
   ],
   [
     "You have been granted access to this vault, but before you can see its contents somebody else with access to it has to log into their account first. Once you have full access, this warning will disappear automatically.",
@@ -2368,8 +2604,48 @@
     "Synchronizacja zmian lokalnych nie powiodła się, ponieważ nie masz uprawnień do zapisu dla tego sejfu."
   ],
   [
+    "'minMemberUpdated' property may not decrease!",
+    ""
+  ],
+  [
     "This group name is not available!",
     "Ta nazwa grupy nie jest dostępna!"
+  ],
+  [
+    "Failed to verify invitee information!",
+    ""
+  ],
+  [
+    "Failed to send email to {0}",
+    ""
+  ],
+  [
+    "Failed to activate authenticator. Incorrect activation code!",
+    ""
+  ],
+  [
+    "Incorrect verification code.",
+    ""
+  ],
+  [
+    "Failed to activate authenticator. Invalid signature!",
+    ""
+  ],
+  [
+    "Invalid signature.",
+    ""
+  ],
+  [
+    "Incorrect verification code!",
+    ""
+  ],
+  [
+    "Authentication request denied. Please wait for the next time window!",
+    ""
+  ],
+  [
+    "Updating user emails is not supported at this time",
+    ""
   ],
   [
     "Open",
@@ -2472,7 +2748,211 @@
     "Własne"
   ],
   [
+    "No signed public key provided!",
+    ""
+  ],
+  [
+    "Failed to verify request signature!",
+    ""
+  ],
+  [
+    "The request was rejected because it's timestamp is too far in the past. Please make sure your local clock is set to the correct time and try again!",
+    ""
+  ],
+  [
+    "Failed to complete authenticator registration.",
+    ""
+  ],
+  [
+    "An authenticator with this ID does not exist!",
+    ""
+  ],
+  [
+    "No appropriate authenticator found!",
+    ""
+  ],
+  [
+    "Failed to complete auth request.",
+    ""
+  ],
+  [
+    "You have exceed your allowed numer of tries!",
+    ""
+  ],
+  [
+    "Failed to start auth request.",
+    ""
+  ],
+  [
+    "The auth request type and authenticator type do not match!",
+    ""
+  ],
+  [
+    "No trusted device with this ID was found!",
+    ""
+  ],
+  [
+    "This feature is only available for service administrators.",
+    ""
+  ],
+  [
+    "An account with this email does not exist!",
+    ""
+  ],
+  [
     "unknown location",
     "nieznana lokalizacja"
+  ],
+  [
+    "No srp session with the given id found!",
+    ""
+  ],
+  [
+    "This account already exists!",
+    ""
+  ],
+  [
+    "You are not allowed to change your email address.",
+    ""
+  ],
+  [
+    "There already exists an account with this email address!",
+    ""
+  ],
+  [
+    "There is no account with this email address!",
+    ""
+  ],
+  [
+    "Please provide an organization name!",
+    ""
+  ],
+  [
+    "You're not allowed to create an organization right now.",
+    ""
+  ],
+  [
+    "Could not find provisioning for this organization!",
+    ""
+  ],
+  [
+    "Only admins can make changes to organizations!",
+    ""
+  ],
+  [
+    "`minMemberUpdated` property needs to be equal to or larger than the previous one!",
+    ""
+  ],
+  [
+    "Only organization owners can add or remove members, change roles or create invites!",
+    ""
+  ],
+  [
+    "You have reached the maximum number of members for this organization!",
+    ""
+  ],
+  [
+    "You have reached the maximum number of groups for this organization!",
+    ""
+  ],
+  [
+    "This vault cannot be synchronized because you're suspended from it's organization.",
+    ""
+  ],
+  [
+    "No provisioning found for this vault!",
+    ""
+  ],
+  [
+    "You can not make any updates to a vault while it's organization is in \"frozen\" state!",
+    ""
+  ],
+  [
+    "You can't make any updates to your vault while your account is in \"frozen\" state!",
+    ""
+  ],
+  [
+    "Shared vaults have to be attached to an organization.",
+    ""
+  ],
+  [
+    "You have reached the maximum number of vaults for this organization!",
+    ""
+  ],
+  [
+    "Only the invite recipient can accept the invite.",
+    ""
+  ],
+  [
+    "You have reached the file storage limit for this org!",
+    ""
+  ],
+  [
+    "You have reached the file storage limit for this account!",
+    ""
+  ],
+  [
+    "This Padloc instance does not support this feature!",
+    ""
+  ],
+  [
+    "No legacy account found.",
+    ""
+  ],
+  [
+    "No suitable authenticator found!",
+    ""
+  ],
+  [
+    "You don't have the necessary permissions to perform this action!",
+    ""
+  ],
+  [
+    "You don't have the necessary permissions to use this feature!",
+    ""
+  ],
+  [
+    "Your current session is not valid in this context!",
+    ""
+  ],
+  [
+    "This multi factor authentication type is not supported by this server!",
+    ""
+  ],
+  [
+    "Failed to verify auth token",
+    ""
+  ],
+  [
+    "There was something wrong with this request. Please try again!",
+    ""
+  ],
+  [
+    "Email returned from authenticator does not match.",
+    ""
+  ],
+  [
+    "Failed to retrieve auth token.",
+    ""
+  ],
+  [
+    "This authentication type can only be initialized for active accounts.",
+    ""
+  ],
+  [
+    "Failed to activate authenticator. No registration options provided.",
+    ""
+  ],
+  [
+    "Failed to activate authenticator. Failed to verify Registration options.",
+    ""
+  ],
+  [
+    "Authenticator not fully registered.",
+    ""
+  ],
+  [
+    "Failed to complete authentication request.",
+    ""
   ]
 ]

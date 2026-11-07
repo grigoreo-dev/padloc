@@ -82,8 +82,6 @@ function extract(files: ts.SourceFile[]) {
                         }
 
                         item.sources.push(source);
-
-                        return;
                     }
                 }
             }

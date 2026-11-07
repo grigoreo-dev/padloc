@@ -196,8 +196,8 @@ export class SettingsSecurity extends StateMixin(Routing(LitElement)) {
                 label: html`
                     <pl-icon icon="usb" class="large horizontally-half-margined"></pl-icon>
                     <div class="left-padded text-left-aligning stretch">
-                        <div>Hardware Key</div>
-                        <div class="small subtle">Yubikey, Google Titan etc.</div>
+                        <div>${$l("Hardware Key")}</div>
+                        <div class="small subtle">${$l("YubiKey, Google Titan etc.")}</div>
                     </div>
                 `,
             });
@@ -219,8 +219,8 @@ export class SettingsSecurity extends StateMixin(Routing(LitElement)) {
                 label: html`
                     <pl-icon icon="totp" class="large horizontally-half-margined"></pl-icon>
                     <div class="left-padded text-left-aligning stretch">
-                        <div>TOTP</div>
-                        <div class="small subtle">Google Authenticator, Authy etc.</div>
+                        <div>${$l("TOTP")}</div>
+                        <div class="small subtle">${$l("Google Authenticator, Authy etc.")}</div>
                     </div>
                 `,
             });
@@ -388,9 +388,10 @@ export class SettingsSecurity extends StateMixin(Routing(LitElement)) {
                                                   : html`
                                                   <div
                                                       class="tag"
-                                                      title="Last Used: ${
+                                                      title="${$l(
+                                                          "Last Used: {0}",
                                                           a.lastUsed ? formatDate(a.lastUsed) : $l("never")
-}"
+                                                      )}"
                                                   >
                                                       <pl-icon icon="time" class="inline"></pl-icon> ${
                                                           a.lastUsed
@@ -505,7 +506,7 @@ export class SettingsSecurity extends StateMixin(Routing(LitElement)) {
                                               </div>`
                                                 : ""
                                         }
-                                        <div class="tag" title="Last Active: ${formatDate(session.lastUsed)}">
+                                        <div class="tag" title="${$l("Last Active: {0}", formatDate(session.lastUsed))}">
                                             <pl-icon icon="time" class="inline"></pl-icon> ${
                                                 session.lastUsed
                                                     ? until(formatDateFromNow(session.lastUsed), "")
@@ -513,7 +514,7 @@ export class SettingsSecurity extends StateMixin(Routing(LitElement)) {
                                             }
                                         </div>
 
-                                        <div class="tag" title="Last Known Location: ${lastKnownLocation}">
+                                        <div class="tag" title="${$l("Last Known Location: {0}", lastKnownLocation)}">
                                             <pl-icon icon="location" class="inline"></pl-icon> ${lastKnownLocation}
                                         </div>
                                     </div>
@@ -590,7 +591,7 @@ export class SettingsSecurity extends StateMixin(Routing(LitElement)) {
                                                           ? html`
                                                             <div
                                                                 class="tag"
-                                                                title="Last Login: ${formatDate(latestSession.created)}"
+                                                                title="${$l("Last Login: {0}", formatDate(latestSession.created))}"
                                                             >
                                                                 <pl-icon icon="time" class="inline"></pl-icon>
                                                                 ${
@@ -605,7 +606,7 @@ export class SettingsSecurity extends StateMixin(Routing(LitElement)) {
 
                                                             <div
                                                                 class="tag"
-                                                                title="Last Known Location: ${lastKnownLocation}"
+                                                                title="${$l("Last Known Location: {0}", lastKnownLocation)}"
                                                             >
                                                                 <pl-icon icon="location" class="inline"></pl-icon>
                                                                 ${lastKnownLocation}
@@ -660,11 +661,12 @@ export class SettingsSecurity extends StateMixin(Routing(LitElement)) {
                                 ? html`
                                   <div
                                       class="tag"
-                                      title="Last Used: ${
+                                      title="${$l(
+                                          "Last Used: {0}",
                                           currentAuthenticator.lastUsed
                                               ? formatDate(currentAuthenticator.lastUsed)
                                               : $l("never")
-}"
+                                      )}"
                                   >
                                       <pl-icon icon="time" class="inline"></pl-icon> ${
                                           currentAuthenticator.lastUsed
@@ -675,12 +677,12 @@ export class SettingsSecurity extends StateMixin(Routing(LitElement)) {
                               `
                                 : supportsPlatformAuth
                                   ? html`
-                                  <div class="tag" title="Supported on this device.">
+                                  <div class="tag" title="${$l("Supported on this device.")}">
                                       <pl-icon icon="check" class="inline"></pl-icon> ${$l("Supported")}
                                   </div>
                               `
                                   : html`
-                                  <div class="tag" title="Not supported on this device.">
+                                  <div class="tag" title="${$l("Not supported on this device.")}">
                                       <pl-icon icon="forbidden" class="inline"></pl-icon> ${$l("Not Supported")}
                                   </div>
                               `
@@ -693,14 +695,14 @@ export class SettingsSecurity extends StateMixin(Routing(LitElement)) {
                         : !app.remembersMasterKey
                           ? html`
                           <pl-button class="small slim ghost" @click=${() => this._enableBiometricUnlock()}>
-                              Enable
+                              ${$l("Enable")}
                           </pl-button>
                       `
                           : html`
                           <pl-button class="primary small slim" @click=${() => this._disableBiometricUnlock()}>
                               <div class="horizontal spacing layout">
                                   <pl-icon icon="check"></pl-icon>
-                                  <div>Enabled</div>
+                                  <div>${$l("Enabled")}</div>
                               </div>
                           </pl-button>
                       `
@@ -746,11 +748,12 @@ export class SettingsSecurity extends StateMixin(Routing(LitElement)) {
                                                 ? html`
                                                   <div
                                                       class="tag"
-                                                      title="Last Used: ${
+                                                      title="${$l(
+                                                          "Last Used: {0}",
                                                           authenticator.lastUsed
                                                               ? formatDate(authenticator.lastUsed)
                                                               : $l("never")
-}"
+                                                      )}"
                                                   >
                                                       <pl-icon icon="time" class="inline"></pl-icon>
                                                       ${

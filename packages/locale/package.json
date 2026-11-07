@@ -8,7 +8,7 @@
         "res"
     ],
     "scripts": {
-        "extract": "TS_NODE_COMPILER=@typescript/typescript6 ts-node src/extract.ts ../*/src/**/*.ts ../*/src/*.ts"
+        "extract": "bash -c 'shopt -s globstar; TS_NODE_COMPILER=@typescript/typescript6 ts-node src/extract.ts ../*/src/**/*.ts'"
     },
     "author": "Martin Kleinschrodt <martin@maklesoft.com>",
     "license": "GPLv3",

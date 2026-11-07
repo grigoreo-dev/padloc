@@ -523,7 +523,7 @@ export class ItemView extends Routing(StateMixin(LitElement)) {
                                             @click=${() => this.addAttachment()}
                                         >
                                             <pl-icon icon="attachment"></pl-icon>
-                                            <div class="ellipsis">Attachment</div>
+                                            <div class="ellipsis">${$l("Attachment")}</div>
                                         </div>
                                     </pl-list>
                                 </div>
@@ -969,7 +969,7 @@ export class ItemView extends Routing(StateMixin(LitElement)) {
                 this._fields[index] = new Field({ ...this._fields[index], value: secret });
                 this.requestUpdate();
             } catch (e) {
-                await alert("Invalid Code! Please try again!", { type: "warning" });
+                await alert($l("Invalid Code! Please try again!"), { type: "warning" });
                 return this._getTotpQR(index);
             }
         }

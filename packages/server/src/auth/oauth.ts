@@ -5,6 +5,7 @@ import { HashParams } from "@padloc/core/src/crypto";
 import { bytesToBase64, stringToBytes } from "@padloc/core/src/encoding";
 import { Err, ErrorCode } from "@padloc/core/src/error";
 import { getCryptoProvider } from "@padloc/core/src/platform";
+import { translate as $l } from "@padloc/locale/src/translate";
 import { request } from "../transport/http";
 
 export class OauthConfig extends Config {
@@ -69,7 +70,7 @@ export class OauthServer implements AuthServer {
         if (state !== authenticator.id) {
             throw new Err(
                 ErrorCode.AUTHENTICATION_FAILED,
-                "There was something wrong with this request. Please try again!"
+                $l("There was something wrong with this request. Please try again!")
             );
         }
         const { userInfo } = await this._getTokens({
@@ -77,7 +78,7 @@ export class OauthServer implements AuthServer {
             codeVerifier: authenticator.state.activationParams.codeVerifier,
         });
         if (userInfo.email.toLowerCase() !== authenticator.state?.email.toLowerCase()) {
-            throw new Err(ErrorCode.AUTHENTICATION_FAILED, "Email returned from authenticator does not match.");
+            throw new Err(ErrorCode.AUTHENTICATION_FAILED, $l("Email returned from authenticator does not match."));
         }
     }
 
@@ -94,12 +95,12 @@ export class OauthServer implements AuthServer {
         if (state !== request.id) {
             throw new Err(
                 ErrorCode.AUTHENTICATION_FAILED,
-                "There was something wrong with this request. Please try again!"
+                $l("There was something wrong with this request. Please try again!")
             );
         }
         const res = await this._getTokens({ code, codeVerifier: request.state.codeVerifier });
         if (res.userInfo.email.toLowerCase() !== authenticator.state?.email.toLowerCase()) {
-            throw new Err(ErrorCode.AUTHENTICATION_FAILED, "Email returned from authenticator does not match.");
+            throw new Err(ErrorCode.AUTHENTICATION_FAILED, $l("Email returned from authenticator does not match."));
         }
         return { oauth: res };
     }
@@ -172,7 +173,7 @@ export class OauthServer implements AuthServer {
 
             return { tokens, userInfo: JSON.parse(userInfo) };
         } catch (e) {
-            throw new Err(ErrorCode.AUTHENTICATION_FAILED, "Failed to retrieve auth token.");
+            throw new Err(ErrorCode.AUTHENTICATION_FAILED, $l("Failed to retrieve auth token."));
         }
     }
 }

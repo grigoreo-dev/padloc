@@ -97,7 +97,7 @@ export class OrgDashboard extends Routing(StateMixin(LitElement)) {
                                     ?disabled=${!org.isOwner(this.app.account)}
                                 >
                                     <pl-icon icon="invite"></pl-icon>
-                                    <div>New Member</div>
+                                    <div>${$l("New Member")}</div>
                                 </div>
                                 <div
                                     class="small double-padded list-item center-aligning spacing horizontal layout hover click"
@@ -105,14 +105,14 @@ export class OrgDashboard extends Routing(StateMixin(LitElement)) {
                                     ?hidden=${!org.groups.length && app.getOrgFeatures(org).addGroup.hidden}
                                 >
                                     <pl-icon icon="group"></pl-icon>
-                                    <div>New Group</div>
+                                    <div>${$l("New Group")}</div>
                                 </div>
                                 <div
                                     class="small double-padded list-item center-aligning spacing horizontal layout hover click"
                                     @click=${() => this.go(`orgs/${this.orgId}/vaults/new`)}
                                 >
                                     <pl-icon icon="vault"></pl-icon>
-                                    <div>New Vault</div>
+                                    <div>${$l("New Vault")}</div>
                                 </div>
                             </pl-list>
                         </div>
@@ -151,7 +151,7 @@ export class OrgDashboard extends Routing(StateMixin(LitElement)) {
                                                     class="transparent half-margined"
                                                     @click=${() => this.go("settings/billing")}
                                                 >
-                                                    <div>Review Billing</div>
+                                                    <div>${$l("Review Billing")}</div>
                                                     <pl-icon icon="arrow-right" class="left-margined"></pl-icon>
                                                 </pl-button>
                                             `
