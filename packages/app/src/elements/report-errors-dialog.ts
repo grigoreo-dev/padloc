@@ -9,18 +9,18 @@ import { Dialog } from "./dialog";
 export class ReportErrorsDialog extends Dialog<void, void> {
     private _reportErrors() {
         const email = process.env.PL_SUPPORT_EMAIL || "";
-        const subject = "Padloc Error Report";
+        const subject = $l("Padloc Error Report");
         const message = `
 
------ enter your comment above -----
+${$l("----- enter your comment above -----")}
 
-IMPORTANT: Please verify that the message below does not contain any sensitive data before sending this email!
+${$l("IMPORTANT: Please verify that the message below does not contain any sensitive data before sending this email!")}
 
-The following errors occurred:
+${$l("The following errors occurred:")}
 
 ${app.state._errors.join("\n\n")}
 
-Device Info:
+${$l("Device Info:")}
 
 ${JSON.stringify(app.state.device.toRaw(), null, 4)}
 `;

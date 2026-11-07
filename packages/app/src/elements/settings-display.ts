@@ -57,7 +57,11 @@ export class SettingsDisplay extends StateMixin(LitElement) {
 
                         <pl-select
                             class="transparent"
-                            .options=${[{ value: "auto" }, { value: "light" }, { value: "dark" }]}
+                            .options=${[
+                                { value: "auto", label: $l("Auto") },
+                                { value: "light", label: $l("Light") },
+                                { value: "dark", label: $l("Dark") },
+                            ]}
                             id="themeSelect"
                             .value=${this.state.settings.theme as any}
                         ></pl-select>

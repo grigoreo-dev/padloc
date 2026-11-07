@@ -56,7 +56,7 @@ export class QRDialog extends Dialog<void, string> {
             (res: string) => this.done(res),
             (err: Error) => {
                 this.done();
-                alert($l("Failed to scan QR code. Error: " + err.toString()), {
+                alert($l("Failed to scan QR code. Error: ") + err.toString(), {
                     type: "warning",
                 });
             }

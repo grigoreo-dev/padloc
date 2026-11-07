@@ -260,6 +260,10 @@
     "Download Fehlgeschlagen!"
   ],
   [
+    "Need to download attachment first!",
+    ""
+  ],
+  [
     "Do you want to save this file to your disk? WARNING: Doing this will leave the file exposed and unprotected on your harddrive!",
     "Willst du diese Datei wirklich lokal speichern? WARNUNG: Die Datei liegt dann unverschlüsselt auf deiner Festplatte und kann potentiell von anderen geöffnet werden!"
   ],
@@ -456,12 +460,20 @@
     "Password Wählen"
   ],
   [
+    "Enter Password",
+    "Password Eingeben"
+  ],
+  [
     "Please choose a password!",
     "Bitte wähle ein Passwort!"
   ],
   [
     "Please repeat the password!",
     "Bitte wiederholen Sie das Passwort!"
+  ],
+  [
+    "Repeat Password",
+    ""
   ],
   [
     "Password not repeated correctly!",
@@ -498,10 +510,6 @@
   [
     "Scan QR Code",
     "QR-Code Scannen"
-  ],
-  [
-    "Enter Password",
-    "Password Eingeben"
   ],
   [
     "Enter Value Here",
@@ -820,12 +828,32 @@
     "{0} wurde erfolgreich zur Organisation hinzugefügt!"
   ],
   [
+    "Member Added",
+    ""
+  ],
+  [
     "No invite selected.",
     "Keine Einladung ausgewählt."
   ],
   [
+    "A membership confirmation request was sent to:",
+    ""
+  ],
+  [
+    "An invite was sent to:",
+    ""
+  ],
+  [
     "They will also need the following confirmation code, which you should communicate to them separately:",
     "Der folgende Bestätigungscode ist für die Annahme der Einladung erforderlich und sollte der Person separat mitgeteilt werden:"
+  ],
+  [
+    "Confirm",
+    "Bestätigen"
+  ],
+  [
+    "Add Member",
+    ""
   ],
   [
     "Resend",
@@ -942,6 +970,10 @@
   [
     "File uploaded successfully!",
     "Datei erfolgreich hochgeladen!"
+  ],
+  [
+    "Upload Complete",
+    ""
   ],
   [
     "Invalid Code! Please try again!",
@@ -1120,6 +1152,10 @@
     "Du hast dein Masterpasswort nicht richtig wiederholt. Bitte versuche es erneut!"
   ],
   [
+    "Incorrect Master Password",
+    ""
+  ],
+  [
     "Server error.",
     "Serverfehler."
   ],
@@ -1150,6 +1186,10 @@
   [
     "You don't have a Padloc 4 account yet but we've found an account from an older version. Would you like to migrate your account to Padloc 4 now?",
     "Du hast noch kein Padloc 4 Benutzerkonto. aber wir haben ein Benutzerkonto einer älteren Version gefunden. Willst du dein Benutzerkonto zu Padloc 4 migrieren?"
+  ],
+  [
+    "Account Migration",
+    ""
   ],
   [
     "Migrate",
@@ -1408,8 +1448,16 @@
     "Eine neuere Version von {0} wird benötigt, um diesen Tresor zu synchronisieren. Bitte aktualisieren sie jetzt auf die neueste Version!"
   ],
   [
+    "Update Required",
+    "Aktualisierung Erforderlich"
+  ],
+  [
     "This vault could not be synchronized because you no longer have access to it.",
     "Dieser Tresor konnte nicht synchronisiert werden, weil du keinen Zugriff mehr hast."
+  ],
+  [
+    "Sync Failed",
+    ""
   ],
   [
     "This vault could not be synchronized because you currently don't have access to it's data.",
@@ -1568,10 +1616,6 @@
     "Willst du die kryptographischen Schlüssel für diese Organisation durchwechseln? Dies erfordert zwar die erneute Bestätigung aller Mitgliedschaften, führt aber zu keinem Datenverlust."
   ],
   [
-    "Confirm",
-    "Bestätigen"
-  ],
-  [
     "The organization's cryptographic keys have been rotated successfully and membership confirmation requests for all members have been sent out.",
     "Die kryptographischen Schlüssel der Organisation wurden erfolgreich durchgewechselt und Anfragen zur Bestätigung der Mitgliedschaft wurden an alle Mitglieder versandt."
   ],
@@ -1682,6 +1726,26 @@
   [
     "Account Recovery",
     "Benutzerkontowiederherstellung"
+  ],
+  [
+    "Padloc Error Report",
+    ""
+  ],
+  [
+    "----- enter your comment above -----",
+    ""
+  ],
+  [
+    "IMPORTANT: Please verify that the message below does not contain any sensitive data before sending this email!",
+    ""
+  ],
+  [
+    "The following errors occurred:",
+    ""
+  ],
+  [
+    "Device Info:",
+    ""
   ],
   [
     "Report Errors",
@@ -1796,6 +1860,18 @@
     "Anzeige"
   ],
   [
+    "Auto",
+    ""
+  ],
+  [
+    "Light",
+    ""
+  ],
+  [
+    "Dark",
+    ""
+  ],
+  [
     "Favicons",
     "Favicons"
   ],
@@ -1904,6 +1980,10 @@
     "Welche Art der Zwei-Faktor-Authentifizierung willst du hinzufügen?"
   ],
   [
+    "Add MFA Method",
+    "MFA-Methode hinzufügen"
+  ],
+  [
     "Failed to add authenticator",
     "Hinzufügen eines Authentifizierers fehlgeschlagen"
   ],
@@ -1986,10 +2066,6 @@
   [
     "Test",
     "Test"
-  ],
-  [
-    "Add MFA Method",
-    "MFA-Methode hinzufügen"
   ],
   [
     "Active Sessions",
@@ -2578,10 +2654,6 @@
   [
     "Some data associated with your account was saved with a newer version of this app and cannot be decoded. Please install the latest version!",
     "Einige Benutzerdaten wurden mit einer neueren Version dieser Anwendung gespeichert und können nicht dekodiert werden. Bitte installiere die neueste Version!"
-  ],
-  [
-    "Update Required",
-    "Aktualisierung Erforderlich"
   ],
   [
     "Are you sure you want to leave this page? Any changes will be lost.",

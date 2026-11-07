@@ -260,6 +260,10 @@
     "İndirme başarısız!"
   ],
   [
+    "Need to download attachment first!",
+    ""
+  ],
+  [
     "Do you want to save this file to your disk? WARNING: Doing this will leave the file exposed and unprotected on your harddrive!",
     "Bu dosyayı diskinize kaydetmek istiyor musunuz? UYARI: Bunu yapmak dosyayı harddiskinizde korumasız bırakacak!"
   ],
@@ -456,12 +460,20 @@
     "Parola Seç"
   ],
   [
+    "Enter Password",
+    "Parola Gir"
+  ],
+  [
     "Please choose a password!",
     "Lütfen bir parola seçin!"
   ],
   [
     "Please repeat the password!",
     "Lütfen parolayı tekrarlayın!"
+  ],
+  [
+    "Repeat Password",
+    ""
   ],
   [
     "Password not repeated correctly!",
@@ -498,10 +510,6 @@
   [
     "Scan QR Code",
     "QR Kod Tara"
-  ],
-  [
-    "Enter Password",
-    "Parola Gir"
   ],
   [
     "Enter Value Here",
@@ -820,12 +828,32 @@
     "{0} başarıyla organizasyonuna eklendi!"
   ],
   [
+    "Member Added",
+    ""
+  ],
+  [
     "No invite selected.",
     "Davet seçilmedi"
   ],
   [
+    "A membership confirmation request was sent to:",
+    ""
+  ],
+  [
+    "An invite was sent to:",
+    ""
+  ],
+  [
     "They will also need the following confirmation code, which you should communicate to them separately:",
     "Onlara ayrıca göndermeniz gereken şu onay koduna da ihtiyaç duyacaklar:"
+  ],
+  [
+    "Confirm",
+    "Onayla"
+  ],
+  [
+    "Add Member",
+    ""
   ],
   [
     "Resend",
@@ -942,6 +970,10 @@
   [
     "File uploaded successfully!",
     "Dosya başarıyla yüklendi!"
+  ],
+  [
+    "Upload Complete",
+    ""
   ],
   [
     "Invalid Code! Please try again!",
@@ -1120,6 +1152,10 @@
     "Ana parolanızı doğru bir şekilde tekrarlamadınız. Tekrar deneyin!"
   ],
   [
+    "Incorrect Master Password",
+    ""
+  ],
+  [
     "Server error.",
     "Sunucu hatası."
   ],
@@ -1150,6 +1186,10 @@
   [
     "You don't have a Padloc 4 account yet but we've found an account from an older version. Would you like to migrate your account to Padloc 4 now?",
     "Henüz Padloc 4 hesabınız yok ancak eski versiyondan bir hesap bulduk. Hesabınızı şimdi Padloc 4'e aktarmak ister misiniz?"
+  ],
+  [
+    "Account Migration",
+    ""
   ],
   [
     "Migrate",
@@ -1408,8 +1448,16 @@
     "Bu kasayı senkronize etmek için daha yeni bir {0} versiyonu gerekli. Lütfen şimdi en son versiyona güncelleyin!"
   ],
   [
+    "Update Required",
+    "Güncelleme Gerekli"
+  ],
+  [
     "This vault could not be synchronized because you no longer have access to it.",
     "Bu kasa senkronize edilemedi çünkü artık ona erişiminiz yok."
+  ],
+  [
+    "Sync Failed",
+    ""
   ],
   [
     "This vault could not be synchronized because you currently don't have access to it's data.",
@@ -1568,10 +1616,6 @@
     "Bu organizasyonun kriptografik anahtarlarını döndürmek istiyor musunuz? Tüm organizasyon üyeleri yeniden onaylanmalı ancak veri kaybı olmayacak."
   ],
   [
-    "Confirm",
-    "Onayla"
-  ],
-  [
     "The organization's cryptographic keys have been rotated successfully and membership confirmation requests for all members have been sent out.",
     "Organizasyonun kriptografik anahtarları başarıyla döndürüldü ve tüm üyeler için onay istekleri gönderildi."
   ],
@@ -1682,6 +1726,26 @@
   [
     "Account Recovery",
     "Hesap Kurtarma"
+  ],
+  [
+    "Padloc Error Report",
+    ""
+  ],
+  [
+    "----- enter your comment above -----",
+    ""
+  ],
+  [
+    "IMPORTANT: Please verify that the message below does not contain any sensitive data before sending this email!",
+    ""
+  ],
+  [
+    "The following errors occurred:",
+    ""
+  ],
+  [
+    "Device Info:",
+    ""
   ],
   [
     "Report Errors",
@@ -1796,6 +1860,18 @@
     "Görüntü"
   ],
   [
+    "Auto",
+    ""
+  ],
+  [
+    "Light",
+    ""
+  ],
+  [
+    "Dark",
+    ""
+  ],
+  [
     "Favicons",
     "Faviconlar"
   ],
@@ -1904,6 +1980,10 @@
     "Ne tür bir çok faktörlü doğrulayıcı eklemek istersiniz?"
   ],
   [
+    "Add MFA Method",
+    "ÇFD Metodu Ekle"
+  ],
+  [
     "Failed to add authenticator",
     "Doğrulayıcı eklemek başarısız"
   ],
@@ -1986,10 +2066,6 @@
   [
     "Test",
     "Test"
-  ],
-  [
-    "Add MFA Method",
-    "ÇFD Metodu Ekle"
   ],
   [
     "Active Sessions",
@@ -2578,10 +2654,6 @@
   [
     "Some data associated with your account was saved with a newer version of this app and cannot be decoded. Please install the latest version!",
     ""
-  ],
-  [
-    "Update Required",
-    "Güncelleme Gerekli"
   ],
   [
     "Are you sure you want to leave this page? Any changes will be lost.",

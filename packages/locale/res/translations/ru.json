@@ -260,6 +260,10 @@
     "Не удалось скачать файл!"
   ],
   [
+    "Need to download attachment first!",
+    "Сначала скачайте вложение."
+  ],
+  [
     "Do you want to save this file to your disk? WARNING: Doing this will leave the file exposed and unprotected on your harddrive!",
     "Сохранить этот файл на диск? ВНИМАНИЕ: файл останется на диске без шифрования, и его сможет прочитать кто угодно."
   ],
@@ -456,12 +460,20 @@
     "Задайте пароль"
   ],
   [
+    "Enter Password",
+    "Введите пароль"
+  ],
+  [
     "Please choose a password!",
     "Задайте пароль!"
   ],
   [
     "Please repeat the password!",
     "Повторите пароль!"
+  ],
+  [
+    "Repeat Password",
+    "Повторите пароль"
   ],
   [
     "Password not repeated correctly!",
@@ -498,10 +510,6 @@
   [
     "Scan QR Code",
     "Сканировать QR-код"
-  ],
-  [
-    "Enter Password",
-    "Введите пароль"
   ],
   [
     "Enter Value Here",
@@ -820,12 +828,32 @@
     "{0} теперь в организации."
   ],
   [
+    "Member Added",
+    "Участник добавлен"
+  ],
+  [
     "No invite selected.",
     "Приглашение не выбрано."
   ],
   [
+    "A membership confirmation request was sent to:",
+    "Запрос на подтверждение участия отправлен:"
+  ],
+  [
+    "An invite was sent to:",
+    "Приглашение отправлено:"
+  ],
+  [
     "They will also need the following confirmation code, which you should communicate to them separately:",
     "Им также понадобится этот код подтверждения. Сообщите его отдельно:"
+  ],
+  [
+    "Confirm",
+    "Подтвердить"
+  ],
+  [
+    "Add Member",
+    "Добавить участника"
   ],
   [
     "Resend",
@@ -942,6 +970,10 @@
   [
     "File uploaded successfully!",
     "Файл загружен."
+  ],
+  [
+    "Upload Complete",
+    "Загрузка завершена"
   ],
   [
     "Invalid Code! Please try again!",
@@ -1120,6 +1152,10 @@
     "Повтор мастер-пароля не совпал. Попробуйте ещё раз."
   ],
   [
+    "Incorrect Master Password",
+    "Неверный мастер-пароль"
+  ],
+  [
     "Server error.",
     "Ошибка сервера."
   ],
@@ -1150,6 +1186,10 @@
   [
     "You don't have a Padloc 4 account yet but we've found an account from an older version. Would you like to migrate your account to Padloc 4 now?",
     "Аккаунта Padloc 4 ещё нет, но найден аккаунт старой версии. Перенести его в Padloc 4 сейчас?"
+  ],
+  [
+    "Account Migration",
+    "Перенос аккаунта"
   ],
   [
     "Migrate",
@@ -1408,8 +1448,16 @@
     "Для синхронизации этого хранилища нужна более новая версия {0}. Обновите приложение."
   ],
   [
+    "Update Required",
+    "Требуется обновление"
+  ],
+  [
     "This vault could not be synchronized because you no longer have access to it.",
     "Не удалось синхронизировать хранилище: у вас больше нет к нему доступа."
+  ],
+  [
+    "Sync Failed",
+    "Синхронизация не удалась"
   ],
   [
     "This vault could not be synchronized because you currently don't have access to it's data.",
@@ -1568,10 +1616,6 @@
     "Сменить криптографические ключи организации? Всем участникам придётся заново подтвердить участие, но данные не пропадут."
   ],
   [
-    "Confirm",
-    "Подтвердить"
-  ],
-  [
     "The organization's cryptographic keys have been rotated successfully and membership confirmation requests for all members have been sent out.",
     "Криптографические ключи организации сменены. Всем участникам отправлены запросы на подтверждение участия."
   ],
@@ -1682,6 +1726,26 @@
   [
     "Account Recovery",
     "Восстановление аккаунта"
+  ],
+  [
+    "Padloc Error Report",
+    "Отчёт об ошибках Padloc"
+  ],
+  [
+    "----- enter your comment above -----",
+    "----- комментарий выше -----"
+  ],
+  [
+    "IMPORTANT: Please verify that the message below does not contain any sensitive data before sending this email!",
+    "ВАЖНО: перед отправкой убедитесь, что в письме ниже нет конфиденциальных данных."
+  ],
+  [
+    "The following errors occurred:",
+    "Произошли следующие ошибки:"
+  ],
+  [
+    "Device Info:",
+    "Сведения об устройстве:"
   ],
   [
     "Report Errors",
@@ -1796,6 +1860,18 @@
     "Оформление"
   ],
   [
+    "Auto",
+    "Авто"
+  ],
+  [
+    "Light",
+    "Светлая"
+  ],
+  [
+    "Dark",
+    "Тёмная"
+  ],
+  [
     "Favicons",
     "Значки сайтов"
   ],
@@ -1904,6 +1980,10 @@
     "Какой способ многофакторной аутентификации добавить?"
   ],
   [
+    "Add MFA Method",
+    "Добавить способ MFA"
+  ],
+  [
     "Failed to add authenticator",
     "Не удалось добавить аутентификатор"
   ],
@@ -1986,10 +2066,6 @@
   [
     "Test",
     "Проверить"
-  ],
-  [
-    "Add MFA Method",
-    "Добавить способ MFA"
   ],
   [
     "Active Sessions",
@@ -2578,10 +2654,6 @@
   [
     "Some data associated with your account was saved with a newer version of this app and cannot be decoded. Please install the latest version!",
     "Часть данных аккаунта сохранена более новой версией приложения, и её нельзя прочитать. Установите последнюю версию."
-  ],
-  [
-    "Update Required",
-    "Требуется обновление"
   ],
   [
     "Are you sure you want to leave this page? Any changes will be lost.",

@@ -260,6 +260,10 @@
     "Преземањето беше неуспешно!"
   ],
   [
+    "Need to download attachment first!",
+    ""
+  ],
+  [
     "Do you want to save this file to your disk? WARNING: Doing this will leave the file exposed and unprotected on your harddrive!",
     "Дали сакате да ја зачувате датотеката на диск? ВНИМАНИЕ: Датотеката ќе биде откриена и незаштитена на хард дискот!"
   ],
@@ -456,12 +460,20 @@
     "Избрете Лозинка"
   ],
   [
+    "Enter Password",
+    "Внеси Лозинка"
+  ],
+  [
     "Please choose a password!",
     "Ве молиме изберете лозинка!"
   ],
   [
     "Please repeat the password!",
     "Ве молиме повторете ја лозинката!"
+  ],
+  [
+    "Repeat Password",
+    ""
   ],
   [
     "Password not repeated correctly!",
@@ -498,10 +510,6 @@
   [
     "Scan QR Code",
     "Скенирај QR код"
-  ],
-  [
-    "Enter Password",
-    "Внеси Лозинка"
   ],
   [
     "Enter Value Here",
@@ -820,12 +828,32 @@
     "{0} беше успешно додаден во вашата организација!"
   ],
   [
+    "Member Added",
+    ""
+  ],
+  [
     "No invite selected.",
     "Нема избрана покана."
   ],
   [
+    "A membership confirmation request was sent to:",
+    ""
+  ],
+  [
+    "An invite was sent to:",
+    ""
+  ],
+  [
     "They will also need the following confirmation code, which you should communicate to them separately:",
     "Исто така ќе им е потребен кодот за поврда, кој треба да го искомуницирате до нив посебно:"
+  ],
+  [
+    "Confirm",
+    "Потврди"
+  ],
+  [
+    "Add Member",
+    ""
   ],
   [
     "Resend",
@@ -942,6 +970,10 @@
   [
     "File uploaded successfully!",
     "Датотеката беше успешно прикачена!"
+  ],
+  [
+    "Upload Complete",
+    ""
   ],
   [
     "Invalid Code! Please try again!",
@@ -1120,6 +1152,10 @@
     "Неточно ја повторивте главната лозинка. Обидете се повторно!"
   ],
   [
+    "Incorrect Master Password",
+    ""
+  ],
+  [
     "Server error.",
     "Серверска грешка."
   ],
@@ -1150,6 +1186,10 @@
   [
     "You don't have a Padloc 4 account yet but we've found an account from an older version. Would you like to migrate your account to Padloc 4 now?",
     "Сеуште немате Padloc 4 сметка но пронајдовме сметка од постара верзија. Дали би сакале да ја мигрирате вашата сметка на Padloc 4 сега?"
+  ],
+  [
+    "Account Migration",
+    ""
   ],
   [
     "Migrate",
@@ -1408,8 +1448,16 @@
     "Понова верзија од {0} е потребна за да се синхронизира сефот. Ве молиме ажурирајте до најновата верзија!"
   ],
   [
+    "Update Required",
+    "Ажурирање Задолжително"
+  ],
+  [
     "This vault could not be synchronized because you no longer have access to it.",
     "Овој сеф не може да се синхронозира бидејќи немате веќе пристап до него."
+  ],
+  [
+    "Sync Failed",
+    ""
   ],
   [
     "This vault could not be synchronized because you currently don't have access to it's data.",
@@ -1568,10 +1616,6 @@
     "Дали сакате да ги ротирате криптографскиte клучеви на организацијата? Сите организациски членства ќе мора да бидат одново потврдени, но нема да биде изгубени податоци."
   ],
   [
-    "Confirm",
-    "Потврди"
-  ],
-  [
     "The organization's cryptographic keys have been rotated successfully and membership confirmation requests for all members have been sent out.",
     "Органициските криптографски клучеви беа успешно ротирани и барања за потврда на членство се испратени на сите членови."
   ],
@@ -1682,6 +1726,26 @@
   [
     "Account Recovery",
     "Врати Сметка"
+  ],
+  [
+    "Padloc Error Report",
+    ""
+  ],
+  [
+    "----- enter your comment above -----",
+    ""
+  ],
+  [
+    "IMPORTANT: Please verify that the message below does not contain any sensitive data before sending this email!",
+    ""
+  ],
+  [
+    "The following errors occurred:",
+    ""
+  ],
+  [
+    "Device Info:",
+    ""
   ],
   [
     "Report Errors",
@@ -1796,6 +1860,18 @@
     "Екран"
   ],
   [
+    "Auto",
+    ""
+  ],
+  [
+    "Light",
+    ""
+  ],
+  [
+    "Dark",
+    ""
+  ],
+  [
     "Favicons",
     "Икони"
   ],
@@ -1904,6 +1980,10 @@
     "Каков тип на мулти-фактор автентикатор би сакале да додадете?"
   ],
   [
+    "Add MFA Method",
+    "Додади МФА Метода"
+  ],
+  [
     "Failed to add authenticator",
     "Неуспешно додавање на автентикатор"
   ],
@@ -1986,10 +2066,6 @@
   [
     "Test",
     "Тестирај"
-  ],
-  [
-    "Add MFA Method",
-    "Додади МФА Метода"
   ],
   [
     "Active Sessions",
@@ -2578,10 +2654,6 @@
   [
     "Some data associated with your account was saved with a newer version of this app and cannot be decoded. Please install the latest version!",
     ""
-  ],
-  [
-    "Update Required",
-    "Ажурирање Задолжително"
   ],
   [
     "Are you sure you want to leave this page? Any changes will be lost.",

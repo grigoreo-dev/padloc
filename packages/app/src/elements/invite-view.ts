@@ -130,7 +130,7 @@ export class InviteView extends Routing(StateMixin(LitElement)) {
             const member = await app.confirmInvite(this._invite!);
             this._confirmButton && this._confirmButton.success();
             alert($l("{0} was successfully added to your organization!", member.name || member.email), {
-                title: "Member Added",
+                title: $l("Member Added"),
                 type: "success",
             });
             this.go(`orgs/${this.orgId}/members/${member.id}`);
@@ -189,11 +189,11 @@ export class InviteView extends Routing(StateMixin(LitElement)) {
                 <pl-scroller class="stretch">
                     <div class="double-margined padded box">
                         <div class="margined text-centering">
-                            ${$l(
+                            ${
                                 purpose === "confirm_membership"
-                                    ? "A membership confirmation request was sent to:"
-                                    : "An invite was sent to:"
-                            )}
+                                    ? $l("A membership confirmation request was sent to:")
+                                    : $l("An invite was sent to:")
+                            }
                         </div>
 
                         <div class="bold large text-centering">${email}</div>
@@ -221,7 +221,9 @@ export class InviteView extends Routing(StateMixin(LitElement)) {
                                       >
                                           <pl-icon icon="invite" class="right-margined"></pl-icon>
 
-                                          <div>${$l(purpose === "confirm_membership" ? "Confirm" : "Add Member")}</div>
+                                          <div>
+                                              ${purpose === "confirm_membership" ? $l("Confirm") : $l("Add Member")}
+                                          </div>
                                       </pl-button>
                                   `
                                     : html`

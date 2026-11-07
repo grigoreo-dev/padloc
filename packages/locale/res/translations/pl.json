@@ -260,6 +260,10 @@
     "Pobieranie nieudane!"
   ],
   [
+    "Need to download attachment first!",
+    ""
+  ],
+  [
     "Do you want to save this file to your disk? WARNING: Doing this will leave the file exposed and unprotected on your harddrive!",
     "Czy chcesz zapisać ten plik na swoim dysku? UWAGA: Ten plik będzie przechowywany na Twoim dysku w formie niezabezpieczonej!"
   ],
@@ -456,12 +460,20 @@
     "Wybierz hasło"
   ],
   [
+    "Enter Password",
+    "Wpisz hasło"
+  ],
+  [
     "Please choose a password!",
     "Proszę wybrać hasło!"
   ],
   [
     "Please repeat the password!",
     "Proszę powtórzyć swoje hasło!"
+  ],
+  [
+    "Repeat Password",
+    ""
   ],
   [
     "Password not repeated correctly!",
@@ -498,10 +510,6 @@
   [
     "Scan QR Code",
     "Zeskanuj kod QR"
-  ],
-  [
-    "Enter Password",
-    "Wpisz hasło"
   ],
   [
     "Enter Value Here",
@@ -820,12 +828,32 @@
     "{0} zostało pomyślnie dodanych do Twojej organizacji!"
   ],
   [
+    "Member Added",
+    ""
+  ],
+  [
     "No invite selected.",
     "Nie wybrano zaproszenia."
   ],
   [
+    "A membership confirmation request was sent to:",
+    ""
+  ],
+  [
+    "An invite was sent to:",
+    ""
+  ],
+  [
     "They will also need the following confirmation code, which you should communicate to them separately:",
     "Będą potrzebować następującego kodu potwierdzającego, który musisz im dostarczyć:"
+  ],
+  [
+    "Confirm",
+    "Potwierdź"
+  ],
+  [
+    "Add Member",
+    ""
   ],
   [
     "Resend",
@@ -942,6 +970,10 @@
   [
     "File uploaded successfully!",
     "Plik wgrany pomyślnie"
+  ],
+  [
+    "Upload Complete",
+    ""
   ],
   [
     "Invalid Code! Please try again!",
@@ -1120,6 +1152,10 @@
     "Nie powtórzyłeś poprawnie swojego hasła głównego. Spróbuj jeszcze raz!"
   ],
   [
+    "Incorrect Master Password",
+    ""
+  ],
+  [
     "Server error.",
     "Błąd serwera"
   ],
@@ -1150,6 +1186,10 @@
   [
     "You don't have a Padloc 4 account yet but we've found an account from an older version. Would you like to migrate your account to Padloc 4 now?",
     "Nie masz jeszcze konta w Padloc 4, ale znaleźliśmy konto ze starszej wersji. Czy chcesz teraz zmigrować swoje konto do Padloc 4?"
+  ],
+  [
+    "Account Migration",
+    ""
   ],
   [
     "Migrate",
@@ -1408,8 +1448,16 @@
     "Do synchronizacji tego sejfu wymagana jest nowsza wersja {0}. Proszę zaktualizować do najnowszej wersji teraz!"
   ],
   [
+    "Update Required",
+    "Wymagana aktualizacja"
+  ],
+  [
     "This vault could not be synchronized because you no longer have access to it.",
     "Ten sejf nie mógł zostać zsynchronizowany, ponieważ nie masz już do niego dostępu."
+  ],
+  [
+    "Sync Failed",
+    ""
   ],
   [
     "This vault could not be synchronized because you currently don't have access to it's data.",
@@ -1568,10 +1616,6 @@
     "Czy chcesz zmienić klucze kryptograficzne tej organizacji? Wszyscy członkowie będą musieli być zatwierdzeni ponownie, ale dane nie zostaną utracone."
   ],
   [
-    "Confirm",
-    "Potwierdź"
-  ],
-  [
     "The organization's cryptographic keys have been rotated successfully and membership confirmation requests for all members have been sent out.",
     "Klucz kryptograficznie organizacji zostały zmienione i prośba o potwierdzenie członków została wysłana."
   ],
@@ -1682,6 +1726,26 @@
   [
     "Account Recovery",
     "Odzyskiwanie konta"
+  ],
+  [
+    "Padloc Error Report",
+    ""
+  ],
+  [
+    "----- enter your comment above -----",
+    ""
+  ],
+  [
+    "IMPORTANT: Please verify that the message below does not contain any sensitive data before sending this email!",
+    ""
+  ],
+  [
+    "The following errors occurred:",
+    ""
+  ],
+  [
+    "Device Info:",
+    ""
   ],
   [
     "Report Errors",
@@ -1796,6 +1860,18 @@
     "Wyświetl"
   ],
   [
+    "Auto",
+    ""
+  ],
+  [
+    "Light",
+    ""
+  ],
+  [
+    "Dark",
+    ""
+  ],
+  [
     "Favicons",
     "Ikony ulubionych"
   ],
@@ -1904,6 +1980,10 @@
     "Jaki rodzaj autentykatora wieloskładnikowego chcesz dodać?"
   ],
   [
+    "Add MFA Method",
+    "Dodaj metodę MFA"
+  ],
+  [
     "Failed to add authenticator",
     "Nie udało się dodać autentykatora"
   ],
@@ -1986,10 +2066,6 @@
   [
     "Test",
     "Próba"
-  ],
-  [
-    "Add MFA Method",
-    "Dodaj metodę MFA"
   ],
   [
     "Active Sessions",
@@ -2578,10 +2654,6 @@
   [
     "Some data associated with your account was saved with a newer version of this app and cannot be decoded. Please install the latest version!",
     "Niektóre dane powiązane z Twoim kontem zostały zapisane w nowszej wersji tej aplikacji i nie można ich odszyfrować. Proszę zainstalować najnowszą wersję!"
-  ],
-  [
-    "Update Required",
-    "Wymagana aktualizacja"
   ],
   [
     "Are you sure you want to leave this page? Any changes will be lost.",

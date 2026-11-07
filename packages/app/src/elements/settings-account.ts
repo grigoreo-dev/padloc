@@ -76,7 +76,7 @@ export class SettingsAccount extends Routing(StateMixin(LitElement)) {
                 await app.changeEmail(this._emailInput.value);
                 await alert($l("Your email address has been changed successfully!"), {
                     type: "success",
-                    title: "Change Email Address",
+                    title: $l("Change Email Address"),
                 });
             } catch (e) {
                 await alert(e.message, { type: "warning" });

@@ -260,6 +260,10 @@
     "¡Descarga fallida!"
   ],
   [
+    "Need to download attachment first!",
+    ""
+  ],
+  [
     "Do you want to save this file to your disk? WARNING: Doing this will leave the file exposed and unprotected on your harddrive!",
     "¿Quieres guardar este archivo en tu disco? AVISO: ¡Hacer esto deja el archivo expuesto y desprotegido en tu disco duro!"
   ],
@@ -456,12 +460,20 @@
     "Elige Contraseña"
   ],
   [
+    "Enter Password",
+    "Introduce Contraseña"
+  ],
+  [
     "Please choose a password!",
     "¡Por favor, introduce una contraseña!"
   ],
   [
     "Please repeat the password!",
     "¡Por favor, repite la contraseña!"
+  ],
+  [
+    "Repeat Password",
+    ""
   ],
   [
     "Password not repeated correctly!",
@@ -498,10 +510,6 @@
   [
     "Scan QR Code",
     "Escanear Código QR"
-  ],
-  [
-    "Enter Password",
-    "Introduce Contraseña"
   ],
   [
     "Enter Value Here",
@@ -820,12 +828,32 @@
     ""
   ],
   [
+    "Member Added",
+    ""
+  ],
+  [
     "No invite selected.",
+    ""
+  ],
+  [
+    "A membership confirmation request was sent to:",
+    ""
+  ],
+  [
+    "An invite was sent to:",
     ""
   ],
   [
     "They will also need the following confirmation code, which you should communicate to them separately:",
     "También necesitarán el siguiente código de confirmación, el cual deberás comunicarles de forma separada:"
+  ],
+  [
+    "Confirm",
+    "Confirmar"
+  ],
+  [
+    "Add Member",
+    ""
   ],
   [
     "Resend",
@@ -942,6 +970,10 @@
   [
     "File uploaded successfully!",
     "¡Archivo cargado correctamente!"
+  ],
+  [
+    "Upload Complete",
+    ""
   ],
   [
     "Invalid Code! Please try again!",
@@ -1120,6 +1152,10 @@
     "No repetiste tu contraseña maestra correctamente. ¡Inténtalo de nuevo!"
   ],
   [
+    "Incorrect Master Password",
+    ""
+  ],
+  [
     "Server error.",
     ""
   ],
@@ -1149,6 +1185,10 @@
   ],
   [
     "You don't have a Padloc 4 account yet but we've found an account from an older version. Would you like to migrate your account to Padloc 4 now?",
+    ""
+  ],
+  [
+    "Account Migration",
     ""
   ],
   [
@@ -1408,7 +1448,15 @@
     ""
   ],
   [
+    "Update Required",
+    ""
+  ],
+  [
     "This vault could not be synchronized because you no longer have access to it.",
+    ""
+  ],
+  [
+    "Sync Failed",
     ""
   ],
   [
@@ -1568,10 +1616,6 @@
     "¿Quieres rotar las claves criptográficas de esta organización? Todas las membresías de organización tendran que ser reconfirmadas, pero no se perderá ningún dato."
   ],
   [
-    "Confirm",
-    "Confirmar"
-  ],
-  [
     "The organization's cryptographic keys have been rotated successfully and membership confirmation requests for all members have been sent out.",
     "Las claves criptográficas de la organización se han rotado correctamente y las peticiones de confirmación de membresía para todos los miembros han sido enviadas."
   ],
@@ -1681,6 +1725,26 @@
   ],
   [
     "Account Recovery",
+    ""
+  ],
+  [
+    "Padloc Error Report",
+    ""
+  ],
+  [
+    "----- enter your comment above -----",
+    ""
+  ],
+  [
+    "IMPORTANT: Please verify that the message below does not contain any sensitive data before sending this email!",
+    ""
+  ],
+  [
+    "The following errors occurred:",
+    ""
+  ],
+  [
+    "Device Info:",
     ""
   ],
   [
@@ -1796,6 +1860,18 @@
     ""
   ],
   [
+    "Auto",
+    ""
+  ],
+  [
+    "Light",
+    ""
+  ],
+  [
+    "Dark",
+    ""
+  ],
+  [
     "Favicons",
     ""
   ],
@@ -1904,6 +1980,10 @@
     ""
   ],
   [
+    "Add MFA Method",
+    ""
+  ],
+  [
     "Failed to add authenticator",
     ""
   ],
@@ -1985,10 +2065,6 @@
   ],
   [
     "Test",
-    ""
-  ],
-  [
-    "Add MFA Method",
     ""
   ],
   [
@@ -2577,10 +2653,6 @@
   ],
   [
     "Some data associated with your account was saved with a newer version of this app and cannot be decoded. Please install the latest version!",
-    ""
-  ],
-  [
-    "Update Required",
     ""
   ],
   [

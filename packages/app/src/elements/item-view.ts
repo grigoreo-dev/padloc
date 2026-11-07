@@ -944,7 +944,7 @@ export class ItemView extends Routing(StateMixin(LitElement)) {
         const att = await this._uploadDialog.show({ item: this.itemId, file });
         if (att) {
             this.requestUpdate();
-            await alert($l("File uploaded successfully!"), { type: "success", title: "Upload Complete" });
+            await alert($l("File uploaded successfully!"), { type: "success", title: $l("Upload Complete") });
         }
     }
 

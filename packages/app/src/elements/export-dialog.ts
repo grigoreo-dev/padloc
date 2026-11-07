@@ -112,7 +112,7 @@ export class ExportDialog extends Dialog<void, void> {
             password = await prompt($l("Please choose a password to protect this backup with!"), {
                 title: $l("Choose Password"),
                 type: "password",
-                placeholder: "Enter Password",
+                placeholder: $l("Enter Password"),
                 validate: async (val) => {
                     if (!val) {
                         throw $l("Please choose a password!");
@@ -129,7 +129,7 @@ export class ExportDialog extends Dialog<void, void> {
             const repeated = await prompt($l("Please repeat the password!"), {
                 title: $l("Choose Password"),
                 type: "password",
-                placeholder: "Repeat Password",
+                placeholder: $l("Repeat Password"),
                 validate: async (val) => {
                     if (val !== password) {
                         throw $l("Password not repeated correctly!");
