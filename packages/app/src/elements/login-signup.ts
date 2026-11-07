@@ -157,6 +157,13 @@ export class LoginOrSignup extends StartForm {
                     [$l("Try Again"), $l("Cancel")],
                     { type: "warning", title: $l("Could Not Check Link") }
                 );
+                if (
+                    generation !== this._signupCheckGeneration ||
+                    path !== this.router.path ||
+                    email !== this._email ||
+                    token !== this._authToken
+                )
+                    return;
                 if (choice === 0) {
                     return await this.handleRoute([page, step]);
                 }
