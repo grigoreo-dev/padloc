@@ -19,7 +19,7 @@ import "./scroller";
 import { type AccountProvisioning, ProvisioningStatus } from "@padloc/core/src/provisioning";
 import type { Drawer } from "./drawer";
 import "./rich-content";
-import { StartAuthRequestResponse } from "@padloc/core/src/api";
+import { CheckSignupTokenParams, StartAuthRequestResponse } from "@padloc/core/src/api";
 import { displayProvisioning } from "../lib/provisioning";
 import type { Confetti } from "./confetti";
 import "./input";
@@ -45,6 +45,11 @@ export class LoginOrSignup extends StartForm {
 
     @state()
     private _step = "";
+
+    @state()
+    private _checkingSignupLink = false;
+
+    private _signupCheckGeneration = 0;
 
     @state()
     private _password: string = "";
@@ -101,7 +106,9 @@ export class LoginOrSignup extends StartForm {
         super.reset();
     }
 
-    async handleRoute([page, step]: [string, string]) {
+    async handleRoute([page, step]: [string, string]): Promise<void> {
+        const generation = ++this._signupCheckGeneration;
+        this._checkingSignupLink = false;
         if (!this._authToken && !(page === "start" || (page === "signup" && step === "success"))) {
             this.redirect("start");
             return;
@@ -115,6 +122,56 @@ export class LoginOrSignup extends StartForm {
         if (page === "signup" && step === "confirm-password" && !this._password) {
             this.redirect("signup/choose-password");
             return;
+        }
+
+        if (page === "signup" && step !== "success" && this._invite) {
+            const email = this._email;
+            const token = this._authToken;
+            const path = this.router.path;
+            this._checkingSignupLink = true;
+            try {
+                const { valid } = await this.app.api.checkSignupToken(
+                    new CheckSignupTokenParams({ email, authToken: token })
+                );
+                if (
+                    generation !== this._signupCheckGeneration ||
+                    path !== this.router.path ||
+                    email !== this._email ||
+                    token !== this._authToken
+                )
+                    return;
+                if (!valid) {
+                    await this._signupLinkInvalid();
+                    return;
+                }
+            } catch (e) {
+                if (
+                    generation !== this._signupCheckGeneration ||
+                    path !== this.router.path ||
+                    email !== this._email ||
+                    token !== this._authToken
+                )
+                    return;
+                const choice = await choose(
+                    $l("Could not check the registration link. Please check your connection and try again."),
+                    [$l("Try Again"), $l("Cancel")],
+                    { type: "warning", title: $l("Could Not Check Link") }
+                );
+                if (
+                    generation !== this._signupCheckGeneration ||
+                    path !== this.router.path ||
+                    email !== this._email ||
+                    token !== this._authToken
+                )
+                    return;
+                if (choice === 0) {
+                    return await this.handleRoute([page, step]);
+                }
+                this.go("start", { email: this._email, invite: this.router.params.invite });
+                return;
+            } finally {
+                if (generation === this._signupCheckGeneration) this._checkingSignupLink = false;
+            }
         }
 
         this._page = page;
@@ -527,6 +584,13 @@ export class LoginOrSignup extends StartForm {
                 case ErrorCode.ACCOUNT_EXISTS:
                     this._accountExists();
                     return;
+                case ErrorCode.AUTHENTICATION_FAILED:
+                    if (this._invite) {
+                        await this._signupLinkInvalid();
+                        return;
+                    }
+                    alert($l(e.message || "Server error."), { type: "warning" });
+                    return;
                 default:
                     alert($l(e.message || "Server error."), { type: "warning" });
                     throw e;
@@ -534,6 +598,16 @@ export class LoginOrSignup extends StartForm {
         }
 
         this._password = "";
+    }
+
+    private async _signupLinkInvalid() {
+        await alert(
+            $l(
+                "This registration link is no longer valid. It may have expired or already been used. Please ask your administrator to send a new invitation."
+            ),
+            { type: "warning", title: $l("Registration Link Expired") }
+        );
+        this.go("start", { email: this._email, invite: this.router.params.invite });
     }
 
     private _done() {
@@ -697,7 +771,8 @@ export class LoginOrSignup extends StartForm {
     render() {
         const invite = this._invite;
         return html`
-            <div class="fullbleed scrolling">
+            ${this._checkingSignupLink ? html`<div class="centering padded">${$l("Checking registration link...")}</div>` : ""}
+            <div class="fullbleed scrolling" style=${this._checkingSignupLink ? "visibility: hidden" : ""}>
                 <div class="fill centering double-padded vertical layout">
                     <pl-logo class="animated"></pl-logo>
 

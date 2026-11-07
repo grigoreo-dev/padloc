@@ -1032,6 +1032,14 @@
     "Alcuni elementi della tua selezione provengono da Archivi a cui non hai accesso in scrittura e non possono essere spostati. Vuoi procedere spostando gli altri elementi?"
   ],
   [
+    "Could not check the registration link. Please check your connection and try again.",
+    ""
+  ],
+  [
+    "Could Not Check Link",
+    ""
+  ],
+  [
     "An account with this email address does not exist!",
     "Un account con questo indirizzo email non esiste!"
   ],
@@ -1116,6 +1124,14 @@
     "Errore Server."
   ],
   [
+    "This registration link is no longer valid. It may have expired or already been used. Please ask your administrator to send a new invitation.",
+    ""
+  ],
+  [
+    "Registration Link Expired",
+    ""
+  ],
+  [
     "An account with this email address already exists!",
     "Un account con questo indirizzo email esiste già!"
   ],
@@ -1166,6 +1182,10 @@
   [
     "Unfortunately we could not complete migration of your data.",
     "Purtroppo non siamo riusciti a completare la migrazione dei tuoi dati."
+  ],
+  [
+    "Checking registration link...",
+    ""
   ],
   [
     "Hi there!",

@@ -4,6 +4,7 @@ import {
     API,
     AuthInfo,
     type ChangeEmailParams,
+    type CheckSignupTokenParams,
     type CompleteAuthRequestParams,
     CompleteAuthRequestResponse,
     type CompleteCreateSessionParams,
@@ -739,6 +740,25 @@ export class Controller extends API {
         await Promise.all([this.storage.delete(session), this.storage.save(auth)]);
 
         this.log("account.revokeSession", { revokedSession: { id, device: session.device } });
+    }
+
+    async checkSignupToken({ email, authToken }: CheckSignupTokenParams): Promise<{ valid: boolean }> {
+        if (!email || !authToken) {
+            return { valid: false };
+        }
+        let auth: Auth;
+        try {
+            auth = await this.storage.get(Auth, await getIdFromEmail(email));
+        } catch (e) {
+            if (e.code !== ErrorCode.NOT_FOUND) throw e;
+            try {
+                auth = await this.storage.get(Auth, email);
+            } catch (legacyError) {
+                if (legacyError.code !== ErrorCode.NOT_FOUND) throw legacyError;
+                return { valid: false };
+            }
+        }
+        return { valid: !!this._findAuthToken(auth, authToken, AuthPurpose.Signup) };
     }
 
     async createAccount({
@@ -2131,6 +2151,24 @@ export class Controller extends API {
         return provider;
     }
 
+    private _findAuthToken(
+        auth: Auth,
+        token: string,
+        purpose: AuthPurpose,
+        authenticatorId?: string,
+        requestId?: string
+    ) {
+        return auth.authRequests.find(
+            (r) =>
+                (typeof authenticatorId === "undefined" || r.authenticatorId === authenticatorId) &&
+                (typeof requestId === "undefined" || r.id === requestId) &&
+                r.token === token &&
+                r.status === AuthRequestStatus.Verified &&
+                r.purpose === purpose &&
+                r.created.getTime() >= Date.now() - 60 * 60 * 1000
+        );
+    }
+
     private async _useAuthToken({
         email,
         token,
@@ -2149,14 +2187,7 @@ export class Controller extends API {
             throw new Err(ErrorCode.AUTHENTICATION_FAILED, $l("Failed to verify auth token"));
         }
 
-        const request = auth.authRequests.find(
-            (r) =>
-                (typeof authenticatorId === "undefined" || r.authenticatorId === authenticatorId) &&
-                (typeof requestId === "undefined" || r.id === requestId) &&
-                r.token === token &&
-                r.status === AuthRequestStatus.Verified &&
-                r.purpose === purpose
-        );
+        const request = this._findAuthToken(auth, token, purpose, authenticatorId, requestId);
 
         if (!request) {
             throw new Err(ErrorCode.AUTHENTICATION_FAILED, $l("Failed to verify auth token"));
