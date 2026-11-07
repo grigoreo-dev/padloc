@@ -58,6 +58,16 @@ export class CreateAccountParams extends Serializable {
     }
 }
 
+export class CheckSignupTokenParams extends Serializable {
+    email = "";
+    authToken = "";
+
+    constructor(props?: Partial<CheckSignupTokenParams>) {
+        super();
+        Object.assign(this, props);
+    }
+}
+
 /**
  * Parameters for initiating account recovery to be used with [[API.recoverAccount]]
  */
@@ -469,6 +479,11 @@ export class ListResponse<T> extends Serializable {
  */
 export class API {
     handlerDefinitions!: HandlerDefinition[];
+
+    @Handler(CheckSignupTokenParams, undefined)
+    checkSignupToken(_params: CheckSignupTokenParams): PromiseWithProgress<{ valid: boolean }> {
+        throw "Not implemented";
+    }
 
     @Handler(StartRegisterAuthenticatorParams, StartRegisterAuthenticatorResponse)
     startRegisterAuthenticator(
